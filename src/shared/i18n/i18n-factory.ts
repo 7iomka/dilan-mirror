@@ -1,18 +1,29 @@
-import { createEffect, createStore } from 'effector';
+import type { EffectParams } from 'effector';
+import { createEffect, createEvent, createStore, sample } from 'effector';
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import Backend from 'i18next-http-backend';
 import { createFactory } from '@withease/factories';
 
-type Params = {
-  // resources: Record<string, any>;
-};
+// type Params = {
+//   // resources: Record<string, any>;
+// };
 
 const createi18n = createFactory(() => {
   const changeLanguageFx = createEffect(changeLanguage);
+  const changeLanguageTriggered = createEvent<EffectParams<typeof changeLanguageFx>>();
+  sample({
+    clock: changeLanguageTriggered,
+    target: changeLanguageFx,
+  });
 
   const setupFx = createEffect(setup);
+  const setupTriggered = createEvent<EffectParams<typeof setupFx>>();
+  sample({
+    clock: setupTriggered,
+    target: setupFx,
+  });
 
   const $i18n = createStore(i18n);
 
@@ -51,7 +62,9 @@ const createi18n = createFactory(() => {
     i18n,
     $i18n,
     setupFx,
+    setupTriggered,
     changeLanguageFx,
+    changeLanguageTriggered,
   };
 });
 

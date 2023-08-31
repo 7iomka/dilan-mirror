@@ -1,12 +1,12 @@
-import { FullPageWrapper } from '@/shared/ui/full-page-wrapper';
-import styles from './home.module.css';
+import { BaseLayout } from '@/widgets/layouts/base-layout';
 
 export const HomePage = () => {
   return (
-    <FullPageWrapper>
-      <div className={styles.wrapper}>
-        <div className="container">HomePage</div>
+    <BaseLayout>
+      <div className="container">
+        <h2>HomePage</h2>
+        <div className="mt-4">Demo</div>
       </div>
-    </FullPageWrapper>
+    </BaseLayout>
   );
 };

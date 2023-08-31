@@ -25,7 +25,8 @@
     "**/.idea": true,
     "**/.history": true,
     "**/.history/**": true,
-    "**/.next/**": true
+    "**/.next/**": true,
+    "**/.yarn/**": true
   },
   // Fix jest extension issue (if needed)
   "jest.autoEnable": false,
@@ -53,10 +54,22 @@
   "terminal.integrated.shellIntegration.enabled": true,
   "window.commandCenter": true,
   "editor.linkedEditing": true,
-  "i18n-ally.localesPaths": ["src/shared/i18n"],
-  "i18next.i18nPaths": "/Users/7iomka/Desktop/projects/react/dilan/dilan-mirror/dilan-mirror/src/shared/i18n",
+  "i18n-ally.enabledFrameworks": ["react-i18next"],
+  "i18n-ally.keystyle": "nested",
+  "i18n-ally.namespace": false,
+  "i18n-ally.localesPaths": ["src/**/locales"],
+  "i18n-ally.pathMatcher": "{locale}.json",
+  "i18n-ally.extract.keygenStyle": "camelCase",
+  // "i18n-ally.extract.targetPickingStrategy": "most-similar",
+  "i18n-ally.review.enabled": false,
+
+  "i18n-ally.translate.deepl.apiKey": "62ea3132-f4f5-4e05-9823-938307bc6171:fx",
+  "i18n-ally.translate.deepl.enableLog": false,
+  "i18n-ally.translate.engines": ["deepl", "google"],
+  "i18n-ally.translate.deepl.useFreeApiEntry": true,
   "eslint.workingDirectories": [{ "mode": "auto" }],
   "module-templates.templateFiles": ["./templates/.module-templates.json"],
   "module-templates.engine": "handlebars",
-  "css.lint.unknownAtRules": "ignore"
+  "css.lint.unknownAtRules": "ignore",
+  "i18next.i18nPaths": "/Users/7iomka/Desktop/projects/react/dilan/dilan-mirror/dilan-mirror/src/public/locales,/Users/7iomka/Desktop/projects/react/dilan/dilan-mirror/dilan-mirror/src/shared/i18n"
 }

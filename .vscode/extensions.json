@@ -4,6 +4,7 @@
     "esbenp.prettier-vscode",
     "mishannn.vscode-file-suggest",
     "asbjornh.vscode-module-templates",
-    "bradlc.vscode-tailwindcss"
+    "bradlc.vscode-tailwindcss",
+    "lokalise.i18n-ally"
   ]
 }

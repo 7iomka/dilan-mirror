@@ -1,4 +1,5 @@
-import { ComponentType, Suspense } from 'react';
+import type { ComponentType } from 'react';
+import { Suspense } from 'react';
 import { FullPageWrapper } from '../full-page-wrapper';
 import { Spinner } from '../spinner';
 
