@@ -1,0 +1,12 @@
+{
+  "presets": ["effector-http-api/babel-preset", "patronum/babel-preset"],
+  "plugins": [
+    [
+      "effector/babel-plugin",
+      {
+        "factories": ["@withease/factories", "@/shared/lib/factory"],
+        "addLoc": true
+      }
+    ]
+  ]
+}

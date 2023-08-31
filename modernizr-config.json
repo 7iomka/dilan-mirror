@@ -1,0 +1,25 @@
+{
+  "classPrefix": "_",
+  "enableClasses": true,
+  "enableJSClass": true,
+  "scriptGlobalName": "window",
+  "usePrefixes": true,
+  "minify": true,
+  "options": [
+    "addTest",
+    "testProp",
+    "setClasses"
+  ],
+  "feature-detects": [
+    "touchevents",
+    "css/cssgrid",
+    "css/shapes",
+    "css/transforms3d",
+    "css/transformstylepreserve3d",
+    "css/vhunit",
+    "css/vwunit",
+    "svg/clippaths",
+    "css/flexgap",
+    "css/objectfit"
+  ]
+}

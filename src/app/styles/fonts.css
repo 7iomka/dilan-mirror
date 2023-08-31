@@ -1,0 +1,95 @@
+/* inter-regular - cyrillic_cyrillic-ext_latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/inter-v12-cyrillic_cyrillic-ext_latin/inter-v12-cyrillic_cyrillic-ext_latin-regular.woff2")
+      format("woff2"),
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+      url("/fonts/inter-v12-cyrillic_cyrillic-ext_latin/inter-v12-cyrillic_cyrillic-ext_latin-regular.ttf")
+      format("truetype"); /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
+}
+/* inter-500 - cyrillic_cyrillic-ext_latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/fonts/inter-v12-cyrillic_cyrillic-ext_latin/inter-v12-cyrillic_cyrillic-ext_latin-500.woff2")
+      format("woff2"),
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+      url("/fonts/inter-v12-cyrillic_cyrillic-ext_latin/inter-v12-cyrillic_cyrillic-ext_latin-500.ttf")
+      format("truetype"); /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
+}
+/* inter-700 - cyrillic_cyrillic-ext_latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/inter-v12-cyrillic_cyrillic-ext_latin/inter-v12-cyrillic_cyrillic-ext_latin-700.woff2")
+      format("woff2"),
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+      url("/fonts/inter-v12-cyrillic_cyrillic-ext_latin/inter-v12-cyrillic_cyrillic-ext_latin-700.ttf")
+      format("truetype"); /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
+}
+/* @font-face {
+  font-family: Acrom-fallback;
+  size-adjust: 109.35%;
+  src: local("Arial");
+}
+
+@font-face {
+  font-family: Acrom;
+  src: url("/fonts/acrom/acrom-regular.woff2") format("woff2"),
+    url("/fonts/acrom/acrom-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Acrom;
+  src: url("/fonts/acrom/acrom-bold.woff2") format("woff2"),
+    url("/fonts/acrom/acrom-bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Acrom;
+  src: url("/fonts/acrom/acrom-medium.woff2") format("woff2"),
+    url("/fonts/acrom/acrom-medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rub";
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("/fonts/roboto-rub/roboto-rub-regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Rub";
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("/fonts/roboto-rub/roboto-rub-bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Rub";
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("/fonts/roboto-rub/roboto-rub-medium.woff2") format("woff2");
+} */
