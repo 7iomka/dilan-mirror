@@ -1,0 +1,122 @@
+{
+  "page": {
+    "displayName": "Page",
+    "defaultPath": "src/pages",
+    "questions": {
+      "name": "Page name"
+    },
+    "folder": "{{kebab name}}",
+    "files": [
+      {
+        "open": true,
+        "name": "{{kebab name}}.component.tsx",
+        "contentFile": "./page/name.component.txt"
+      },
+      {
+        "name": "{{kebab name}}.model.ts",
+        "contentFile": "./page/name.model.txt"
+      },
+      {
+        "name": "index.ts",
+        "contentFile": "./page/index.txt"
+      }
+    ]
+  },
+  "widget": {
+    "displayName": "Widget",
+    "defaultPath": "src/widgets",
+    "questions": {
+      "name": "Widget name"
+    },
+    "folder": "{{kebab name}}",
+    "files": [
+      {
+        "open": true,
+        "name": "{{kebab name}}.component.tsx",
+        "contentFile": "./widget/name.component.txt"
+      },
+      {
+        "name": "index.ts",
+        "contentFile": "./widget/index.txt"
+      }
+    ]
+  },
+  "feature/factory": {
+    "displayName": "Feature (factory)",
+    "defaultPath": "src/features",
+    "questions": {
+      "name": "Feature name"
+    },
+    "folder": "{{kebab name}}",
+    "files": [
+      {
+        "open": true,
+        "name": "{{kebab name}}.component.tsx",
+        "contentFile": "./feature/factory/name.component.txt"
+      },
+      {
+        "name": "{{kebab name}}.model.ts",
+        "contentFile": "./feature/factory/name.model.txt"
+      },
+      {
+        "name": "index.ts",
+        "contentFile": "./feature/factory/index.txt"
+      }
+    ]
+  },
+  "feature/singleton": {
+    "displayName": "Feature (singleton)",
+    "defaultPath": "src/features",
+    "questions": {
+      "name": "Feature name"
+    },
+    "folder": "{{kebab name}}",
+    "files": [
+      {
+        "name": "{{kebab name}}.model.ts",
+        "contentFile": "./feature/singleton/name.model.txt"
+      },
+      {
+        "name": "index.ts",
+        "contentFile": "./feature/singleton/index.txt"
+      }
+    ]
+  },
+  "entity": {
+    "displayName": "Entity",
+    "defaultPath": "src/entities",
+    "questions": {
+      "name": "Entity name"
+    },
+    "folder": "{{kebab name}}",
+    "files": [
+      {
+        "name": "{{kebab name}}.model.ts",
+        "contentFile": "./entity/name.model.txt"
+      },
+      {
+        "name": "index.ts",
+        "contentFile": "./entity/index.txt"
+      }
+    ]
+  },
+  "ui-component": {
+    "displayName": "UI component",
+    "defaultPath": "src/shared/ui",
+    "questions": {
+      "name": "UI component name"
+    },
+    "folder": "{{kebab name}}",
+    "files": [
+      {
+        "open": true,
+        "name": "{{kebab name}}.component.tsx",
+        "contentFile": "./ui-component/name.component.txt"
+      },
+      {
+        "name": "index.ts",
+        "contentFile": "./ui-component/index.txt"
+      }
+    ]
+  }
+}

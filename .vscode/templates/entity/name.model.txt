@@ -1,5 +1,5 @@
 import { wrapper } from '@/shared/lib/wrapper';
 
-export const $$__camel__ = wrapper(() => {
+export const $${{camel name}} = wrapper(() => {
   return {};
 });

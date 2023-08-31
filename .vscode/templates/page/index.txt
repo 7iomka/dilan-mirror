@@ -1,0 +1,7 @@
+import { {{pascal name}}Page } from './{{kebab name}}.component';
+
+export { $${{camel name}}Page } from './{{kebab name}}.model';
+
+export { {{pascal name}}Page };
+
+export default {{pascal name}}Page;

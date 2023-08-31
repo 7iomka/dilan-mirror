@@ -1,0 +1,7 @@
+import { createFactory } from '@withease/factories';
+
+interface FactoryOptions {}
+
+export const factory = createFactory((options: FactoryOptions) => {
+  return {};
+});

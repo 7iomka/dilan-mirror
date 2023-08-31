@@ -4,7 +4,7 @@
     "esbenp.prettier-vscode",
     "mishannn.vscode-file-suggest",
     "mrmlnc.vscode-scss",
-    "liuyang.quick-create"
+    "asbjornh.vscode-module-templates"
     // "orta.vscode-jest"
   ]
 }

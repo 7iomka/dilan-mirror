@@ -1,0 +1,10 @@
+interface {{pascal name}}Props {
+  className?: string;
+}
+
+const {{pascal name}} = ({ className }: {{pascal name}}Props) => {
+  return <section className={className}>content</section>;
+};
+
+export type { {{pascal name}}Props };
+export { {{pascal name}} };

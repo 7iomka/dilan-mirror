@@ -1,0 +1,10 @@
+interface {{pascal name}}Props {
+  className?: string;
+}
+
+const {{pascal name}} = ({ className }: {{pascal name}}Props) => {
+  return <div className={className}>content</div>;
+};
+
+export type { {{pascal name}}Props };
+export { {{pascal name}} };

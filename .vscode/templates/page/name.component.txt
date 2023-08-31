@@ -1,0 +1,5 @@
+const {{pascal name}}Page = () => {
+  return <div>content</div>
+};
+
+export { {{pascal name}}Page };

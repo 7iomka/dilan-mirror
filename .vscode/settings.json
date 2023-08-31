@@ -55,5 +55,8 @@
   "editor.linkedEditing": true,
   "i18n-ally.localesPaths": ["src/shared/i18n"],
   "i18next.i18nPaths": "/Users/7iomka/Desktop/projects/react/dilan/dilan-mirror/dilan-mirror/src/shared/i18n",
-  "eslint.workingDirectories": [{ "mode": "auto" }]
+  "eslint.workingDirectories": [{ "mode": "auto" }],
+  "module-templates.templateFiles": ["./templates/.module-templates.json"],
+  "module-templates.engine": "handlebars",
+  "css.lint.unknownAtRules": "ignore"
 }

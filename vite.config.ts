@@ -14,6 +14,7 @@ import { htmlPrerender } from 'vite-plugin-html-prerender';
 
 // const root = path.join(__dirname, 'src');
 const srcFolderPath = fileURLToPath(new URL('./src', import.meta.url));
+const distFolderPath = fileURLToPath(new URL('./dist', import.meta.url));
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -44,6 +45,15 @@ export default defineConfig({
   css: {
     modules: {
       localsConvention: 'camelCase',
+    },
+  },
+  build: {
+    outDir: distFolderPath,
+    emptyOutDir: true,
+    rollupOptions: {
+      input: {
+        main: path.resolve(srcFolderPath, 'index.html'),
+      },
     },
   },
 });
