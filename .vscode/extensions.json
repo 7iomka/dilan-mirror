@@ -4,7 +4,8 @@
     "esbenp.prettier-vscode",
     "mishannn.vscode-file-suggest",
     "mrmlnc.vscode-scss",
-    "asbjornh.vscode-module-templates"
+    "asbjornh.vscode-module-templates",
+    "bradlc.vscode-tailwindcss"
     // "orta.vscode-jest"
   ]
 }
