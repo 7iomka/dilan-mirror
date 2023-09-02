@@ -1,8 +1,12 @@
 import { createRoot } from 'react-dom/client';
+import { allSettled } from 'effector';
 import { Pages } from '@/pages';
+import { scope } from '@/shared/scope';
 import { Providers } from './providers';
-import '@/app/styles/common.css';
 import { $$app } from './app.model';
+import '@/app/styles/common.css';
+
+allSettled($$app.started, { scope });
 
 const App = () => {
   return (
@@ -14,7 +18,5 @@ const App = () => {
 
 const container = document.getElementById('root') as HTMLElement;
 const root = createRoot(container);
-
-$$app.started();
 
 root.render(<App />);

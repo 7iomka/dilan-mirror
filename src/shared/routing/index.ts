@@ -7,10 +7,14 @@ export const routes = {
   home: createRoute(),
 };
 
+export const notFoundRoute = createRoute();
+
 export const routesMap = [{ path: '/', route: routes.home }];
 
 export const router = createHistoryRouter({
+  base: '/:lang?',
   routes: routesMap,
+  notFoundRoute,
 });
 
 sample({

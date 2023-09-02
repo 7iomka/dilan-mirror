@@ -14,6 +14,9 @@
     "noEmit": true,
     "jsx": "react-jsx", // not changed to `preserve`
 
+    /* Node specific */
+    "allowSyntheticDefaultImports": true,
+
     /* Linting */
     "strict": false, // true
     "noUnusedLocals": false, // true
@@ -37,8 +40,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src", "*.js", "*.ts", "postcss.config.cjs", "tailwind.config.ts"],
-  "exclude": ["node_modules", "**/*.test.ts"],
-
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src", "*.js", ".cjs", "*.ts"],
+  "exclude": ["**/*.test.ts"]
 }

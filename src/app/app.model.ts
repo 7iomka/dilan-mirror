@@ -15,7 +15,6 @@ export const $$app = wrapper(() => {
   // Init i18n
   sample({
     clock: started,
-    fn: () => ({ lng: 'en' }),
     target: $$i18n.setupTriggered,
   });
 

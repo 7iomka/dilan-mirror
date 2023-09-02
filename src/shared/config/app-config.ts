@@ -3,8 +3,8 @@ const baseConfig = {
   twitterUsername: '@7iomka',
   twitterURL: 'https://twitter.com/7iomka',
   instagramURL: 'https://www.instagram.com/7iomka',
-  appBaseURL: import.meta.env.BASE_URL,
-  apiBaseURL: import.meta.env.API_BASE_URL,
+  appBaseURL: import.meta.env.VITE_BASE_URL,
+  apiBaseURL: import.meta.env.VITE_API_BASE_URL,
 };
 
 const lsConstants: Record<string, string> = {};

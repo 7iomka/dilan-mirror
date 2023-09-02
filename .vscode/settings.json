@@ -16,9 +16,6 @@
   },
   "eslint.lintTask.enable": true,
   "eslint.format.enable": true,
-  "eslint.alwaysShowStatus": true,
-  // "eslint.workingDirectories": ["apps/*"],
-  // "eslint.validate": ["vue", "html", "javascript", "typescript", "javascriptreact", "typescriptreact"], // Uncomment when issue be resolved https://github.com/leoroese/turborepo-tutorial/issues/1
   "editor.snippetSuggestions": "inline", // top
   "search.exclude": {
     "**/node_modules": true,
@@ -29,9 +26,6 @@
     "**/.yarn/**": true
   },
   // Fix jest extension issue (if needed)
-  "jest.autoEnable": false,
-  "jest.disabledWorkspaceFolders": ["ROOT", "apps/store", "packages/ui"],
-  "autoimport.filesToScan": "**/*.{ts,tsx,js,jsx,scss,css}",
   "emmet.includeLanguages": {
     "javascript": "javascriptreact",
     "typescript": "typescriptreact"
@@ -57,7 +51,7 @@
   "i18n-ally.enabledFrameworks": ["react-i18next"],
   "i18n-ally.keystyle": "nested",
   "i18n-ally.namespace": false,
-  "i18n-ally.localesPaths": ["src/**/locales"],
+  "i18n-ally.localesPaths": ["src/public/**/locales"],
   "i18n-ally.pathMatcher": "{locale}.json",
   "i18n-ally.extract.keygenStyle": "camelCase",
   // "i18n-ally.extract.targetPickingStrategy": "most-similar",
@@ -70,6 +64,5 @@
   "eslint.workingDirectories": [{ "mode": "auto" }],
   "module-templates.templateFiles": ["./templates/.module-templates.json"],
   "module-templates.engine": "handlebars",
-  "css.lint.unknownAtRules": "ignore",
-  "i18next.i18nPaths": "/Users/7iomka/Desktop/projects/react/dilan/dilan-mirror/dilan-mirror/src/public/locales,/Users/7iomka/Desktop/projects/react/dilan/dilan-mirror/dilan-mirror/src/shared/i18n"
+  "css.lint.unknownAtRules": "ignore"
 }

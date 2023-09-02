@@ -8,10 +8,10 @@ interface BaseLayoutProps extends PropsWithChildren {
 }
 
 const BaseLayout = ({ className, children }: BaseLayoutProps) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   return (
     <>
-      <Helmet>
+      <Helmet htmlAttributes={{ lang: i18n.language }}>
         {/* Favicon stuff */}
         <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png" />

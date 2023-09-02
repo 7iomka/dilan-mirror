@@ -5,10 +5,7 @@ import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import Backend from 'i18next-http-backend';
 import { createFactory } from '@withease/factories';
-
-// type Params = {
-//   // resources: Record<string, any>;
-// };
+import { i18nConfig } from '../config/i18n-config';
 
 const createi18n = createFactory(() => {
   const changeLanguageFx = createEffect(changeLanguage);
@@ -27,9 +24,9 @@ const createi18n = createFactory(() => {
 
   const $i18n = createStore(i18n);
 
-  async function setup({ lng }: { lng: string }) {
+  async function setup() {
     await i18n
-      // load translation using http -> see /public/locales (i.e. https://github.com/i18next/react-i18next/tree/master/example/react/public/locales)
+      // load translation using http -> see /public/static/locales (i.e. https://github.com/i18next/react-i18next/tree/master/example/react/public/locales)
       // learn more: https://github.com/i18next/i18next-http-backend
       .use(Backend)
       // detect user language
@@ -40,17 +37,21 @@ const createi18n = createFactory(() => {
       // init i18next
       // for all options read: https://www.i18next.com/overview/configuration-options
       .init({
-        lng,
         fallbackLng: 'en',
+        supportedLngs: i18nConfig.supportedLangs,
+        nonExplicitSupportedLngs: true, // support language variation
         debug: true,
         load: 'languageOnly',
         interpolation: {
           escapeValue: false, // not needed for react as it escapes by default
         },
         backend: {
-          loadPath: '/locales/{{lng}}.json', // store locales in public subfolder
+          loadPath: '/static/locales/{{lng}}.json', // store locales in public subfolder
         },
         saveMissing: true, // safe use default value as second parameter
+        detection: {
+          order: ['path'],
+        },
       });
   }
 
