@@ -618,7 +618,7 @@
   --danger-800-rgb: 213, 1, 5;
   --danger-900: #9d0104;
   --danger-900-rgb: 157, 1, 4;
-  --root-background: var(--dark);
+  --root-background: #fff;
   --root-background-rgb: 255, 255, 255;
   --root-color: #000;
   --root-color-rgb: 0, 0, 0;

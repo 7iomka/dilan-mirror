@@ -1,9 +1,8 @@
 import { createEvent, sample } from 'effector';
 import { appStarted } from '@/shared/config/events';
-import { wrapper } from '@/shared/lib/wrapper';
 import { $$i18n } from '@/shared/i18n';
 
-export const $$app = wrapper(() => {
+export const $$app = (() => {
   const started = createEvent();
 
   // Run shared appStarted event to init shared logic
@@ -19,4 +18,4 @@ export const $$app = wrapper(() => {
   });
 
   return { started };
-});
+})();
