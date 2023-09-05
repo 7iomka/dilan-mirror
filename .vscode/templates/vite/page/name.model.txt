@@ -1,7 +1,6 @@
 import { createEvent, createStore } from 'effector';
-import { wrapper } from '@/shared/lib/wrapper';
 
-export const $${{camel name}}Page = wrapper(() => {
+export const $${{camel name}}Page = (() => {
   const opened = createEvent<{ url: string }>();
   const closed = createEvent<{ url: string }>();
 
@@ -10,4 +9,4 @@ export const $${{camel name}}Page = wrapper(() => {
     .on(closed, () => false);
 
   return { opened, closed, $isPageOpened };
-});
+})();

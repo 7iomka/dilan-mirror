@@ -62,7 +62,7 @@
   "i18n-ally.translate.engines": ["deepl", "google"],
   "i18n-ally.translate.deepl.useFreeApiEntry": true,
   "eslint.workingDirectories": [{ "mode": "auto" }],
-  "module-templates.templateFiles": ["./templates/.module-templates.json"],
+  "module-templates.templateFiles": ["./templates/vite/.module-templates.json"],
   "module-templates.engine": "handlebars",
   "css.lint.unknownAtRules": "ignore"
 }
