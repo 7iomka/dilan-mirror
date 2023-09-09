@@ -64,5 +64,7 @@
   "eslint.workingDirectories": [{ "mode": "auto" }],
   "module-templates.templateFiles": ["./templates/vite/.module-templates.json"],
   "module-templates.engine": "handlebars",
-  "css.lint.unknownAtRules": "ignore"
+  "css.lint.unknownAtRules": "ignore",
+  "scss.lint.unknownAtRules": "ignore",
+  "tailwindCSS.classAttributes": ["class", "className", "ngClass", "classNames"]
 }
