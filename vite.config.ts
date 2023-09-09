@@ -7,6 +7,7 @@ import react from '@vitejs/plugin-react';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import { babel } from '@rollup/plugin-babel';
 import svgr from 'vite-plugin-svgr';
+import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 import { htmlPrerender } from 'vite-plugin-html-prerender';
 import { i18nConfig } from './src/shared/config/i18n-config';
 
@@ -35,6 +36,7 @@ export default defineConfig({
     }),
     react(),
     tsconfigPaths(),
+    vanillaExtractPlugin(),
     svgr(),
     htmlPrerender({
       /**

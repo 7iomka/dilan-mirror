@@ -44,49 +44,37 @@ const BaseLayout = ({ className, children }: BaseLayoutProps) => {
         {/* preload fonts */}
         <link
           rel="preload"
-          href="/static/fonts/inter/inter-regular.woff2"
+          href="/static/fonts/aeonik-bold.woff2"
           as="font"
           type="font/woff2"
           crossOrigin="anonymous"
         />
         <link
           rel="preload"
-          href="/static/fonts/inter/inter-700.woff2"
+          href="/static/fonts/aeonik-regular.woff2"
           as="font"
           type="font/woff2"
           crossOrigin="anonymous"
         />
         <style type="text/css">
           {`
-          /* inter-regular */
           @font-face {
-            font-display: swap;
-            font-family: "Inter";
-            font-style: normal;
+            font-family: "Aeonik";
+            src:
+              url("/static/fonts/aeonik-regular.woff2") format("woff2"),
+              url("/static/fonts/aeonik-regular.woff") format("woff");
             font-weight: 400;
-            src:
-              url("/static/fonts/inter/inter-regular.woff2") format("woff2"),
-                url("/static/fonts/inter/inter-regular.ttf") format("truetype"); 
-          }
-          /* inter-500 */
-          @font-face {
-            font-display: swap;
-            font-family: "Inter";
             font-style: normal;
-            font-weight: 500;
-            src:
-              url("/static/fonts/inter/inter-500.woff2") format("woff2"),
-              url("/static/fonts/inter/inter-500.ttf") format("truetype");
-          }
-          /* inter-700 */
-          @font-face {
             font-display: swap;
-            font-family: "Inter";
-            font-style: normal;
+          }
+          @font-face {
+            font-family: "Aeonik";
+            src:
+              url("/static/fonts/aeonik-bold.woff2") format("woff2"),
+              url("/static/fonts/aeonik-bold.woff") format("woff");
             font-weight: 700;
-            src:
-              url("/static/fonts/inter/inter-700.woff2") format("woff2"),
-              url("/static/fonts/inter/inter-700.ttf") format("truetype");
+            font-style: normal;
+            font-display: swap;
           }
         `}
         </style>

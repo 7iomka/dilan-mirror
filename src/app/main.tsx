@@ -4,6 +4,7 @@ import { Pages } from '@/pages';
 import { scope } from '@/shared/scope';
 import { Providers } from './providers';
 import { $$app } from './app.model';
+
 import '@/app/styles/common.css';
 
 allSettled($$app.started, { scope });

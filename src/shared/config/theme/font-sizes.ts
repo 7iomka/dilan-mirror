@@ -1,12 +1,14 @@
 import { rem } from './lib';
 
 export const fontSizes = {
-  xs: rem(10),
-  sm: rem(12),
-  md: rem(14), // default (body)
-  lg: rem(16),
-  xl: rem(18),
-  '2xl': rem(20),
-  '3xl': rem(24),
-  base: rem(14), // Add the base field with the same value as md
+  xs: rem(12),
+  sm: rem(14),
+  md: rem(16),
+  lg: rem(18),
+  xl: rem(20),
+  '2xl': rem(24),
+  base: rem(16), // Add the base field with the same value as md
+  '40px': rem(40),
+  '56px': rem(56),
+  '72px': rem(72),
 };

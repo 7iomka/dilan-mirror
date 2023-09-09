@@ -1,6 +1,6 @@
 export const fontFamily = {
-  default: 'Acrom, Rub, "Acrom-fallback"',
+  default: 'Aeonik, Helvetica, sans-serif',
   monospace: 'Monaco, Courier, monospace',
   serif: 'georgia, "Times New Roman", times, serif',
-  headings: 'Acrom, Rub, "Acrom-fallback"',
+  headings: 'Aeonik, Helvetica, sans-serif',
 };

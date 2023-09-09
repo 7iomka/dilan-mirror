@@ -32,34 +32,26 @@ export const tailwindConfig: Partial<Config> = {
   // ],
   important: true,
   theme: {
-    colors: {
-      // put back non-palette tailwind static colors
-      inherit: 'inherit',
-      current: 'currentColor',
-      transparent: 'transparent',
-      black: '#000',
-      white: '#fff',
-
-      // all palette colors with css var value
-      // use DEFAULT key for theme color with no-suffix (default shade used)
-      ...Object.keys(colors).reduce((acc, color) => {
-        return {
-          ...acc,
-          [color]: {
-            DEFAULT: `rgba(var(--${color}-rgb), <alpha-value>)`,
-            ...Object.keys(colors[color]).reduce((subAcc, curr) => {
-              return {
-                ...subAcc,
-                [curr]: `rgba(var(--${color}-${curr}-rgb), <alpha-value>)`,
-              };
-            }, {}),
-          },
-        };
-      }, {}),
-    },
-    fontSize: {
-      ...fontSizes,
-    },
+    colors,
+    // colors: {
+    //   // all palette colors with css var value
+    //   // use DEFAULT key for theme color with no-suffix (default shade used)
+    //   ...Object.keys(colors).reduce((acc, color) => {
+    //     return {
+    //       ...acc,
+    //       [color]: {
+    //         DEFAULT: `rgba(var(--${color}-rgb), <alpha-value>)`,
+    //         ...Object.keys(colors[color]).reduce((subAcc, curr) => {
+    //           return {
+    //             ...subAcc,
+    //             [curr]: `rgba(var(--${color}-${curr}-rgb), <alpha-value>)`,
+    //           };
+    //         }, {}),
+    //       },
+    //     };
+    //   }, {}),
+    // },
+    fontSizes,
     // transition parts
     ...transition,
     // own screens
@@ -67,13 +59,14 @@ export const tailwindConfig: Partial<Config> = {
     // Border radius (.rounded-xxx)
     borderRadius: radius,
     spacing: spacing.all,
-    boxShadow: Object.keys(shadow).reduce((acc, curr) => {
-      return {
-        ...acc,
-        // get shadows values from css variables
-        [curr]: `var(--shadow-${curr})`,
-      };
-    }, {}),
+    boxShadow: shadow,
+    // Object.keys(shadow).reduce((acc, curr) => {
+    //   return {
+    //     ...acc,
+    //     // get shadows values from css variables
+    //     [curr]: `var(--shadow-${curr})`,
+    //   };
+    // }, {}),
     aspectRatio: {
       ...Array.from(Array(21).keys()).reduce((acc, curr) => {
         return {

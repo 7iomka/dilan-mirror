@@ -1,7 +1,7 @@
 export { customTypography } from './custom-typography';
 export { customUtilities } from './custom-utilities';
 export { customComponents } from './custom-components';
-export { colors, themeColorKeys } from './colors';
+export { colors } from './colors';
 export { breakpoints, breakpointsClean } from './breakpoints';
 export { containerMaxWidths } from './container';
 export { spacing } from './spacing';

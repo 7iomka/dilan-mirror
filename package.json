@@ -53,6 +53,7 @@
     "@types/react-helmet": "^6",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
+    "@vanilla-extract/vite-plugin": "^3.9.0",
     "@vitejs/plugin-react": "^4.0.3",
     "autoprefixer": "^10.4.15",
     "eslint": "^8.45.0",

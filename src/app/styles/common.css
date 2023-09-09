@@ -1,5 +1,5 @@
 @import "global-preflight.css";
-@import "global-config.css";
+@import "variables.css";
 
 @tailwind base;
 @tailwind components;
@@ -16,12 +16,12 @@
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
   body {
-    font-family: var(--font-family-default);
-    font-size: var(--font-size-md);
-    background: var(--root-background);
-    color: var(--root-color);
+    font-family: theme("fontFamily.default");
+    font-size: theme("fontSizes.md");
+    background: theme("colors.dark.800");
+    color: theme("colors.white");
     font-weight: 400;
-    line-height: 1.4;
+    line-height: 1.3334;
     text-decoration-skip-ink: none;
   }
   .changing-color-scheme,

@@ -1,1 +1,2 @@
-export { {{pascal name}}, {{pascal name}}Props } from './{{kebab name}}.component';
+export type { {{pascal name}}Props } from './{{kebab name}}.component';
+export { {{pascal name}} } from './{{kebab name}}.component';
