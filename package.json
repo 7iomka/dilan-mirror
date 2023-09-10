@@ -15,6 +15,8 @@
     "compile-modernizr": "modernizr -c modernizr-config.json -d ./src/public/static/scripts/modernizr-bundle.min.js"
   },
   "dependencies": {
+    "@floating-ui/react": "^0.25.4",
+    "@headlessui/react": "^1.7.17",
     "@withease/factories": "^0.2.0",
     "atomic-router": "^0.8.0",
     "atomic-router-react": "^0.8.5",
@@ -43,6 +45,7 @@
     "@csstools/postcss-is-pseudo-class": "^4.0.0",
     "@feature-sliced/eslint-config": "0.1.0-beta.6",
     "@mertasan/tailwindcss-variables": "^2.6.1",
+    "@neodx/svg": "^0.5.1",
     "@rollup/plugin-babel": "^6.0.3",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/line-clamp": "^0.4.4",

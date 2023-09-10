@@ -10,6 +10,7 @@ import svgr from 'vite-plugin-svgr';
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 import { htmlPrerender } from 'vite-plugin-html-prerender';
 import { i18nConfig } from './src/shared/config/i18n-config';
+import svg from '@neodx/svg/vite';
 
 // const __filename = fileURLToPath(import.meta.url);
 // const __dirname = path.dirname(__filename);
@@ -37,6 +38,15 @@ export default defineConfig({
     react(),
     tsconfigPaths(),
     vanillaExtractPlugin(),
+    svg({
+      root: 'src/shared/icons/sprite',
+      group: false,
+      output: 'src/public/static',
+      metadata: 'src/shared/ui/icon/sprite.gen.ts',
+      resetColors: {
+        replaceUnknown: 'currentColor',
+      },
+    }),
     svgr(),
     htmlPrerender({
       /**

@@ -1,0 +1,6 @@
+# Dependency directories
+/node_modules
+
+/src/public/*
+/src/shared/lib/filledout/*
+/src/shared/ui/icon/sprite.gen.ts
