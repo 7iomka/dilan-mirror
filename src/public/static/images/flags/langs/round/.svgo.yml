@@ -1,0 +1,48 @@
+plugins:
+  - cleanupAttrs: true
+  - cleanupEnableBackground: true
+  - cleanupIDs: true
+  - cleanupListOfValues: false
+  - cleanupNumericValues: true
+  - collapseGroups: true
+  - convertColors: true
+  - convertEllipseToCircle: true
+  - convertPathData: true
+  - convertShapeToPath: true
+  - convertStyleToAttrs: true
+  - convertTransform: true
+  - inlineStyles: true
+  - mergePaths: true
+  - minifyStyles: true
+  - moveElemsAttrsToGroup: true
+  - moveGroupAttrsToElems: true
+  - removeComments: true
+  - removeDesc: true
+  - removeDimensions: true
+  - removeDoctype: true
+  - removeEditorsNSData: true
+  - removeEmptyAttrs: true
+  - removeEmptyContainers: true
+  - removeEmptyText: true
+  - removeHiddenElems: true
+  - removeMetadata: true
+  - removeNonInheritableGroupAttrs: true
+  - removeRasterImages: false
+  - removeScriptElement: false
+  - removeStyleElement: false
+  - removeTitle: true
+  - removeUnknownsAndDefaults: true
+  - removeUnusedNS: true
+  - removeUselessDefs: true
+  - removeUselessStrokeAndFill: true
+  - removeViewBox: true
+  - removeXMLNS: false
+  - removeXMLProcInst: true
+  - reusePaths: false
+  - sortAttrs: true
+  - sortDefsChildren: true
+js2svg:
+  pretty: true
+  indent: 4
+  floatPrecision: "3"
+  gzip: true

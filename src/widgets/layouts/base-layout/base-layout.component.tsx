@@ -1,13 +1,17 @@
 import type { PropsWithChildren } from 'react';
 import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
+import type { RouteInstance } from 'atomic-router';
+import { Header } from '@/widgets/header';
 import { appConfig } from '@/shared/config/app-config';
+import { CurrentRouteProvider } from '@/shared/routing';
 
 interface BaseLayoutProps extends PropsWithChildren {
   className?: string;
+  route: RouteInstance<any>;
 }
 
-const BaseLayout = ({ className, children }: BaseLayoutProps) => {
+const BaseLayout = ({ className, children, route }: BaseLayoutProps) => {
   const { t, i18n } = useTranslation();
   return (
     <>
@@ -79,8 +83,12 @@ const BaseLayout = ({ className, children }: BaseLayoutProps) => {
         `}
         </style>
       </Helmet>
-
-      <div className={className}>{children}</div>
+      <CurrentRouteProvider value={route}>
+        <div className={className}>
+          <Header />
+          {children}
+        </div>
+      </CurrentRouteProvider>
     </>
   );
 };

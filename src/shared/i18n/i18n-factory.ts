@@ -1,28 +1,43 @@
-import type { EffectParams } from 'effector';
-import { createEffect, createEvent, createStore, sample } from 'effector';
+import { createEffect, createEvent, sample } from 'effector';
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import Backend from 'i18next-http-backend';
 import { createFactory } from '@withease/factories';
-import { i18nConfig } from '../config/i18n-config';
+import type { RouteInstance } from 'atomic-router';
+import type { SupportedLanguageCode } from '../config/i18n-config';
+import { fallbackLanguageCode, i18nConfig } from '../config/i18n-config';
+
+type ChangeLanguageParams = {
+  languageCode: SupportedLanguageCode;
+  currentRoute: RouteInstance<any>;
+};
 
 const createi18n = createFactory(() => {
-  const changeLanguageFx = createEffect(changeLanguage);
-  const changeLanguageTriggered = createEvent<EffectParams<typeof changeLanguageFx>>();
+  const changeLanguageFx = createEffect(
+    async ({ languageCode, currentRoute }: ChangeLanguageParams) => {
+      await i18n.changeLanguage(languageCode);
+      currentRoute.navigate({
+        params: { lang: languageCode === fallbackLanguageCode ? undefined : languageCode },
+        query: {},
+        replace: true,
+      });
+    },
+  );
+
+  const changeLanguageTriggered = createEvent<ChangeLanguageParams>();
+
   sample({
     clock: changeLanguageTriggered,
     target: changeLanguageFx,
   });
 
   const setupFx = createEffect(setup);
-  const setupTriggered = createEvent<EffectParams<typeof setupFx>>();
+  const setupTriggered = createEvent();
   sample({
     clock: setupTriggered,
     target: setupFx,
   });
-
-  const $i18n = createStore(i18n);
 
   async function setup() {
     await i18n
@@ -55,13 +70,8 @@ const createi18n = createFactory(() => {
       });
   }
 
-  async function changeLanguage({ lng }: { lng: string }) {
-    await i18n.changeLanguage(lng);
-  }
-
   return {
     i18n,
-    $i18n,
     setupFx,
     setupTriggered,
     changeLanguageFx,
@@ -69,4 +79,5 @@ const createi18n = createFactory(() => {
   };
 });
 
+export type { ChangeLanguageParams };
 export { i18n, createi18n };

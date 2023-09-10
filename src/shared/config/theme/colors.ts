@@ -15,8 +15,8 @@ export const colors = {
     200: '#6E7486',
     300: '#575C6A',
     400: '#3E414C', // light (on hover)
-    500: '#25272D', // basic (default)
-    DEFAULT: '#25272D',
+    500: '#222429', // basic (black light)
+    DEFAULT: '#222429',
     600: '#1E2024',
     700: '#17181C',
     800: '#141419', // darkest (black basic)

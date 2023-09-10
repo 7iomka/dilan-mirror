@@ -1,6 +1,8 @@
 import { invoke } from '@withease/factories';
+import type { ChangeLanguageParams } from './i18n-factory';
 import { createi18n } from './i18n-factory';
 
 const $$i18n = invoke(createi18n);
 
+export type { ChangeLanguageParams };
 export { $$i18n };

@@ -30,9 +30,7 @@ export const tailwindConfig: Partial<Config> = {
   //   './pages/**/*.{ts,tsx,html}',
   //   '../../packages/**/*.{ts,tsx}',
   // ],
-  important: true,
   theme: {
-    colors,
     // colors: {
     //   // all palette colors with css var value
     //   // use DEFAULT key for theme color with no-suffix (default shade used)
@@ -76,6 +74,7 @@ export const tailwindConfig: Partial<Config> = {
       }, {}),
     },
     extend: {
+      colors,
       fontFamily: {
         ...fontFamily,
         sans: fontFamily.default, // alias
