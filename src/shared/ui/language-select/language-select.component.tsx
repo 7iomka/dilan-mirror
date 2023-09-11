@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { useUnit } from 'effector-react';
 import { supportedLanguagesMap, supportedLanguageCodes } from '@/shared/config/i18n-config';
 import { $$i18n } from '@/shared/i18n';
-import { useCurrentRoute } from '@/shared/routing';
 import { Dropdown } from '../dropdown';
 import { Button } from '../button';
 
@@ -14,7 +13,6 @@ interface LanguageSelectProps {
 const LanguageSelect = ({ className }: LanguageSelectProps) => {
   const { i18n } = useTranslation();
   const changeLanguage = useUnit($$i18n.changeLanguageTriggered);
-  const currentRoute = useCurrentRoute();
   // const isRTL = getIsRtlFromLangCode(i18n.language as SupportedLanguageCode);
 
   return (
@@ -52,7 +50,7 @@ const LanguageSelect = ({ className }: LanguageSelectProps) => {
                   languageCode === i18n.language ? 'bg-primary/[0.15]' : 'hover:bg-primary/[0.08]',
                 )}
                 onClick={() => {
-                  changeLanguage({ languageCode, currentRoute: currentRoute! });
+                  changeLanguage({ languageCode });
                   close();
                 }}
               >

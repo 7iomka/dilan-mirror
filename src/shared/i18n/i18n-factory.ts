@@ -1,29 +1,32 @@
-import { createEffect, createEvent, sample } from 'effector';
+import { attach, createEffect, createEvent, sample } from 'effector';
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import Backend from 'i18next-http-backend';
 import { createFactory } from '@withease/factories';
-import type { RouteInstance } from 'atomic-router';
 import type { SupportedLanguageCode } from '../config/i18n-config';
 import { fallbackLanguageCode, i18nConfig } from '../config/i18n-config';
+import { router } from '../routing';
 
 type ChangeLanguageParams = {
   languageCode: SupportedLanguageCode;
-  currentRoute: RouteInstance<any>;
 };
 
 const createi18n = createFactory(() => {
-  const changeLanguageFx = createEffect(
-    async ({ languageCode, currentRoute }: ChangeLanguageParams) => {
+  const changeLanguageFx = attach({
+    source: router.$activeRoutes,
+    effect: async (activeRoutes, { languageCode }: ChangeLanguageParams) => {
       await i18n.changeLanguage(languageCode);
+
+      const currentRoute = activeRoutes[0]; // TODO: add support for multiple routes
+
       currentRoute.navigate({
         params: { lang: languageCode === fallbackLanguageCode ? undefined : languageCode },
         query: {},
         replace: true,
       });
     },
-  );
+  });
 
   const changeLanguageTriggered = createEvent<ChangeLanguageParams>();
 
