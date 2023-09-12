@@ -73,6 +73,10 @@ const Head = () => {
           }
         `.trim()}
       </style>
+      <script src="/static/scripts/modernizr-bundle.min.js" defer />
+      <script src="/static/scripts/lazysizes.attrchange.min.js" async />
+      <script src="/static/scripts/lazysizes.blur-up.min.js" async />
+      <script src="/static/scripts/lazysizes.min.js" async />
     </Helmet>
   );
 };

@@ -1,5 +1,6 @@
 @import "global-preflight.css";
 @import "variables.css";
+@import "lazy-images.css";
 
 @tailwind base;
 @tailwind components;
@@ -17,12 +18,13 @@
   }
   body {
     font-family: theme("fontFamily.default");
-    font-size: theme("fontSizes.md");
+    font-size: theme("fontSize.md");
     background: theme("colors.dark.800");
     color: theme("colors.white");
     font-weight: 400;
     line-height: 1.3334;
     text-decoration-skip-ink: none;
+    min-height: 3000px;
   }
   .changing-color-scheme,
   .changing-color-scheme * {

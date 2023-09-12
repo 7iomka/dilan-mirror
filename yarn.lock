@@ -502,6 +502,10 @@ __metadata:
     effector: ^22.8.6
     effector-http-api: ^2.5.0
     effector-react: ^22.5.3
+    embla-carousel-auto-height: ^8.0.0-rc12
+    embla-carousel-autoplay: ^8.0.0-rc12
+    embla-carousel-class-names: ^8.0.0-rc12
+    embla-carousel-react: ^8.0.0-rc12
     eslint: ^8.45.0
     eslint-config-airbnb: ^19.0.4
     eslint-config-airbnb-base: ^15.0.0
@@ -537,6 +541,7 @@ __metadata:
     react-helmet: ^6.1.0
     react-i18next: ^13.2.1
     react-router-dom: 6.15.0
+    react-sticky-el: ^2.1.0
     tailwind-bootstrap-grid: ^5.0.1
     tailwind-scrollbar: ^3.0.5
     tailwindcss: ^3.3.3
@@ -3173,6 +3178,61 @@ __metadata:
   version: 1.4.506
   resolution: "electron-to-chromium@npm:1.4.506"
   checksum: 449966efca7ab56a308726eec952d0e5a673c12de23921da5336698adb49bfcc1e4e04f3e24c144db9ba8d40023c95bbe8a44a50eb709ddf55984884539eea91
+  languageName: node
+  linkType: hard
+
+"embla-carousel-auto-height@npm:^8.0.0-rc12":
+  version: 8.0.0-rc12
+  resolution: "embla-carousel-auto-height@npm:8.0.0-rc12"
+  peerDependencies:
+    embla-carousel: 8.0.0-rc12
+  checksum: 745f0c6ef41fcb34e59bb504bbb8b1feb69d7878ba35a06e5770ceec42ce51a24ed97058240a2d6fabe59f8ebab3ae63ee79d3e83d18c2a682f077cfceb4ef18
+  languageName: node
+  linkType: hard
+
+"embla-carousel-autoplay@npm:^8.0.0-rc12":
+  version: 8.0.0-rc12
+  resolution: "embla-carousel-autoplay@npm:8.0.0-rc12"
+  peerDependencies:
+    embla-carousel: 8.0.0-rc12
+  checksum: 8a2a870b264415e66186e99788f08909542350ccbd37b4278617d2a92dce9bcbafb0b66c49d2c94dff176437d9651d42f2ca96e330a1b80543482e1abfd90ef3
+  languageName: node
+  linkType: hard
+
+"embla-carousel-class-names@npm:^8.0.0-rc12":
+  version: 8.0.0-rc12
+  resolution: "embla-carousel-class-names@npm:8.0.0-rc12"
+  peerDependencies:
+    embla-carousel: 8.0.0-rc12
+  checksum: 635b5fd1992933f8d150055af92821c719c006be338a6c579feb0457379260ac8a627df10c7ff63fd4ec3c13da1f4adb0e3e673e86df60a8f358173e182e4452
+  languageName: node
+  linkType: hard
+
+"embla-carousel-react@npm:^8.0.0-rc12":
+  version: 8.0.0-rc12
+  resolution: "embla-carousel-react@npm:8.0.0-rc12"
+  dependencies:
+    embla-carousel: 8.0.0-rc12
+    embla-carousel-reactive-utils: 8.0.0-rc12
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.1 || ^18.0.0
+  checksum: 0628bc8f2dd0c83cef4720f6f10e1c35bf9b5130184882f04e2250a1a78ac1582992431b7fee602171399dcbcd72c1c6305f62887c0043cd09b2352501320ca4
+  languageName: node
+  linkType: hard
+
+"embla-carousel-reactive-utils@npm:8.0.0-rc12":
+  version: 8.0.0-rc12
+  resolution: "embla-carousel-reactive-utils@npm:8.0.0-rc12"
+  peerDependencies:
+    embla-carousel: 8.0.0-rc12
+  checksum: 0f6c005f8d09a00c681d9d5116a31a0702860bbb7eafd9ab348b68c206f58f45a14936fdaaec753690fbe9ee8cf98896bf941fd51989fe0d73d5d93233e3d535
+  languageName: node
+  linkType: hard
+
+"embla-carousel@npm:8.0.0-rc12":
+  version: 8.0.0-rc12
+  resolution: "embla-carousel@npm:8.0.0-rc12"
+  checksum: 553f33f562458d7fd0cd4eff1db96ac3a02352b620705d892eb3d9a297924fa12fedaf5a5aa03418dd41905ce80997a99f8aeca955d024d5a49a56f5c7fbe63b
   languageName: node
   linkType: hard
 
@@ -7054,6 +7114,16 @@ __metadata:
   peerDependencies:
     react: ^16.3.0 || ^17.0.0 || ^18.0.0
   checksum: c5eb1f42b464fb093bca59aaae0f1b2060373a2aaff95275b8781493628cdbbb6acdd6014e7883782c65c361f35a30f28cc515d68a1263ddb39cbbc47110be53
+  languageName: node
+  linkType: hard
+
+"react-sticky-el@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "react-sticky-el@npm:2.1.0"
+  peerDependencies:
+    react: ">=16.3.0"
+    react-dom: ">=16.3.0"
+  checksum: 53f686a15fb74c8589a2b86f76098332b684adcebc2a51a0ef3a64303a045f856aa0ac22647905be2ded85a476c9a5c1d3da237a468a5b3022c60627487ccf50
   languageName: node
   linkType: hard
 

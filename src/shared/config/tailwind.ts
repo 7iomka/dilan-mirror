@@ -49,7 +49,7 @@ export const tailwindConfig: Partial<Config> = {
     //     };
     //   }, {}),
     // },
-    fontSizes,
+    fontSize: fontSizes,
     // transition parts
     ...transition,
     // own screens
@@ -75,6 +75,9 @@ export const tailwindConfig: Partial<Config> = {
     },
     extend: {
       colors,
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      },
       fontFamily: {
         ...fontFamily,
         sans: fontFamily.default, // alias

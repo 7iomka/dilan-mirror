@@ -7,8 +7,8 @@ export const fontSizes = {
   lg: rem(18),
   xl: rem(20),
   '2xl': rem(24),
-  base: rem(16), // Add the base field with the same value as md
   '40px': rem(40),
   '56px': rem(56),
   '72px': rem(72),
+  base: rem(16), // Add the base field with the same value as md
 };

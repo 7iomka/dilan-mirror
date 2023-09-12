@@ -10,5 +10,16 @@
   },
   "hero": {
     "title": "Take a look at yourself on the other side"
+  },
+  "actions": {
+    "account": "Investor's account"
+  },
+  "heroSection": {
+    "textBeforeTitle": "Available for co-operation",
+    "title": "Look at yourself on the other side",
+    "textAfterTitle": "Invest in a smart mirror project with reverse body image technology",
+    "slide1Text": "I can keep track of my fitness progress",
+    "slide2Text": "I can check the correctness of exercises",
+    "slide3Text": "I can evaluate my new clothing designs"
   }
 }

@@ -27,14 +27,18 @@ const LanguageSelect = ({ className }: LanguageSelectProps) => {
           arrow: false,
         }}
         trigger={
-          <Button color="custom" className="bg-dark hover:bg-primary/[0.08] text-white">
+          <Button
+            color="custom"
+            size="custom"
+            className="bg-dark-600/40 hover:bg-dark text-white p-6"
+          >
             <div className="flex items-center">
               <img
-                className="w-20 h-20 shrink-0"
+                className="text-lg w-[1em] h-[1em] shrink-0"
                 src={`/static/images/flags/langs/round/${i18n.language.toLowerCase()}.svg`}
                 alt={i18n.language}
               />
-              <span className="ml-5 text-md">{i18n.language.toUpperCase()}</span>
+              <span className="ml-5 text-lg leading-1">{i18n.language.toUpperCase()}</span>
             </div>
           </Button>
         }

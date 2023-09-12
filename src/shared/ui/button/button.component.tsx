@@ -7,7 +7,7 @@ import { Box } from '../box';
 interface ButtonProps extends BoxProps {
   children?: React.ReactNode;
   color?: 'primary' | 'dark' | 'custom';
-  size?: 'md';
+  size?: 'md' | 'custom';
 }
 
 const colorsMap = {
