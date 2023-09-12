@@ -120,7 +120,9 @@ const HeroSection = ({ className }: HeroSectionProps) => {
                               />
                             </div>
                           </div>
-                          <div className="absolute -z-[1] -top-60 lg:-top-80 pt-60 lg:pt-80 bottom-0 right-120 bg-dark-800 w-[25rem] overflow-hidden">
+                          <div className="absolute -z-[1] -top-60 lg:-top-80 pt-60 lg:pt-80 bottom-0 right-120 w-[25rem] overflow-hidden bg-dark">
+                            <div className="absolute left-0 bottom-0 h-full w-full bg-[linear-gradient(180deg,#b6bfc8_82.28%,rgba(182,191,200,0)_100%)] opacity-[0.32] mix-blend-multiply" />
+                            <div className="absolute left-30% top:0 h-[50%] w-[300%] bg-[linear-gradient(180deg,#ffffff_0%,rgba(255,255,255,0)_100%)] opacity-[0.32] -rotate-45 -translate-x-[50%]" />
                             <img
                               className="absolute inset-0 object-cover [object-position:50%_100%] -z-[1]"
                               src="/static/images/content/hero-section/mirror-bg.jpg"
@@ -137,7 +139,7 @@ const HeroSection = ({ className }: HeroSectionProps) => {
                               <ResponsivePicture
                                 srcWithoutExtension={imageSrcWithoutExtension}
                                 extension="png"
-                                className={clsx(pictureBoxClassName, 'opacity-[32%]')}
+                                className={clsx(pictureBoxClassName)}
                               />
                             </div>
                           </div>
