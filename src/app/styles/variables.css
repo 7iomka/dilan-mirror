@@ -5,4 +5,6 @@
   --min-document-width: 360px;
   --header-fixed-height: 60px;
   --removed-body-scroll-bar-size: var(--fancybox-scrollbar-compensate);
+  /* fix missing bootstrap variable for container gutter */
+  --container-gutter: 12px;
 }

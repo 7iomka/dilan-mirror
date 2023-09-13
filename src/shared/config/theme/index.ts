@@ -2,7 +2,7 @@ export { customTypography } from './custom-typography';
 export { customUtilities } from './custom-utilities';
 export { customComponents } from './custom-components';
 export { colors } from './colors';
-export { breakpoints, breakpointsClean } from './breakpoints';
+export { breakpoints, breakpointsClean, largerThan, smallerThan } from './breakpoints';
 export { containerMaxWidths } from './container';
 export { spacing } from './spacing';
 export { radius, radiusKeys } from './radius';

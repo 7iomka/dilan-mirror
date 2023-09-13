@@ -20,6 +20,7 @@ import {
   transition,
   fontSizes,
   fontFamily,
+  largerThan,
 } from './theme';
 
 export const tailwindConfig: Partial<Config> = {
@@ -139,7 +140,29 @@ export const tailwindConfig: Partial<Config> = {
     }),
     // Adding custom utilities here
     plugin((cfg) => {
-      const { addComponents, addUtilities } = cfg;
+      const { addComponents, addUtilities, addBase } = cfg;
+
+      addBase({
+        ':root': {
+          // breakpoints
+          ...Object.keys(breakpoints).reduce((acc, curr) => {
+            return {
+              ...acc,
+              [`--breakpoint-${curr}`]: breakpoints[curr],
+            };
+          }, {}),
+          // container max-width
+          ...Object.keys(breakpoints).reduce(
+            (acc: any, curr: any) => ({
+              ...acc,
+              [`@media ${largerThan(curr)}`]: {
+                '--container-max-width': containerMaxWidths[curr] || breakpoints[curr],
+              },
+            }),
+            {},
+          ),
+        },
+      });
       addComponents(customTypography);
       customComponents.map((cmp) => addComponents(cmp()));
       customUtilities.map((cmp) => addUtilities(cmp()));

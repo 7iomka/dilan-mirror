@@ -1,4 +1,4 @@
-import { em } from './lib';
+import { em, getBreakpointValue } from './lib';
 
 export const breakpointsClean = {
   min: 0,
@@ -21,3 +21,8 @@ export const breakpoints = Object.keys(breakpointsClean).reduce(
   }),
   {} as Record<keyof typeof breakpointsClean, string>,
 );
+
+export const smallerThan = (breakpoint) =>
+  `(max-width: ${getBreakpointValue(breakpoint, breakpoints)})`;
+export const largerThan = (breakpoint) =>
+  `(min-width: ${getBreakpointValue(breakpoint, breakpoints)})`;
