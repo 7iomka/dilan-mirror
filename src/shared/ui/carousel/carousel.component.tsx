@@ -90,16 +90,29 @@ const Carousel = forwardRef<HTMLDivElement, CarouselProps>((props, ref) => {
     const slide = embla.selectedScrollSnap();
     setSelected(slide);
     onSlideChange?.(slide);
+
+    embla.plugins().autoplay?.reset();
   }, [embla, setSelected]);
 
+  const handleAutoplayRules = useCallback(() => {
+    if (!embla) return;
+    const { autoplay } = embla.plugins();
+    autoplay?.reset();
+    if (autoplay?.options.stopOnInteraction !== false) autoplay?.stop();
+  }, [embla]);
+
   const handlePrevious = useCallback(() => {
-    embla?.scrollPrev();
+    if (!embla) return;
+    embla.scrollPrev();
     onPreviousSlide?.();
+    handleAutoplayRules();
   }, [embla]);
 
   const handleNext = useCallback(() => {
-    embla?.scrollNext();
+    if (!embla) return;
+    embla.scrollNext();
     onNextSlide?.();
+    handleAutoplayRules();
   }, [embla]);
 
   const handleKeydown = useCallback(
@@ -140,11 +153,13 @@ const Carousel = forwardRef<HTMLDivElement, CarouselProps>((props, ref) => {
     handleSelect();
     setSlidesCount(embla.scrollSnapList().length);
     embla.on('select', handleSelect);
+    embla.on('reInit', handleSelect);
 
     return () => {
       embla.off('select', handleSelect);
+      embla.off('reInit', handleSelect);
     };
-  }, [embla, options?.slidesToScroll]);
+  }, [embla, onSlideChange, options?.slidesToScroll]);
 
   useEffect(() => {
     if (embla) {

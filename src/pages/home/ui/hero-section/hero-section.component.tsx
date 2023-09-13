@@ -85,19 +85,11 @@ const CarouselContainer = ({ slides }: { slides: HeroCarouselSlide[] }) => {
   const [embla, setEmbla] = useState<EmblaCarouselType | null>(null);
   const [emblaReflection, setEmblaReflection] = useState<EmblaCarouselType | null>(null);
 
-  const handleResetAutoplayTimer = useCallback(() => {
-    if (!embla || !emblaReflection) return;
-
-    embla.plugins().autoplay?.reset();
-    emblaReflection.plugins().autoplay?.reset();
-  }, [embla, emblaReflection]);
-
   const handleSlideChange = useCallback(
     (index: number) => {
       setSelectedIndex(index);
-      handleResetAutoplayTimer();
     },
-    [setSelectedIndex, handleResetAutoplayTimer],
+    [setSelectedIndex],
   );
 
   useEffect(() => {
@@ -149,10 +141,10 @@ const MainCarousel = ({
       options={{ loop: true, ...options }}
       getEmblaApi={getEmblaApi}
       plugins={[
-        // {
-        //   name: 'Autoplay',
-        //   options: { delay: 3000 },
-        // },
+        {
+          name: 'Autoplay',
+          options: { delay: 3000 },
+        },
         { name: 'AutoHeight' },
         {
           name: 'ClassNames',
@@ -207,10 +199,10 @@ const ReflectionCarousel = ({
       `}
       options={{ loop: true, watchDrag: false, ...options }}
       plugins={[
-        // {
-        //   name: 'Autoplay',
-        //   options: { delay: 3000 },
-        // },
+        {
+          name: 'Autoplay',
+          options: { delay: 3000 },
+        },
         { name: 'AutoHeight' },
         {
           name: 'ClassNames',
