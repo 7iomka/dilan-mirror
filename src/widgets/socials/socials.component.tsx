@@ -36,7 +36,10 @@ const Socials = ({ className, classNames, items = socials }: SocialsProps) => {
       {items.map((item) => {
         return (
           <a
-            className={clsx('shrink-0 text-lg leading-1 hover:text-primary', classNames?.item)}
+            className={clsx(
+              'flex items-center justify-center shrink-0 text-xl hover:text-primary',
+              classNames?.item,
+            )}
             key={item.name}
             href={item.url}
             target="_blank"
