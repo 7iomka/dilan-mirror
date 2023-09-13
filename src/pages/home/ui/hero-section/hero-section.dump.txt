@@ -1,0 +1,276 @@
+/* eslint-disable consistent-return */
+import clsx from 'clsx';
+import { useTranslation } from 'react-i18next';
+import { useCallback, useEffect, useState } from 'react';
+import type { EmblaCarouselType } from 'embla-carousel-react';
+import type { CarouselProps } from '@/shared/ui/carousel';
+import { Carousel } from '@/shared/ui/carousel';
+import { ResponsivePicture } from '@/shared/ui/responsive-picture';
+
+interface HeroCarouselSlide {
+  imageSrcWithoutExtension: string;
+  actionImagesSrc: string;
+  actionText: string;
+  slideClassName?: string;
+  slideContentClassName?: string;
+  pictureBoxClassName?: string;
+  reflectionContentClassName?: string;
+}
+
+interface HeroSectionProps {
+  className?: string;
+}
+
+const HeroSection = ({ className }: HeroSectionProps) => {
+  const { t } = useTranslation();
+
+  const slides: HeroCarouselSlide[] = [
+    {
+      imageSrcWithoutExtension: '/static/images/content/hero-section/01',
+      actionImagesSrc: '/static/images/content/hero-section/01-action.jpg',
+      actionText: t('heroSection.slide1Text'),
+      slideClassName: 'flex-[0_0_100%]',
+      slideContentClassName: 'w-[38rem]',
+      pictureBoxClassName: 'pb-[calc((816/608)_*_100%)]',
+      reflectionContentClassName: 'left-[50%] -translate-x-[50%]',
+    },
+    {
+      imageSrcWithoutExtension: '/static/images/content/hero-section/02',
+      actionImagesSrc: '/static/images/content/hero-section/02-action.jpg',
+      actionText: t('heroSection.slide2Text'),
+      slideClassName: 'flex-[0_0_100%]',
+      slideContentClassName: 'w-[49.9375rem]',
+      pictureBoxClassName: 'pb-[calc((829/799)_*_100%)]',
+      reflectionContentClassName: 'left-[50%] -translate-x-[40%]',
+    },
+    {
+      imageSrcWithoutExtension: '/static/images/content/hero-section/03',
+      actionImagesSrc: '/static/images/content/hero-section/03-action.jpg',
+      actionText: t('heroSection.slide3Text'),
+      slideClassName: 'flex-[0_0_100%]',
+      slideContentClassName: 'w-[25.8125rem]',
+      pictureBoxClassName: 'pb-[calc((804/413)_*_100%)]',
+      reflectionContentClassName: 'left-[50%] -translate-x-[50%]',
+    },
+  ];
+
+  return (
+    <section className={clsx(className)}>
+      <div className="pb-20 lg:pb-56 lg:-mb-56">
+        <div className="container">
+          <div className="row items-center">
+            <div className="col-12 lg:col-6 relative z-[1]">
+              <div className="text-[0.5rem] md:text-xs leading-1 tracking-[0.4em] font-bold uppercase">
+                {t('heroSection.textBeforeTitle')}
+              </div>
+              <h1 className="text-40px md:text-72px leading-1 mt-8 md:mt-20">
+                {t('heroSection.title')}
+              </h1>
+              <div className="text-xl md:text-2xl mt-12 md:mt-24">
+                {t('heroSection.textAfterTitle')}
+              </div>
+            </div>
+            <div className="col-12 lg:col-6">
+              <CarouselContainer slides={slides} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const CarouselContainer = ({ slides }: { slides: HeroCarouselSlide[] }) => {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  const [embla, setEmbla] = useState<EmblaCarouselType | null>(null);
+  const [emblaReflection, setEmblaReflection] = useState<EmblaCarouselType | null>(null);
+
+  // console.log({ emblaReflection, embla, scrollProgress, setSelectedIndex });
+
+  const handleScroll = useCallback(() => {
+    if (!embla || !emblaReflection) return;
+    const progress = Math.max(0, Math.min(1, embla.scrollProgress()));
+    setScrollProgress(progress * 100);
+    emblaReflection.scrollTo(embla.selectedScrollSnap());
+  }, [embla, emblaReflection, setScrollProgress]);
+
+  const handleSelect = useCallback(() => {
+    if (!embla || !emblaReflection) return;
+    setSelectedIndex(embla.selectedScrollSnap());
+    emblaReflection.scrollTo(embla.selectedScrollSnap());
+  }, [embla, emblaReflection, setSelectedIndex]);
+
+  // const onThumbClick = useCallback(
+  //   (index: number) => {
+  //     if (!embla || !emblaReflection) return;
+  //     embla.scrollTo(index);
+  //   },
+  //   [embla, emblaReflection],
+  // );
+
+  useEffect(() => {
+    if (!embla) return;
+    handleSelect();
+    embla.on('select', handleSelect);
+
+    embla.on('scroll', handleScroll);
+    handleScroll();
+
+    return () => {
+      embla.off('select', handleSelect);
+      embla.off('scroll', handleScroll);
+    };
+  }, [embla, handleSelect, handleScroll]);
+
+  return (
+    <div className="-mx-[7.5rem] -mt-60 lg:-mt-80 pt-60 lg:pt-80 overflow-hidden relative">
+      <MainCarousel slides={slides} getEmblaApi={setEmbla} />
+      <div className="absolute -z-[1] top-0 bottom-0 right-0 w-[25rem] overflow-hidden bg-dark pt-[inherit]">
+        <div className="absolute left-0 bottom-0 h-full w-full bg-[linear-gradient(180deg,#b6bfc8_82.28%,rgba(182,191,200,0)_100%)] opacity-[0.32] mix-blend-multiply" />
+        <div className="absolute left-30% top:0 h-[50%] w-[300%] bg-[linear-gradient(180deg,#ffffff_0%,rgba(255,255,255,0)_100%)] opacity-[0.32] -rotate-45 -translate-x-[50%]" />
+        <img
+          className="absolute inset-0 object-cover [object-position:50%_100%] -z-[1]"
+          src="/static/images/content/hero-section/mirror-bg.jpg"
+          alt=""
+          aria-hidden="true"
+        />
+        <ReflectionCarousel
+          slides={slides}
+          getEmblaApi={setEmblaReflection}
+          options={{ startIndex: selectedIndex }}
+        />
+      </div>
+    </div>
+  );
+};
+
+const MainCarousel = ({
+  slides,
+  getEmblaApi,
+  options,
+}: {
+  slides: HeroCarouselSlide[];
+  getEmblaApi?: CarouselProps['getEmblaApi'];
+  options?: CarouselProps['options'];
+}) => {
+  return (
+    <Carousel
+      viewportOverflow="visible"
+      options={{ loop: true, ...options }}
+      getEmblaApi={getEmblaApi}
+      plugins={[
+        // {
+        //   name: 'Autoplay',
+        //   options: { delay: 3000 },
+        // },
+        { name: 'AutoHeight' },
+        {
+          name: 'ClassNames',
+        },
+      ]}
+    >
+      {slides.map(
+        (
+          {
+            actionImagesSrc,
+            actionText,
+            imageSrcWithoutExtension,
+            slideClassName,
+            pictureBoxClassName,
+            slideContentClassName,
+            reflectionContentClassName,
+          },
+          idx,
+        ) => {
+          return (
+            <div className={clsx('flex relative min-w-0 select-none', slideClassName)} key={idx}>
+              <div className="inline-flex min-w-[37.5rem] justify-center">
+                <div
+                  className={clsx(
+                    'shrink-0 h-[51rem] flex flex-col justify-end',
+                    slideContentClassName,
+                  )}
+                >
+                  <ResponsivePicture
+                    srcWithoutExtension={imageSrcWithoutExtension}
+                    extension="png"
+                    className={pictureBoxClassName}
+                  />
+                </div>
+              </div>
+            </div>
+          );
+        },
+      )}
+    </Carousel>
+  );
+};
+
+const ReflectionCarousel = ({
+  slides,
+  getEmblaApi,
+  options,
+}: {
+  slides: HeroCarouselSlide[];
+  getEmblaApi?: CarouselProps['getEmblaApi'];
+  options?: CarouselProps['options'];
+}) => {
+  return (
+    <Carousel
+      getEmblaApi={getEmblaApi}
+      className="absolute top-0 bottom-0 left-[50%] -translate-x-[50%] pt-[inherit] w-[calc((var(--container-max-width)_-_var(--container-gutter))/2_+_7.5rem)]"
+      viewportOverflow="visible"
+      options={{ loop: true, ...options }}
+      plugins={[
+        // {
+        //   name: 'Autoplay',
+        //   options: { delay: 3000 },
+        // },
+        { name: 'AutoHeight' },
+        {
+          name: 'ClassNames',
+        },
+      ]}
+    >
+      {slides.map(
+        (
+          {
+            actionImagesSrc,
+            actionText,
+            imageSrcWithoutExtension,
+            slideClassName,
+            pictureBoxClassName,
+            slideContentClassName,
+            reflectionContentClassName,
+          },
+          idx,
+        ) => (
+          <div
+            className={clsx('flex justify-center relative min-w-0 select-none', slideClassName)}
+            key={idx}
+          >
+            <div className="inline-flex min-w-[37.5rem] justify-center">
+              <div
+                className={clsx(
+                  'shrink-0 h-[51rem] flex flex-col justify-end',
+                  slideContentClassName,
+                )}
+              >
+                <ResponsivePicture
+                  srcWithoutExtension={imageSrcWithoutExtension}
+                  extension="png"
+                  className={pictureBoxClassName}
+                />
+              </div>
+            </div>
+          </div>
+        ),
+      )}
+    </Carousel>
+  );
+};
+
+export type { HeroSectionProps };
+export { HeroSection };
