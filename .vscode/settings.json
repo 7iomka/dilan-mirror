@@ -75,7 +75,7 @@
     "wrapperClassName"
   ],
   "files.associations": {
-    "*.css": "tailwindcss"
+    "*.css": "css"
   },
   "editor.quickSuggestions": {
     "strings": "on"
