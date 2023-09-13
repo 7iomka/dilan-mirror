@@ -1,22 +1,41 @@
-import type { EmblaOptionsType, EmblaPluginType } from 'embla-carousel-react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import type { PropsWithChildren } from 'react';
+import { Children, forwardRef, useCallback, useEffect, useRef, useState } from 'react';
+import clsx from 'clsx';
+import type { EmblaCarouselType, EmblaOptionsType, EmblaPluginType } from 'embla-carousel-react';
 import type { ClassNamesType } from 'embla-carousel-class-names';
 import ClassNames from 'embla-carousel-class-names';
 import type { AutoHeightType } from 'embla-carousel-auto-height';
 import AutoHeight from 'embla-carousel-auto-height';
 import type { AutoplayOptionsType } from 'embla-carousel-autoplay';
 import Autoplay from 'embla-carousel-autoplay';
-import useEmblaCarousel, { EmblaCarouselType } from 'embla-carousel-react';
-import type { PropsWithChildren } from 'react';
-import { Children, useEffect, useRef, useState } from 'react';
-import clsx from 'clsx';
+import useEmblaCarousel from 'embla-carousel-react';
 import { CarouselControls } from './carousel-controls.component';
+import { clamp } from './carousel.lib';
 
 interface CarouselProps extends PropsWithChildren {
-  options?: EmblaOptionsType;
   className?: string;
-  initialIndex?: number;
+  classNames?: {
+    root?: string;
+    viewport?: string;
+    container?: string;
+    indicators?: string;
+    indicator?: string;
+  };
+  options?: EmblaOptionsType;
+  /** Get embla API as ref */
+  getEmblaApi?(embla: EmblaCarouselType): void;
+  /** Called when next slide is shown */
+  onNextSlide?(): void;
+  /** Called when previous slider is shown */
+  onPreviousSlide?(): void;
+  /** Called with slide index when slide changes */
+  onSlideChange?(index: number): void;
+  /** Determines whether arrow key should switch slides, `true` by default */
+  withKeyboardEvents?: boolean;
   withControls?: boolean;
-  overflowVisible?: boolean;
+  withIndicators?: boolean;
+  viewportOverflow?: 'hidden' | 'visible';
   plugins?: (
     | { name: 'Autoplay'; options?: AutoplayOptionsType }
     | { name: 'AutoHeight'; options?: AutoHeightType }
@@ -24,15 +43,23 @@ interface CarouselProps extends PropsWithChildren {
   )[];
 }
 
-const Carousel = ({
-  options,
-  className,
-  children,
-  initialIndex,
-  withControls,
-  overflowVisible,
-  plugins,
-}: CarouselProps) => {
+const Carousel = forwardRef<HTMLDivElement, CarouselProps>((props, ref) => {
+  const {
+    options,
+    className,
+    children,
+    withControls,
+    viewportOverflow = 'hidden',
+    plugins,
+    getEmblaApi,
+    onNextSlide,
+    onPreviousSlide,
+    onSlideChange,
+    classNames,
+    withIndicators,
+    withKeyboardEvents = true,
+  } = props;
+
   const pluginsRef = useRef<EmblaPluginType[]>(
     (() => {
       const pluginList: Record<string, (pluginOptions: any) => EmblaPluginType> = {
@@ -49,46 +76,110 @@ const Carousel = ({
     })(),
   );
 
-  const [emblaRef, emblaApi] = useEmblaCarousel(options, pluginsRef.current);
+  const [emblaRefElement, embla] = useEmblaCarousel(options, pluginsRef.current);
 
   const hasAutoHeight = !!plugins?.find((pl) => pl.name === 'AutoHeight');
 
-  // need to selectedIndex to allow this component to re-render in react.
-  // Since emblaRef is a ref, it won't re-render even if there are internal changes to its state.
-  const [selectedIndex, setSelectedIndex] = useState(initialIndex);
+  const [selected, setSelected] = useState(0);
+  const [slidesCount, setSlidesCount] = useState(0);
+
+  const handleScroll = useCallback((index: number) => embla && embla.scrollTo(index), [embla]);
+
+  const handleSelect = useCallback(() => {
+    if (!embla) return;
+    const slide = embla.selectedScrollSnap();
+    setSelected(slide);
+    onSlideChange?.(slide);
+  }, [embla, setSelected]);
+
+  const handlePrevious = useCallback(() => {
+    embla?.scrollPrev();
+    onPreviousSlide?.();
+  }, [embla]);
+
+  const handleNext = useCallback(() => {
+    embla?.scrollNext();
+    onNextSlide?.();
+  }, [embla]);
+
+  const handleKeydown = useCallback(
+    (event: React.KeyboardEvent<HTMLDivElement>) => {
+      if (withKeyboardEvents) {
+        if (event.key === 'ArrowRight') {
+          event.preventDefault();
+          handleNext();
+        }
+
+        if (event.key === 'ArrowLeft') {
+          event.preventDefault();
+          handlePrevious();
+        }
+      }
+    },
+    [embla],
+  );
+
+  const indicators = Array(slidesCount)
+    .fill(0)
+    .map((_, index) => (
+      <button
+        type="button"
+        className={clsx(classNames?.indicator)}
+        key={index}
+        data-active={index === selected || undefined}
+        aria-hidden
+        tabIndex={-1}
+        onClick={() => handleScroll(index)}
+      />
+    ));
 
   useEffect(() => {
-    function selectHandler() {
-      const index = emblaApi?.selectedScrollSnap();
-      setSelectedIndex(index || 0);
-    }
+    if (!embla) return undefined;
 
-    emblaApi?.on('select', selectHandler);
-    // cleanup
+    getEmblaApi?.(embla);
+    handleSelect();
+    setSlidesCount(embla.scrollSnapList().length);
+    embla.on('select', handleSelect);
+
     return () => {
-      emblaApi?.off('select', selectHandler);
+      embla.off('select', handleSelect);
     };
-  }, [emblaApi]);
+  }, [embla, options?.slidesToScroll]);
 
-  const length = Children.count(children);
-  const canScrollNext = !!emblaApi?.canScrollNext();
-  const canScrollPrev = !!emblaApi?.canScrollPrev();
+  useEffect(() => {
+    if (embla) {
+      embla.reInit();
+      setSlidesCount(embla.scrollSnapList().length);
+      setSelected((currentSelected) =>
+        clamp(currentSelected, 0, Children.toArray(children).length - 1),
+      );
+    }
+  }, [Children.toArray(children).length, options?.slidesToScroll]);
+
+  const canScrollPrev = embla?.canScrollPrev() || false;
+  const canScrollNext = embla?.canScrollNext() || false;
   return (
-    <>
-      <div className={clsx(!overflowVisible && 'overflow-hidden', className)} ref={emblaRef}>
-        <div className={clsx('flex', hasAutoHeight && 'items-start')}>{children}</div>
+    <div ref={ref} className={clsx(className, classNames?.root)} onKeyDownCapture={handleKeydown}>
+      <div
+        className={clsx(classNames?.viewport, viewportOverflow === 'hidden' && 'overflow-hidden')}
+        ref={emblaRefElement}
+      >
+        <div className={clsx(classNames?.container, 'flex', hasAutoHeight && 'items-start')}>
+          {children}
+        </div>
       </div>
-      {/* <Dots itemsLength={length} selectedIndex={selectedIndex} /> */}
+      {withIndicators && <div className={clsx(classNames?.indicators)}>{indicators}</div>}
       {withControls && (
         <CarouselControls
           canScrollNext={canScrollNext}
           canScrollPrev={canScrollPrev}
-          onNext={() => emblaApi?.scrollNext()}
-          onPrev={() => emblaApi?.scrollPrev()}
+          onNext={() => embla?.scrollNext()}
+          onPrev={() => embla?.scrollPrev()}
         />
       )}
-    </>
+    </div>
   );
-};
+});
+
 export type { CarouselProps };
 export { Carousel };
