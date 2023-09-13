@@ -1,7 +1,21 @@
+/* eslint-disable consistent-return */
 import clsx from 'clsx';
 import { useTranslation } from 'react-i18next';
+import { useCallback, useEffect, useState } from 'react';
+import type { EmblaCarouselType } from 'embla-carousel-react';
+import type { CarouselProps } from '@/shared/ui/carousel';
 import { Carousel } from '@/shared/ui/carousel';
 import { ResponsivePicture } from '@/shared/ui/responsive-picture';
+
+interface HeroCarouselSlide {
+  imageSrcWithoutExtension: string;
+  actionImagesSrc: string;
+  actionText: string;
+  slideClassName?: string;
+  slideContentClassName?: string;
+  pictureBoxClassName?: string;
+  reflectionContentClassName?: string;
+}
 
 interface HeroSectionProps {
   className?: string;
@@ -10,15 +24,7 @@ interface HeroSectionProps {
 const HeroSection = ({ className }: HeroSectionProps) => {
   const { t } = useTranslation();
 
-  const slides: {
-    imageSrcWithoutExtension: string;
-    actionImagesSrc: string;
-    actionText: string;
-    slideClassName?: string;
-    slideContentClassName?: string;
-    pictureBoxClassName?: string;
-    reflectionContentClassName?: string;
-  }[] = [
+  const slides: HeroCarouselSlide[] = [
     {
       imageSrcWithoutExtension: '/static/images/content/hero-section/01',
       actionImagesSrc: '/static/images/content/hero-section/01-action.jpg',
@@ -65,95 +71,204 @@ const HeroSection = ({ className }: HeroSectionProps) => {
               </div>
             </div>
             <div className="col-12 lg:col-6">
-              <div className="-mx-120 -mt-60 lg:-mt-80 pt-60 lg:pt-80 overflow-hidden">
-                <Carousel
-                  overflowVisible
-                  options={{ loop: true }}
-                  plugins={[
-                    // {
-                    //   name: 'Autoplay',
-                    //   options: { delay: 3000 },
-                    // },
-                    { name: 'AutoHeight' },
-                    {
-                      name: 'ClassNames',
-                    },
-                  ]}
-                >
-                  {slides.map(
-                    (
-                      {
-                        actionImagesSrc,
-                        actionText,
-                        imageSrcWithoutExtension,
-                        slideClassName,
-                        pictureBoxClassName,
-                        slideContentClassName,
-                        reflectionContentClassName,
-                      },
-                      idx,
-                    ) => {
-                      return (
-                        // 👇 style each individual slide.
-                        // relative - needed since we use the fill prop from next/image component
-                        // h-64 - arbitrary height
-                        // flex[0_0_100%]
-                        //   - shorthand for flex-grow:0; flex-shrink:0; flex-basis:100%
-                        //   - we want this slide to not be able to grow or shrink and take up 100% width of the viewport.
-                        <div
-                          className={clsx('flex relative min-w-0 select-none', slideClassName)}
-                          key={idx}
-                        >
-                          <div className="inline-flex min-w-[37.5rem] justify-center">
-                            <div
-                              className={clsx(
-                                'h-[51rem] flex flex-col justify-end',
-                                slideContentClassName,
-                              )}
-                            >
-                              {/* use object-cover + fill since we don't know the height and width of the parent */}
-
-                              <ResponsivePicture
-                                srcWithoutExtension={imageSrcWithoutExtension}
-                                extension="png"
-                                className={pictureBoxClassName}
-                              />
-                            </div>
-                          </div>
-                          <div className="absolute -z-[1] -top-60 lg:-top-80 pt-60 lg:pt-80 bottom-0 right-120 w-[25rem] overflow-hidden bg-dark">
-                            <div className="absolute left-0 bottom-0 h-full w-full bg-[linear-gradient(180deg,#b6bfc8_82.28%,rgba(182,191,200,0)_100%)] opacity-[0.32] mix-blend-multiply" />
-                            <div className="absolute left-30% top:0 h-[50%] w-[300%] bg-[linear-gradient(180deg,#ffffff_0%,rgba(255,255,255,0)_100%)] opacity-[0.32] -rotate-45 -translate-x-[50%]" />
-                            <img
-                              className="absolute inset-0 object-cover [object-position:50%_100%] -z-[1]"
-                              src="/static/images/content/hero-section/mirror-bg.jpg"
-                              alt=""
-                              aria-hidden="true"
-                            />
-                            <div
-                              className={clsx(
-                                'absolute bottom-0',
-                                slideContentClassName,
-                                reflectionContentClassName,
-                              )}
-                            >
-                              <ResponsivePicture
-                                srcWithoutExtension={imageSrcWithoutExtension}
-                                extension="png"
-                                className={clsx(pictureBoxClassName)}
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      );
-                    },
-                  )}
-                </Carousel>
-              </div>
+              <CarouselContainer slides={slides} />
             </div>
           </div>
         </div>
       </div>
     </section>
+  );
+};
+
+const CarouselContainer = ({ slides }: { slides: HeroCarouselSlide[] }) => {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  const [embla, setEmbla] = useState<EmblaCarouselType | null>(null);
+  const [emblaReflection, setEmblaReflection] = useState<EmblaCarouselType | null>(null);
+
+  // console.log({ emblaReflection, embla, scrollProgress, setSelectedIndex });
+
+  const handleScroll = useCallback(() => {
+    if (!embla || !emblaReflection) return;
+    const progress = Math.max(0, Math.min(1, embla.scrollProgress()));
+    setScrollProgress(progress * 100);
+    emblaReflection.scrollTo(embla.selectedScrollSnap());
+  }, [embla, emblaReflection, setScrollProgress]);
+
+  const handleSelect = useCallback(() => {
+    if (!embla || !emblaReflection) return;
+    setSelectedIndex(embla.selectedScrollSnap());
+    emblaReflection.scrollTo(embla.selectedScrollSnap());
+  }, [embla, emblaReflection, setSelectedIndex]);
+
+  // const onThumbClick = useCallback(
+  //   (index: number) => {
+  //     if (!embla || !emblaReflection) return;
+  //     embla.scrollTo(index);
+  //   },
+  //   [embla, emblaReflection],
+  // );
+
+  useEffect(() => {
+    if (!embla) return;
+    handleSelect();
+    embla.on('select', handleSelect);
+
+    embla.on('scroll', handleScroll);
+    handleScroll();
+
+    return () => {
+      embla.off('select', handleSelect);
+      embla.off('scroll', handleScroll);
+    };
+  }, [embla, handleSelect, handleScroll]);
+
+  return (
+    <div className="-mx-[7.5rem] -mt-60 lg:-mt-80 pt-60 lg:pt-80 overflow-hidden relative">
+      <MainCarousel slides={slides} getEmblaApi={setEmbla} />
+      <div className="absolute -z-[1] top-0 bottom-0 right-0 w-[25rem] overflow-hidden bg-dark pt-[inherit]">
+        <div className="absolute left-0 bottom-0 h-full w-full bg-[linear-gradient(180deg,#b6bfc8_82.28%,rgba(182,191,200,0)_100%)] opacity-[0.32] mix-blend-multiply" />
+        <div className="absolute left-30% top:0 h-[50%] w-[300%] bg-[linear-gradient(180deg,#ffffff_0%,rgba(255,255,255,0)_100%)] opacity-[0.32] -rotate-45 -translate-x-[50%]" />
+        <img
+          className="absolute inset-0 object-cover [object-position:50%_100%] -z-[1]"
+          src="/static/images/content/hero-section/mirror-bg.jpg"
+          alt=""
+          aria-hidden="true"
+        />
+        <ReflectionCarousel
+          slides={slides}
+          getEmblaApi={setEmblaReflection}
+          options={{ startIndex: selectedIndex }}
+        />
+      </div>
+    </div>
+  );
+};
+
+const MainCarousel = ({
+  slides,
+  getEmblaApi,
+  options,
+}: {
+  slides: HeroCarouselSlide[];
+  getEmblaApi?: CarouselProps['getEmblaApi'];
+  options?: CarouselProps['options'];
+}) => {
+  return (
+    <Carousel
+      viewportOverflow="visible"
+      options={{ loop: true, ...options }}
+      getEmblaApi={getEmblaApi}
+      plugins={[
+        // {
+        //   name: 'Autoplay',
+        //   options: { delay: 3000 },
+        // },
+        { name: 'AutoHeight' },
+        {
+          name: 'ClassNames',
+        },
+      ]}
+    >
+      {slides.map(
+        (
+          {
+            actionImagesSrc,
+            actionText,
+            imageSrcWithoutExtension,
+            slideClassName,
+            pictureBoxClassName,
+            slideContentClassName,
+            reflectionContentClassName,
+          },
+          idx,
+        ) => {
+          return (
+            <div className={clsx('flex relative min-w-0 select-none', slideClassName)} key={idx}>
+              <div className="inline-flex min-w-[37.5rem] justify-center">
+                <div
+                  className={clsx(
+                    'shrink-0 h-[51rem] flex flex-col justify-end',
+                    slideContentClassName,
+                  )}
+                >
+                  <ResponsivePicture
+                    srcWithoutExtension={imageSrcWithoutExtension}
+                    extension="png"
+                    className={pictureBoxClassName}
+                  />
+                </div>
+              </div>
+            </div>
+          );
+        },
+      )}
+    </Carousel>
+  );
+};
+
+const ReflectionCarousel = ({
+  slides,
+  getEmblaApi,
+  options,
+}: {
+  slides: HeroCarouselSlide[];
+  getEmblaApi?: CarouselProps['getEmblaApi'];
+  options?: CarouselProps['options'];
+}) => {
+  return (
+    <Carousel
+      getEmblaApi={getEmblaApi}
+      className="absolute top-0 bottom-0 left-[50%] -translate-x-[50%] pt-[inherit] w-[calc((var(--container-max-width)_-_var(--container-gutter))/2_+_7.5rem)]"
+      viewportOverflow="visible"
+      options={{ loop: true, ...options }}
+      plugins={[
+        // {
+        //   name: 'Autoplay',
+        //   options: { delay: 3000 },
+        // },
+        { name: 'AutoHeight' },
+        {
+          name: 'ClassNames',
+        },
+      ]}
+    >
+      {slides.map(
+        (
+          {
+            actionImagesSrc,
+            actionText,
+            imageSrcWithoutExtension,
+            slideClassName,
+            pictureBoxClassName,
+            slideContentClassName,
+            reflectionContentClassName,
+          },
+          idx,
+        ) => (
+          <div
+            className={clsx('flex justify-center relative min-w-0 select-none', slideClassName)}
+            key={idx}
+          >
+            <div className="inline-flex min-w-[37.5rem] justify-center">
+              <div
+                className={clsx(
+                  'shrink-0 h-[51rem] flex flex-col justify-end',
+                  slideContentClassName,
+                )}
+              >
+                <ResponsivePicture
+                  srcWithoutExtension={imageSrcWithoutExtension}
+                  extension="png"
+                  className={pictureBoxClassName}
+                />
+              </div>
+            </div>
+          </div>
+        ),
+      )}
+    </Carousel>
   );
 };
 
