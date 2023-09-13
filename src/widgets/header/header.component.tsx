@@ -23,7 +23,7 @@ const HeaderBase = () => {
                 <span>{t('actions.account')}</span>
                 <Icon
                   name="arrow-right-up"
-                  className="ml-6 text-[0.3334em] transition-transform group-hover:-translate-y-2 group-hover:translate-x-2"
+                  className="ml-4 text-[0.667em] transition-transform group-hover:-translate-y-2 group-hover:translate-x-2"
                 />
               </div>
             </a>
