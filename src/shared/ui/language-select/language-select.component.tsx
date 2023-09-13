@@ -34,11 +34,13 @@ const LanguageSelect = ({ className }: LanguageSelectProps) => {
           >
             <div className="flex items-center">
               <img
-                className="text-lg w-[1em] h-[1em] shrink-0"
+                width="1em"
+                height="1em"
+                className="text-md w-[1em] h-[1em] shrink-0"
                 src={`/static/images/flags/langs/round/${i18n.language.toLowerCase()}.svg`}
                 alt={i18n.language}
               />
-              <span className="ml-5 text-lg leading-1">{i18n.language.toUpperCase()}</span>
+              <span className="ml-5 text-md leading-1">{i18n.language.toUpperCase()}</span>
             </div>
           </Button>
         }
@@ -60,11 +62,13 @@ const LanguageSelect = ({ className }: LanguageSelectProps) => {
               >
                 <div className={clsx('flex items-center')}>
                   <img
-                    className="w-20 h-20 shrink-0"
+                    width="1em"
+                    height="1em"
+                    className="text-md w-[1em] h-[1em] shrink-0"
                     src={`/static/images/flags/langs/round/${languageCode.toLowerCase()}.svg`}
                     alt={languageCode}
                   />
-                  <span className="ml-5">{supportedLanguagesMap[languageCode]}</span>
+                  <span className="ml-5 text-md">{supportedLanguagesMap[languageCode]}</span>
                 </div>
               </Button>
             ))}
