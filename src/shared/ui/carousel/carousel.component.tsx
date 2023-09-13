@@ -124,7 +124,7 @@ const Carousel = forwardRef<HTMLDivElement, CarouselProps>((props, ref) => {
     .map((_, index) => (
       <button
         type="button"
-        className={clsx(classNames?.indicator)}
+        className={clsx('c-carousel-indicator', classNames?.indicator)}
         key={index}
         data-active={index === selected || undefined}
         aria-hidden
@@ -159,16 +159,34 @@ const Carousel = forwardRef<HTMLDivElement, CarouselProps>((props, ref) => {
   const canScrollPrev = embla?.canScrollPrev() || false;
   const canScrollNext = embla?.canScrollNext() || false;
   return (
-    <div ref={ref} className={clsx(className, classNames?.root)} onKeyDownCapture={handleKeydown}>
+    <div
+      ref={ref}
+      className={clsx(className, 'c-carousel', classNames?.root)}
+      onKeyDownCapture={handleKeydown}
+    >
       <div
-        className={clsx(classNames?.viewport, viewportOverflow === 'hidden' && 'overflow-hidden')}
+        className={clsx(
+          'c-carousel-viewport',
+          classNames?.viewport,
+          viewportOverflow === 'hidden' && 'overflow-hidden',
+        )}
         ref={emblaRefElement}
       >
-        <div className={clsx(classNames?.container, 'flex', hasAutoHeight && 'items-start')}>
+        <div
+          className={clsx(
+            'c-carousel-container',
+            classNames?.container,
+            'flex',
+            hasAutoHeight && (options?.axis === 'y' ? 'justify-start' : 'items-start'),
+            options?.axis === 'y' && 'flex-col',
+          )}
+        >
           {children}
         </div>
       </div>
-      {withIndicators && <div className={clsx(classNames?.indicators)}>{indicators}</div>}
+      {withIndicators && (
+        <div className={clsx('c-carousel-indicators', classNames?.indicators)}>{indicators}</div>
+      )}
       {withControls && (
         <CarouselControls
           canScrollNext={canScrollNext}

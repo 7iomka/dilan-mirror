@@ -39,7 +39,7 @@ const CarouselControls = ({
         }}
         disabled={!canScrollNext}
         className={clsx({
-          'px-4 py-2 text-white rounded-md': true,
+          'c-carousel-control px-4 py-2 text-white rounded-md': true,
           'bg-indigo-200': !canScrollNext,
           'bg-indigo-400': canScrollNext,
         })}
