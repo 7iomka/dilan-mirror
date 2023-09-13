@@ -20,7 +20,7 @@ const HeaderBase = () => {
           <div className="ml-20 flex items-center space-x-20">
             <a className="group text-lg hover:text-primary" href="#!">
               <div className="flex">
-                <span>{t('actions.account')}</span>
+                <span className="hidden md:block">{t('actions.account')}</span>
                 <Icon
                   name="arrow-right-up"
                   className="ml-4 text-[0.667em] transition-transform group-hover:-translate-y-2 group-hover:translate-x-2"
