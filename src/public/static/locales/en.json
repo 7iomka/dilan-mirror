@@ -21,5 +21,17 @@
     "slide1Text": "I can keep track of my fitness progress",
     "slide2Text": "I can check the correctness of exercises",
     "slide3Text": "I can evaluate my new clothing designs"
+  },
+  "indicators": {
+    "limitationText": "This should be a description of the pains of potential users. Examples of why standard mirrors do not cover their needs. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "proposalText": "And here is a description of the proposal, what the project is and how it helps. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "item1Title": "Completion status of the third stage of development",
+    "item2Title": "Funds raised for replication of the project",
+    "item3Title": "People from all over the world have already invested"
+  },
+  "examples": {
+    "title": "Examples\nof applications",
+    "description": "Here there will be a description block with text about how many ways the product can be used.",
+    "medSelfExamination": "MED self-examination"
   }
 }

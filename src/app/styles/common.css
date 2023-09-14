@@ -26,11 +26,11 @@
     text-decoration-skip-ink: none;
     min-height: 3000px;
   }
-  .changing-color-scheme,
-  .changing-color-scheme * {
-    -webkit-transition: none !important;
-    transition: none !important;
+
+  .row {
+    --bs-gutter-x: var(--row-gutter);
   }
+
   h1,
   h2,
   h3,

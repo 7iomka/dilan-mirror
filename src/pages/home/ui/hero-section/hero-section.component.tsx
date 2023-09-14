@@ -54,7 +54,7 @@ const HeroSection = ({ className }: HeroSectionProps) => {
   ];
 
   return (
-    <section className={clsx(className)}>
+    <section id="hero" className={clsx(className)}>
       <div className="relative pb-20 lg:pb-56 lg:-mb-56 min-h-[37.5rem] md:min-h-[56.25rem] lg:min-h-0 flex flex-col justify-end">
         <div className="container">
           <div className="row items-center">
@@ -141,10 +141,10 @@ const MainCarousel = ({
       options={{ loop: true, ...options }}
       getEmblaApi={getEmblaApi}
       plugins={[
-        {
-          name: 'Autoplay',
-          options: { delay: 3000 },
-        },
+        // {
+        //   name: 'Autoplay',
+        //   options: { delay: 3000 },
+        // },
         { name: 'AutoHeight' },
         {
           name: 'ClassNames',
@@ -199,10 +199,10 @@ const ReflectionCarousel = ({
       `}
       options={{ loop: true, watchDrag: false, ...options }}
       plugins={[
-        {
-          name: 'Autoplay',
-          options: { delay: 3000 },
-        },
+        // {
+        //   name: 'Autoplay',
+        //   options: { delay: 3000 },
+        // },
         { name: 'AutoHeight' },
         {
           name: 'ClassNames',

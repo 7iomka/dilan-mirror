@@ -7,4 +7,5 @@
   --removed-body-scroll-bar-size: var(--fancybox-scrollbar-compensate);
   /* fix missing bootstrap variable for container gutter */
   --container-gutter: 12px;
+  --row-gutter: 24px; /* space between columns */
 }

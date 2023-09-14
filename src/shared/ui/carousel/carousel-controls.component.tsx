@@ -1,4 +1,5 @@
-import clsx from 'clsx';
+import { Button } from '../button';
+import { Icon } from '../icon';
 
 interface CarouselControlsProps {
   canScrollPrev: boolean;
@@ -13,40 +14,27 @@ const CarouselControls = ({
   onNext,
 }: CarouselControlsProps) => {
   return (
-    <div className="flex justify-end space-x-10">
-      <button
-        type="button"
-        onClick={() => {
-          if (canScrollPrev) {
-            onPrev();
-          }
-        }}
+    <>
+      <Button
+        color="custom"
+        size="custom"
+        className="p-11 border border-dark hover:border-black bg-dark-800 hover:bg-black w-88 [&[disabled]]:text-dark-200"
         disabled={!canScrollPrev}
-        className={clsx({
-          'px-4 py-2 text-white rounded-md': true,
-          'bg-indigo-200': !canScrollPrev,
-          'bg-indigo-400': canScrollPrev,
-        })}
+        onClick={() => onPrev()}
+        tabIndex={canScrollPrev ? 0 : -1}
       >
-        Prev
-      </button>
-      <button
-        type="button"
-        onClick={() => {
-          if (canScrollNext) {
-            onNext();
-          }
-        }}
+        <Icon name="chevron-left" className="text-2xl" />
+      </Button>
+      <Button
+        color="custom"
+        className="p-11 border border-dark hover:border-black bg-dark-800 hover:bg-black w-88 [&[disabled]]:text-dark-200"
         disabled={!canScrollNext}
-        className={clsx({
-          'c-carousel-control px-4 py-2 text-white rounded-md': true,
-          'bg-indigo-200': !canScrollNext,
-          'bg-indigo-400': canScrollNext,
-        })}
+        onClick={() => onNext()}
+        tabIndex={canScrollNext ? 0 : -1}
       >
-        Next
-      </button>
-    </div>
+        <Icon name="chevron-right" className="text-2xl" />
+      </Button>
+    </>
   );
 };
 

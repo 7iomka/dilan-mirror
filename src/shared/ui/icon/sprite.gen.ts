@@ -18,9 +18,9 @@ export interface SpritesMap {
     | 'mirror'
     | 'play-circle'
     | 'shield-check'
+    | 'shopping-basket'
     | 'sun'
-    | 'webcam'
-    | 'shopping-basket';
+    | 'webcam';
 }
 export const SPRITES_META = {
   sprite: [
@@ -42,9 +42,9 @@ export const SPRITES_META = {
     'mirror',
     'play-circle',
     'shield-check',
+    'shopping-basket',
     'sun',
     'webcam',
-    'shopping-basket',
   ],
 } satisfies {
   sprite: Array<
@@ -66,8 +66,8 @@ export const SPRITES_META = {
     | 'mirror'
     | 'play-circle'
     | 'shield-check'
+    | 'shopping-basket'
     | 'sun'
     | 'webcam'
-    | 'shopping-basket'
   >;
 };

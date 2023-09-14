@@ -23,6 +23,13 @@ import {
   largerThan,
 } from './theme';
 
+/**
+ * By default the spacing scale is inherited by the
+ * padding, margin, width, height, maxHeight, gap, inset, space, translate, scrollMargin, and scrollPadding core plugins.
+ * We extend this list with: maxWidth, flexBasis
+ * Also we added `full` value for some rules
+ */
+
 export const tailwindConfig: Partial<Config> = {
   darkMode: ['class', '[data-theme="dark"]'], // custom class instead of default 'dark'
   // content paths always resolved by tailwind relative to root of every project
@@ -83,7 +90,8 @@ export const tailwindConfig: Partial<Config> = {
         ...fontFamily,
         sans: fontFamily.default, // alias
       },
-      maxWidth: {
+      maxWidth: ({ theme }) => ({
+        ...theme('spacing'),
         // Add .max-width-container-xxx, .max-width-container-xxx-without-gutter
         ...Object.keys(containerMaxWidths).reduce(
           (prev, curr) => ({
@@ -95,8 +103,9 @@ export const tailwindConfig: Partial<Config> = {
         ),
         container: 'var(--container-max-width)',
         'container-without-gutter': `calc(var(--container-max-width) - var(--bs-gutter-x, calc(1.5rem / 2)))`,
-      },
-      flexBasis: {
+      }),
+      flexBasis: ({ theme }) => ({
+        ...theme('spacing'),
         // Add .basis-container-xxx, .basis-container-xxx-without-gutter
         ...Object.keys(containerMaxWidths).reduce(
           (prev, curr) => ({
@@ -108,7 +117,7 @@ export const tailwindConfig: Partial<Config> = {
         ),
         container: 'var(--container-max-width)',
         'container-without-gutter': `calc(var(--container-max-width) - var(--bs-gutter-x, calc(1.5rem / 2)))`,
-      },
+      }),
       // Add custom variants
       lineHeight: {
         ...Array.from({ length: 100 }, (_, i) => round(1 + i * 0.01)).reduce((acc, curr) => {
