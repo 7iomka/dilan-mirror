@@ -11,3 +11,4 @@ export { transition } from './transition';
 export { fontSizes } from './font-sizes';
 export { fontFamily } from './font-family';
 export { inputSizes } from './sizes';
+export { widthSetup } from './width-setup';

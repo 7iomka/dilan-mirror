@@ -21,6 +21,7 @@ import {
   fontSizes,
   fontFamily,
   largerThan,
+  widthSetup,
 } from './theme';
 
 /**
@@ -90,34 +91,10 @@ export const tailwindConfig: Partial<Config> = {
         ...fontFamily,
         sans: fontFamily.default, // alias
       },
-      maxWidth: ({ theme }) => ({
-        ...theme('spacing'),
-        // Add .max-width-container-xxx, .max-width-container-xxx-without-gutter
-        ...Object.keys(containerMaxWidths).reduce(
-          (prev, curr) => ({
-            ...prev,
-            [`container-${curr}`]: containerMaxWidths[curr],
-            [`container-${curr}-without-gutter`]: `calc(${containerMaxWidths[curr]} - var(--bs-gutter-x, calc(1.5rem / 2))`,
-          }),
-          {},
-        ),
-        container: 'var(--container-max-width)',
-        'container-without-gutter': `calc(var(--container-max-width) - var(--bs-gutter-x, calc(1.5rem / 2)))`,
-      }),
-      flexBasis: ({ theme }) => ({
-        ...theme('spacing'),
-        // Add .basis-container-xxx, .basis-container-xxx-without-gutter
-        ...Object.keys(containerMaxWidths).reduce(
-          (prev, curr) => ({
-            ...prev,
-            [`container-${curr}`]: containerMaxWidths[curr],
-            [`container-${curr}-without-gutter`]: `calc(${containerMaxWidths[curr]} - var(--bs-gutter-x, calc(1.5rem / 2))`,
-          }),
-          {},
-        ),
-        container: 'var(--container-max-width)',
-        'container-without-gutter': `calc(var(--container-max-width) - var(--bs-gutter-x, calc(1.5rem / 2)))`,
-      }),
+      width: widthSetup,
+      maxWidth: widthSetup,
+      minWidth: widthSetup,
+      flexBasis: widthSetup,
       // Add custom variants
       lineHeight: {
         ...Array.from({ length: 100 }, (_, i) => round(1 + i * 0.01)).reduce((acc, curr) => {
@@ -128,6 +105,12 @@ export const tailwindConfig: Partial<Config> = {
             [`${curr}`.replace('.', '-')]: `${curr}`,
           };
         }, {}),
+      },
+      padding: {
+        'container-gutter': 'var(--container-gutter)',
+      },
+      margin: {
+        'container-gutter': 'var(--container-gutter)',
       },
     },
   },
@@ -161,6 +144,7 @@ export const tailwindConfig: Partial<Config> = {
             };
           }, {}),
           // container max-width
+          '--container-max-width': containerMaxWidths.min,
           ...Object.keys(breakpoints).reduce(
             (acc: any, curr: any) => ({
               ...acc,

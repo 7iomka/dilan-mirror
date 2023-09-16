@@ -71,9 +71,9 @@ const ExamplesSection = ({ className }: ExamplesSectionProps) => {
     <section
       id="examples"
       className={clsx(
-        `mt-56 md:mt-86
+        `mt-56 md:mt-88
         bg-gradient-to-b from-dark-800 from-90% md:from-80%
-        via-dark-800 viat-90% md:via-80%
+        via-dark-800 via-90% md:via-80%
         to-indigo-50 to-90% md:to-80%
         overflow-hidden`,
         className,

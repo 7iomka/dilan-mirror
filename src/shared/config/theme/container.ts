@@ -1,7 +1,8 @@
 import { rem } from './lib';
+import { breakpointsClean } from './breakpoints';
 
 export const containerMaxWidths = {
-  min: rem(320),
+  min: rem(breakpointsClean.min),
   xs: rem(360),
   xsm: rem(375),
   xsl: rem(414),

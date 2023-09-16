@@ -27,6 +27,9 @@
     min-height: 3000px;
   }
 
+  .container {
+    --bs-gutter-x: var(--container-gutter);
+  }
   .row {
     --bs-gutter-x: var(--row-gutter);
   }

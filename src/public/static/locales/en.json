@@ -50,5 +50,27 @@
       "item5Text": "A smart light on the top and sides reacts to the video broadcast to avoid glare and highlights the person in front of the mirror.",
       "item6Text": "Video quality is customisable from 4k, 60fps and up to avoid broadcast lags."
     }
+  },
+  "arguments": {
+    "item1": {
+      "title": "Room illumination",
+      "description": "Mirrors maximise even minimal sunlight during the day and artificial light in the evening"
+    },
+    "item2": {
+      "title": "Expansion of space",
+      "description": "Even the illusion of increased living space makes small rooms more comfortable"
+    },
+    "item3": {
+      "title": "Psychological need",
+      "description": "We looks at themselves in the morning, before leaving the house and from 8 to 12 times a day"
+    },
+    "item4": {
+      "title": "Fitness, beauty, etc.",
+      "description": "The actual and potential benefits of mirrors have been proven over 2000 years of existence"
+    },
+    "title": "Everyone needs mirrors",
+    "imageHeadLine": "A headline about the project team's commitment to changing the world",
+    "imageSubHeadLine": "A subtitle about not missing the opportunity to join an innovative project at an early stage of development",
+    "actionText": "Join to us"
   }
 }

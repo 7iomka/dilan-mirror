@@ -1,13 +1,20 @@
 import { BaseLayout } from '@/widgets/layouts/base-layout';
-import { HeroSection, IndicatorsSection, ExamplesSection, HowItWorksSection } from './ui';
+import {
+  // HeroSection,
+  IndicatorsSection,
+  ExamplesSection,
+  // HowItWorksSection,
+  ArgumentsSection,
+} from './ui';
 
 export const HomePage = () => {
   return (
     <BaseLayout withStickyHeader>
-      <HeroSection />
+      {/* <HeroSection /> */}
       <IndicatorsSection />
       <ExamplesSection />
-      <HowItWorksSection />
+      {/* <HowItWorksSection /> */}
+      <ArgumentsSection />
     </BaseLayout>
   );
 };
