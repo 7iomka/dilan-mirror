@@ -72,5 +72,13 @@
     "imageHeadLine": "A headline about the project team's commitment to changing the world",
     "imageSubHeadLine": "A subtitle about not missing the opportunity to join an innovative project at an early stage of development",
     "actionText": "Join to us"
+  },
+  "roadmap": {
+    "title": "Our goals and plans",
+    "description": "It is recommended to describe what the company is striving for, what its mission is and why an investor should pay attention to it.",
+    "textFor2022": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    "textFor2023": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    "textFor2024": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    "textFor2025": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
   }
 }

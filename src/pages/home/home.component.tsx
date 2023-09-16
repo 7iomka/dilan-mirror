@@ -6,15 +6,17 @@ import {
   // HowItWorksSection,
   ArgumentsSection,
 } from './ui';
+import { RoadmapSection } from './ui/roadmap-section';
 
 export const HomePage = () => {
   return (
     <BaseLayout withStickyHeader>
       {/* <HeroSection /> */}
-      <IndicatorsSection />
-      <ExamplesSection />
+      {/* <IndicatorsSection /> */}
+      {/* <ExamplesSection /> */}
       {/* <HowItWorksSection /> */}
       <ArgumentsSection />
+      <RoadmapSection />
     </BaseLayout>
   );
 };

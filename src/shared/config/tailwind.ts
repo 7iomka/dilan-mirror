@@ -108,9 +108,11 @@ export const tailwindConfig: Partial<Config> = {
       },
       padding: {
         'container-gutter': 'var(--container-gutter)',
+        'container-gutter2x': 'calc(var(--container-gutter)*2)',
       },
       margin: {
         'container-gutter': 'var(--container-gutter)',
+        'container-gutter2x': 'calc(var(--container-gutter)*2)',
       },
     },
   },
@@ -143,6 +145,15 @@ export const tailwindConfig: Partial<Config> = {
               [`--breakpoint-${curr}`]: breakpoints[curr],
             };
           }, {}),
+          ...Object.keys(containerMaxWidths).reduce(
+            (prev, curr) => ({
+              ...prev,
+              [`--container-${curr}`]: containerMaxWidths[curr],
+              [`--container-${curr}-without-gutter`]: `calc(${containerMaxWidths[curr]} - var(--container-gutter)*2)`,
+              [`--container-${curr}-with-gutter`]: `calc(${containerMaxWidths[curr]} + var(--container-gutter)*2)`,
+            }),
+            {},
+          ),
           // container max-width
           '--container-max-width': containerMaxWidths.min,
           ...Object.keys(breakpoints).reduce(

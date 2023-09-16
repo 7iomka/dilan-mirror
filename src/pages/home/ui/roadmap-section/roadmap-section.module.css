@@ -1,0 +1,45 @@
+.wrapper {
+  --scrollbar-width: 0px;
+  --container-w: calc(var(--container-max-width) - (var(--container-gutter) * 2));
+  --w: calc(2.5rem * 6 * 4);
+
+  @media (min-width: theme("screens.xl")) {
+    --w: calc(2.5rem * 7 * 4);
+    --scrollbar-width: 17px;
+  }
+
+  @media (min-width: theme("screens.lp")) {
+    --w: calc(3.375rem * 6 * 4);
+  }
+}
+
+.leftLine {
+}
+
+.mainLine {
+}
+
+.rightLine {
+  /* We substracted scrollbar width to prevent unecessary overflow */
+  width: calc((100vw - min(var(--container-w), 100%) - var(--scrollbar-width)) / 2);
+  /* transform: translateX(calc(var(--container-w) - var(--w))); */
+}
+
+.leftLine::after,
+.rightLine::after,
+.mainLine::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  height: 3px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  margin-top: 4px;
+  background-color: #186951;
+
+  @media (min-width: theme("screens.md")) {
+    height: 4px;
+    margin-top: 6px;
+  }
+}

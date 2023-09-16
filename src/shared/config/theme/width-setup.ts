@@ -8,12 +8,12 @@ export const widthSetup = ({ theme }: PluginUtils) => ({
     (prev, curr) => ({
       ...prev,
       [`container-${curr}`]: containerMaxWidths[curr],
-      [`container-${curr}-without-gutter`]: `calc(${containerMaxWidths[curr]} - var(--container-gutter))`,
+      [`container-${curr}-without-gutter`]: `calc(${containerMaxWidths[curr]} - var(--container-gutter)*2)`,
       [`container-${curr}-with-gutter`]: `calc(${containerMaxWidths[curr]} + var(--container-gutter)*2)`,
     }),
     {},
   ),
   container: 'var(--container-max-width)',
-  'container-without-gutter': `calc(var(--container-max-width) - var(--container-gutter))`,
+  'container-without-gutter': `calc(var(--container-max-width) - var(--container-gutter)*2)`,
   'container-with-gutter': `calc(var(--container-max-width) + var(--container-gutter)*2)`,
 });
