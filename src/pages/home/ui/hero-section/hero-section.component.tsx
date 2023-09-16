@@ -27,7 +27,7 @@ const HeroSection = ({ className }: HeroSectionProps) => {
     {
       imageSrcWithoutExtension: '/static/images/content/hero-section/01',
       actionImagesSrc: '/static/images/content/hero-section/01-action.jpg',
-      actionText: t('heroSection.slide1Text'),
+      actionText: t('hero.slide1Text'),
       slideClassName: 'flex-[0_0_100%]',
       slideContentClassName: 'w-full md:w-[38rem]',
       pictureBoxClassName: 'object-left-bottom pb-[calc((816/608)_*_100%)]',
@@ -36,7 +36,7 @@ const HeroSection = ({ className }: HeroSectionProps) => {
     {
       imageSrcWithoutExtension: '/static/images/content/hero-section/02',
       actionImagesSrc: '/static/images/content/hero-section/02-action.jpg',
-      actionText: t('heroSection.slide2Text'),
+      actionText: t('hero.slide2Text'),
       slideClassName: 'flex-[0_0_100%]',
       slideContentClassName: 'w-full md:w-[49.9375rem]',
       pictureBoxClassName: 'object-left-bottom pb-[calc((829/799)_*_100%)]',
@@ -45,7 +45,7 @@ const HeroSection = ({ className }: HeroSectionProps) => {
     {
       imageSrcWithoutExtension: '/static/images/content/hero-section/03',
       actionImagesSrc: '/static/images/content/hero-section/03-action.jpg',
-      actionText: t('heroSection.slide3Text'),
+      actionText: t('hero.slide3Text'),
       slideClassName: 'flex-[0_0_100%]',
       slideContentClassName: 'w-full md:w-[25.8125rem]',
       pictureBoxClassName: 'object-left-bottom pb-[calc((804/413)_*_100%)]',
@@ -60,13 +60,13 @@ const HeroSection = ({ className }: HeroSectionProps) => {
           <div className="row items-center">
             <div className="col-12 lg:col-6 relative z-[1]">
               <div className="text-[0.5rem] md:text-xs leading-1 tracking-[0.4em] font-bold uppercase">
-                {t('heroSection.textBeforeTitle')}
+                {t('hero.textBeforeTitle')}
               </div>
               <h1 className="text-40px md:text-72px leading-1 mt-8 md:mt-20">
-                {t('heroSection.title')}
+                {t('hero.title')}
               </h1>
               <div className="text-xl md:text-2xl mt-12 md:mt-24">
-                {t('heroSection.textAfterTitle')}
+                {t('hero.textAfterTitle')}
               </div>
             </div>
             <div className="col-12 lg:col-6 absolute inset-0 px-0 lg:static">
@@ -274,7 +274,7 @@ const PaginationWithPreviews = ({
               alt=""
             />
             <div className="ml-20">
-              <div className="text-left text-2xl text-gray-700">{actionText}</div>
+              <div className="text-left text-2xl text-slate-300">{actionText}</div>
             </div>
           </button>
         );

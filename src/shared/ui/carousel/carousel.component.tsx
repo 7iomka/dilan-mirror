@@ -35,7 +35,7 @@ interface CarouselProps extends PropsWithChildren {
   withKeyboardEvents?: boolean;
   withControls?: boolean;
   withIndicators?: boolean;
-  viewportOverflow?: 'hidden' | 'visible';
+  viewportOverflow?: 'unset' | 'hidden' | 'visible';
   plugins?: (
     | { name: 'Autoplay'; options?: AutoplayOptionsType }
     | { name: 'AutoHeight'; options?: AutoHeightType }

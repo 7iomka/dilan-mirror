@@ -8,13 +8,10 @@
     "notFoundDescription": "Sorry, we couldn`t find the page you`re looking for.",
     "goBackHome": "Go back home"
   },
-  "hero": {
-    "title": "Take a look at yourself on the other side"
-  },
   "actions": {
     "account": "Investor's account"
   },
-  "heroSection": {
+  "hero": {
     "textBeforeTitle": "Available for co-operation",
     "title": "Look at yourself on the other side",
     "textAfterTitle": "Invest in a smart mirror project with reverse body image technology",
@@ -33,5 +30,25 @@
     "title": "Examples\nof applications",
     "description": "Here there will be a description block with text about how many ways the product can be used.",
     "medSelfExamination": "MED self-examination"
+  },
+  "howItWorks": {
+    "title": "How it works",
+    "accessories": {
+      "touchPanel": "Touch panel",
+      "camera": "Camera",
+      "flap": "FLAP",
+      "cutOffSensor": "Cut-off sensor",
+      "motionSensor": "Motion sensor",
+      "mirrorDisplay": "Mirror display",
+      "intelligentLight": "Intelligent light"
+    },
+    "items": {
+      "item1Text": "The back display function is activated by touch panel, hand gesture, thanks to a special motion sensor or voice command.",
+      "item2Text": "The sensors are installed anywhere depending on the interior and switch off automatically if they do not track the person.",
+      "item3Text": "The camera is covered by a flap and is visible when activated so that the person is not uncomfortable with the feeling of constant surveillance.",
+      "item4Text": "The covering mirror is designed to be double-layered to hide the video feed screen and display it when needed.",
+      "item5Text": "A smart light on the top and sides reacts to the video broadcast to avoid glare and highlights the person in front of the mirror.",
+      "item6Text": "Video quality is customisable from 4k, 60fps and up to avoid broadcast lags."
+    }
   }
 }

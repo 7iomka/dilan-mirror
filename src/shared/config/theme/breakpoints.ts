@@ -1,7 +1,7 @@
 import { em, getBreakpointValue } from './lib';
 
 export const breakpointsClean = {
-  min: 0,
+  min: 360, // 0
   xs: 360,
   xsm: 375,
   xsl: 414,

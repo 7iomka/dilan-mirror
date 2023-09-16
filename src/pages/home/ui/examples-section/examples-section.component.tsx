@@ -3,8 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { useCallback, useEffect, useState } from 'react';
 import type { EmblaCarouselType } from 'embla-carousel-react';
 import { Carousel, CarouselControls } from '@/shared/ui/carousel';
-import { Button } from '@/shared/ui/button';
-import { Icon } from '@/shared/ui/icon';
 
 interface ExamplesSectionProps {
   className?: string;
@@ -70,7 +68,17 @@ const ExamplesSection = ({ className }: ExamplesSectionProps) => {
   }, [embla, onSelect]);
 
   return (
-    <section id="examples" className={clsx('py-56 md:py-86 overflow-hidden', className)}>
+    <section
+      id="examples"
+      className={clsx(
+        `mt-56 md:mt-86
+        bg-gradient-to-b from-dark-800 from-90% md:from-80%
+        via-dark-800 viat-90% md:via-80%
+        to-indigo-50 to-90% md:to-80%
+        overflow-hidden`,
+        className,
+      )}
+    >
       <div className="container">
         <div className="row gy-12">
           <div className="col-12 md:col-6">
@@ -92,6 +100,7 @@ const ExamplesSection = ({ className }: ExamplesSectionProps) => {
           <Carousel
             getEmblaApi={setEmbla}
             onSlideChange={onSelect}
+            viewportOverflow="unset"
             classNames={{
               viewport: 'overflow-visible lg:overflow-hidden',
               container: '-mr-24',
