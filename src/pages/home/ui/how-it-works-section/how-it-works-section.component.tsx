@@ -96,7 +96,7 @@ const HowItWorksSection = ({ className }: HowItWorksSectionProps) => {
       className={clsx('py-56 md:py-86 bg-indigo-50 text-dark-800', className)}
     >
       <div className="container">
-        <h2 className="text-40px md:text-64px whitespace-pre-wrap text-center">{data.title}</h2>
+        <h2 className="text-40px md:text-56px whitespace-pre-wrap text-center">{data.title}</h2>
         <div className="mt-24 lg:mt-56 overflow-hidden">
           <div
             className="grid
