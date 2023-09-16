@@ -8,6 +8,7 @@ export const colors = {
     DEFAULT: '#2ef0b6',
     light: '#85ffda',
     dark: '#16ba89',
+    pale: '#188967',
   },
   dark: {
     50: '#9DA1AE',

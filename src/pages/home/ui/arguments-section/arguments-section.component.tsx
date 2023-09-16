@@ -40,7 +40,7 @@ const ArgumentsSection = ({ className }: ArgumentsSectionProps) => {
   };
 
   return (
-    <section className={clsx('bg-white text-dark-800', className)}>
+    <section id="arguments" className={clsx('bg-white text-dark-800', className)}>
       <div className="pt-56 md:pt-88">
         <div className="container">
           <h2 className="text-40px md:text-56px whitespace-pre-wrap text-center">{data.title}</h2>
@@ -64,7 +64,7 @@ const ArgumentsSection = ({ className }: ArgumentsSectionProps) => {
         className={`pt-56 md:pt-88
         md:bg-gradient-to-b from-white from-80%
         via-white via-80%
-        to-dark-800 to-80%
+        to-dark-500 to-80%
       `}
       >
         <div className="container">

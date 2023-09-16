@@ -31,7 +31,7 @@ const RoadmapSection = ({ className }: RoadmapSectionProps) => {
     ],
   };
   return (
-    <section className={clsx('pt-56 md:pt-88', className)}>
+    <section id="roadmap" className={clsx('pt-56 md:pt-88 bg-dark-500', className)}>
       <div className="container">
         <div className="row gy-12">
           <div className="col-12 md:col-6">
@@ -166,7 +166,7 @@ const RoadmapSection = ({ className }: RoadmapSectionProps) => {
         </div>
       </div>
       <div className="container mt-56 md:mt-88">
-        <hr className="border-t-dark-200" />
+        <hr className="border-t-dark-300" />
       </div>
     </section>
   );

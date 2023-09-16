@@ -80,5 +80,15 @@
     "textFor2023": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
     "textFor2024": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
     "textFor2025": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+  },
+  "authorship": {
+    "title": "Hello I'am {{authorInitials}}",
+    "subtitle": "CEO Dilan Mirror, project author",
+    "description": "Here it is necessary to add text with some successes of Vasily, with his past, which allowed to create the project and with his plans for a promising future.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "patentFrance": {
+      "title": "Patent registered in France",
+      "description": "PCT submitted application for other countries"
+    },
+    "showDocumentActionText": "Show document"
   }
 }
