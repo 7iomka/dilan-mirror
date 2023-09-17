@@ -11,6 +11,6 @@ export const containerMaxWidths = {
   md: rem(720),
   lg: rem(960),
   xl: rem(1140),
-  lp: rem(1256),
+  lp: rem(1320),
   xxl: rem(1320),
 };
