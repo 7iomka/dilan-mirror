@@ -1,6 +1,7 @@
 @import "global-preflight.css";
 @import "variables.css";
 @import "lazy-images.css";
+@import "scrollbar.css";
 
 @tailwind base;
 @tailwind components;

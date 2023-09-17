@@ -20,4 +20,16 @@ const visuallyHidden = () => ({
   },
 });
 
-export const customUtilities = [scrollbarCompensation, visuallyHidden];
+const hideNativeScrollbar = () => ({
+  '.c-hide-native-scrollbar': {
+    scrollbarWidth: 'none',
+    '-ms-overflow-style': 'none',
+
+    '&::-webkit-scrollbar': {
+      width: '0',
+      height: '0',
+    },
+  },
+});
+
+export const customUtilities = [scrollbarCompensation, visuallyHidden, hideNativeScrollbar];
