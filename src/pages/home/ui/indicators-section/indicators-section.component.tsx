@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -34,7 +35,7 @@ const IndicatorsSection = ({ className }: IndicatorsSectionProps) => {
   );
 
   return (
-    <section id="indicators" className={className}>
+    <section id="indicators" className={clsx('bg-dark-500', className)}>
       <div className="container">
         <div className="px-15 py-50 md:py-70 lg:py-88 lg:px-88 bg-[#30333a] shadow-[0px_1.25rem_8.75rem_rgba(0,0,0,0.25)]">
           <div className="row gx-5 sm:gx-24 flex-nowrap justify-between">
@@ -53,7 +54,7 @@ const IndicatorsSection = ({ className }: IndicatorsSectionProps) => {
             ))}
           </div>
         </div>
-        <div className="py-56 md:py-88 border-b border-b-[#676c79]">
+        <div className="py-56 md:py-88">
           <div className="row gy-24">
             <div className="col-12 md:col-6">
               <div className="text-md md:text-xl lg:text-2xl">{data.limitationText}</div>
@@ -62,6 +63,9 @@ const IndicatorsSection = ({ className }: IndicatorsSectionProps) => {
               <div className="text-md md:text-xl lg:text-2xl">{data.proposalText}</div>
             </div>
           </div>
+        </div>
+        <div className="container">
+          <hr className="border-t-dark-300" />
         </div>
       </div>
     </section>

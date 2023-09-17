@@ -12,7 +12,7 @@ import { RoadmapSection } from './ui/roadmap-section';
 export const HomePage = () => {
   return (
     <BaseLayout withStickyHeader>
-      <HeroSection />
+      {/* <HeroSection /> */}
       <IndicatorsSection />
       <ExamplesSection />
       <HowItWorksSection />

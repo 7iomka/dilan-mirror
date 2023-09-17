@@ -125,7 +125,7 @@ const HowItWorksSection = ({ className }: HowItWorksSectionProps) => {
         </div>
       </div>
       <div className="mt-24 md:mt-40 overflow-hidden">
-        <div className="overflow-x-auto overflow-y-hidden scroll-smooth">
+        <div className="overflow-x-auto overflow-y-hidden scroll-smooth c-hide-native-scrollbar">
           <div className="container">
             <div className="inline-flex after:content-[''] after:w-[calc((100vw-var(--container-max-width))/2+var(--container-gutter))] after:shrink-0 lg:after:content-none">
               <div className="relative infline-flex shrink-0">

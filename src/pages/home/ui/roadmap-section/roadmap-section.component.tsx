@@ -50,12 +50,19 @@ const RoadmapSection = ({ className }: RoadmapSectionProps) => {
           xmlns="http://www.w3.org/2000/svg"
         >
           <defs>
-            <pattern id="customPattern" width="100%" height="100%" patternUnits="userSpaceOnUse">
-              <path d="M13 16V32" stroke="#186951" strokeWidth="4" />
-              <path d="M23 16V32" stroke="#186951" strokeWidth="4" />
-              <path d="M34 16V32" stroke="#186951" strokeWidth="4" />
-              <path d="M45 16V32" stroke="#186951" strokeWidth="4" />
-              <path d="M2 0V32" stroke="#186951" strokeWidth="4" />
+            <pattern
+              id="customPattern"
+              width="54"
+              height="32"
+              patternUnits="userSpaceOnUse"
+              x="0"
+              y="0"
+            >
+              <path d="M13 16V32" className="stroke-primary-pale" strokeWidth="4" />
+              <path d="M23 16V32" className="stroke-primary-pale" strokeWidth="4" />
+              <path d="M34 16V32" className="stroke-primary-pale" strokeWidth="4" />
+              <path d="M45 16V32" className="stroke-primary-pale" strokeWidth="4" />
+              <path d="M2 0V32" className="stroke-primary-pale" strokeWidth="4" />
             </pattern>
           </defs>
         </svg>
@@ -68,20 +75,22 @@ const RoadmapSection = ({ className }: RoadmapSectionProps) => {
           <defs>
             <pattern
               id="customPatternMobile"
-              width="100%"
-              height="100%"
+              width="40"
+              height="20"
               patternUnits="userSpaceOnUse"
+              x="0"
+              y="0"
             >
-              <path d="M2 0V20" stroke="#186951" strokeWidth="3" />
-              <path d="M10 10V20" stroke="#186951" strokeWidth="3" />
-              <path d="M18 10V20" stroke="#186951" strokeWidth="3" />
-              <path d="M26 10V20" stroke="#186951" strokeWidth="3" />
-              <path d="M34 10V20" stroke="#186951" strokeWidth="3" />
+              <path d="M2 0V20" className="stroke-primary-pale" strokeWidth="3" />
+              <path d="M10 10V20" className="stroke-primary-pale" strokeWidth="3" />
+              <path d="M18 10V20" className="stroke-primary-pale" strokeWidth="3" />
+              <path d="M26 10V20" className="stroke-primary-pale" strokeWidth="3" />
+              <path d="M34 10V20" className="stroke-primary-pale" strokeWidth="3" />
             </pattern>
           </defs>
         </svg>
         <div className="overflow-hidden mt-50">
-          <div className="overflow-x-auto overflow-y-hidden scroll-smooth">
+          <div className="overflow-x-auto overflow-y-hidden scroll-smooth c-hide-native-scrollbar">
             <div className="container pb-11">
               <div className={clsx(styles.wrapper, 'relative w-[var(--w)] flex flex-col')}>
                 <div className="relative">
@@ -153,7 +162,7 @@ const RoadmapSection = ({ className }: RoadmapSectionProps) => {
                     // 20.25rem is 54px (patter width) * 6
                     <div key={year} className="shrink-0 w-240 xl:w-280 lp:w-[20.25rem] pr-24">
                       <div className="relative">
-                        <div className="absolute left-0 top-full mt-24 lg:mt-0 lg:top-auto lg:bottom-full lg:mb-36 w-5 h-20 lp:w-8 lp:h-32 bg-white" />
+                        <div className="absolute left-0 top-full mt-24 lg:mt-0 lg:top-auto lg:bottom-full lg:mb-36 w-5 h-20 lp:w-8 lp:h-32 bg-white z-[2]" />
                         <div className="text-xl font-bold">{year}</div>
                         <div className="mt-4 text-lg">{title}</div>
                       </div>

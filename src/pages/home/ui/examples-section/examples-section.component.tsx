@@ -71,9 +71,9 @@ const ExamplesSection = ({ className }: ExamplesSectionProps) => {
     <section
       id="examples"
       className={clsx(
-        `mt-56 md:mt-88
-        bg-gradient-to-b from-dark-800 from-90% md:from-80%
-        via-dark-800 via-90% md:via-80%
+        `pt-56 md:pt-88
+        bg-gradient-to-b from-dark-500 from-90% md:from-80%
+        via-dark-500 via-90% md:via-80%
         to-indigo-50 to-90% md:to-80%
         overflow-hidden`,
         className,
@@ -86,7 +86,7 @@ const ExamplesSection = ({ className }: ExamplesSectionProps) => {
           </div>
           <div className="col-12 md:col-6">
             <div className="text-xl md:text-2xl whitespace-pre-wrap">{data.description}</div>
-            <div className="hidden md:flex items-center justify-end gap-8">
+            <div className="hidden md:flex items-center justify-end gap-8 mt-18">
               <CarouselControls
                 canScrollNext={canScrollNext}
                 canScrollPrev={canScrollPrev}

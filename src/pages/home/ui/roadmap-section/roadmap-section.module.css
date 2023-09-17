@@ -13,12 +13,6 @@
   }
 }
 
-.leftLine {
-}
-
-.mainLine {
-}
-
 .rightLine {
   /* We substracted scrollbar width to prevent unecessary overflow */
   width: calc((100vw - min(var(--container-w), 100%) - var(--scrollbar-width)) / 2);
@@ -36,7 +30,7 @@
   right: 0;
   width: 100%;
   margin-top: 4px;
-  background-color: #186951;
+  background-color: theme("colors.primary.pale");
 
   @media (min-width: theme("screens.md")) {
     height: 4px;

@@ -51,7 +51,7 @@ const AuthorshipSection = ({ className }: AuthorshipSectionProps) => {
               </div>
             </div>
           </div>
-          <div className="col-12 md:col-7 lg:col-8">
+          <div className="col-12 md:col-7 lg:col-8 lp:col-7">
             <div className="min-h-full flex flex-col justify-between">
               <div className="flex-grow min-h-0">
                 <h2 className="text-40px md:text-56px">{data.title}</h2>
