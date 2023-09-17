@@ -23,7 +23,6 @@
     "atomic-router-react": "^0.8.5",
     "axios": "^1.5.0",
     "clsx": "^2.0.0",
-    "dayjs": "^1.11.9",
     "effector": "^22.8.6",
     "effector-http-api": "^2.5.0",
     "effector-react": "^22.5.3",

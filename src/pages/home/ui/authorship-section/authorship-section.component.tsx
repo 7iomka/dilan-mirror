@@ -44,7 +44,8 @@ const AuthorshipSection = ({ className }: AuthorshipSectionProps) => {
                       component="a"
                       href="#!"
                     >
-                      Instagram
+                      <Icon name="instagram" className="text-xl" />
+                      <span className="ml-8 md:ml-12">Instagram</span>
                     </Button>
                   </div>
                 </div>

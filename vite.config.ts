@@ -45,6 +45,7 @@ export default defineConfig({
       metadata: 'src/shared/ui/icon/sprite.gen.ts',
       resetColors: {
         replaceUnknown: 'currentColor',
+        exclude: [/-colored\.svg$/],
       },
     }),
     svgr(),

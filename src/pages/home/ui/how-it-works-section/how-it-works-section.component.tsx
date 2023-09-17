@@ -93,7 +93,7 @@ const HowItWorksSection = ({ className }: HowItWorksSectionProps) => {
   return (
     <section
       id="how-it-works"
-      className={clsx('py-56 md:py-86 bg-indigo-50 text-dark-800', className)}
+      className={clsx('py-56 md:py-88 bg-indigo-50 text-dark-800', className)}
     >
       <div className="container">
         <h2 className="text-40px md:text-56px whitespace-pre-wrap text-center">{data.title}</h2>

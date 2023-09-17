@@ -20,6 +20,7 @@ export interface SpritesMap {
     | 'shield-check'
     | 'shopping-basket'
     | 'sun'
+    | 'telegram-colored'
     | 'webcam';
 }
 export const SPRITES_META = {
@@ -44,6 +45,7 @@ export const SPRITES_META = {
     'shield-check',
     'shopping-basket',
     'sun',
+    'telegram-colored',
     'webcam',
   ],
 } satisfies {
@@ -68,6 +70,7 @@ export const SPRITES_META = {
     | 'shield-check'
     | 'shopping-basket'
     | 'sun'
+    | 'telegram-colored'
     | 'webcam'
   >;
 };

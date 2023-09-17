@@ -6,8 +6,9 @@ import {
   HowItWorksSection,
   ArgumentsSection,
   AuthorshipSection,
+  RoadmapSection,
+  InvestSection,
 } from './ui';
-import { RoadmapSection } from './ui/roadmap-section';
 
 export const HomePage = () => {
   return (
@@ -19,6 +20,7 @@ export const HomePage = () => {
       <ArgumentsSection />
       <RoadmapSection />
       <AuthorshipSection />
+      <InvestSection />
     </BaseLayout>
   );
 };

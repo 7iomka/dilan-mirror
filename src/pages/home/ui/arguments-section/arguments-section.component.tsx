@@ -82,7 +82,7 @@ const ArgumentsSection = ({ className }: ArgumentsSectionProps) => {
                     </div>
                   </div>
                   <div className="col-12 lg:col-auto flex items-center justify-center">
-                    <Button className="flex justify-center min-w-260" component="a" href="#!">
+                    <Button className="flex justify-center min-w-200" component="a" href="#!">
                       {data.actionText}
                     </Button>
                   </div>

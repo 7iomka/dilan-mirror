@@ -498,7 +498,6 @@ __metadata:
     autoprefixer: ^10.4.15
     axios: ^1.5.0
     clsx: ^2.0.0
-    dayjs: ^1.11.9
     effector: ^22.8.6
     effector-http-api: ^2.5.0
     effector-react: ^22.5.3
@@ -2879,13 +2878,6 @@ __metadata:
   version: 5.0.1
   resolution: "data-uri-to-buffer@npm:5.0.1"
   checksum: 10958f89c0047b84bd86d572b6b77c9bf238ebe7b55a9a9ab04c90fbf5ab1881783b72e31dc0febdffd30ec914930244f2f728e3629bb8911d922baba129426f
-  languageName: node
-  linkType: hard
-
-"dayjs@npm:^1.11.9":
-  version: 1.11.9
-  resolution: "dayjs@npm:1.11.9"
-  checksum: a4844d83dc87f921348bb9b1b93af851c51e6f71fa259604809cfe1b49d1230e6b0212dab44d1cb01994c096ad3a77ea1cf18fa55154da6efcc9d3610526ac38
   languageName: node
   linkType: hard
 

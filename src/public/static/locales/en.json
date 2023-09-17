@@ -9,7 +9,9 @@
     "goBackHome": "Go back home"
   },
   "actions": {
-    "account": "Investor's account"
+    "account": "Investor's account",
+    "register": "Register",
+    "getConsultation": "Get a consultation"
   },
   "hero": {
     "textBeforeTitle": "Available for co-operation",
@@ -90,5 +92,14 @@
       "description": "PCT submitted application for other countries"
     },
     "showDocumentActionText": "Show document"
+  },
+  "invest": {
+    "textBeforeTitle": "Join the investor community",
+    "title": "Invest right now",
+    "step1Text": "Register to log in to your safe personal account",
+    "step2Text": "Choose a package of shares and pay for it in a convenient way",
+    "footNoteText": "* Forecasting is based on the assumption of fulfilment of the plan under the conditions of project development",
+    "valuePerShareTodayText": "Value per share today",
+    "costOfOneShareInTheForecastText": "Cost of one share in the forecast*"
   }
 }

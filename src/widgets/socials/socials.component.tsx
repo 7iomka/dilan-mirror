@@ -43,7 +43,7 @@ const Socials = ({ className, classNames, items = socials }: SocialsProps) => {
             key={item.name}
             href={item.url}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             <Icon className={clsx(classNames?.icon)} name={item.iconName} />
           </a>
