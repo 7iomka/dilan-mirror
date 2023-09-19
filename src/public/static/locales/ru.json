@@ -1,14 +1,112 @@
 {
   "meta": {
-    "title": "Потрясающий сайт",
-    "description": "Описание сайта"
+    "title": "Dilan Mirror",
+    "description": ""
+  },
+  "general": {
+    "адрес": "ОАЭ, Дубай, Над Аль Шеба, The Meydan Hotel, Business Center 1, M Floor"
   },
   "errors": {
     "pageNotFound": "Страница не найдена",
-    "notFoundDescription": "К сожалению, мы не смогли найти страницу, которую вы ищете.",
+    "notFoundDescription": "К сожалению, мы не смогли найти страницу, которую вы ищете",
     "goBackHome": "На главную"
   },
   "actions": {
-    "account": "Аккаунт инвестора"
+    "account": "Аккаунт инвестора",
+    "register": "Register",
+    "getConsultation": "Получить консультацию"
+  },
+  "hero": {
+    "textBeforeTitle": "Доступно для сотрудничества",
+    "title": "Посмотри на себя с другой стороны",
+    "textAfterTitle": "Инвестируйте в проект \"умного зеркала\" с технологией обратного изображения тела",
+    "slide1Text": "Я могу следить за своим фитнес-прогрессом",
+    "slide2Text": "Я могу проверять правильность выполнения упражнений",
+    "slide3Text": "Я могу оценить новые модели одежды"
+  },
+  "indicators": {
+    "limitationText": "Это должно быть описание болей потенциальных пользователей. Примеры того, почему стандартные зеркала не покрывают их потребности. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "proposalText": "А вот описание предложения, что это за проект и как он помогает. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "item1Title": "Состояние завершения третьего этапа разработки",
+    "item2Title": "Привлеченные средства для тиражирования проекта",
+    "item3Title": "Люди со всего мира уже инвестировали"
+  },
+  "examples": {
+    "title": "Примеры\nof приложений",
+    "description": "Здесь будет блок описания с текстом о том, сколько способов применения продукта может быть использовано",
+    "medSelfExamination": "MED self-examination"
+  },
+  "howItWorks": {
+    "title": "Как это работает",
+    "accessories": {
+      "touchPanel": "Сенсорная панель",
+      "camera": "Камера",
+      "flap": "FLAP",
+      "cutOffSensor": "Датчик отключения",
+      "motionSensor": "Датчик движения",
+      "mirrorDisplay": "Зеркальный дисплей",
+      "intelligentLight": "Умная подсветка"
+    },
+    "items": {
+      "item1Text": "Функция заднего дисплея активируется с помощью сенсорной панели, жестом руки, благодаря специальному датчику движения или голосовой командой.",
+      "item2Text": "Датчики устанавливаются в любом месте в зависимости от интерьера и автоматически отключаются, если не отслеживают человека.",
+      "item3Text": "Камера закрывается заслонкой и видна при активации, чтобы человек не испытывал дискомфорта от ощущения постоянного наблюдения",
+      "item4Text": "Покрывающее зеркало выполнено двухслойным, чтобы скрывать экран видеотракта и показывать его при необходимости",
+      "item5Text": "Интеллектуальная подсветка сверху и по бокам реагирует на видеотрансляцию, чтобы избежать бликов и выделить человека перед зеркалом",
+      "item6Text": "Качество видео настраивается от 4k, 60 кадров в секунду и выше, что позволяет избежать задержек при трансляции."
+    }
+  },
+  "arguments": {
+    "item1": {
+      "title": "Освещение помещения",
+      "description": "Зеркала максимально усиливают даже минимальный солнечный свет днем и искусственное освещение вечером"
+    },
+    "item2": {
+      "title": "Расширение пространства",
+      "description": "Даже иллюзия увеличения жилой площади делает небольшие помещения более комфортными"
+    },
+    "item3": {
+      "title": "Психологическая потребность",
+      "description": "Мы смотрим на себя утром, перед выходом из дома и от 8 до 12 раз в день"
+    },
+    "item4": {
+      "title": "Фитнес, красота и т.д.",
+      "description": "Реальная и потенциальная польза зеркал доказана за 2000 лет существования"
+    },
+    "title": "Зеркала нужны всем",
+    "imageHeadLine": "Заголовок о стремлении команды проекта изменить мир",
+    "imageSubHeadLine": "Подзаголовок о том, как не упустить возможность присоединиться к инновационному проекту на ранней стадии развития",
+    "actionText": "Присоединяйтесь к нам"
+  },
+  "roadmap": {
+    "title": "Наши цели и планы",
+    "description": "Рекомендуется описать, к чему стремится компания, какова ее миссия и почему инвестор должен обратить на нее внимание",
+    "textFor2022": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    "textFor2023": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    "textFor2024": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    "textFor2025": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+  },
+  "authorship": {
+    "title": "Привет, я - {{authorInitials}}",
+    "subtitle": "Генеральный директор Dilan Mirror, автор проекта",
+    "description": "Здесь необходимо добавить текст с некоторыми успехами Василия, с его прошлым, которое позволило создать проект и с его планами на перспективное будущее.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "patentFrance": {
+      "title": "Патент зарегистрирован во Франции",
+      "description": "Заявка, поданная по процедуре PCT для других стран"
+    },
+    "showDocumentActionText": "Показать документ"
+  },
+  "invest": {
+    "textBeforeTitle": "Присоединяйтесь к сообществу инвесторов",
+    "title": "Инвестируйте прямо сейчас",
+    "step1Text": "Зарегистрируйтесь, чтобы войти в свой безопасный личный кабинет",
+    "step2Text": "Выберите пакет акций и оплатите его удобным способом",
+    "footNoteText": "* Прогнозирование основано на предположении о выполнении плана в условиях развития проекта",
+    "valuePerShareTodayText": "Стоимость одной акции на сегодня",
+    "costOfOneShareInTheForecastText": "Стоимость одной акции в прогнозе*"
+  },
+  "footer": {
+    "allRightsReserved": "Все права защищены",
+    "termsLinkText": "Условия и политика конфиденциальности"
   }
 }
