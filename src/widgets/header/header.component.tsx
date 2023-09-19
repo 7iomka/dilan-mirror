@@ -17,18 +17,22 @@ const HeaderBase = () => {
       <div className="container">
         <div className="flex items-center justify-between">
           <Icon name="logo" className="shrink-0 w-120 h-24 lg:w-154 lg:h-32" />
-          <div className="ml-20 flex items-center space-x-20">
-            <a className="group text-lg hover:text-primary" href="#!">
-              <div className="flex">
+          <div className="ml-20 flex items-center">
+            <a
+              className="group text-lg hover:text-primary order-1 md:order-0 ml-10 md:ml-0"
+              href="#!"
+            >
+              <div className="flex items-center justify-center p-10 -m-10">
+                <Icon name="account-box" className="text-xl md:hidden" />
                 <span className="hidden md:block">{t('actions.account')}</span>
                 <Icon
                   name="arrow-right-up"
-                  className="ml-4 text-[0.667em] transition-transform group-hover:-translate-y-2 group-hover:translate-x-2"
+                  className="hidden md:block ml-4 text-[0.667em] transition-transform group-hover:-translate-y-2 group-hover:translate-x-2"
                 />
               </div>
             </a>
-            <Socials />
-            <LanguageSelect />
+            <Socials className="ml-15 md:ml-20" />
+            <LanguageSelect className="ml-15 md:ml-20" />
           </div>
         </div>
       </div>

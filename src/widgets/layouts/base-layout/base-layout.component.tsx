@@ -1,6 +1,7 @@
 import type { PropsWithChildren } from 'react';
 import type { HeaderProps } from '@/widgets/header';
 import { Header, StickyHeader } from '@/widgets/header';
+import { Footer } from '@/widgets/footer';
 import { Head } from '../core';
 
 interface BaseLayoutProps extends PropsWithChildren {
@@ -21,6 +22,7 @@ const BaseLayout = ({ className, withStickyHeader, headerProps, children }: Base
         </div> */}
         {withStickyHeader ? <StickyHeader {...headerProps} /> : <Header {...headerProps} />}
         {children}
+        <Footer />
       </div>
     </>
   );

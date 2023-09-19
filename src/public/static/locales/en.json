@@ -3,6 +3,9 @@
     "title": "Awesome site",
     "description": "Site description"
   },
+  "general": {
+    "address": "UAE, Dubai, Nad Al Sheba, The Meydan Hotel, Business Center 1, M Floor"
+  },
   "errors": {
     "pageNotFound": "Page not found",
     "notFoundDescription": "Sorry, we couldn`t find the page you`re looking for.",
@@ -101,5 +104,9 @@
     "footNoteText": "* Forecasting is based on the assumption of fulfilment of the plan under the conditions of project development",
     "valuePerShareTodayText": "Value per share today",
     "costOfOneShareInTheForecastText": "Cost of one share in the forecast*"
+  },
+  "footer": {
+    "allRightsReserved": "All rights reserved.",
+    "termsLinkText": "Terms & privacy policy"
   }
 }
