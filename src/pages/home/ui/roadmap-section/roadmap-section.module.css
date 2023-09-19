@@ -3,12 +3,12 @@
   --container-w: calc(var(--container-max-width) - (var(--container-gutter) * 2));
   --w: calc(2.5rem * 6 * 4);
 
-  @media (min-width: theme("screens.xl")) {
+  @screen xl {
     --w: calc(2.5rem * 7 * 4);
     --scrollbar-width: 17px;
   }
 
-  @media (min-width: theme("screens.lp")) {
+  @screen lp {
     --w: calc(3.375rem * 6 * 4);
   }
 }
@@ -32,7 +32,7 @@
   margin-top: 4px;
   background-color: theme("colors.primary.pale");
 
-  @media (min-width: theme("screens.md")) {
+  @screen md {
     height: 4px;
     margin-top: 6px;
   }
