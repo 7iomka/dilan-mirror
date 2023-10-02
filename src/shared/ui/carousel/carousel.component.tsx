@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import type { PropsWithChildren } from 'react';
+import type { PropsWithChildren, ReactNode } from 'react';
 import { Children, forwardRef, useCallback, useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
 import type { EmblaCarouselType, EmblaOptionsType, EmblaPluginType } from 'embla-carousel-react';
@@ -41,6 +41,7 @@ interface CarouselProps extends PropsWithChildren {
     | { name: 'AutoHeight'; options?: AutoHeightType }
     | { name: 'ClassNames'; options?: ClassNamesType }
   )[];
+  rootContent?: ReactNode;
 }
 
 const Carousel = forwardRef<HTMLDivElement, CarouselProps>((props, ref) => {
@@ -58,6 +59,7 @@ const Carousel = forwardRef<HTMLDivElement, CarouselProps>((props, ref) => {
     classNames,
     withIndicators,
     withKeyboardEvents = true,
+    rootContent,
   } = props;
 
   const pluginsRef = useRef<EmblaPluginType[]>(
@@ -210,6 +212,7 @@ const Carousel = forwardRef<HTMLDivElement, CarouselProps>((props, ref) => {
           onPrev={() => embla?.scrollPrev()}
         />
       )}
+      {rootContent}
     </div>
   );
 });
