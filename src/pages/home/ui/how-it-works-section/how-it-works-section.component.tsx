@@ -21,50 +21,50 @@ const HowItWorksSection = ({ className }: HowItWorksSectionProps) => {
         id: 'touchPanel',
         title: t('howItWorks.accessories.touchPanel'),
         image: '/static/images/content/how-it-works-section/touch-panel.jpg',
-        coordinates: { left: 151 / 1043, top: 262 / 596 },
-        coordinatesMobile: { left: 151 / 1043, top: 262 / 596 },
+        coordinates: { left: '73.3%', top: '50%' },
+        coordinatesMobile: { right: '2.3%', top: '51%' },
       },
       {
         id: 'camera',
         title: t('howItWorks.accessories.camera'),
         image: '/static/images/content/how-it-works-section/camera.jpg',
-        coordinates: { left: 197 / 1043, top: 250 / 596 },
-        coordinatesMobile: { left: 197 / 1043, top: 250 / 596 },
+        coordinates: { left: '1.2%', top: '58.1%' },
+        coordinatesMobile: { left: '0%', top: '51.3%' },
       },
       {
         id: 'flap',
         title: t('howItWorks.accessories.flap'),
         image: '/static/images/content/how-it-works-section/flap.jpg',
-        coordinates: { left: 648 / 1043, top: 250 / 596 },
-        coordinatesMobile: { left: 648 / 1043, top: 250 / 596 },
+        coordinates: { left: '4.2%', top: '58.1%' },
+        coordinatesMobile: { left: '5.2%', top: '51.3%' },
       },
       {
         id: 'cuttOffSensor',
         title: t('howItWorks.accessories.cutOffSensor'),
         image: '/static/images/content/how-it-works-section/cut-off-sensor.jpg',
-        coordinates: { left: 620 / 1043, top: 180 / 596 },
-        coordinatesMobile: { left: 620 / 1043, top: 180 / 596 },
+        coordinates: { left: '58.1%', top: '21.7%' },
+        coordinatesMobile: { right: '36.4%', top: '23.1%' },
       },
       {
         id: 'motionSensor',
         title: t('howItWorks.accessories.motionSensor'),
         image: '/static/images/content/how-it-works-section/motion-sensor.jpg',
-        coordinates: { right: 120 / 1043, top: 180 / 596 },
-        coordinatesMobile: { right: 120 / 1043, top: 180 / 596 },
+        coordinates: { left: '39.4%', top: '9.9%' },
+        coordinatesMobile: { left: '18.2%', top: '9.1%' },
       },
       {
         id: 'mirrorDisplay',
         title: t('howItWorks.accessories.mirrorDisplay'),
         image: '/static/images/content/how-it-works-section/mirror-display.jpg',
-        coordinates: { right: 100 / 1043, top: 280 / 596 },
-        coordinatesMobile: { right: 100 / 1043, top: 280 / 596 },
+        coordinates: { right: '31.3%', top: '76.9%' },
+        coordinatesMobile: { right: '17.5%', top: '77.3%' },
       },
       {
         id: 'intelligentLight',
         title: t('howItWorks.accessories.intelligentLight'),
         image: '/static/images/content/how-it-works-section/intelligent-light.jpg',
-        coordinates: { right: 60 / 1043, bottom: 180 / 596 },
-        coordinatesMobile: { right: 60 / 1043, bottom: 180 / 596 },
+        coordinates: { left: '46.5%', top: '3.6%' },
+        coordinatesMobile: { left: '32.4%', top: '4.1%' },
       },
     ],
     items: [
@@ -164,9 +164,9 @@ const HowItWorksSection = ({ className }: HowItWorksSectionProps) => {
                 type="button"
                 className={clsx(
                   `w-full text-xs md:text-sm leading-1 px-12 py-14 md:p-14
-                 bg-indigo-200 text-dark-800`,
-                  activeAccessoryId === id && 'bg-gray-500 cursor-default',
-                  activeAccessoryId !== id && 'hover:bg-gray-300',
+                  text-dark-800`,
+                  activeAccessoryId === id && 'bg-gray-400 cursor-default',
+                  activeAccessoryId !== id && 'bg-indigo-200 hover:bg-gray-300',
                 )}
                 onClick={() => setActiveAccessoryId(id)}
               >
@@ -189,23 +189,28 @@ const HowItWorksSection = ({ className }: HowItWorksSectionProps) => {
               className={clsx(styles.fadeImage, 'absolute left-0 top-0 right-0 w-full z-[2]')}
               alt=""
             />
-            <div className="absolute inset-0 z-[10]">
-              {data.accessories.map(({ id, coordinatesMobile }, idx) => (
+            <div className="absolute inset-0 z-[10] bg-dark-700/10">
+              {data.accessories.map(({ id, coordinatesMobile }) => (
                 <button
                   key={id}
                   type="button"
-                  className="w-24 h-24 absolute -translate-x-1/2 -translate-y-1/2 rounded-full"
+                  className={clsx(
+                    styles.pointer,
+                    activeAccessoryId === id && styles.pointerActive,
+                    'w-15 h-15 absolute rounded-full',
+                    activeAccessoryId === id ? 'text-primary-light' : 'text-white',
+                  )}
                   style={Object.keys(coordinatesMobile).reduce((acc, key) => {
                     if (coordinatesMobile[key] === undefined) return acc;
 
-                    acc[key] = `${coordinatesMobile[key] * 100}%`;
+                    acc[key] = coordinatesMobile[key];
                     return acc;
                   }, {})}
                   onClick={() => handlePointClick(id)}
                   ref={(el) => (accessoriesRefs.current[id] = el)}
                 >
                   <svg
-                    className="w-full h-full text-white [&_circle]:transition-opacity"
+                    className="w-full h-full [&_circle]:transition-opacity"
                     aria-hidden="true"
                     width="12"
                     height="12"
@@ -217,7 +222,7 @@ const HowItWorksSection = ({ className }: HowItWorksSectionProps) => {
                     <circle
                       cx="6"
                       cy="6"
-                      r="3"
+                      r="2"
                       fill="currentColor"
                       opacity={activeAccessoryId === id ? 1 : 0}
                     />
@@ -239,22 +244,29 @@ const HowItWorksSection = ({ className }: HowItWorksSectionProps) => {
             />
 
             <div className="absolute inset-0 z-[10]">
-              {data.accessories.map(({ id, coordinates }, idx) => (
+              {data.accessories.map(({ id, coordinates }) => (
                 <button
                   key={id}
                   type="button"
-                  className="w-24 h-24 absolute -translate-x-1/2 -translate-y-1/2 rounded-full"
-                  style={Object.keys(coordinates).reduce((acc, key) => {
-                    if (coordinates[key] === undefined) return acc;
+                  className={clsx(
+                    styles.pointer,
+                    activeAccessoryId === id && styles.pointerActive,
+                    'w-24 h-24 absolute rounded-full',
+                    activeAccessoryId === id ? 'text-primary-light' : 'text-white',
+                  )}
+                  style={{
+                    ...Object.keys(coordinates).reduce((acc, key) => {
+                      if (coordinates[key] === undefined) return acc;
 
-                    acc[key] = `${coordinates[key] * 100}%`;
-                    return acc;
-                  }, {})}
+                      acc[key] = coordinates[key];
+                      return acc;
+                    }, {}),
+                  }}
                   onClick={() => handlePointClick(id)}
                   ref={(el) => (accessoriesRefs.current[id] = el)}
                 >
                   <svg
-                    className="w-full h-full text-white [&_circle]:transition-opacity"
+                    className="w-full h-full [&_circle]:transition-opacity"
                     aria-hidden="true"
                     width="12"
                     height="12"
@@ -266,7 +278,7 @@ const HowItWorksSection = ({ className }: HowItWorksSectionProps) => {
                     <circle
                       cx="6"
                       cy="6"
-                      r="3"
+                      r="2"
                       fill="currentColor"
                       opacity={activeAccessoryId === id ? 1 : 0}
                     />
