@@ -1,7 +1,12 @@
+/* eslint-disable no-return-assign */
 import clsx from 'clsx';
-import { useEffect, useState } from 'react';
+import type { ReactNode } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { usePopper } from 'react-popper';
+import { createPortal } from 'react-dom';
 import { Icon, type IconProps } from '@/shared/ui/icon';
+import styles from './how-it-works-section.module.css';
 
 interface HowItWorksSectionProps {
   className?: string;
@@ -17,42 +22,49 @@ const HowItWorksSection = ({ className }: HowItWorksSectionProps) => {
         title: t('howItWorks.accessories.touchPanel'),
         image: '/static/images/content/how-it-works-section/touch-panel.jpg',
         coordinates: { left: 151 / 1043, top: 262 / 596 },
+        coordinatesMobile: { left: 151 / 1043, top: 262 / 596 },
       },
       {
         id: 'camera',
         title: t('howItWorks.accessories.camera'),
         image: '/static/images/content/how-it-works-section/camera.jpg',
         coordinates: { left: 197 / 1043, top: 250 / 596 },
+        coordinatesMobile: { left: 197 / 1043, top: 250 / 596 },
       },
       {
         id: 'flap',
         title: t('howItWorks.accessories.flap'),
         image: '/static/images/content/how-it-works-section/flap.jpg',
         coordinates: { left: 648 / 1043, top: 250 / 596 },
+        coordinatesMobile: { left: 648 / 1043, top: 250 / 596 },
       },
       {
         id: 'cuttOffSensor',
         title: t('howItWorks.accessories.cutOffSensor'),
         image: '/static/images/content/how-it-works-section/cut-off-sensor.jpg',
         coordinates: { left: 620 / 1043, top: 180 / 596 },
+        coordinatesMobile: { left: 620 / 1043, top: 180 / 596 },
       },
       {
         id: 'motionSensor',
         title: t('howItWorks.accessories.motionSensor'),
         image: '/static/images/content/how-it-works-section/motion-sensor.jpg',
         coordinates: { right: 120 / 1043, top: 180 / 596 },
+        coordinatesMobile: { right: 120 / 1043, top: 180 / 596 },
       },
       {
         id: 'mirrorDisplay',
         title: t('howItWorks.accessories.mirrorDisplay'),
         image: '/static/images/content/how-it-works-section/mirror-display.jpg',
         coordinates: { right: 100 / 1043, top: 280 / 596 },
+        coordinatesMobile: { right: 100 / 1043, top: 280 / 596 },
       },
       {
         id: 'intelligentLight',
         title: t('howItWorks.accessories.intelligentLight'),
         image: '/static/images/content/how-it-works-section/intelligent-light.jpg',
         coordinates: { right: 60 / 1043, bottom: 180 / 596 },
+        coordinatesMobile: { right: 60 / 1043, bottom: 180 / 596 },
       },
     ],
     items: [
@@ -83,12 +95,52 @@ const HowItWorksSection = ({ className }: HowItWorksSectionProps) => {
     ] as { iconName: IconProps['name']; text: string }[],
   };
 
-  // const [selectedIndex, setSelectedIndex] = useState(0);
-  const [activeAccessoryId, setActiveAccessoryId] = useState(() => data.accessories[0].id);
+  const [activeAccessoryId, setActiveAccessoryId] = useState<string | null>(null!);
 
-  // useEffect(() => {
-  //   setActiveAccessoryId(data.accessories[selectedIndex].id)
-  // }, [selectedIndex]);
+  const accessoriesRefs = useRef({});
+  const tooltipData = useRef<{ image: string; title: string } | null>(null);
+  const tooltipRef = useRef<HTMLElement | null>(null);
+  const tooltipTimerRef = useRef<any>(null);
+  const [isTooltipOpen, setIsTooltipOpen] = useState(false);
+
+  const handlePointClick = (id) => {
+    setActiveAccessoryId(id);
+    const accessory = data.accessories.find((acc) => acc.id === id)!;
+    tooltipData.current = {
+      title: accessory.title,
+      image: accessory.image,
+    };
+    setIsTooltipOpen(true);
+    if (tooltipTimerRef.current) clearTimeout(tooltipTimerRef.current);
+  };
+
+  useEffect(() => {
+    data.accessories.forEach((acc) => {
+      accessoriesRefs.current[acc.id] = null;
+    });
+
+    setActiveAccessoryId(data.accessories[0].id);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isTooltipOpen && tooltipRef.current && !tooltipRef.current.contains(event.target)) {
+        setIsTooltipOpen(false);
+      }
+    };
+
+    if (isTooltipOpen) {
+      tooltipTimerRef.current = setTimeout(() => {
+        setIsTooltipOpen(false);
+      }, 5000);
+    }
+
+    document.addEventListener('pointerdown', handleClickOutside);
+    return () => {
+      if (tooltipTimerRef.current) clearTimeout(tooltipTimerRef.current);
+      document.removeEventListener('pointerdown', handleClickOutside);
+    };
+  }, [isTooltipOpen]);
 
   return (
     <section
@@ -113,7 +165,7 @@ const HowItWorksSection = ({ className }: HowItWorksSectionProps) => {
                 className={clsx(
                   `w-full text-xs md:text-sm leading-1 px-12 py-14 md:p-14
                  bg-indigo-200 text-dark-800`,
-                  activeAccessoryId === id && 'bg-gray-400 cursor-default',
+                  activeAccessoryId === id && 'bg-gray-500 cursor-default',
                   activeAccessoryId !== id && 'hover:bg-gray-300',
                 )}
                 onClick={() => setActiveAccessoryId(id)}
@@ -125,49 +177,102 @@ const HowItWorksSection = ({ className }: HowItWorksSectionProps) => {
         </div>
       </div>
       <div className="mt-24 md:mt-40 overflow-hidden">
-        <div className="overflow-x-auto overflow-y-hidden scroll-smooth c-hide-native-scrollbar">
-          <div className="container">
-            <div className="inline-flex after:content-[''] after:w-[calc((100vw-var(--container-max-width))/2+var(--container-gutter))] after:shrink-0 lg:after:content-none">
-              <div className="relative infline-flex shrink-0">
-                <img
-                  src="/static/images/content/how-it-works-section/scene.png"
-                  className="h-[16.5rem] md:h-[42.8125rem] max-w-none lg:h-auto lg:max-w-full"
-                  alt=""
-                />
-                {data.accessories.map(({ id, coordinates }) => (
-                  <button
-                    key={id}
-                    type="button"
-                    className="w-24 h-24 absolute -translate-x-1/2 -translate-y-1/2"
-                    style={Object.keys(coordinates).reduce((acc, key) => {
-                      if (coordinates[key] === undefined) return acc;
+        <div className="container">
+          <div className="relative md:hidden">
+            <img
+              src="/static/images/content/how-it-works-section/scene-mobile-video.jpg"
+              className={clsx('max-w-full z-[1]')}
+              alt=""
+            />
+            <img
+              src="/static/images/content/how-it-works-section/scene-mobile-mirror.jpg"
+              className={clsx(styles.fadeImage, 'absolute left-0 top-0 right-0 w-full z-[2]')}
+              alt=""
+            />
+            <div className="absolute inset-0 z-[10]">
+              {data.accessories.map(({ id, coordinatesMobile }, idx) => (
+                <button
+                  key={id}
+                  type="button"
+                  className="w-24 h-24 absolute -translate-x-1/2 -translate-y-1/2 rounded-full"
+                  style={Object.keys(coordinatesMobile).reduce((acc, key) => {
+                    if (coordinatesMobile[key] === undefined) return acc;
 
-                      acc[key] = `${coordinates[key] * 100}%`;
-                      return acc;
-                    }, {})}
-                    onClick={() => setActiveAccessoryId(id)}
+                    acc[key] = `${coordinatesMobile[key] * 100}%`;
+                    return acc;
+                  }, {})}
+                  onClick={() => handlePointClick(id)}
+                  ref={(el) => (accessoriesRefs.current[id] = el)}
+                >
+                  <svg
+                    className="w-full h-full text-white [&_circle]:transition-opacity"
+                    aria-hidden="true"
+                    width="12"
+                    height="12"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    <svg
-                      className="w-full h-full text-white [&_circle]:transition-opacity"
-                      aria-hidden="true"
-                      width="12"
-                      height="12"
-                      viewBox="0 0 12 12"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <circle cx="6" cy="6" r="5" stroke="currentColor" strokeWidth="2" />
-                      <circle
-                        cx="6"
-                        cy="6"
-                        r="3"
-                        fill="currentColor"
-                        opacity={activeAccessoryId === id ? 1 : 0}
-                      />
-                    </svg>
-                  </button>
-                ))}
-              </div>
+                    <circle cx="6" cy="6" r="5" stroke="currentColor" strokeWidth="2" />
+                    <circle
+                      cx="6"
+                      cy="6"
+                      r="3"
+                      fill="currentColor"
+                      opacity={activeAccessoryId === id ? 1 : 0}
+                    />
+                  </svg>
+                </button>
+              ))}
+            </div>
+          </div>
+          <div className="relative hidden md:block">
+            <img
+              src="/static/images/content/how-it-works-section/scene-desktop-video.jpg"
+              className={clsx('max-w-full z-[1]')}
+              alt=""
+            />
+            <img
+              src="/static/images/content/how-it-works-section/scene-desktop-mirror.jpg"
+              className={clsx(styles.fadeImage, 'absolute left-0 top-0 right-0 w-full z-[2]')}
+              alt=""
+            />
+
+            <div className="absolute inset-0 z-[10]">
+              {data.accessories.map(({ id, coordinates }, idx) => (
+                <button
+                  key={id}
+                  type="button"
+                  className="w-24 h-24 absolute -translate-x-1/2 -translate-y-1/2 rounded-full"
+                  style={Object.keys(coordinates).reduce((acc, key) => {
+                    if (coordinates[key] === undefined) return acc;
+
+                    acc[key] = `${coordinates[key] * 100}%`;
+                    return acc;
+                  }, {})}
+                  onClick={() => handlePointClick(id)}
+                  ref={(el) => (accessoriesRefs.current[id] = el)}
+                >
+                  <svg
+                    className="w-full h-full text-white [&_circle]:transition-opacity"
+                    aria-hidden="true"
+                    width="12"
+                    height="12"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle cx="6" cy="6" r="5" stroke="currentColor" strokeWidth="2" />
+                    <circle
+                      cx="6"
+                      cy="6"
+                      r="3"
+                      fill="currentColor"
+                      opacity={activeAccessoryId === id ? 1 : 0}
+                    />
+                  </svg>
+                </button>
+              ))}
             </div>
           </div>
         </div>
@@ -188,7 +293,60 @@ const HowItWorksSection = ({ className }: HowItWorksSectionProps) => {
           </div>
         </div>
       </div>
+      {isTooltipOpen && !!activeAccessoryId && (
+        <Tooltip
+          referenceElement={accessoriesRefs.current[activeAccessoryId]}
+          content={tooltipData.current ? <PointTooltipContent {...tooltipData.current} /> : null}
+          tooltipRef={tooltipRef}
+        />
+      )}
     </section>
+  );
+};
+
+const Tooltip = ({
+  referenceElement,
+  content,
+  tooltipRef,
+}: {
+  referenceElement: HTMLElement | null;
+  content: ReactNode;
+  tooltipRef: React.MutableRefObject<HTMLElement | null>;
+}) => {
+  const [popperElement, setPopperElement] = useState<HTMLElement | null>(null);
+  const [arrowElement, setArrowElement] = useState<HTMLElement | null>(null);
+  const { styles: popperStyles, attributes } = usePopper(referenceElement, popperElement, {
+    modifiers: [{ name: 'arrow', options: { element: arrowElement } }],
+    strategy: 'fixed',
+  });
+
+  return createPortal(
+    referenceElement && content ? (
+      <div
+        className="z-[999] pointer-events-none max-md:!bottom-0 max-md:!left-0 max-md:!right-0 max-md:!top-auto"
+        ref={(el) => {
+          tooltipRef.current = el;
+          setPopperElement(el);
+        }}
+        style={popperStyles.popper}
+        {...attributes.popper}
+      >
+        {content}
+        <div ref={setArrowElement} style={popperStyles.arrow} />
+      </div>
+    ) : null,
+    document.body,
+  );
+};
+
+const PointTooltipContent = ({ title, image }: { title: string; image: string }) => {
+  return (
+    <div className="text-center">
+      <div className="bg-dark py-10 px-16">
+        <img className="w-100 h-100 mx-auto object-contain shrink-0" src={image} alt="" />
+      </div>
+      <h3 className="py-10 px-16 bg-dark-light text-md text-white">{title}</h3>
+    </div>
   );
 };
 

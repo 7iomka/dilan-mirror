@@ -35,8 +35,9 @@ const IndicatorsSection = ({ className }: IndicatorsSectionProps) => {
   );
 
   return (
-    <section id="indicators" className={clsx('bg-dark-500', className)}>
-      <div className="container">
+    <section id="indicators" className={clsx('relative', className)}>
+      <div className="bg-dark-500 absolute left-0 right-0 bottom-0 top-0 lg:top-56" />
+      <div className="container relative z-[2]">
         <div className="px-15 py-50 md:py-70 lg:py-88 lg:px-88 bg-[#30333a] shadow-[0px_1.25rem_8.75rem_rgba(0,0,0,0.25)]">
           <div className="row gx-5 sm:gx-24 flex-nowrap justify-between">
             {data.items.map(({ value, unit, title }, idx) => (

@@ -14,6 +14,7 @@
   "actions": {
     "account": "Аккаунт инвестора",
     "register": "Register",
+    "createAccount": "Создать аккаунт инвестора",
     "getConsultation": "Получить консультацию"
   },
   "hero": {

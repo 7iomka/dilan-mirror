@@ -13,7 +13,7 @@ import {
 export const HomePage = () => {
   return (
     <BaseLayout withStickyHeader>
-      {/* <HeroSection /> */}
+      <HeroSection />
       <IndicatorsSection />
       <ExamplesSection />
       <HowItWorksSection />

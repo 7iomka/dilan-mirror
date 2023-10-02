@@ -5,6 +5,7 @@ import type { EmblaCarouselType } from 'embla-carousel-react';
 import type { CarouselProps } from '@/shared/ui/carousel';
 import { Carousel } from '@/shared/ui/carousel';
 import { ResponsivePicture } from '@/shared/ui/responsive-picture';
+import { Button } from '@/shared/ui/button';
 
 interface HeroCarouselSlide {
   imageSrcWithoutExtension: string;
@@ -23,54 +24,63 @@ interface HeroSectionProps {
 const HeroSection = ({ className }: HeroSectionProps) => {
   const { t } = useTranslation();
 
-  const slides: HeroCarouselSlide[] = [
-    {
-      imageSrcWithoutExtension: '/static/images/content/hero-section/01',
-      actionImagesSrc: '/static/images/content/hero-section/01-action.jpg',
-      actionText: t('hero.slide1Text'),
-      slideClassName: 'flex-[0_0_100%]',
-      slideContentClassName: 'w-full md:w-[38rem]',
-      pictureBoxClassName: 'object-left-bottom pb-[calc((816/608)_*_100%)]',
-      reflectionContentClassName: 'left-[50%] -translate-x-[50%]',
-    },
-    {
-      imageSrcWithoutExtension: '/static/images/content/hero-section/02',
-      actionImagesSrc: '/static/images/content/hero-section/02-action.jpg',
-      actionText: t('hero.slide2Text'),
-      slideClassName: 'flex-[0_0_100%]',
-      slideContentClassName: 'w-full md:w-[49.9375rem]',
-      pictureBoxClassName: 'object-left-bottom pb-[calc((829/799)_*_100%)]',
-      reflectionContentClassName: 'left-[50%] -translate-x-[40%]',
-    },
-    {
-      imageSrcWithoutExtension: '/static/images/content/hero-section/03',
-      actionImagesSrc: '/static/images/content/hero-section/03-action.jpg',
-      actionText: t('hero.slide3Text'),
-      slideClassName: 'flex-[0_0_100%]',
-      slideContentClassName: 'w-full md:w-[25.8125rem]',
-      pictureBoxClassName: 'object-left-bottom pb-[calc((804/413)_*_100%)]',
-      reflectionContentClassName: 'left-[50%] -translate-x-[50%]',
-    },
-  ];
+  const data = {
+    actionText: t('actions.createAccount'),
+    textBeforeTitle: t('hero.textBeforeTitle'),
+    title: t('hero.title'),
+    textAfterTitle: t('hero.textAfterTitle'),
+    slides: [
+      {
+        imageSrcWithoutExtension: '/static/images/content/hero-section/01',
+        actionImagesSrc: '/static/images/content/hero-section/01-action.jpg',
+        actionText: t('hero.slide1Text'),
+        slideClassName: 'flex-[0_0_100%]',
+        slideContentClassName: 'w-full md:w-[38rem]',
+        pictureBoxClassName: 'object-left-bottom pb-[calc((816/608)_*_100%)]',
+        reflectionContentClassName: 'left-[50%] -translate-x-[50%]',
+      },
+      {
+        imageSrcWithoutExtension: '/static/images/content/hero-section/02',
+        actionImagesSrc: '/static/images/content/hero-section/02-action.jpg',
+        actionText: t('hero.slide2Text'),
+        slideClassName: 'flex-[0_0_100%]',
+        slideContentClassName: 'w-full md:w-[49.9375rem]',
+        pictureBoxClassName: 'object-left-bottom pb-[calc((829/799)_*_100%)]',
+        reflectionContentClassName: 'left-[50%] -translate-x-[40%]',
+      },
+      {
+        imageSrcWithoutExtension: '/static/images/content/hero-section/03',
+        actionImagesSrc: '/static/images/content/hero-section/03-action.jpg',
+        actionText: t('hero.slide3Text'),
+        slideClassName: 'flex-[0_0_100%]',
+        slideContentClassName: 'w-full md:w-[25.8125rem]',
+        pictureBoxClassName: 'object-left-bottom pb-[calc((804/413)_*_100%)]',
+        reflectionContentClassName: 'left-[50%] -translate-x-[50%]',
+      },
+    ] as HeroCarouselSlide[],
+  };
 
   return (
     <section id="hero" className={clsx(className)}>
       <div className="relative pb-20 lg:pb-56 lg:-mb-56 min-h-[37.5rem] md:min-h-[56.25rem] lg:min-h-0 flex flex-col justify-end">
         <div className="container">
           <div className="row items-center">
-            <div className="col-12 lg:col-6 relative z-[1]">
+            <div className="col-12 lg:col-6 relative z-[1] lg:py-150">
               <div className="text-[0.5rem] md:text-xs leading-1 tracking-[0.4em] font-bold uppercase">
-                {t('hero.textBeforeTitle')}
+                {data.textBeforeTitle}
               </div>
-              <h1 className="text-40px md:text-72px leading-1 mt-8 md:mt-20">
-                {t('hero.title')}
-              </h1>
-              <div className="text-xl md:text-2xl mt-12 md:mt-24">
-                {t('hero.textAfterTitle')}
-              </div>
+              <h1 className="text-40px md:text-72px leading-1 mt-8 md:mt-20">{data.title}</h1>
+              <div className="text-xl md:text-2xl mt-12 md:mt-24">{data.textAfterTitle}</div>
+              <Button
+                className="inline-flex justify-center min-w-200 max-w-full mt-40 lg:mt-48"
+                component="a"
+                href="#!"
+              >
+                {data.actionText}
+              </Button>
             </div>
             <div className="col-12 lg:col-6 absolute inset-0 px-0 lg:static">
-              <CarouselContainer slides={slides} />
+              {/* <CarouselContainer slides={data.slides} /> */}
             </div>
           </div>
         </div>

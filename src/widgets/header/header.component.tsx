@@ -51,7 +51,7 @@ const Header = ({ className }: HeaderProps) => {
 const StickyHeader = ({ className }: HeaderProps) => {
   return (
     <header className={clsx('relative z-[100]', className)}>
-      <Sticky topOffset={100} stickyClassName="is-sticky">
+      <Sticky topOffset={700} stickyClassName="is-sticky">
         <HeaderBase />
       </Sticky>
     </header>

@@ -75,26 +75,24 @@ const InvestSection = ({ className }: InvestSectionProps) => {
               </div>
             </div>
             <div className="mt-40 md:mt-48">
-              <div className="flex">
-                <div className="flex flex-wrap -m-4">
-                  <div className="p-4 basis-1/2 min-w-200 grow">
-                    <Button className="flex justify-center" component="a" href="#!">
-                      {data.registerActionText}
-                    </Button>
-                  </div>
-                  <div className="p-4 basis-1/2 min-w-200 grow">
-                    <Button
-                      color="custom"
-                      className="flex items-center justify-center bg-dark-500 hover:bg-dark-400 text-white"
-                      component="a"
-                      href="#!"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Icon name="telegram-colored" className="text-xl" />
-                      <span className="ml-8 md:ml-12"> {data.getConsultationActionText}</span>
-                    </Button>
-                  </div>
+              <div className="flex flex-wrap -m-4">
+                <div className="p-4 basis-1/2 min-w-200 grow">
+                  <Button className="flex justify-center" component="a" href="#!">
+                    {data.registerActionText}
+                  </Button>
+                </div>
+                <div className="p-4 basis-1/2 min-w-200 grow">
+                  <Button
+                    color="custom"
+                    className="flex items-center justify-center bg-dark-500 hover:bg-dark-400 text-white"
+                    component="a"
+                    href="#!"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Icon name="telegram-colored" className="text-xl" />
+                    <span className="ml-8 md:ml-12"> {data.getConsultationActionText}</span>
+                  </Button>
                 </div>
               </div>
             </div>
@@ -134,9 +132,9 @@ const InvestSection = ({ className }: InvestSectionProps) => {
                           {formattedFutureDate}
                         </div>
                         <div className="mt-4 text-2xl font-bold">
-                          {data.valuePerShareToday.value}
+                          {data.costOfOneShareInTheForecast.value}
                         </div>
-                        <div className="mt-8 text-sm">{data.valuePerShareToday.text}</div>
+                        <div className="mt-8 text-sm">{data.costOfOneShareInTheForecast.text}</div>
                       </div>
                       <div className="absolute w-16 h-16 right-16 bottom-0 text-dark-500 before:content-[''] before:absolute before:w-full before:h-full before:[transform:translateY(50%)_rotate(45deg)] before:bg-current before:inset-0 before:-mt-1" />
                     </div>
