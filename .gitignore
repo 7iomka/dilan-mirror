@@ -49,3 +49,6 @@ lerna-debug.log*
 
 # typescript
 *.tsbuildinfo
+
+# Local Netlify folder
+.netlify
