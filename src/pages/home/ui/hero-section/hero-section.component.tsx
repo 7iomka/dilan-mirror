@@ -118,7 +118,7 @@ const HeroCarousel = ({ slides }: { slides: HeroCarouselSlide[] }) => {
           classNames={{
             root: 'relative',
             viewport: 'overflow-visible md:overflow-hidden',
-            container: '-mr-24 md:mr-0',
+            container: '-mr-24',
           }}
           options={{
             align: 'start',
@@ -135,7 +135,7 @@ const HeroCarousel = ({ slides }: { slides: HeroCarouselSlide[] }) => {
           ]}
         >
           {slides.map(({ src, videoId, className: imageClassName }, idx) => (
-            <div className="relative flex-[0_0_95%] md:flex-[0_0_100%] pr-24 md:pr-0" key={idx}>
+            <div className="relative flex-[0_0_95%] md:flex-[0_0_100%] pr-24" key={idx}>
               <div className="relative w-full h-0 pb-[125%] md:pb-[calc(622*100%/829)] overflow-hidden">
                 <img
                   src={src}
