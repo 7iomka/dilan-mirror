@@ -1,0 +1,83 @@
+.playButton {
+  border-radius: 50%;
+  position: relative;
+  z-index: 15;
+  transition: 0.7s cubic-bezier(0.39, 0.575, 0.565, 1) opacity;
+  transform: none;
+  opacity: 1;
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  right: 5%;
+  bottom: 5%;
+
+  @screen md {
+    width: 100px;
+    height: 100px;
+    bottom: 10%;
+    right: 7%;
+  }
+
+  @screen xl {
+    right: 5%;
+    width: 180px;
+    height: 180px;
+    bottom: 5%;
+  }
+}
+
+.playButtonIcon {
+  width: 100%;
+  height: 100%;
+}
+
+.playButtonOuterCircle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  display: block;
+  opacity: 0;
+  pointer-events: none;
+  animation: circle-plane 5s cubic-bezier(0.39, 0.575, 0.565, 1) infinite;
+
+  &.n1 {
+    animation-delay: 4.5s;
+  }
+
+  &.n2 {
+    animation-delay: 3s;
+  }
+}
+
+.playButtonTriangle {
+  stroke: #fff;
+  fill: #fff;
+  stroke-width: 0;
+}
+
+.playButton:hover .playButtonTriangle {
+  fill: transparent;
+  stroke-width: 3px;
+}
+
+@keyframes circle-plane {
+  0% {
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 0.25;
+  }
+
+  100%,
+  83.33333% {
+    opacity: 0;
+    -webkit-transform: scale(1.9);
+    transform: scale(1.9);
+  }
+}

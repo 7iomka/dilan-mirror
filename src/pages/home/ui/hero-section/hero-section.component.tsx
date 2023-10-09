@@ -2,13 +2,14 @@ import clsx from 'clsx';
 import { useTranslation } from 'react-i18next';
 import { useCallback, useEffect, useState } from 'react';
 import type { EmblaCarouselType } from 'embla-carousel-react';
-import type { CarouselProps } from '@/shared/ui/carousel';
 import { Carousel, CarouselControls } from '@/shared/ui/carousel';
-import { ResponsivePicture } from '@/shared/ui/responsive-picture';
 import { Button } from '@/shared/ui/button';
+import { Fancybox } from '@/shared/ui/fancybox';
+import styles from './hero-section.module.css';
 
 interface HeroCarouselSlide {
   src: string;
+  videoId: string;
   className?: string;
 }
 interface HeroSectionProps {
@@ -26,13 +27,15 @@ const HeroSection = ({ className }: HeroSectionProps) => {
     slides: [
       {
         src: '/static/images/content/hero-section/01.jpg',
+        videoId: 'iYdgRu5W-Dk',
       },
       {
         src: '/static/images/content/hero-section/02.jpg',
-        className: 'object-[70%_50%]',
+        videoId: 'EyUfHzhQGUQ',
       },
       {
         src: '/static/images/content/hero-section/03.jpg',
+        videoId: 'WYetg3AuLE4',
       },
     ] as HeroCarouselSlide[],
   };
@@ -101,48 +104,108 @@ const HeroCarousel = ({ slides }: { slides: HeroCarouselSlide[] }) => {
 
   return (
     <div>
-      <Carousel
-        getEmblaApi={setEmbla}
-        onSlideChange={onSelect}
-        viewportOverflow="unset"
-        classNames={{
-          root: 'relative',
-          viewport: 'overflow-visible md:overflow-hidden',
-          container: '-mr-24 md:mr-0',
-        }}
+      <Fancybox
         options={{
-          align: 'start',
-          containScroll: 'trimSnaps',
-          slidesToScroll: 'auto',
-          loop: true,
-          duration: 50,
-        }}
-        plugins={[
-          {
-            name: 'Autoplay',
-            options: { delay: 6000, stopOnInteraction: false },
+          Thumbs: {
+            type: 'classic',
           },
-        ]}
-        rootContent={
-          <>
-            <div className="pointer-events-none absolute -left-1 -top-1 -bottom-1 w-[30%] bg-[linear-gradient(270deg,rgba(20,20,25,0.00)_0%,#141419_100%)] z-[1] hidden lg:block" />
-            <div className="pointer-events-none absolute -left-1 -right-1 -bottom-1 h-[30%] bg-[linear-gradient(180deg,rgba(20,20,25,0.00)_0%,#141419_100%)] z-[1] hidden md:block xl:hidden" />
-          </>
-        }
+        }}
       >
-        {slides.map(({ src, className: imageClassName }, idx) => (
-          <div className="relative flex-[0_0_95%] md:flex-[0_0_100%] pr-24 md:pr-0" key={idx}>
-            <div className="relative w-full h-0 pb-[125%] md:pb-[calc(622*100%/829)]">
-              <img
-                src={src}
-                className={clsx(imageClassName, 'absolute inset-0 w-full h-full object-cover')}
-                alt=""
-              />
+        <Carousel
+          getEmblaApi={setEmbla}
+          onSlideChange={onSelect}
+          viewportOverflow="unset"
+          classNames={{
+            root: 'relative',
+            viewport: 'overflow-visible md:overflow-hidden',
+            container: '-mr-24 md:mr-0',
+          }}
+          options={{
+            align: 'start',
+            containScroll: 'trimSnaps',
+            slidesToScroll: 'auto',
+            loop: true,
+            duration: 50,
+          }}
+          plugins={[
+            {
+              name: 'Autoplay',
+              options: { delay: 6000, stopOnInteraction: false },
+            },
+          ]}
+        >
+          {slides.map(({ src, videoId, className: imageClassName }, idx) => (
+            <div className="relative flex-[0_0_95%] md:flex-[0_0_100%] pr-24 md:pr-0" key={idx}>
+              <div className="relative w-full h-0 pb-[125%] md:pb-[calc(622*100%/829)] overflow-hidden">
+                <img
+                  src={src}
+                  className={clsx(imageClassName, 'absolute inset-0 w-full h-full object-cover')}
+                  alt=""
+                />
+                <div className="pointer-events-none absolute -left-1 -top-1 -bottom-1 w-[30%] bg-[linear-gradient(270deg,rgba(20,20,25,0.00)_0%,#141419_100%)] z-[1] hidden lg:block" />
+                <div className="pointer-events-none absolute -left-1 -right-1 -bottom-1 h-[30%] bg-[linear-gradient(180deg,rgba(20,20,25,0.00)_0%,#141419_100%)] z-[1] hidden md:block xl:hidden" />
+                <div className={styles.playButton}>
+                  <a
+                    data-fancybox={videoId}
+                    href={`https://www.youtube.com/${videoId}&amp;autoplay=1&amp;rel=0&amp;controls=1&amp;showinfo=0`}
+                    type="image"
+                  >
+                    <svg
+                      className={styles.playButtonIcon}
+                      version="1.1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="230"
+                      height="230"
+                      viewBox="0 0 230 230"
+                    >
+                      <defs>
+                        <filter id="blur-play-fx" filterUnits="userSpaceOnUse">
+                          <feFlood floodColor="#FFFFFF" floodOpacity="0.530" />
+                          <feComposite operator="in" in2="SourceAlpha" result="outGlowFill" />
+                          <feMorphology operator="dilate" radius="2" result="outGlowFill" />
+                          <feGaussianBlur stdDeviation="4.7" result="outGlowBlur" />
+                          <feComposite
+                            operator="out"
+                            in="outGlowBlur"
+                            in2="SourceAlpha"
+                            result="outGlowMasked"
+                          />
+                          <feComposite
+                            operator="over"
+                            in="outGlowMasked"
+                            in2="SourceGraphic"
+                            result="outerGlow"
+                          />
+                        </filter>
+                      </defs>
+                      <g>
+                        <g className={styles.playButtonCircle} filter="url(#blur-play-fx)">
+                          <path
+                            className="transition-all duration-500"
+                            d="M115.000,14.406 C170.557,14.406 215.594,59.443 215.594,115.000 C215.594,170.557 170.557,215.594 115.000,215.594 C59.443,215.594 14.406,170.557 14.406,115.000 C14.406,59.443 59.443,14.406 115.000,14.406 z"
+                            fill="none"
+                            stroke="#FFFFFF"
+                            strokeWidth="5"
+                          />
+                        </g>
+                        <path
+                          className={clsx(styles.playButtonTriangle, 'transition-all duration-500')}
+                          d="M155.526,114.519 L90.858,151.856 L90.858,77.183 L155.526,114.519 z"
+                          fill="#FFFFFF"
+                          filter="url(#blur-play-fx)"
+                        />
+                      </g>
+                    </svg>
+                    <span className={clsx(styles.playButtonOuterCircle, styles.n1)} />
+                    <span className={clsx(styles.playButtonOuterCircle, styles.n2)} />
+                  </a>
+                </div>
+              </div>
             </div>
-          </div>
-        ))}
-      </Carousel>
-      <div className="hidden md:flex items-center justify-end gap-8 mt-58 lg:mt-24">
+          ))}
+        </Carousel>
+      </Fancybox>
+      <div className="hidden md:flex items-center justify-end gap-8 mt-58 lg:mt-24 relative z-20">
         <CarouselControls
           canScrollNext={canScrollNext}
           canScrollPrev={canScrollPrev}

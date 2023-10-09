@@ -1,0 +1,23 @@
+@import "@fancyapps/ui/dist/fancybox/fancybox.css";
+
+:root {
+  --fancybox-hover-color: #fff;
+  --fancybox-bg: rgba(var(--dark-900-rgb), 0.96);
+  --fancybox-slide-gap: 10px;
+  --f-spinner-width: 50px;
+  --f-spinner-height: 50px;
+  --f-spinner-color-1: rgba(255, 255, 255, 0.1);
+  --f-spinner-color-2: #bbb;
+}
+
+.fancybox__thumbs {
+  --f-thumb-width: 60px;
+  --f-thumb-height: 60px;
+  --f-thumb-border-radius: var(--radius-md);
+  --f-thumb-outline: 2px;
+  --f-thumb-outline-color: var(--primary);
+}
+
+.fancybox__infobar {
+  font-size: var(--font-size-md);
+}

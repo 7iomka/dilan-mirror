@@ -20,51 +20,52 @@ const HowItWorksSection = ({ className }: HowItWorksSectionProps) => {
       {
         id: 'touchPanel',
         title: t('howItWorks.accessories.touchPanel'),
-        image: '/static/images/content/how-it-works-section/touch-panel.jpg',
+        image: '/static/images/content/how-it-works-section/detail/touch-panel.png',
         coordinates: { left: '73.3%', top: '50%' },
         coordinatesMobile: { right: '2.3%', top: '51%' },
       },
       {
         id: 'camera',
         title: t('howItWorks.accessories.camera'),
-        image: '/static/images/content/how-it-works-section/camera.jpg',
+        image: '/static/images/content/how-it-works-section/detail/camera.png',
         coordinates: { left: '1.2%', top: '58.1%' },
         coordinatesMobile: { left: '0%', top: '51.3%' },
       },
       {
         id: 'flap',
         title: t('howItWorks.accessories.flap'),
-        image: '/static/images/content/how-it-works-section/flap.jpg',
+        image: '/static/images/content/how-it-works-section/detail/flap.png',
         coordinates: { left: '4.2%', top: '58.1%' },
         coordinatesMobile: { left: '5.2%', top: '51.3%' },
       },
       {
         id: 'cuttOffSensor',
         title: t('howItWorks.accessories.cutOffSensor'),
-        image: '/static/images/content/how-it-works-section/cut-off-sensor.jpg',
+        image: '/static/images/content/how-it-works-section/detail/cut-off-sensor.png',
         coordinates: { left: '58.1%', top: '21.7%' },
         coordinatesMobile: { right: '36.4%', top: '23.1%' },
       },
       {
         id: 'motionSensor',
         title: t('howItWorks.accessories.motionSensor'),
-        image: '/static/images/content/how-it-works-section/motion-sensor.jpg',
+        image: '/static/images/content/how-it-works-section/detail/motion-sensor.png',
         coordinates: { left: '39.4%', top: '9.9%' },
         coordinatesMobile: { left: '18.2%', top: '9.1%' },
       },
       {
         id: 'mirrorDisplay',
         title: t('howItWorks.accessories.mirrorDisplay'),
-        image: '/static/images/content/how-it-works-section/mirror-display.jpg',
+        image: '/static/images/content/how-it-works-section/detail/mirror-display.jpg',
         coordinates: { right: '31.3%', top: '76.9%' },
         coordinatesMobile: { right: '17.5%', top: '77.3%' },
       },
       {
         id: 'intelligentLight',
         title: t('howItWorks.accessories.intelligentLight'),
-        image: '/static/images/content/how-it-works-section/intelligent-light.jpg',
+        image: '/static/images/content/how-it-works-section/detail/intelligent-light.png',
         coordinates: { left: '46.5%', top: '3.6%' },
         coordinatesMobile: { left: '32.4%', top: '4.1%' },
+        className: 'max-md:[grid-column:span_3]',
       },
     ],
     items: [
@@ -158,7 +159,7 @@ const HowItWorksSection = ({ className }: HowItWorksSectionProps) => {
           xxl:grid-cols-[repeat(auto-fill,minmax(10.125rem,1fr))]
           gap-4 md:gap-8"
           >
-            {data.accessories.map(({ id, title }) => (
+            {data.accessories.map(({ id, title, className: itemClassName }) => (
               <button
                 key={id}
                 type="button"
@@ -167,6 +168,7 @@ const HowItWorksSection = ({ className }: HowItWorksSectionProps) => {
                   text-dark-800`,
                   activeAccessoryId === id && 'bg-gray-400 cursor-default',
                   activeAccessoryId !== id && 'bg-indigo-200 hover:bg-gray-300',
+                  itemClassName,
                 )}
                 onClick={() => setActiveAccessoryId(id)}
               >

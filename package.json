@@ -16,6 +16,7 @@
     "compile-modernizr": "modernizr -c modernizr-config.json -d ./src/public/static/scripts/modernizr-bundle.min.js"
   },
   "dependencies": {
+    "@fancyapps/ui": "^5.0.24",
     "@floating-ui/react": "^0.25.4",
     "@headlessui/react": "^1.7.17",
     "@popperjs/core": "^2.11.8",
