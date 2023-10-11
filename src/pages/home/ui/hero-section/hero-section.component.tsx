@@ -121,7 +121,10 @@ const HeroCarousel = ({ slides }: { slides: HeroCarouselSlide[] }) => {
               <div className="relative w-full h-0 pb-[125%] md:pb-[calc(622*100%/829)] overflow-hidden">
                 <img
                   src={src}
-                  className={clsx(imageClassName, 'absolute inset-0 w-full h-full object-cover')}
+                  className={clsx(
+                    imageClassName,
+                    'absolute inset-0 w-full h-full object-cover select-none',
+                  )}
                   alt=""
                 />
                 <div className="pointer-events-none absolute -left-1 -top-1 -bottom-1 w-[30%] bg-[linear-gradient(270deg,rgba(20,20,25,0.00)_0%,#141419_100%)] z-[1] hidden lg:block" />
