@@ -1,0 +1,21 @@
+.animImage {
+  animation: fadeInOut 4s infinite;
+}
+
+.animImage1 {
+  animation-delay: 0s;
+}
+
+.animImage2 {
+  animation-delay: 2s;
+}
+
+@keyframes fadeInOut {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}

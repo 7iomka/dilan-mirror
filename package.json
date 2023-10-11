@@ -45,6 +45,7 @@
     "react-i18next": "^13.2.1",
     "react-popper": "^2.3.0",
     "react-sticky-el": "^2.1.0",
+    "swiper": "^10.3.1",
     "wnumb": "^1.2.0",
     "xss": "^1.0.14",
     "yup": "^1.2.0"

@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useCallback, useEffect, useState } from 'react';
 import type { EmblaCarouselType } from 'embla-carousel-react';
 import { Carousel, CarouselControls } from '@/shared/ui/carousel';
+import styles from './example-section.module.css';
 
 interface ExamplesSectionProps {
   className?: string;
@@ -17,26 +18,32 @@ const ExamplesSection = ({ className }: ExamplesSectionProps) => {
       {
         title: t('examples.medSelfExamination'),
         imageSrc: '/static/images/content/examples-section/med-self-examination.jpg',
+        image2Src: '/static/images/content/examples-section/demo.jpg',
       },
       {
         title: t('examples.medSelfExamination'),
         imageSrc: '/static/images/content/examples-section/med-self-examination.jpg',
+        image2Src: '/static/images/content/examples-section/demo.jpg',
       },
       {
         title: t('examples.medSelfExamination'),
         imageSrc: '/static/images/content/examples-section/med-self-examination.jpg',
+        image2Src: '/static/images/content/examples-section/demo.jpg',
       },
       {
         title: t('examples.medSelfExamination'),
         imageSrc: '/static/images/content/examples-section/med-self-examination.jpg',
+        image2Src: '/static/images/content/examples-section/demo.jpg',
       },
       {
         title: t('examples.medSelfExamination'),
         imageSrc: '/static/images/content/examples-section/med-self-examination.jpg',
+        image2Src: '/static/images/content/examples-section/demo.jpg',
       },
       {
         title: t('examples.medSelfExamination'),
         imageSrc: '/static/images/content/examples-section/med-self-examination.jpg',
+        image2Src: '/static/images/content/examples-section/demo.jpg',
       },
     ],
   };
@@ -113,12 +120,26 @@ const ExamplesSection = ({ className }: ExamplesSectionProps) => {
           >
             {data.items.map((item, idx) => (
               <div className="relative flex-[0_0_20rem] xl:flex-[0_0_25%] pr-24" key={idx}>
-                <div className="relative w-full h-0 pb-[calc(400*100%/296)]">
+                <div className="relative w-full h-0 pb-[calc(400*100%/296)] bg-dark-500">
                   <img
-                    src={item.imageSrc}
-                    className="absolute inset-0 w-full h-full object-cover"
+                    src={item.image2Src}
+                    className={clsx(
+                      'absolute inset-0 w-full h-full object-cover',
+                      styles.animImage,
+                      styles.animImage2,
+                    )}
                     alt=""
                   />
+                  <img
+                    src={item.imageSrc}
+                    className={clsx(
+                      'absolute inset-0 w-full h-full object-cover',
+                      styles.animImage,
+                      styles.animImage1,
+                    )}
+                    alt=""
+                  />
+
                   <div className="absolute bottom-0 left-0 right-0 h-[11.75rem] max-h-full bg-[linear-gradient(180deg,rgba(0,0,0,0)_0%,rgba(0,0,0,0.72)_100%)]" />
                   <div className="absolute inset-0 z-[3] flex flex-col justify-end p-20">
                     <h3 className="text-xl w-full">{item.title}</h3>

@@ -1,11 +1,16 @@
 import clsx from 'clsx';
 import { useTranslation } from 'react-i18next';
-import { useCallback, useEffect, useState } from 'react';
-import type { EmblaCarouselType } from 'embla-carousel-react';
-import { Carousel, CarouselControls } from '@/shared/ui/carousel';
+import { useRef } from 'react';
+import { Swiper as SwiperReact, SwiperSlide } from 'swiper/react';
+import { EffectFade, Navigation, Autoplay, A11y } from 'swiper/modules';
+import type { Swiper } from 'swiper/types';
 import { Button } from '@/shared/ui/button';
 import { Fancybox } from '@/shared/ui/fancybox';
+import { Icon } from '@/shared/ui/icon';
 import styles from './hero-section.module.css';
+import 'swiper/css';
+import 'swiper/css/effect-fade';
+import { isTouchDevice, useDomRefWithSetter } from './hero-section.lib';
 
 interface HeroCarouselSlide {
   src: string;
@@ -76,34 +81,12 @@ const HeroSection = ({ className }: HeroSectionProps) => {
 };
 
 const HeroCarousel = ({ slides }: { slides: HeroCarouselSlide[] }) => {
-  const [embla, setEmbla] = useState<EmblaCarouselType | null>(null);
-  const [canScrollPrev, setCanScrollPrev] = useState(false);
-  const [canScrollNext, setCanScrollNext] = useState(false);
-
-  const onSelect = useCallback(() => {
-    if (!embla) return;
-    setCanScrollPrev(embla.canScrollPrev());
-    setCanScrollNext(embla.canScrollNext());
-  }, [embla]);
-
-  const handlePrev = useCallback(() => {
-    embla?.scrollPrev();
-  }, [embla]);
-
-  const handleNext = useCallback(() => {
-    embla?.scrollNext();
-  }, [embla]);
-
-  useEffect(() => {
-    if (!embla) return;
-
-    onSelect();
-    embla.on('reInit', onSelect);
-    embla.on('select', onSelect);
-  }, [embla, onSelect]);
+  const [nextEl, nextElRef] = useDomRefWithSetter<HTMLButtonElement>();
+  const [prevEl, prevElRef] = useDomRefWithSetter<HTMLButtonElement>();
+  const swiperRef = useRef<Swiper | null>(null);
 
   return (
-    <div>
+    <div className="relative">
       <Fancybox
         options={{
           Thumbs: {
@@ -111,31 +94,30 @@ const HeroCarousel = ({ slides }: { slides: HeroCarouselSlide[] }) => {
           },
         }}
       >
-        <Carousel
-          getEmblaApi={setEmbla}
-          onSlideChange={onSelect}
-          viewportOverflow="unset"
-          classNames={{
-            root: 'relative',
-            viewport: 'overflow-visible md:overflow-hidden',
-            container: '-mr-24',
+        <SwiperReact
+          onInit={(swiper) => {
+            swiperRef.current = swiper;
           }}
-          options={{
-            align: 'start',
-            containScroll: 'trimSnaps',
-            slidesToScroll: 'auto',
-            loop: true,
-            duration: 50,
+          modules={[EffectFade, Navigation, Autoplay, A11y]}
+          allowTouchMove={isTouchDevice()}
+          navigation={{
+            prevEl,
+            nextEl,
           }}
-          plugins={[
-            {
-              name: 'Autoplay',
-              options: { delay: 6000, stopOnInteraction: false },
-            },
-          ]}
+          autoplay={{
+            delay: 4500,
+            disableOnInteraction: false,
+          }}
+          speed={1000}
+          effect="fade"
+          slidesPerView={1}
+          loop
+          fadeEffect={{
+            crossFade: true,
+          }}
         >
           {slides.map(({ src, videoId, className: imageClassName }, idx) => (
-            <div className="relative flex-[0_0_95%] md:flex-[0_0_100%] pr-24" key={idx}>
+            <SwiperSlide key={idx}>
               <div className="relative w-full h-0 pb-[125%] md:pb-[calc(622*100%/829)] overflow-hidden">
                 <img
                   src={src}
@@ -201,17 +183,27 @@ const HeroCarousel = ({ slides }: { slides: HeroCarouselSlide[] }) => {
                   </a>
                 </div>
               </div>
-            </div>
+            </SwiperSlide>
           ))}
-        </Carousel>
+        </SwiperReact>
       </Fancybox>
-      <div className="hidden md:flex items-center justify-end gap-8 mt-58 lg:mt-24 relative z-20">
-        <CarouselControls
-          canScrollNext={canScrollNext}
-          canScrollPrev={canScrollPrev}
-          onNext={handleNext}
-          onPrev={handlePrev}
-        />
+      <div className="flex items-center justify-end md:gap-8 absolute left-0 bottom-0 md:relative md:mt-58 lg:mt-24 z-20">
+        <button
+          type="button"
+          className="w-36 h-36 md:w-88 md:h-auto md:p-11 border border-dark active:border-black lg:hover:border-black bg-dark-900 active:bg-black "
+          aria-controls="hero-slider"
+          ref={prevElRef}
+        >
+          <Icon name="chevron-left" className="text-2xl" />
+        </button>
+        <button
+          type="button"
+          className="w-36 h-36 md:w-88 md:h-auto md:p-11 border border-dark active:border-black lg:hover:border-black bg-dark-900 active:bg-black "
+          aria-controls="hero-slider"
+          ref={nextElRef}
+        >
+          <Icon name="chevron-right" className="text-2xl" />
+        </button>
       </div>
     </div>
   );

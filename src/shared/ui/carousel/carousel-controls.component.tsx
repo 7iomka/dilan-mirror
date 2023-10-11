@@ -17,7 +17,7 @@ const CarouselControls = ({
     <>
       <button
         type="button"
-        className="p-11 border border-dark hover:border-black bg-dark-900 hover:bg-black w-88 [&[disabled]]:text-dark-200 [&[disabled]]:bg-dark-700"
+        className="w-88 p-11 border border-dark hover:border-black bg-dark-900 active:bg-black [&[disabled]]:text-dark-200 [&[disabled]]:bg-dark-700"
         disabled={!canScrollPrev}
         onClick={() => onPrev()}
         tabIndex={canScrollPrev ? 0 : -1}
@@ -26,7 +26,7 @@ const CarouselControls = ({
       </button>
       <button
         type="button"
-        className="p-11 border border-dark hover:border-black bg-dark-900 hover:bg-black w-88 [&[disabled]]:text-dark-200 [&[disabled]]:bg-dark-700"
+        className="w-88 p-11 border border-dark hover:border-black bg-dark-900 active:bg-black [&[disabled]]:text-dark-200 [&[disabled]]:bg-dark-700"
         disabled={!canScrollNext}
         onClick={() => onNext()}
         tabIndex={canScrollNext ? 0 : -1}

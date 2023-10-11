@@ -398,6 +398,7 @@ __metadata:
     react-popper: ^2.3.0
     react-router-dom: 6.15.0
     react-sticky-el: ^2.1.0
+    swiper: ^10.3.1
     tailwind-bootstrap-grid: ^5.0.1
     tailwind-scrollbar: ^3.0.5
     tailwindcss: ^3.3.3
@@ -7906,6 +7907,13 @@ __metadata:
     deep-rename-keys: ^0.2.1
     xml-reader: 2.4.3
   checksum: 73af36409a28ff5339685b3d674366b4cd27df4ea22620fe5456b026d4d61fe34745c3edeae0f618657628d36a96c9f6277dd18d4062d5e285bcb4fb12c8520a
+  languageName: node
+  linkType: hard
+
+"swiper@npm:^10.3.1":
+  version: 10.3.1
+  resolution: "swiper@npm:10.3.1"
+  checksum: 9a785930ca0ab0683d7e5e116c25a38e1f8818d6f9e93848125bdf3e1874e12a6c3b9f4e9c54668e4accc2440a6f031de98cfc01a1b0068c77f8de4115034e4d
   languageName: node
   linkType: hard
 
