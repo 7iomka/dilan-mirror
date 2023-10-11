@@ -117,7 +117,7 @@ const HeroCarousel = ({ slides }: { slides: HeroCarouselSlide[] }) => {
           }}
         >
           {slides.map(({ src, videoId, className: imageClassName }, idx) => (
-            <SwiperSlide key={idx}>
+            <SwiperSlide key={idx} className="!w-full">
               <div className="relative w-full h-0 pb-[125%] md:pb-[calc(622*100%/829)] overflow-hidden">
                 <img
                   src={src}
