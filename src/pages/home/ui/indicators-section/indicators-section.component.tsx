@@ -58,10 +58,14 @@ const IndicatorsSection = ({ className }: IndicatorsSectionProps) => {
         <div className="py-56 md:py-88">
           <div className="row gy-24">
             <div className="col-12 md:col-6">
-              <div className="text-md md:text-xl lg:text-2xl">{data.limitationText}</div>
+              <div className="text-md md:text-xl lg:text-2xl whitespace-pre-wrap">
+                {data.limitationText}
+              </div>
             </div>
             <div className="col-12 md:col-6">
-              <div className="text-md md:text-xl lg:text-2xl">{data.proposalText}</div>
+              <div className="text-md md:text-xl lg:text-2xl whitespace-pre-wrap">
+                {data.proposalText}
+              </div>
             </div>
           </div>
         </div>

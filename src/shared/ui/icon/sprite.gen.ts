@@ -7,7 +7,6 @@ export interface SpritesMap {
     | 'camera'
     | 'chevron-left'
     | 'chevron-right'
-    | 'emotion'
     | 'facebook'
     | 'file'
     | 'instagram'
@@ -21,6 +20,7 @@ export interface SpritesMap {
     | 'shopping-basket'
     | 'sun'
     | 'telegram-colored'
+    | 'time'
     | 'webcam';
 }
 export const SPRITES_META = {
@@ -32,7 +32,6 @@ export const SPRITES_META = {
     'camera',
     'chevron-left',
     'chevron-right',
-    'emotion',
     'facebook',
     'file',
     'instagram',
@@ -46,6 +45,7 @@ export const SPRITES_META = {
     'shopping-basket',
     'sun',
     'telegram-colored',
+    'time',
     'webcam',
   ],
 } satisfies {
@@ -57,7 +57,6 @@ export const SPRITES_META = {
     | 'camera'
     | 'chevron-left'
     | 'chevron-right'
-    | 'emotion'
     | 'facebook'
     | 'file'
     | 'instagram'
@@ -71,6 +70,7 @@ export const SPRITES_META = {
     | 'shopping-basket'
     | 'sun'
     | 'telegram-colored'
+    | 'time'
     | 'webcam'
   >;
 };

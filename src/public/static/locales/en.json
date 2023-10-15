@@ -20,21 +20,18 @@
   "hero": {
     "textBeforeTitle": "Available for co-operation",
     "title": "Look at yourself on the other side",
-    "textAfterTitle": "Invest in a smart mirror project with reverse body image technology",
-    "slide1Text": "I can keep track of my fitness progress",
-    "slide2Text": "I can check the correctness of exercises",
-    "slide3Text": "I can evaluate my new clothing designs"
+    "textAfterTitle": "Invest in a smart mirror project with technology to show the back of the body"
   },
   "indicators": {
-    "limitationText": "This should be a description of the pains of potential users. Examples of why standard mirrors do not cover their needs. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    "proposalText": "And here is a description of the proposal, what the project is and how it helps. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "limitationText": "When trying to see your back in traditional mirrors, it's not only uncomfortable, it's not quite possible, and you have to turn as much as possible to see part of the back of your body. And the combined system of multiple mirrors reduces the size of the mirrored object displayed",
+    "proposalText": "The dilan mirror project is the production and sale of mirrors that allow you to view the back of your body with maximum comfort.\nThis option can be easily turned on or off at any time",
     "item1Title": "Completion status of the third stage of development",
     "item2Title": "Funds raised for replication of the project",
     "item3Title": "People from all over the world have already invested"
   },
   "examples": {
-    "title": "Examples\nof applications",
-    "description": "Here there will be a description block with text about how many ways the product can be used.",
+    "title": "Use cases",
+    "description": "Our product has over 20 ways of use.\nHere are the most popular",
     "artistDressingRooms": "Artist dressing rooms",
     "barbershops": "Barbershops",
     "beautySalons": "Beauty salons",
@@ -62,43 +59,43 @@
       "intelligentLight": "Intelligent light"
     },
     "items": {
-      "item1Text": "The back display function is activated by touch panel, hand gesture, thanks to a special motion sensor or voice command.",
-      "item2Text": "The sensors are installed anywhere depending on the interior and switch off automatically if they do not track the person.",
+      "item1Text": "The rear view function of the object displayed in the mirror is activated via the touch panel, a hand gesture, thanks to a special motion sensor or a voice command.",
+      "item2Text": "The sensors can be installed anywhere depending on the interior, so that if there is no human movement - the system automatically switches off.",
       "item3Text": "The camera is covered by a flap and is visible when activated so that the person is not uncomfortable with the feeling of constant surveillance.",
-      "item4Text": "The covering mirror is designed to be double-layered to hide the video feed screen and display it when needed.",
-      "item5Text": "A smart light on the top and sides reacts to the video broadcast to avoid glare and highlights the person in front of the mirror.",
-      "item6Text": "Video quality is customisable from 4k, 60fps and up to avoid broadcast lags."
+      "item4Text": "The translucent mirror allows you to hide the screen and show it when needed.",
+      "item5Text": "Intelligent backlight points on the top and sides change the intensity of the backlight when the video signal is turned on or off.",
+      "item6Text": "Video quality is customizable from 4k, 60fps and up, and high-quality components avoid broadcast latency."
     }
   },
   "arguments": {
     "item1": {
       "title": "Room illumination",
-      "description": "Mirrors maximise even minimal sunlight during the day and artificial light in the evening"
+      "description": "Mirrors maximize the use of even minimal sunlight during the day and artificial lighting in the evening"
     },
     "item2": {
       "title": "Expansion of space",
       "description": "Even the illusion of increased living space makes small rooms more comfortable"
     },
     "item3": {
-      "title": "Psychological need",
-      "description": "We looks at themselves in the morning, before leaving the house and from 8 to 12 times a day"
+      "title": "Daily requirement",
+      "description": "A person looks in the mirror an average of 8 to 12 times during the day"
     },
     "item4": {
       "title": "Fitness, beauty, etc.",
-      "description": "The actual and potential benefits of mirrors have been proven over 2000 years of existence"
+      "description": "The actual and potential benefits of mirrors have been proven over 2000 years of their existence"
     },
-    "title": "Everyone needs mirrors",
-    "imageHeadLine": "A headline about the project team's commitment to changing the world",
-    "imageSubHeadLine": "A subtitle about not missing the opportunity to join an innovative project at an early stage of development",
+    "title": "Mirrors everywhere",
+    "imageHeadLine": "Brave solutions - Big changes!",
+    "imageSubHeadLine": "Every few years there is a new revolutionary product that changes the entire industry.\nBe part of the change in all sectors of their mirror industry.",
     "actionText": "Join to us"
   },
   "roadmap": {
     "title": "Our goals and plans",
-    "description": "It is recommended to describe what the company is striving for, what its mission is and why an investor should pay attention to it.",
-    "textFor2022": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    "textFor2023": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    "textFor2024": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    "textFor2025": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+    "description": "Developing and winning the market for the first and only company to produce and sell a useful and one-of-a-kind product. To contribute to world progress.",
+    "textFor22-23": "Layout modeling and experiments. Filing a patent application in France.",
+    "textFor23-24": "Official confirmation of a patent in France. International patent filings in over 90 countries.",
+    "textFor24-25": "Plant construction, marketing development and organization of the company's management structures.",
+    "textFor26": "Prospecting for customers and retailers.Mass production and sales."
   },
   "authorship": {
     "title": "Hello I'am {{authorInitials}}",

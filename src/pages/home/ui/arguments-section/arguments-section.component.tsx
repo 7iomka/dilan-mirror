@@ -25,7 +25,7 @@ const ArgumentsSection = ({ className }: ArgumentsSectionProps) => {
       {
         title: t('arguments.item3.title'),
         description: t('arguments.item3.description'),
-        iconName: 'emotion',
+        iconName: 'time',
       },
       {
         title: t('arguments.item4.title'),
@@ -73,7 +73,7 @@ const ArgumentsSection = ({ className }: ArgumentsSectionProps) => {
               <img src={data.image} alt="" className="object-cover" />
             </div>
             <div className="z-[2] flex flex-col items-center justify-end lg:p-24 lg:absolute lg:bottom-0 lg:left-0 lg:right-0">
-              <div className="bg-white py-24 md:p-24">
+              <div className="bg-white py-24 md:p-24 w-full">
                 <div className="row gy-40 lg:gx-60 lg:flex-nowrap">
                   <div className="col-12 lg:col">
                     <h4 className="text-md md:text-xl whitespace-pre-wrap">{data.imageHeadLine}</h4>

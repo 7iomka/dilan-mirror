@@ -13,20 +13,20 @@ const RoadmapSection = ({ className }: RoadmapSectionProps) => {
     description: t('roadmap.description'),
     items: [
       {
-        year: 2022,
-        title: t('roadmap.textFor2022'),
+        period: '2021 - 2023',
+        title: t('roadmap.textFor22-23'),
       },
       {
-        year: 2023,
-        title: t('roadmap.textFor2023'),
+        period: '2023 - 2024',
+        title: t('roadmap.textFor23-24'),
       },
       {
-        year: 2024,
-        title: t('roadmap.textFor2024'),
+        period: '2024 - 2025',
+        title: t('roadmap.textFor24-25'),
       },
       {
-        year: 2025,
-        title: t('roadmap.textFor2025'),
+        period: '2026',
+        title: t('roadmap.textFor26'),
       },
     ],
   };
@@ -157,13 +157,13 @@ const RoadmapSection = ({ className }: RoadmapSectionProps) => {
                     </svg>
                   </div>
                 </div>
-                <div className="flex -order-1 lg:order-0 mb-24 lg:mb-0 mt-36">
-                  {data.items.map(({ year, title }) => (
+                <div className="flex lg:items-stretch lg:order-0 mt-24 lg:mt-36">
+                  {data.items.map(({ period, title }) => (
                     // 20.25rem is 54px (patter width) * 6
-                    <div key={year} className="shrink-0 w-240 xl:w-280 lp:w-[20.25rem] pr-24">
+                    <div key={period} className="shrink-0 w-240 xl:w-280 lp:w-[20.25rem] pr-24">
                       <div className="relative">
-                        <div className="absolute left-0 top-full mt-24 lg:mt-0 lg:top-auto lg:bottom-full lg:mb-36 w-5 h-20 lp:w-8 lp:h-32 bg-white z-[2]" />
-                        <div className="text-xl font-bold">{year}</div>
+                        <div className="absolute left-0 bottom-full mb-24 lg:mb-36 w-5 h-20 lp:w-8 lp:h-32 bg-white z-[2]" />
+                        <div className="text-xl font-bold">{period}</div>
                         <div className="mt-4 text-lg">{title}</div>
                       </div>
                     </div>
