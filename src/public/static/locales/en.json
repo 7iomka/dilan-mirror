@@ -35,7 +35,20 @@
   "examples": {
     "title": "Examples\nof applications",
     "description": "Here there will be a description block with text about how many ways the product can be used.",
-    "medSelfExamination": "MED self-examination"
+    "artistDressingRooms": "Artist dressing rooms",
+    "barbershops": "Barbershops",
+    "beautySalons": "Beauty salons",
+    "clothingStores": "Clothing stores",
+    "dancingSchools": "Dancing schools",
+    "dressingRooms": "Dressing rooms",
+    "fittingRooms": "Fitting rooms",
+    "gameEscapeAndParks": "Game escape and parks",
+    "gyms": "Gyms",
+    "hairdressers": "Hairdressers",
+    "homeUse": "Home use",
+    "medicalRehabilitationAndPhysiotherapy": "Medical rehabilitation and physiotherapy",
+    "modelingAgencies": "Modeling agencies",
+    "tattooSalons": "Tattoo salons"
   },
   "howItWorks": {
     "title": "How it works",

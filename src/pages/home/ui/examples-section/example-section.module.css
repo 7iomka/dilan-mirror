@@ -1,21 +1,22 @@
-.animImage {
-  animation: fadeInOut 4s infinite;
+.fadeImage {
+  opacity: 0;
+  animation: crossfade 4s ease-in-out infinite;
 }
 
-.animImage1 {
-  animation-delay: 0s;
-}
-
-.animImage2 {
-  animation-delay: 2s;
-}
-
-@keyframes fadeInOut {
-  0%,
-  100% {
+@keyframes crossfade {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  45% {
     opacity: 0;
   }
-  50% {
+  75% {
+    opacity: 0;
+  }
+  100% {
     opacity: 1;
   }
 }
