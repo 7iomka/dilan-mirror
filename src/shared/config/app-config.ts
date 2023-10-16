@@ -1,7 +1,7 @@
 const baseConfig = {
   brandName: 'Dilan Mirror',
-  twitterUsername: '@7iomka',
-  twitterURL: 'https://twitter.com/7iomka',
+  twitterUsername: '@Third_Glance',
+  twitterURL: 'https://twitter.com/Third_Glance',
   instagramURL: 'https://instagram.com/third.glance',
   facebookURL: 'https://www.facebook.com/profile.php?id=100093357039629',
   telegramSupportURL: 'https://t.me/dilan_mirror_support',
