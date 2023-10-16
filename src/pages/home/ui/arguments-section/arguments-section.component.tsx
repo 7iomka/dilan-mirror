@@ -71,6 +71,7 @@ const ArgumentsSection = ({ className }: ArgumentsSectionProps) => {
           <div className="lg:relative">
             <div className="relative aspect-w-[75] aspect-h-[56] sm:aspect-w-2 sm:aspect-h-1 max-xsl:min-w-container-min max-xsl:left-1/2 max-xsl:-translate-x-1/2">
               <img src={data.image} alt="" className="object-cover" />
+              <div className="hidden lg:block absolute inset-0 bg-[linear-gradient(0deg,black_0%,rgb(0,0,0,0.3)_15%,rgb(0,0,0,0))]" />
             </div>
             <div className="z-[2] flex flex-col items-center justify-end lg:p-24 lg:absolute lg:bottom-0 lg:left-0 lg:right-0">
               <div className="bg-white py-24 md:p-24 w-full">

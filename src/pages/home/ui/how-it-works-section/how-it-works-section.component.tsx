@@ -18,32 +18,12 @@ const HowItWorksSection = ({ className }: HowItWorksSectionProps) => {
     title: t('howItWorks.title'),
     accessories: [
       {
-        id: 'touchPanel',
-        title: t('howItWorks.accessories.touchPanel'),
-        image: '/static/images/content/how-it-works-section/detail/touch-panel.png',
-        coordinates: { left: '73.3%', top: '50%' },
-        coordinatesMobile: { right: '2.3%', top: '51%' },
-      },
-      {
-        id: 'camera',
-        title: t('howItWorks.accessories.camera'),
-        image: '/static/images/content/how-it-works-section/detail/camera.png',
-        coordinates: { left: '1.2%', top: '58.1%' },
-        coordinatesMobile: { left: '0%', top: '51.3%' },
-      },
-      {
-        id: 'flap',
-        title: t('howItWorks.accessories.flap'),
-        image: '/static/images/content/how-it-works-section/detail/flap.png',
-        coordinates: { left: '4.2%', top: '58.1%' },
-        coordinatesMobile: { left: '5.2%', top: '51.3%' },
-      },
-      {
-        id: 'cuttOffSensor',
-        title: t('howItWorks.accessories.cutOffSensor'),
-        image: '/static/images/content/how-it-works-section/detail/cut-off-sensor.png',
-        coordinates: { left: '58.1%', top: '21.7%' },
-        coordinatesMobile: { right: '36.4%', top: '23.1%' },
+        id: 'intelligentLight',
+        title: t('howItWorks.accessories.intelligentLight'),
+        image: '/static/images/content/how-it-works-section/detail/intelligent-light.png',
+        coordinates: { left: '46.5%', top: '3.6%' },
+        coordinatesMobile: { left: '32.4%', top: '4.1%' },
+        className: 'max-md:[grid-column:span_3]',
       },
       {
         id: 'motionSensor',
@@ -53,6 +33,20 @@ const HowItWorksSection = ({ className }: HowItWorksSectionProps) => {
         coordinatesMobile: { left: '18.2%', top: '9.1%' },
       },
       {
+        id: 'cuttOffSensor',
+        title: t('howItWorks.accessories.cutOffSensor'),
+        image: '/static/images/content/how-it-works-section/detail/cut-off-sensor.png',
+        coordinates: { left: '58.1%', top: '21.7%' },
+        coordinatesMobile: { right: '36.4%', top: '23.1%' },
+      },
+      {
+        id: 'touchPanel',
+        title: t('howItWorks.accessories.touchPanel'),
+        image: '/static/images/content/how-it-works-section/detail/touch-panel.png',
+        coordinates: { left: '73.3%', top: '50%' },
+        coordinatesMobile: { right: '2.3%', top: '51%' },
+      },
+      {
         id: 'mirrorDisplay',
         title: t('howItWorks.accessories.mirrorDisplay'),
         image: '/static/images/content/how-it-works-section/detail/mirror-display.jpg',
@@ -60,12 +54,18 @@ const HowItWorksSection = ({ className }: HowItWorksSectionProps) => {
         coordinatesMobile: { right: '17.5%', top: '77.3%' },
       },
       {
-        id: 'intelligentLight',
-        title: t('howItWorks.accessories.intelligentLight'),
-        image: '/static/images/content/how-it-works-section/detail/intelligent-light.png',
-        coordinates: { left: '46.5%', top: '3.6%' },
-        coordinatesMobile: { left: '32.4%', top: '4.1%' },
-        className: 'max-md:[grid-column:span_3]',
+        id: 'flap',
+        title: t('howItWorks.accessories.flap'),
+        image: '/static/images/content/how-it-works-section/detail/flap.png',
+        coordinates: { left: '4.2%', top: '58.1%' },
+        coordinatesMobile: { left: '5.2%', top: '51.3%' },
+      },
+      {
+        id: 'camera',
+        title: t('howItWorks.accessories.camera'),
+        image: '/static/images/content/how-it-works-section/detail/camera.png',
+        coordinates: { left: '1.2%', top: '58.1%' },
+        coordinatesMobile: { left: '0%', top: '51.3%' },
       },
     ],
     items: [
@@ -178,7 +178,7 @@ const HowItWorksSection = ({ className }: HowItWorksSectionProps) => {
           </div>
         </div>
       </div>
-      <div className="mt-24 md:mt-40 overflow-hidden">
+      <div className="mt-24 overflow-hidden">
         <div className="container">
           <div className="relative md:hidden">
             <img

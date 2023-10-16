@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { useTranslation } from 'react-i18next';
 import { Icon } from '@/shared/ui/icon';
 import { Button } from '@/shared/ui/button';
+import { appConfig } from '@/shared/config/app-config';
 
 interface InvestSectionProps {
   className?: string;
@@ -17,8 +18,7 @@ const InvestSection = ({ className }: InvestSectionProps) => {
   };
 
   const formattedCurrentDate = currentDate.toLocaleDateString(i18n.language, localeSettings);
-  const futureDate = new Date(currentDate);
-  futureDate.setDate(currentDate.getDate() + 24);
+  const futureDate = new Date(2024, 6, 24);
   const formattedFutureDate = futureDate.toLocaleDateString(i18n.language, localeSettings);
 
   const data = {
@@ -31,11 +31,11 @@ const InvestSection = ({ className }: InvestSectionProps) => {
     footNoteText: t('invest.footNoteText'),
     valuePerShareToday: {
       text: t('invest.valuePerShareTodayText'),
-      value: '0,02$',
+      value: '0,01$',
     },
     costOfOneShareInTheForecast: {
       text: t('invest.costOfOneShareInTheForecastText'),
-      value: '0,08$',
+      value: '0,03$',
     },
   };
 
@@ -86,7 +86,7 @@ const InvestSection = ({ className }: InvestSectionProps) => {
                     color="custom"
                     className="flex items-center justify-center bg-dark-500 hover:bg-dark-400 text-white"
                     component="a"
-                    href="#!"
+                    href={appConfig.telegramSupportURL}
                     target="_blank"
                     rel="noopener noreferrer"
                   >

@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/shared/ui/button';
 import { Icon } from '@/shared/ui/icon';
+import { appConfig } from '@/shared/config/app-config';
 
 interface AuthorshipSectionProps {
   className?: string;
@@ -42,7 +43,9 @@ const AuthorshipSection = ({ className }: AuthorshipSectionProps) => {
                       color="white-semi-transparent"
                       size="custom"
                       component="a"
-                      href="#!"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href={appConfig.instagramURL}
                     >
                       <Icon name="instagram" className="text-xl" />
                       <span className="ml-8 md:ml-12">Instagram</span>

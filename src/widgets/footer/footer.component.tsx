@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { useTranslation } from 'react-i18next';
 import { Icon } from '@/shared/ui/icon';
 import { LanguageSelect } from '@/shared/ui/language-select';
+import { appConfig } from '@/shared/config/app-config';
 import { Socials } from '../socials';
 
 interface FooterProps {
@@ -14,13 +15,12 @@ const Footer = ({ className }: FooterProps) => {
   const data = {
     allRightsReserved: t('footer.allRightsReserved'),
     currentYear: new Date().getFullYear(),
-    brandName: 'Dilan Mirror',
+    brandName: appConfig.brandName,
     address: t('general.address'),
     contacts: {
       email: 'dilanmirror@gmail.com',
-      phone: '+971 58 530 4380',
+      phone: '+971 52 797 1080',
     },
-    termsLinkText: t('footer.termsLinkText'),
   };
 
   return (
@@ -60,16 +60,6 @@ const Footer = ({ className }: FooterProps) => {
               <div className="overflow-hidden">
                 <div className="-mr-18 -mb-12 xl:-mr-30 xl:-mb-18">
                   <div className="flex flex-wrap items-center">
-                    <div className="pr-18 pb-12 xl:pr-30 xl:pb-18">
-                      <a
-                        className="text-sm xl:text-lg text-gray-400 hover:text-primary"
-                        href="/static/documents/privacy-policy.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {data.termsLinkText}
-                      </a>
-                    </div>
                     <div className="w-full md:hidden" />
                     <div className="pr-18 pb-12 xl:pr-30 xl:pb-18">
                       <a

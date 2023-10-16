@@ -40,7 +40,7 @@ const HeroSection = ({ className }: HeroSectionProps) => {
       },
       {
         src: '/static/images/content/hero-section/03.jpg',
-        videoId: 'WYetg3AuLE4',
+        videoId: 'BsdtX8JfrU4TymWd',
       },
     ] as HeroCarouselSlide[],
   };

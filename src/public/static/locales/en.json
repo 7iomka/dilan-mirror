@@ -23,8 +23,8 @@
     "textAfterTitle": "Invest in a smart mirror project with technology to show the back of the body"
   },
   "indicators": {
-    "limitationText": "When trying to see your back in traditional mirrors, it's not only uncomfortable, it's not quite possible, and you have to turn as much as possible to see part of the back of your body. And the combined system of multiple mirrors reduces the size of the mirrored object displayed",
-    "proposalText": "The dilan mirror project is the production and sale of mirrors that allow you to view the back of your body with maximum comfort.\nThis option can be easily turned on or off at any time",
+    "limitationText": "When trying to see your back in traditional mirrors, it's not only uncomfortable, it's not quite possible, and you have to turn as much as possible to see part of the back of your body. And the combined system of multiple mirrors reduces the size of the object displayed by the mirror.",
+    "proposalText": "The Dilan Mirror project is the production and sale of mirrors that allow you to view the back of your body with maximum comfort. This option can be easily turned on or off at any time. And if for thousands of years the mirror has been deprived of this possibility, today we are changing traditional standards.",
     "item1Title": "Completion status of the third stage of development",
     "item2Title": "Funds raised for replication of the project",
     "item3Title": "People from all over the world have already invested"
@@ -86,12 +86,12 @@
     },
     "title": "Mirrors everywhere",
     "imageHeadLine": "Brave solutions - Big changes!",
-    "imageSubHeadLine": "Every few years there is a new revolutionary product that changes the entire industry.\nBe part of the change in all sectors of their mirror industry.",
+    "imageSubHeadLine": "Every few years there is a new revolutionary product that changes the entire own industry.\nBe part of the change in all sectors of their mirror industry.",
     "actionText": "Join to us"
   },
   "roadmap": {
     "title": "Our goals and plans",
-    "description": "Developing and winning the market for the first and only company to produce and sell a useful and one-of-a-kind product. To contribute to world progress.",
+    "description": "Developing and conquering the market by a company that is the only one producing and selling a useful and one-of-a-kind product that contributes to world progress.",
     "textFor22-23": "Layout modeling and experiments. Filing a patent application in France.",
     "textFor23-24": "Official confirmation of a patent in France. International patent filings in over 90 countries.",
     "textFor24-25": "Plant construction, marketing development and organization of the company's management structures.",
@@ -100,7 +100,7 @@
   "authorship": {
     "title": "Hello I'am {{authorInitials}}",
     "subtitle": "CEO Dilan Mirror, project author",
-    "description": "Here it is necessary to add text with some successes of Vasily, with his past, which allowed to create the project and with his plans for a promising future.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "description": "Technology has always been my interest. Watching video encyclopedias and reading books helped me expand my knowledge in gadgets. Hands-on training, internships, and years of experience as an electronics master opened up new possibilities. In Paris, the development of a smart mirror and the establishment of a company began. Dubai has become a place where I intend to attract investment, enabling our product to gain global recognition and become accessible worldwide.\n\nAs the patent holder of the Dilan Mirror technology, Third Glance is the only official manufacturer, exporter and importer of this product and concept worldwide, which will make the company the leader among smart mirror manufacturers. The current team as well as the hiring of other experienced managers will guarantee a solid strategy to capture the entire potential market. In addition, further product development plans promise to make the mirror truly perfect.",
     "patentFrance": {
       "title": "Patent registered in France",
       "description": "PCT submitted application for other countries"
@@ -117,7 +117,6 @@
     "costOfOneShareInTheForecastText": "Cost of one share in the forecast*"
   },
   "footer": {
-    "allRightsReserved": "All rights reserved.",
-    "termsLinkText": "Terms & privacy policy"
+    "allRightsReserved": "All rights reserved."
   }
 }

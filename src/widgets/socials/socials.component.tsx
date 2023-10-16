@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import type { IconProps } from '@/shared/ui/icon';
 import { Icon } from '@/shared/ui/icon';
+import { appConfig } from '@/shared/config/app-config';
 
 interface SocialItem {
   name: string;
@@ -10,12 +11,12 @@ interface SocialItem {
 const socials: SocialItem[] = [
   {
     name: 'Instagram',
-    url: 'https://www.instagram.com',
+    url: appConfig.instagramURL,
     iconName: 'instagram',
   },
   {
     name: 'Facebook',
-    url: 'https://www.facebook.com',
+    url: appConfig.facebookURL,
     iconName: 'facebook',
   },
 ];

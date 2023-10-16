@@ -4,110 +4,119 @@
     "description": ""
   },
   "general": {
-    "адрес": "ОАЭ, Дубай, Над Аль Шеба, The Meydan Hotel, Business Center 1, M Floor"
+    "address": "UAE, Dubai, Nad Al Sheba, The Meydan Hotel, Business Center 1, M Floor"
   },
   "errors": {
-    "pageNotFound": "Страница не найдена",
-    "notFoundDescription": "К сожалению, мы не смогли найти страницу, которую вы ищете",
-    "goBackHome": "На главную"
+    "pageNotFound": "Page not found",
+    "notFoundDescription": "Sorry, we couldn`t find the page you`re looking for.",
+    "goBackHome": "Go back home"
   },
   "actions": {
-    "account": "Аккаунт инвестора",
+    "account": "Investor's account",
     "register": "Register",
-    "createAccount": "Создать аккаунт инвестора",
-    "getConsultation": "Получить консультацию"
+    "createAccount": "Create invest account",
+    "getConsultation": "Get a consultation"
   },
   "hero": {
-    "textBeforeTitle": "Доступно для сотрудничества",
-    "title": "Посмотри на себя с другой стороны",
-    "textAfterTitle": "Инвестируйте в проект \"умного зеркала\" с технологией обратного изображения тела",
-    "slide1Text": "Я могу следить за своим фитнес-прогрессом",
-    "slide2Text": "Я могу проверять правильность выполнения упражнений",
-    "slide3Text": "Я могу оценить новые модели одежды"
+    "textBeforeTitle": "Available for co-operation",
+    "title": "Look at yourself on the other side",
+    "textAfterTitle": "Invest in a smart mirror project with technology to show the back of the body"
   },
   "indicators": {
-    "limitationText": "Это должно быть описание болей потенциальных пользователей. Примеры того, почему стандартные зеркала не покрывают их потребности. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    "proposalText": "А вот описание предложения, что это за проект и как он помогает. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    "item1Title": "Состояние завершения третьего этапа разработки",
-    "item2Title": "Привлеченные средства для тиражирования проекта",
-    "item3Title": "Люди со всего мира уже инвестировали"
+    "limitationText": "When trying to see your back in traditional mirrors, it's not only uncomfortable, it's not quite possible, and you have to turn as much as possible to see part of the back of your body. And the combined system of multiple mirrors reduces the size of the object displayed by the mirror.",
+    "proposalText": "The Dilan Mirror project is the production and sale of mirrors that allow you to view the back of your body with maximum comfort. This option can be easily turned on or off at any time. And if for thousands of years the mirror has been deprived of this possibility, today we are changing traditional standards.",
+    "item1Title": "Completion status of the third stage of development",
+    "item2Title": "Funds raised for replication of the project",
+    "item3Title": "People from all over the world have already invested"
   },
   "examples": {
-    "title": "Примеры\nof приложений",
-    "description": "Здесь будет блок описания с текстом о том, сколько способов применения продукта может быть использовано",
-    "medSelfExamination": "MED self-examination"
+    "title": "Use cases",
+    "description": "Our product has over 20 ways of use.\nHere are the most popular",
+    "artistDressingRooms": "Artist dressing rooms",
+    "barbershops": "Barbershops",
+    "beautySalons": "Beauty salons",
+    "clothingStores": "Clothing stores",
+    "dancingSchools": "Dancing schools",
+    "dressingRooms": "Dressing rooms",
+    "fittingRooms": "Fitting rooms",
+    "gameEscapeAndParks": "Game escape and parks",
+    "gyms": "Gyms",
+    "hairdressers": "Hairdressers",
+    "homeUse": "Home use",
+    "medicalRehabilitationAndPhysiotherapy": "Medical rehabilitation and physiotherapy",
+    "modelingAgencies": "Modeling agencies",
+    "tattooSalons": "Tattoo salons"
   },
   "howItWorks": {
-    "title": "Как это работает",
+    "title": "How it works",
     "accessories": {
-      "touchPanel": "Сенсорная панель",
-      "camera": "Камера",
+      "touchPanel": "Touch panel",
+      "camera": "Camera",
       "flap": "FLAP",
-      "cutOffSensor": "Датчик отключения",
-      "motionSensor": "Датчик движения",
-      "mirrorDisplay": "Зеркальный дисплей",
-      "intelligentLight": "Умная подсветка"
+      "cutOffSensor": "Cut-off sensor",
+      "motionSensor": "Motion sensor",
+      "mirrorDisplay": "Mirror display",
+      "intelligentLight": "Intelligent light"
     },
     "items": {
-      "item1Text": "Функция заднего дисплея активируется с помощью сенсорной панели, жестом руки, благодаря специальному датчику движения или голосовой командой.",
-      "item2Text": "Датчики устанавливаются в любом месте в зависимости от интерьера и автоматически отключаются, если не отслеживают человека.",
-      "item3Text": "Камера закрывается заслонкой и видна при активации, чтобы человек не испытывал дискомфорта от ощущения постоянного наблюдения",
-      "item4Text": "Покрывающее зеркало выполнено двухслойным, чтобы скрывать экран видеотракта и показывать его при необходимости",
-      "item5Text": "Интеллектуальная подсветка сверху и по бокам реагирует на видеотрансляцию, чтобы избежать бликов и выделить человека перед зеркалом",
-      "item6Text": "Качество видео настраивается от 4k, 60 кадров в секунду и выше, что позволяет избежать задержек при трансляции."
+      "item1Text": "The rear view function of the object displayed in the mirror is activated via the touch panel, a hand gesture, thanks to a special motion sensor or a voice command.",
+      "item2Text": "The sensors can be installed anywhere depending on the interior, so that if there is no human movement - the system automatically switches off.",
+      "item3Text": "The camera is covered by a flap and is visible when activated so that the person is not uncomfortable with the feeling of constant surveillance.",
+      "item4Text": "The translucent mirror allows you to hide the screen and show it when needed.",
+      "item5Text": "Intelligent backlight points on the top and sides change the intensity of the backlight when the video signal is turned on or off.",
+      "item6Text": "Video quality is customizable from 4k, 60fps and up, and high-quality components avoid broadcast latency."
     }
   },
   "arguments": {
     "item1": {
-      "title": "Освещение помещения",
-      "description": "Зеркала максимально усиливают даже минимальный солнечный свет днем и искусственное освещение вечером"
+      "title": "Room illumination",
+      "description": "Mirrors maximize the use of even minimal sunlight during the day and artificial lighting in the evening"
     },
     "item2": {
-      "title": "Расширение пространства",
-      "description": "Даже иллюзия увеличения жилой площади делает небольшие помещения более комфортными"
+      "title": "Expansion of space",
+      "description": "Even the illusion of increased living space makes small rooms more comfortable"
     },
     "item3": {
-      "title": "Психологическая потребность",
-      "description": "Мы смотрим на себя утром, перед выходом из дома и от 8 до 12 раз в день"
+      "title": "Daily requirement",
+      "description": "A person looks in the mirror an average of 8 to 12 times during the day"
     },
     "item4": {
-      "title": "Фитнес, красота и т.д.",
-      "description": "Реальная и потенциальная польза зеркал доказана за 2000 лет существования"
+      "title": "Fitness, beauty, etc.",
+      "description": "The actual and potential benefits of mirrors have been proven over 2000 years of their existence"
     },
-    "title": "Зеркала нужны всем",
-    "imageHeadLine": "Заголовок о стремлении команды проекта изменить мир",
-    "imageSubHeadLine": "Подзаголовок о том, как не упустить возможность присоединиться к инновационному проекту на ранней стадии развития",
-    "actionText": "Присоединяйтесь к нам"
+    "title": "Mirrors everywhere",
+    "imageHeadLine": "Brave solutions - Big changes!",
+    "imageSubHeadLine": "Every few years there is a new revolutionary product that changes the entire own industry.\nBe part of the change in all sectors of their mirror industry.",
+    "actionText": "Join to us"
   },
   "roadmap": {
-    "title": "Наши цели и планы",
-    "description": "Рекомендуется описать, к чему стремится компания, какова ее миссия и почему инвестор должен обратить на нее внимание",
-    "textFor2022": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    "textFor2023": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    "textFor2024": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    "textFor2025": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+    "title": "Our goals and plans",
+    "description": "Developing and conquering the market by a company that is the only one producing and selling a useful and one-of-a-kind product that contributes to world progress.",
+    "textFor22-23": "Layout modeling and experiments. Filing a patent application in France.",
+    "textFor23-24": "Official confirmation of a patent in France. International patent filings in over 90 countries.",
+    "textFor24-25": "Plant construction, marketing development and organization of the company's management structures.",
+    "textFor26": "Prospecting for customers and retailers.Mass production and sales."
   },
   "authorship": {
-    "title": "Привет, я - {{authorInitials}}",
-    "subtitle": "Генеральный директор Dilan Mirror, автор проекта",
-    "description": "Здесь необходимо добавить текст с некоторыми успехами Василия, с его прошлым, которое позволило создать проект и с его планами на перспективное будущее.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "title": "Hello I'am {{authorInitials}}",
+    "subtitle": "CEO Dilan Mirror, project author",
+    "description": "Technology has always been my interest. Watching video encyclopedias and reading books helped me expand my knowledge in gadgets. Hands-on training, internships, and years of experience as an electronics master opened up new possibilities. In Paris, the development of a smart mirror and the establishment of a company began. Dubai has become a place where I intend to attract investment, enabling our product to gain global recognition and become accessible worldwide.\n\nAs the patent holder of the Dilan Mirror technology, Third Glance is the only official manufacturer, exporter and importer of this product and concept worldwide, which will make the company the leader among smart mirror manufacturers. The current team as well as the hiring of other experienced managers will guarantee a solid strategy to capture the entire potential market. In addition, further product development plans promise to make the mirror truly perfect.",
     "patentFrance": {
-      "title": "Патент зарегистрирован во Франции",
-      "description": "Заявка, поданная по процедуре PCT для других стран"
+      "title": "Patent registered in France",
+      "description": "PCT submitted application for other countries"
     },
-    "showDocumentActionText": "Показать документ"
+    "showDocumentActionText": "Show document"
   },
   "invest": {
-    "textBeforeTitle": "Присоединяйтесь к сообществу инвесторов",
-    "title": "Инвестируйте прямо сейчас",
-    "step1Text": "Зарегистрируйтесь, чтобы войти в свой безопасный личный кабинет",
-    "step2Text": "Выберите пакет акций и оплатите его удобным способом",
-    "footNoteText": "* Прогнозирование основано на предположении о выполнении плана в условиях развития проекта",
-    "valuePerShareTodayText": "Стоимость одной акции на сегодня",
-    "costOfOneShareInTheForecastText": "Стоимость одной акции в прогнозе*"
+    "textBeforeTitle": "Join the investor community",
+    "title": "Invest right now",
+    "step1Text": "Register to log in to your safe personal account",
+    "step2Text": "Choose a package of shares and pay for it in a convenient way",
+    "footNoteText": "* Forecasting is based on the assumption of fulfilment of the plan under the conditions of project development",
+    "valuePerShareTodayText": "Value per share today",
+    "costOfOneShareInTheForecastText": "Cost of one share in the forecast*"
   },
   "footer": {
-    "allRightsReserved": "Все права защищены",
-    "termsLinkText": "Условия и политика конфиденциальности"
+    "allRightsReserved": "All rights reserved."
   }
 }
