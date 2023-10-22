@@ -12,7 +12,7 @@ const AuthorshipSection = ({ className }: AuthorshipSectionProps) => {
   const { t } = useTranslation();
 
   const data = {
-    title: t('authorship.title', { authorInitials: 'Vasile Dilan' }),
+    title: t('authorship.title'),
     subtitle: t('authorship.subtitle'),
     description: t('authorship.description'),
     image: '/static/images/content/authorship-section/author.jpg',
