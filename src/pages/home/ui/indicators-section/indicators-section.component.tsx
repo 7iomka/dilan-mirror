@@ -50,23 +50,23 @@ const IndicatorsSection = ({ className }: IndicatorsSectionProps) => {
 
   return (
     <section id="indicators" className={clsx('relative', className)}>
-      <div className="bg-dark-500 absolute left-0 right-0 bottom-0 top-0 lg:top-56" />
+      <div className="bg-dark-500 absolute left-0 right-0 bottom-0 top-56" />
       <div className="container relative z-[2]">
-        <div className="px-15 py-50 md:py-70 lg:py-88 lg:px-88 bg-[#30333a] shadow-[0px_1.25rem_8.75rem_rgba(0,0,0,0.25)]">
-          <div className="row gx-5 sm:gx-24 flex-nowrap justify-between">
+        <div className="px-15 py-30 md:py-50 md:px-25 lg:py-88 lg:px-60 xl:px-88 bg-[#30333a] shadow-[0px_1.25rem_8.75rem_rgba(0,0,0,0.25)]">
+          <div className="row gy-24 gx-5 sm:gx-24 sm:flex-nowrap justify-between">
             {data.items.map(({ value, unit, isCost, title }, idx) => (
-              <div className="col-4 lg:col-auto" key={idx}>
-                <div className="lg:w-240">
+              <div className="col-12 sm:col-4" key={idx}>
+                <div className="lg:max-w-[25rem]">
                   <div className="flex items-end">
-                    <div className="text-40px md:text-72px font-bold leading-1 flex items-baseline">
+                    <div className="text-40px lg:text-72px font-bold leading-1 flex items-end">
                       {isCost ? (
-                        <span className="text-xl md:text-40px font-bold mr-3">$</span>
+                        <span className="text-xl lg:text-40px font-bold mr-3 mb-4">$</span>
                       ) : null}
                       {value}
                     </div>
-                    {unit && <div className="text-xl md:text-40px font-bold ml-3">{unit}</div>}
+                    {unit && <div className="text-xl lg:text-40px font-bold ml-3">{unit}</div>}
                   </div>
-                  <div className="mt-12 md:mt-16 text-xs md:text-lg [text-wrap:balance]">
+                  <div className="mt-12 lg:mt-16 text-xs lg:text-lg [text-wrap:balance]">
                     {title}
                   </div>
                 </div>

@@ -48,16 +48,15 @@ const ExamplesSection = ({ className }: ExamplesSectionProps) => {
         mirrorSrc: '/static/images/content/examples-section/hairdressers/hairdressers_mirror.jpg',
         videoSrc: '/static/images/content/examples-section/hairdressers/hairdressers_video.jpg',
       },
-
-      {
-        title: t('examples.barbershops'),
-        mirrorSrc: '/static/images/content/examples-section/barbershops/barbershops_mirror.jpg',
-        videoSrc: '/static/images/content/examples-section/barbershops/barbershops_video.jpg',
-      },
       {
         title: t('examples.beautySalons'),
         mirrorSrc: '/static/images/content/examples-section/beauty_salons/beauty_salons_mirror.jpg',
         videoSrc: '/static/images/content/examples-section/beauty_salons/beauty_salons_video.jpg',
+      },
+      {
+        title: t('examples.barbershops'),
+        mirrorSrc: '/static/images/content/examples-section/barbershops/barbershops_mirror.jpg',
+        videoSrc: '/static/images/content/examples-section/barbershops/barbershops_video.jpg',
       },
       {
         title: t('examples.dancingSchools'),
