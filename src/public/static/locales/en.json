@@ -25,7 +25,7 @@
   "indicators": {
     "limitationText": "When trying to see your back in traditional mirrors, it's not only uncomfortable, it's not quite possible, and you have to turn as much as possible to see part of the back of your body. And the combined system of multiple mirrors reduces the size of the object displayed by the mirror.",
     "proposalText": "The Dilan Mirror project is the production and sale of mirrors that allow you to view the back of your body with maximum comfort. This option can be easily turned on or off at any time. And if for thousands of years the mirror has been deprived of this possibility, today we are changing traditional standards.",
-    "item1Title": "Completion status of the third stage of development",
+    "item1Title": "Completion status of the 2nd stage of development",
     "item2Title": "Funds raised for replication of the project",
     "item3Title": "People from all over the world have already invested"
   },
@@ -60,7 +60,7 @@
     },
     "items": {
       "item1Text": "The rear view function of the object displayed in the mirror is activated via the touch panel, a hand gesture, thanks to a special motion sensor or a voice command.",
-      "item2Text": "The sensors can be installed anywhere depending on the interior, so that if there is no human movement - the system automatically switches off.",
+      "item2Text": "The sensors can be installed anywhere depending on the interior. When there is no movement of people, the system is automatically switched off.",
       "item3Text": "The camera is covered by a flap and is visible when activated so that the person is not uncomfortable with the feeling of constant surveillance.",
       "item4Text": "The translucent mirror allows you to hide the screen and show it when needed.",
       "item5Text": "Intelligent backlight points on the top and sides change the intensity of the backlight when the video signal is turned on or off.",
@@ -95,7 +95,7 @@
     "textFor22-23": "Layout modeling and experiments. Filing a patent application in France.",
     "textFor23-24": "Official confirmation of a patent in France. International patent filings in over 90 countries.",
     "textFor24-25": "Plant construction, marketing development and organization of the company's management structures.",
-    "textFor26": "Prospecting for customers and retailers.Mass production and sales."
+    "textFor26": "Prospecting for customers and retailers. Mass production and sales."
   },
   "authorship": {
     "title": "Hello I'am {{authorInitials}}",
@@ -103,7 +103,7 @@
     "description": "Technology has always been my interest. Watching video encyclopedias and reading books helped me expand my knowledge in gadgets. Hands-on training, internships, and years of experience as an electronics master opened up new possibilities. In Paris, the development of a smart mirror and the establishment of a company began. Dubai has become a place where I intend to attract investment, enabling our product to gain global recognition and become accessible worldwide.\n\nAs the patent holder of the Dilan Mirror technology, Third Glance is the only official manufacturer, exporter and importer of this product and concept worldwide, which will make the company the leader among smart mirror manufacturers. The current team as well as the hiring of other experienced managers will guarantee a solid strategy to capture the entire potential market. In addition, further product development plans promise to make the mirror truly perfect.",
     "patentFrance": {
       "title": "Patent registered in France",
-      "description": "PCT submitted application for other countries"
+      "description": "PCT patent application submitted"
     },
     "showDocumentActionText": "Show document"
   },

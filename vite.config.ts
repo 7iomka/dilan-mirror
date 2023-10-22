@@ -41,11 +41,19 @@ export default defineConfig({
     svg({
       root: 'src/shared/icons/sprite',
       group: false,
-      output: 'src/public/static',
-      metadata: 'src/shared/ui/icon/sprite.gen.ts',
+      output: 'src/public/static/sprites',
       resetColors: {
         replaceUnknown: 'currentColor',
         exclude: [/-colored\.svg$/],
+      },
+      fileName: '{name}.{hash:8}.svg',
+      metadata: {
+        path: 'src/shared/ui/icon/sprite.gen.ts',
+        // generate metadata
+        runtime: {
+          size: true,
+          viewBox: true,
+        },
       },
     }),
     svgr(),

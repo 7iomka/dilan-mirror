@@ -40,7 +40,7 @@ const HeroSection = ({ className }: HeroSectionProps) => {
       },
       {
         src: '/static/images/content/hero-section/03.jpg',
-        videoId: 'uPVtyzaprOo',
+        videoId: 'JO-Tez_CXg8',
       },
     ] as HeroCarouselSlide[],
   };
@@ -117,7 +117,7 @@ const HeroCarousel = ({ slides }: { slides: HeroCarouselSlide[] }) => {
           }}
         >
           {slides.map(({ src, videoId, className: imageClassName }, idx) => (
-            <SwiperSlide key={idx} className="!w-full">
+            <SwiperSlide key={idx} className={clsx('!w-full', styles.slide)}>
               <div className="relative w-full h-0 pb-[125%] md:pb-[calc(622*100%/829)] overflow-hidden">
                 <img
                   src={src}
@@ -190,7 +190,7 @@ const HeroCarousel = ({ slides }: { slides: HeroCarouselSlide[] }) => {
           ))}
         </SwiperReact>
       </Fancybox>
-      <div className="flex items-center justify-end md:gap-8 absolute left-0 bottom-0 md:relative md:mt-58 lg:mt-24 z-20">
+      <div className="flex items-center justify-end md:gap-8 absolute right-0 bottom-0 md:relative md:mt-58 lg:mt-24 z-20">
         <button
           type="button"
           className="w-36 h-36 md:w-88 md:h-auto md:p-11 border border-dark active:border-black lg:hover:border-black bg-dark-900 active:bg-black "
