@@ -84,6 +84,7 @@ const HeroCarousel = ({ slides }: { slides: HeroCarouselSlide[] }) => {
   const [nextEl, nextElRef] = useDomRefWithSetter<HTMLButtonElement>();
   const [prevEl, prevElRef] = useDomRefWithSetter<HTMLButtonElement>();
   const swiperRef = useRef<Swiper | null>(null);
+  const { t } = useTranslation();
 
   return (
     <div className="relative">
@@ -95,6 +96,7 @@ const HeroCarousel = ({ slides }: { slides: HeroCarouselSlide[] }) => {
         }}
       >
         <SwiperReact
+          id="hero-slider"
           onInit={(swiper) => {
             swiperRef.current = swiper;
           }}
@@ -131,6 +133,7 @@ const HeroCarousel = ({ slides }: { slides: HeroCarouselSlide[] }) => {
                 <div className="pointer-events-none absolute -left-1 -right-1 -bottom-1 h-[30%] bg-[linear-gradient(180deg,rgba(20,20,25,0.00)_0%,#141419_100%)] z-[1] hidden md:block xl:hidden" />
                 <div className={styles.playButton}>
                   <a
+                    aria-label={t('actions.playVideo')}
                     data-fancybox={videoId}
                     href={`https://www.youtube.com/${videoId}&amp;autoplay=1&amp;rel=0&amp;controls=1&amp;showinfo=0`}
                     type="image"

@@ -20,6 +20,7 @@ const HeaderBase = () => {
           <div className="ml-20 flex items-center">
             <a
               className="group text-lg hover:text-primary order-1 md:order-0 ml-10 md:ml-0"
+              aria-label={t('actions.account')}
               href="#!"
             >
               <div className="flex items-center justify-center p-10 -m-10">

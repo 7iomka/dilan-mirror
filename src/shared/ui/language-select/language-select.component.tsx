@@ -38,7 +38,7 @@ const LanguageSelect = ({ className }: LanguageSelectProps) => {
                 height="1em"
                 className="text-md w-[1em] h-[1em] shrink-0"
                 src={`/static/images/flags/langs/round/${i18n.language.toLowerCase()}.svg`}
-                alt={i18n.language}
+                alt=""
               />
               <span className="ml-5 text-md leading-1">{i18n.language.toUpperCase()}</span>
             </div>
@@ -66,7 +66,7 @@ const LanguageSelect = ({ className }: LanguageSelectProps) => {
                     height="1em"
                     className="text-md w-[1em] h-[1em] shrink-0"
                     src={`/static/images/flags/langs/round/${languageCode.toLowerCase()}.svg`}
-                    alt={languageCode}
+                    alt=""
                   />
                   <span className="ml-5 text-md">{supportedLanguagesMap[languageCode]}</span>
                 </div>

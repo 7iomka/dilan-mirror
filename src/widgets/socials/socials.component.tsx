@@ -42,6 +42,7 @@ const Socials = ({ className, classNames, items = socials }: SocialsProps) => {
               classNames?.item,
             )}
             key={item.name}
+            aria-label={item.name}
             href={item.url}
             target="_blank"
             rel="noopener noreferrer"

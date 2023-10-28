@@ -15,7 +15,8 @@
     "account": "Investor's account",
     "register": "Register",
     "createAccount": "Create invest account",
-    "getConsultation": "Get a consultation"
+    "getConsultation": "Get a consultation",
+    "playVideo": "Play video"
   },
   "hero": {
     "textBeforeTitle": "Available for co-operation",
@@ -99,7 +100,7 @@
   },
   "authorship": {
     "title": "Hello I'am Vasile Dilan",
-    "subtitle": "CEO Dilan Mirror, project author",
+    "subtitle": "CEO of the company, author of the Dilan Mirror project",
     "description": "Technology has always been my interest. Watching video encyclopedias and reading books helped me expand my knowledge in gadgets. Hands-on training, internships, and years of experience as an electronics master opened up new possibilities. In Paris, the development of a smart mirror and the establishment of a company began. Dubai has become a place where I intend to attract investment, enabling our product to gain global recognition and become accessible worldwide.\n\nAs the patent holder of the Dilan Mirror technology, I declare that our company is the only official manufacturer, exporter and importer of this product and concept worldwide, which will make the company the leader among smart mirror manufacturers. The current team as well as the hiring of other experienced managers will guarantee a solid strategy to capture the entire potential market. In addition, further product development plans promise to make the mirror truly perfect.",
     "patentFrance": {
       "title": "Patent registered in France",
