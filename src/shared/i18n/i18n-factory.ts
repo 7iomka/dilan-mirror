@@ -58,7 +58,7 @@ const createi18n = createFactory(() => {
         fallbackLng: 'en',
         supportedLngs: i18nConfig.supportedLangs,
         nonExplicitSupportedLngs: true, // support language variation
-        debug: true,
+        debug: false,
         load: 'languageOnly',
         interpolation: {
           escapeValue: false, // not needed for react as it escapes by default

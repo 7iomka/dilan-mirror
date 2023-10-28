@@ -84,6 +84,18 @@ export default defineConfig({
       input: {
         main: path.resolve(srcFolderPath, 'index.html'),
       },
+      output: {
+        manualChunks: {
+          // utils: ['clsx'],
+          react: ['react', 'react-dom', 'react-router-dom'],
+          stm: ['effector', 'effector-react', 'atomic-router', 'atomic-router-react'],
+          i18next: ['i18next', 'react-i18next', 'i18next-browser-languagedetector', 'i18next-http-backend'],
+          'floating-ui': ['@floating-ui/react', 'react-popper', '@popperjs/core'],
+          'sliders': ['swiper', 'embla-carousel', 'embla-carousel-react', 'embla-carousel-auto-height', 'embla-carousel-autoplay', 'embla-carousel-class-names'], 
+          'fancybox': ['@fancyapps/ui'], 
+        },
+      }
     },
   },
+ 
 });

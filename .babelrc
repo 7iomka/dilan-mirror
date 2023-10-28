@@ -1,5 +1,5 @@
 {
-  "presets": ["effector-http-api/babel-preset", "patronum/babel-preset"],
+  "presets": ["effector-http-api/babel-preset"],
   "plugins": [
     [
       "effector/babel-plugin",

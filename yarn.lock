@@ -329,10 +329,9 @@ __metadata:
   resolution: "@dilan/mirror@workspace:."
   dependencies:
     "@csstools/postcss-is-pseudo-class": ^4.0.0
-    "@fancyapps/ui": ^5.0.24
+    "@fancyapps/ui": 5.0.24
     "@feature-sliced/eslint-config": 0.1.0-beta.6
     "@floating-ui/react": ^0.25.4
-    "@headlessui/react": ^1.7.17
     "@mertasan/tailwindcss-variables": ^2.6.1
     "@neodx/svg": ^0.5.1
     "@popperjs/core": ^2.11.8
@@ -385,7 +384,6 @@ __metadata:
     modernizr: ^3.13.0
     nanoid: ^4.0.2
     npm-run-all: ^4.1.5
-    patronum: ^1.19.1
     postcss: ^8.4.28
     postcss-inset: ^1.0.0
     postcss-pxtorem: ^6.0.0
@@ -771,7 +769,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fancyapps/ui@npm:^5.0.24":
+"@fancyapps/ui@npm:5.0.24":
   version: 5.0.24
   resolution: "@fancyapps/ui@npm:5.0.24"
   checksum: bb2f8e5106f6ba2ba0577ff301f482a4a3eb2c9caf9e36e1d20843cd39e4395d188e598dd7dbff1da4d0792cb7b4d655125413545953a0c590c9d70f2a0b5025
@@ -854,18 +852,6 @@ __metadata:
   dependencies:
     "@hapi/hoek": ^9.0.0
   checksum: 604dfd5dde76d5c334bd03f9001fce69c7ce529883acf92da96f4fe7e51221bf5e5110e964caca287a6a616ba027c071748ab636ff178ad750547fba611d6014
-  languageName: node
-  linkType: hard
-
-"@headlessui/react@npm:^1.7.17":
-  version: 1.7.17
-  resolution: "@headlessui/react@npm:1.7.17"
-  dependencies:
-    client-only: ^0.0.1
-  peerDependencies:
-    react: ^16 || ^17 || ^18
-    react-dom: ^16 || ^17 || ^18
-  checksum: 0cdb67747e7f606f78214dac0b48573247779e70534b4471515c094b74addda173dc6a9847d33aea9c6e6bc151016c034125328953077e32aa7947ebabed91f7
   languageName: node
   linkType: hard
 
@@ -2458,13 +2444,6 @@ __metadata:
   version: 2.2.0
   resolution: "clean-stack@npm:2.2.0"
   checksum: 2ac8cd2b2f5ec986a3c743935ec85b07bc174d5421a5efc8017e1f146a1cf5f781ae962618f416352103b32c9cd7e203276e8c28241bbe946160cab16149fb68
-  languageName: node
-  linkType: hard
-
-"client-only@npm:^0.0.1":
-  version: 0.0.1
-  resolution: "client-only@npm:0.0.1"
-  checksum: 0c16bf660dadb90610553c1d8946a7fdfb81d624adea073b8440b7d795d5b5b08beb3c950c6a2cf16279365a3265158a236876d92bce16423c485c322d7dfaf8
   languageName: node
   linkType: hard
 
@@ -6577,15 +6556,6 @@ __metadata:
   version: 1.1.1
   resolution: "pathe@npm:1.1.1"
   checksum: 34ab3da2e5aa832ebc6a330ffe3f73d7ba8aec6e899b53b8ec4f4018de08e40742802deb12cf5add9c73b7bf719b62c0778246bd376ca62b0fb23e0dde44b759
-  languageName: node
-  linkType: hard
-
-"patronum@npm:^1.19.1":
-  version: 1.19.2
-  resolution: "patronum@npm:1.19.2"
-  peerDependencies:
-    effector: ^22.1.2
-  checksum: e7983a883b07f526526e4934216048821deef7ea97d7545e20dd7e96c3de1901a7cdf422692a2d4b748af252f90a148e4681132446a1b79e5b5f8d25776f269b
   languageName: node
   linkType: hard
 

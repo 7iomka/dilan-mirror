@@ -3,7 +3,7 @@ export {
   // Dots,
   // Navigation,
   // Sync,
-  Carousel as NativeCarousel,
+  // Carousel as NativeCarousel,
   // Hash,
   // Html,
   // Image,
@@ -11,6 +11,6 @@ export {
   // Thumbs,
   // Toolbar,
   Fancybox as NativeFancybox, // Panzoom, // Controls
-} from '@fancyapps/ui/dist/index.umd';
+} from '@fancyapps/ui';
 
 export type { ComponentOptionsType as FancyboxOptionsType } from '@fancyapps/ui/types/Fancybox/options';
