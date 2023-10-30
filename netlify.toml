@@ -9,3 +9,4 @@
   [plugins.inputs]
   cloudName = "dgyz5l0t0"
   imagesPath = "/static/images"
+  loadingStrategy = "lazy"
