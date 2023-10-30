@@ -8,7 +8,7 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 import { babel } from '@rollup/plugin-babel';
 import svgr from 'vite-plugin-svgr';
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
-import { htmlPrerender } from 'vite-plugin-html-prerender';
+// import { htmlPrerender } from 'vite-plugin-html-prerender';
 import { i18nConfig } from './src/shared/config/i18n-config';
 import svg from '@neodx/svg/vite';
 
@@ -25,7 +25,7 @@ const routesToPrerender = i18nConfig.supportedLangs.map((lang) => {
   return `/${lang}/`;
 });
 
-console.log('routesToPrerender', routesToPrerender);
+// console.log('routesToPrerender', routesToPrerender);
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -57,14 +57,14 @@ export default defineConfig({
       },
     }),
     svgr(),
-    htmlPrerender({
-      /**
-       * Required: Output directory of "vite build"
-       */
-      staticDir: path.join(__dirname, 'dist'),
-      routes: routesToPrerender,
-      minify: false,
-    }),
+    // htmlPrerender({
+    //   /**
+    //    * Required: Output directory of "vite build"
+    //    */
+    //   staticDir: path.join(__dirname, 'dist'),
+    //   routes: routesToPrerender,
+    //   minify: false,
+    // }),
     checker({ typescript: true }),
   ],
   // We manually add a list of dependencies to be pre-bundled, in order to avoid a page reload at dev start which breaks vite-plugin-ssr's CI
