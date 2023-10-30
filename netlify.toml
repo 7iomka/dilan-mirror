@@ -8,5 +8,4 @@
 
   [plugins.inputs]
   cloudName = "dgyz5l0t0"
-  loadingStrategy = "lazy"
   deliveryType = "upload"
