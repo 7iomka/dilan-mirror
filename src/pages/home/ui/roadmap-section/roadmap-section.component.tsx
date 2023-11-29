@@ -13,19 +13,19 @@ const RoadmapSection = ({ className }: RoadmapSectionProps) => {
     description: t('roadmap.description'),
     items: [
       {
-        period: '2021 - 2023',
+        period: '2023',
         title: t('roadmap.textFor22-23'),
       },
       {
-        period: '2023 - 2024',
+        period: '2024 - 2026',
         title: t('roadmap.textFor23-24'),
       },
       {
-        period: '2024 - 2025',
+        period: '2025 - 2026',
         title: t('roadmap.textFor24-25'),
       },
       {
-        period: '2026',
+        period: '2027',
         title: t('roadmap.textFor26'),
       },
     ],

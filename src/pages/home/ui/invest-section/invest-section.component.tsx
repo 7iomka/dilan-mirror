@@ -10,15 +10,14 @@ interface InvestSectionProps {
 
 const InvestSection = ({ className }: InvestSectionProps) => {
   const { t, i18n } = useTranslation();
-  const currentDate = new Date();
   const localeSettings: Intl.DateTimeFormatOptions = {
     year: 'numeric',
     month: 'short',
     day: 'numeric',
   };
-
-  const formattedCurrentDate = currentDate.toLocaleDateString(i18n.language, localeSettings);
-  const futureDate = new Date(2024, 6, 24);
+  const startDate = new Date(2023, 11, 14);
+  const formattedCurrentDate = startDate.toLocaleDateString(i18n.language, localeSettings);
+  const futureDate = new Date(2025, 11, 14);
   const formattedFutureDate = futureDate.toLocaleDateString(i18n.language, localeSettings);
 
   const data = {
@@ -35,7 +34,7 @@ const InvestSection = ({ className }: InvestSectionProps) => {
     },
     costOfOneShareInTheForecast: {
       text: t('invest.costOfOneShareInTheForecastText'),
-      value: '0,03$',
+      value: '0,10$',
     },
   };
 

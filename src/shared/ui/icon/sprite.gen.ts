@@ -11,6 +11,7 @@ export interface SpritesMap {
     | 'file'
     | 'instagram'
     | 'layout-left'
+    | 'linkedin'
     | 'logo-icon'
     | 'logo'
     | 'map'
@@ -21,11 +22,12 @@ export interface SpritesMap {
     | 'sun'
     | 'telegram-colored'
     | 'time'
+    | 'vk'
     | 'webcam';
 }
 export const SPRITES_META = {
   sprite: {
-    filePath: 'sprite.d78b1014.svg',
+    filePath: 'sprite.b9fb184d.svg',
     items: {
       '4k': {
         viewBox: '0 0 24 24',
@@ -82,6 +84,11 @@ export const SPRITES_META = {
         width: 24,
         height: 24,
       },
+      linkedin: {
+        viewBox: '0 0 24 24',
+        width: 24,
+        height: 24,
+      },
       'logo-icon': {
         viewBox: '0 0 12 20',
         width: 12,
@@ -128,6 +135,11 @@ export const SPRITES_META = {
         height: 24,
       },
       time: {
+        viewBox: '0 0 24 24',
+        width: 24,
+        height: 24,
+      },
+      vk: {
         viewBox: '0 0 24 24',
         width: 24,
         height: 24,

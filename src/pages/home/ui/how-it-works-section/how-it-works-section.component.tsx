@@ -150,35 +150,8 @@ const HowItWorksSection = ({ className }: HowItWorksSectionProps) => {
     >
       <div className="container">
         <h2 className="text-40px md:text-56px whitespace-pre-wrap text-center">{data.title}</h2>
-        <div className="mt-24 lg:mt-56 overflow-hidden">
-          <div
-            className="grid
-          grid-cols-[repeat(3,minmax(6.75rem,1fr))]
-          md:grid-cols-[repeat(4,minmax(10.325rem,1fr))]
-          xl:grid-cols-[repeat(auto-fill,minmax(9rem,1fr))]
-          xxl:grid-cols-[repeat(auto-fill,minmax(10.125rem,1fr))]
-          gap-4 md:gap-8"
-          >
-            {data.accessories.map(({ id, title, className: itemClassName }) => (
-              <button
-                key={id}
-                type="button"
-                className={clsx(
-                  `w-full text-xs md:text-sm leading-1 px-12 py-14 md:p-14
-                  text-dark-800`,
-                  activeAccessoryId === id && 'bg-gray-400 cursor-default',
-                  activeAccessoryId !== id && 'bg-indigo-200 hover:bg-gray-300',
-                  itemClassName,
-                )}
-                onClick={() => setActiveAccessoryId(id)}
-              >
-                {title}
-              </button>
-            ))}
-          </div>
-        </div>
       </div>
-      <div className="mt-24 overflow-hidden">
+      <div className="mt-24 lg:mt-56 overflow-hidden">
         <div className="container">
           <div className="relative md:hidden">
             <img

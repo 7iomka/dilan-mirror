@@ -19,6 +19,16 @@ const socials: SocialItem[] = [
     url: appConfig.facebookURL,
     iconName: 'facebook',
   },
+  {
+    name: 'VK',
+    url: appConfig.vkURL,
+    iconName: 'vk',
+  },
+  {
+    name: 'LinkedIn',
+    url: appConfig.linkedinURL,
+    iconName: 'linkedin',
+  },
 ];
 
 interface SocialsProps {
