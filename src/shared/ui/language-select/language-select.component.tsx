@@ -30,17 +30,19 @@ const LanguageSelect = ({ className }: LanguageSelectProps) => {
           <Button
             color="custom"
             size="custom"
-            className="bg-dark-600/40 hover:bg-dark text-white p-6"
+            className="border border-dark-800 hover:border-dark-700 bg-dark-700 hover:bg-dark-600 text-white h-20 md:h-30 px-4 md:px-6"
           >
             <div className="flex items-center">
               <img
                 width="1em"
                 height="1em"
-                className="text-md w-[1em] h-[1em] shrink-0"
+                className="w-12 h-12 md:w-14 md:h-14 hrink-0"
                 src={`/static/images/flags/langs/round/${i18n.language.toLowerCase()}.svg`}
                 alt=""
               />
-              <span className="ml-5 text-md leading-1">{i18n.language.toUpperCase()}</span>
+              <span className="ml-5 text-sm md:text-md leading-1">
+                {i18n.language.toUpperCase()}
+              </span>
             </div>
           </Button>
         }

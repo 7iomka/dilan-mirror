@@ -22,12 +22,14 @@ export interface SpritesMap {
     | 'sun'
     | 'telegram-colored'
     | 'time'
+    | 'twitter'
     | 'vk'
-    | 'webcam';
+    | 'webcam'
+    | 'youtube';
 }
 export const SPRITES_META = {
   sprite: {
-    filePath: 'sprite.b9fb184d.svg',
+    filePath: 'sprite.3992336d.svg',
     items: {
       '4k': {
         viewBox: '0 0 24 24',
@@ -139,12 +141,22 @@ export const SPRITES_META = {
         width: 24,
         height: 24,
       },
+      twitter: {
+        viewBox: '0 0 20 18',
+        width: 20,
+        height: 18,
+      },
       vk: {
         viewBox: '0 0 24 24',
         width: 24,
         height: 24,
       },
       webcam: {
+        viewBox: '0 0 24 24',
+        width: 24,
+        height: 24,
+      },
+      youtube: {
         viewBox: '0 0 24 24',
         width: 24,
         height: 24,

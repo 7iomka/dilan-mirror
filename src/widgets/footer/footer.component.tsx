@@ -28,8 +28,8 @@ const Footer = ({ className }: FooterProps) => {
       <div className="flex items-center">
         <div className="container">
           <div className="flex items-center justify-between">
-            <Icon name="logo" className="shrink-0 w-120 h-24 xl:w-154 xl:h-32" />
-            <div className="ml-20 flex items-center">
+            <Icon name="logo" className="shrink-0 w-100 h-24 md:w-120 lg:w-154 lg:h-32" />
+            <div className="ml-5 md:ml-20 flex items-center">
               <a
                 className="group text-lg hover:text-primary order-1 md:order-0 ml-10 md:ml-0"
                 aria-label={t('actions.account')}
@@ -44,8 +44,8 @@ const Footer = ({ className }: FooterProps) => {
                   />
                 </div>
               </a>
-              <Socials className="ml-15 md:ml-20" />
-              <LanguageSelect className="ml-15 md:ml-20" />
+              <Socials className="ml-5 md:ml-20" />
+              <LanguageSelect className="ml-10 md:ml-20" />
             </div>
           </div>
           <hr className="border-t-gray-900 my-24" />

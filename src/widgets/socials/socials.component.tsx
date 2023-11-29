@@ -29,6 +29,16 @@ const socials: SocialItem[] = [
     url: appConfig.linkedinURL,
     iconName: 'linkedin',
   },
+  {
+    name: 'Youtube',
+    url: appConfig.youtubeURL,
+    iconName: 'youtube',
+  },
+  {
+    name: 'Twitter',
+    url: appConfig.twitterURL,
+    iconName: 'twitter',
+  },
 ];
 
 interface SocialsProps {
@@ -43,12 +53,12 @@ interface SocialsProps {
 
 const Socials = ({ className, classNames, items = socials }: SocialsProps) => {
   return (
-    <div className={clsx('flex items-center space-x-10', className, classNames?.root)}>
+    <div className={clsx('flex items-center space-x-2', className, classNames?.root)}>
       {items.map((item) => {
         return (
           <a
             className={clsx(
-              'flex items-center justify-center shrink-0 text-xl hover:text-primary',
+              'flex items-center justify-center shrink-0 w-20 h-20 md:w-30 md:h-30 border border-dark-800 hover:border-dark-700 bg-dark-700 hover:bg-dark-600 text-white',
               classNames?.item,
             )}
             key={item.name}
@@ -57,7 +67,10 @@ const Socials = ({ className, classNames, items = socials }: SocialsProps) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Icon className={clsx(classNames?.icon)} name={item.iconName} />
+            <Icon
+              className={clsx(classNames?.icon, 'w-12 h-12 md:w-14 md:h-14 shrink-0')}
+              name={item.iconName}
+            />
           </a>
         );
       })}
