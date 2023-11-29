@@ -42,7 +42,6 @@ const IndicatorsSection = ({ className }: IndicatorsSectionProps) => {
           title: t('indicators.item3Title'),
         },
       ],
-      limitationText: t('indicators.limitationText'),
       proposalText: t('indicators.proposalText'),
     }),
     [t, percentage],
@@ -75,17 +74,8 @@ const IndicatorsSection = ({ className }: IndicatorsSectionProps) => {
           </div>
         </div>
         <div className="py-56 md:py-88">
-          <div className="row gy-24">
-            <div className="col-12 md:col-6">
-              <div className="text-md md:text-xl lg:text-2xl whitespace-pre-wrap">
-                {data.limitationText}
-              </div>
-            </div>
-            <div className="col-12 md:col-6">
-              <div className="text-md md:text-xl lg:text-2xl whitespace-pre-wrap">
-                {data.proposalText}
-              </div>
-            </div>
+          <div className="text-md md:text-xl lg:text-2xl whitespace-pre-wrap">
+            {data.proposalText}
           </div>
         </div>
         <div className="container">

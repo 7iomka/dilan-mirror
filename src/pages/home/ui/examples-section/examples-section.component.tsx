@@ -23,35 +23,10 @@ const ExamplesSection = ({ className }: ExamplesSectionProps) => {
           '/static/images/content/examples-section/clothing_stores/clothing_stores_video.jpg',
       },
       {
-        title: t('examples.fittingRooms'),
-        mirrorSrc: '/static/images/content/examples-section/fitting_rooms/fitting_rooms_mirror.jpg',
-        videoSrc: '/static/images/content/examples-section/fitting_rooms/fitting_rooms_video.jpg',
-      },
-      {
         title: t('examples.dressingRooms'),
         mirrorSrc:
           '/static/images/content/examples-section/dressing_rooms/dressing_rooms_mirror.jpg',
         videoSrc: '/static/images/content/examples-section/dressing_rooms/dressing_rooms_video.jpg',
-      },
-      {
-        title: t('examples.homeUse'),
-        mirrorSrc: '/static/images/content/examples-section/home_use/home_use_mirror.jpg',
-        videoSrc: '/static/images/content/examples-section/home_use/home_use_video.jpg',
-      },
-      {
-        title: t('examples.tattooSalons'),
-        mirrorSrc: '/static/images/content/examples-section/tattoo_salons/tattoo_salons_mirror.jpg',
-        videoSrc: '/static/images/content/examples-section/tattoo_salons/tattoo_salons_video.jpg',
-      },
-      {
-        title: t('examples.hairdressers'),
-        mirrorSrc: '/static/images/content/examples-section/hairdressers/hairdressers_mirror.jpg',
-        videoSrc: '/static/images/content/examples-section/hairdressers/hairdressers_video.jpg',
-      },
-      {
-        title: t('examples.beautySalons'),
-        mirrorSrc: '/static/images/content/examples-section/beauty_salons/beauty_salons_mirror.jpg',
-        videoSrc: '/static/images/content/examples-section/beauty_salons/beauty_salons_video.jpg',
       },
       {
         title: t('examples.barbershops'),
@@ -64,40 +39,6 @@ const ExamplesSection = ({ className }: ExamplesSectionProps) => {
           '/static/images/content/examples-section/dancing_schools/dancing_schools_mirror.jpg',
         videoSrc:
           '/static/images/content/examples-section/dancing_schools/dancing_schools_video.jpg',
-      },
-      {
-        title: t('examples.gyms'),
-        mirrorSrc: '/static/images/content/examples-section/gyms/gyms_mirror.jpg',
-        videoSrc: '/static/images/content/examples-section/gyms/gyms_video.jpg',
-      },
-      {
-        title: t('examples.modelingAgencies'),
-        mirrorSrc:
-          '/static/images/content/examples-section/modeling_agencies/modeling_agencies_mirror.jpg',
-        videoSrc:
-          '/static/images/content/examples-section/modeling_agencies/modeling_agencies_video.jpg',
-      },
-
-      {
-        title: t('examples.artistDressingRooms'),
-        mirrorSrc:
-          '/static/images/content/examples-section/artist_dressing_rooms/artist_dressing_rooms_mirror.jpg',
-        videoSrc:
-          '/static/images/content/examples-section/artist_dressing_rooms/artist_dressing_rooms_video.jpg',
-      },
-      {
-        title: t('examples.medicalRehabilitationAndPhysiotherapy'),
-        mirrorSrc:
-          '/static/images/content/examples-section/medical_rehabilitation_and_physiotherapy/medical_rehabilitation_and_physiotherapy_mirror.jpg',
-        videoSrc:
-          '/static/images/content/examples-section/medical_rehabilitation_and_physiotherapy/medical_rehabilitation_and_physiotherapy_video.jpg',
-      },
-      {
-        title: t('examples.gameEscapeAndParks'),
-        mirrorSrc:
-          '/static/images/content/examples-section/game_escape_and_parks/game_escape_and_parks_mirror.jpg',
-        videoSrc:
-          '/static/images/content/examples-section/game_escape_and_parks/game_escape_and_parks_video.jpg',
       },
     ],
   };
@@ -147,7 +88,7 @@ const ExamplesSection = ({ className }: ExamplesSectionProps) => {
           </div>
           <div className="col-12 md:col-6">
             <div className="text-xl md:text-2xl whitespace-pre-wrap">{data.description}</div>
-            <div className="hidden md:flex items-center justify-end gap-8 mt-18">
+            <div className="hidden md:flex xl:hidden items-center justify-end gap-8 mt-18">
               <CarouselControls
                 canScrollNext={canScrollNext}
                 canScrollPrev={canScrollPrev}

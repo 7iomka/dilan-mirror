@@ -24,29 +24,16 @@
     "textAfterTitle": "Invest in a smart mirror project with technology to show the back of the body"
   },
   "indicators": {
-    "limitationText": "When trying to see your back in traditional mirrors, it's not only uncomfortable, it's not quite possible, and you have to turn as much as possible to see part of the back of your body. And the combined system of multiple mirrors reduces the size of the object displayed by the mirror.",
-    "proposalText": "The Dilan Mirror project is the production and sale of mirrors that allow you to view the back of your body with maximum comfort. This option can be easily turned on or off at any time. And if for thousands of years the mirror has been deprived of this possibility, today we are changing traditional standards.",
-    "item1Title": "Completion status of the 2nd stage of development",
-    "item2Title": "Funds raised for replication of the project",
-    "item3Title": "People from all over the world have already invested"
+    "proposalText": "The Dilan Mirror project is the production and sale of mirrors that allow you to view the back of your body with maximum comfort. This option can be easily turned on or off at any time. And if for thousands of years the mirror has been deprived of this possibility, today we are changing traditional standards."
   },
   "examples": {
     "title": "Use cases",
-    "description": "Our product has over 20 ways of use.\nHere are the most popular",
-    "artistDressingRooms": "Artist dressing rooms",
-    "barbershops": "Barbershops",
-    "beautySalons": "Beauty salons",
+    "description": "Our product has over 20 ways of use.\nHere are the most popular:fitting rooms, private use, tattoo parlors, gyms, modeling agencies, actors' dressing rooms, medical rehabilitation and physiotherapy, escape games and parks.",
+    "artistDressingRooms": "ххх",
+    "barbershops": "Hairdressing salons",
     "clothingStores": "Clothing stores",
     "dancingSchools": "Dancing schools",
-    "dressingRooms": "Dressing rooms",
-    "fittingRooms": "Fitting rooms",
-    "gameEscapeAndParks": "Game escape and parks",
-    "gyms": "Gyms",
-    "hairdressers": "Hairdressers",
-    "homeUse": "Private use",
-    "medicalRehabilitationAndPhysiotherapy": "Medical rehabilitation and physiotherapy",
-    "modelingAgencies": "Modeling agencies",
-    "tattooSalons": "Tattoo salons"
+    "dressingRooms": "Dressing rooms"
   },
   "howItWorks": {
     "title": "How it works",
@@ -92,16 +79,16 @@
   },
   "roadmap": {
     "title": "Our goals and plans",
-    "description": "Developing and conquering the market by a company that is the only one producing and selling a useful and one-of-a-kind product that contributes to world progress.",
-    "textFor22-23": "Layout modeling and experiments. Filing a patent application in France.",
-    "textFor23-24": "Official confirmation of a patent in France. International patent filings in over 90 countries.",
-    "textFor24-25": "Plant construction, marketing development and organization of the company's management structures.",
+    "description": "Use our own design, build a factory and produce 28 million mirrors by 2027.",
+    "textFor22-23": "Confirmation of patent application in France and PCT",
+    "textFor23-24": "Patent filings in 90 countries worldwide",
+    "textFor24-25": "Plant construction,worldwide sales of products",
     "textFor26": "Prospecting for customers and retailers. Mass production and sales."
   },
   "authorship": {
     "title": "Hello I'am Vasile Dilan",
     "subtitle": "CEO of the company, author of the Dilan Mirror project",
-    "description": "Technology has always been my interest. Hands-on training, internships,and years of experience as an electronics master have helped me expand my knowledge of gadgets and opened up new possibilities. In Paris, the development of a smart mirror and the establishment of a company began. Dubai has become a place where I intend to attract investment, enabling our product to gain global recognition and become accessible worldwide.\n\nAs the patent holder of the Dilan Mirror technology, I declare that our company is the only official manufacturer, exporter and importer of this product and concept worldwide, which will make the company the leader among smart mirror manufacturers. The current team as well as the hiring of other experienced managers will guarantee a solid strategy to capture the entire potential market. In addition, further product development plans promise to make the mirror truly perfect.",
+    "description": "I find Dubai a comfortable place to build a factory, so my office is here",
     "patentFrance": {
       "title": "Patent registered in France",
       "description": "PCT patent application submitted"

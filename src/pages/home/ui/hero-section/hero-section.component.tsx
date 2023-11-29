@@ -38,16 +38,16 @@ const HeroSection = ({ className }: HeroSectionProps) => {
         src: '/static/images/content/hero-section/02.jpg',
         videoId: 'EyUfHzhQGUQ',
       },
-      {
-        src: '/static/images/content/hero-section/03.jpg',
-        videoId: 'JO-Tez_CXg8',
-      },
+      // {
+      //   src: '/static/images/content/hero-section/03.jpg',
+      //   videoId: 'JO-Tez_CXg8',
+      // },
     ] as HeroCarouselSlide[],
   };
 
   return (
     <section id="hero" className={clsx(className)}>
-      <div className="relative pb-20 xl:pb-56 xl:-mb-56 flex flex-col justify-end">
+      <div className="relative pb-20 flex flex-col justify-end">
         <div className="overflow-hidden md:overflow-visible">
           <div className="container xl:pb-70">
             <div className="row items-end xl:items-center md:flex-nowrap">

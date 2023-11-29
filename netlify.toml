@@ -3,10 +3,3 @@
   functions = "netlify/functions"
   publish = "dist"
 
-[[plugins]]
-  package = "netlify-plugin-cloudinary"
-
-  [plugins.inputs]
-  cloudName = "dgyz5l0t0"
-  imagesPath = "/static/images"
-  loadingStrategy = "lazy"
