@@ -43,7 +43,7 @@ build:
     - if: $CI_COMMIT_BRANCH == "main"
   artifacts:
     paths:
-      - public/
+      - dist/
   tags:
     - docker-runner-X
 
@@ -77,7 +77,7 @@ build:
     - chmod 644 ~/.ssh/known_hosts
   script:
     - ssh $SSH_USER@$DEPLOY_SERVER "sudo chown -R $SSH_USER $APP_DIR"
-    - scp -r public/* $SSH_USER@$DEPLOY_SERVER:$APP_DIR/
+    - scp -r dist/* $SSH_USER@$DEPLOY_SERVER:$APP_DIR/
     - ssh $SSH_USER@$DEPLOY_SERVER "sudo chown -R www-data.www-data $APP_DIR/"
   tags:
     - docker-runner-X
