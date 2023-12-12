@@ -48,22 +48,6 @@ build:
     - docker-runner-X
 
 
-#.build:
-#  stage: build
-#  image: alpine:latest
-#  before_script:
-#    - apk update && apk add openssh-client
-#    - eval $(ssh-agent -s)
-#    - cat "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
-#    - mkdir -p ~/.ssh
-#    - chmod 700 ~/.ssh
-#    - cp "$SSH_KNOWN_HOSTS" ~/.ssh/known_hosts
-#    - chmod 644 ~/.ssh/known_hosts
-#  script:
-#    - ssh $SSH_USER@$DEPLOY_SERVER "cd $BUILD_DIR/$PROJECT_NAME && PROJECT=$PROJECT_NAME API_DOMAIN=$API_DOMAIN yarn build"
-#  tags:
-#    - docker-runner-X
-
 .deploy:
   stage: deploy
   image: alpine:latest
@@ -76,38 +60,13 @@ build:
     - cp "$SSH_KNOWN_HOSTS" ~/.ssh/known_hosts
     - chmod 644 ~/.ssh/known_hosts
   script:
+    - ssh $SSH_USER@$DEPLOY_SERVER "if [ ! -d "$APP_DIR" ]; then sudo mkdir -p $APP_DIR; fi"
     - ssh $SSH_USER@$DEPLOY_SERVER "sudo chown -R $SSH_USER $APP_DIR"
     - scp -r dist/* $SSH_USER@$DEPLOY_SERVER:$APP_DIR/
     - ssh $SSH_USER@$DEPLOY_SERVER "sudo chown -R www-data.www-data $APP_DIR/"
   tags:
     - docker-runner-X
 
-#install_develop:
-#  variables:
-#    DEPLOY_SERVER: 10.0.95.1
-#    SSH_KNOWN_HOSTS: ${SSH_KNOWN_HOSTS_DEV}
-#  rules:
-#    - if: $CI_COMMIT_BRANCH == "develop"
-#    - if: $CI_COMMIT_BRANCH == "newcicd"
-#  extends: .copyfiles
-#
-#copyfiles_master:
-#  variables:
-#    DEPLOY_SERVER: 10.0.100.2
-#    SSH_KNOWN_HOSTS: ${SSH_KNOWN_HOSTS_PROD}
-#  rules:
-#    - if: $CI_COMMIT_BRANCH == "master"
-#  extends: .copyfiles
-#
-#build_develop:
-#  variables:
-#    API_DOMAIN: "https://dev.api.tiaglin.com"
-#  rules:
-#    - if: $CI_COMMIT_BRANCH == "develop"
-#  extends: .build
-#  parallel:
-#    matrix:
-#      - PROJECT_NAME: [weter,enter,voda]
 
 deploy_develop:
   variables:
