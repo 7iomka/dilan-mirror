@@ -3,6 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { Button } from '@/shared/ui/button';
 import { Icon } from '@/shared/ui/icon';
 import { appConfig } from '@/shared/config/app-config';
+import { Fancybox } from '@/shared/ui/fancybox';
+import styles from './authorship-section.module.css';
 
 interface AuthorshipSectionProps {
   className?: string;
@@ -25,10 +27,14 @@ const AuthorshipSection = ({ className }: AuthorshipSectionProps) => {
       },
     ],
     showDocumentActionText: t('authorship.showDocumentActionText'),
+    interview: {
+      src: '/static/images/content/authorship-section/interview.jpg',
+      videoId: 'iYdgRu5W-Dk',
+    },
   };
 
   return (
-    <section className={clsx('py-56 md:py-88 bg-dark-500', className)}>
+    <section id="authorship" className={clsx('py-56 md:py-88 bg-dark-500', className)}>
       <div className="container">
         <div className="row gy-32 justify-between">
           <div className="col-12 md:col-5 lg:col-4">
@@ -62,6 +68,82 @@ const AuthorshipSection = ({ className }: AuthorshipSectionProps) => {
                 <div className="indigo-200 text-xl md:text-2xl mt-12">{data.subtitle}</div>
                 <div className="indigo-200 text-md md:text-lg mt-32 lg:mt-48 whitespace-pre-wrap">
                   {data.description}
+                </div>
+                <div className="mt-32">
+                  <Fancybox
+                    options={{
+                      Thumbs: {
+                        type: 'classic',
+                      },
+                    }}
+                  >
+                    <div className="relative w-full h-0 pb-[56.25%] overflow-hidden">
+                      <img
+                        src={data.interview.src}
+                        className="absolute inset-0 w-full h-full object-cover select-none"
+                        alt=""
+                      />
+                      <div className={styles.playButton}>
+                        <a
+                          aria-label={t('actions.playVideo')}
+                          data-fancybox={data.interview.videoId}
+                          href={`https://www.youtube.com/${data.interview.videoId}&amp;autoplay=1&amp;rel=0&amp;controls=1&amp;showinfo=0`}
+                        >
+                          <svg
+                            className={styles.playButtonIcon}
+                            version="1.1"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="230"
+                            height="230"
+                            viewBox="0 0 230 230"
+                          >
+                            <defs>
+                              <filter id="blur-play-fx" filterUnits="userSpaceOnUse">
+                                <feFlood floodColor="#FFFFFF" floodOpacity="0.530" />
+                                <feComposite operator="in" in2="SourceAlpha" result="outGlowFill" />
+                                <feMorphology operator="dilate" radius="2" result="outGlowFill" />
+                                <feGaussianBlur stdDeviation="4.7" result="outGlowBlur" />
+                                <feComposite
+                                  operator="out"
+                                  in="outGlowBlur"
+                                  in2="SourceAlpha"
+                                  result="outGlowMasked"
+                                />
+                                <feComposite
+                                  operator="over"
+                                  in="outGlowMasked"
+                                  in2="SourceGraphic"
+                                  result="outerGlow"
+                                />
+                              </filter>
+                            </defs>
+                            <g>
+                              <g className={styles.playButtonCircle} filter="url(#blur-play-fx)">
+                                <path
+                                  className="transition-all duration-500"
+                                  d="M115.000,14.406 C170.557,14.406 215.594,59.443 215.594,115.000 C215.594,170.557 170.557,215.594 115.000,215.594 C59.443,215.594 14.406,170.557 14.406,115.000 C14.406,59.443 59.443,14.406 115.000,14.406 z"
+                                  fill="none"
+                                  stroke="#FFFFFF"
+                                  strokeWidth="5"
+                                />
+                              </g>
+                              <path
+                                className={clsx(
+                                  styles.playButtonTriangle,
+                                  'transition-all duration-500',
+                                )}
+                                d="M155.526,114.519 L90.858,151.856 L90.858,77.183 L155.526,114.519 z"
+                                fill="#FFFFFF"
+                                filter="url(#blur-play-fx)"
+                              />
+                            </g>
+                          </svg>
+                          <span className={clsx(styles.playButtonOuterCircle, styles.n1)} />
+                          <span className={clsx(styles.playButtonOuterCircle, styles.n2)} />
+                        </a>
+                      </div>
+                    </div>
+                  </Fancybox>
                 </div>
               </div>
               <div className="mt-40">
