@@ -14,11 +14,11 @@ const socials: SocialItem[] = [
     url: appConfig.instagramURL,
     iconName: 'instagram',
   },
-  {
-    name: 'Facebook',
-    url: appConfig.facebookURL,
-    iconName: 'facebook',
-  },
+  // {
+  //   name: 'Facebook',
+  //   url: appConfig.facebookURL,
+  //   iconName: 'facebook',
+  // },
   {
     name: 'VK',
     url: appConfig.vkURL,
