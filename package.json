@@ -100,5 +100,8 @@
     "vite-plugin-svgr": "^3.2.0",
     "vite-tsconfig-paths": "^4.2.0"
   },
-  "packageManager": "yarn@4.0.2"
+  "packageManager": "yarn@4.0.2",
+  "engines": {
+    "node": ">=18.0.0"
+  }
 }
