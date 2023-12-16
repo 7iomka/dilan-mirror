@@ -22,11 +22,11 @@ install:
   before_script:
     - apt-get update
     - apt-get install -y --no-install-recommends libnss3 libatk1.0-0 libatk-bridge2.0-0 libcups2 libgbm1 libasound2 libpangocairo-1.0-0 libxss1 libgtk-3-0
-    - node -e "console.log(require('puppeteer').executablePath())"
-    - find / -name chrome | grep puppeteer | grep -v node_modules
   script:
     - yarn install --immutable && yarn cache clean
     - node ./node_modules/puppeteer/install.js
+    - node -e "console.log(require('puppeteer').executablePath())"
+    - find / -name chrome | grep puppeteer | grep -v node_modules
   rules:
     - if: $CI_COMMIT_BRANCH == "dev"
     - if: $CI_COMMIT_BRANCH == "main"
