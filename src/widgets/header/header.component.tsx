@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import { useTranslation } from 'react-i18next';
 import { LanguageSelect } from '@/shared/ui/language-select';
 import { Icon } from '@/shared/ui/icon';
+import { appConfig } from '@/shared/config/app-config';
 import { Socials } from '../socials';
 
 interface HeaderProps {
@@ -21,7 +22,7 @@ const HeaderBase = () => {
             <a
               className="group text-lg hover:text-primary order-1 md:order-0 ml-10 md:ml-0"
               aria-label={t('actions.account')}
-              href="#!"
+              href={appConfig.accountURL}
             >
               <div className="flex items-center justify-center p-10 -m-10">
                 <Icon name="account-box" className="text-xl md:hidden" />
