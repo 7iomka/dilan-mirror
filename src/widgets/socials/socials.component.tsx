@@ -10,35 +10,36 @@ interface SocialItem {
 }
 const socials: SocialItem[] = [
   {
+    name: 'Youtube',
+    url: appConfig.youtubeURL,
+    iconName: 'youtube',
+  },
+  {
     name: 'Instagram',
     url: appConfig.instagramURL,
     iconName: 'instagram',
+  },
+  {
+    name: 'VK',
+    url: appConfig.vkURL,
+    iconName: 'vk',
   },
   // {
   //   name: 'Facebook',
   //   url: appConfig.facebookURL,
   //   iconName: 'facebook',
   // },
-  {
-    name: 'VK',
-    url: appConfig.vkURL,
-    iconName: 'vk',
-  },
-  {
-    name: 'LinkedIn',
-    url: appConfig.linkedinURL,
-    iconName: 'linkedin',
-  },
-  {
-    name: 'Youtube',
-    url: appConfig.youtubeURL,
-    iconName: 'youtube',
-  },
-  {
-    name: 'Twitter',
-    url: appConfig.twitterURL,
-    iconName: 'twitter',
-  },
+  // {
+  //   name: 'LinkedIn',
+  //   url: appConfig.linkedinURL,
+  //   iconName: 'linkedin',
+  // },
+
+  // {
+  //   name: 'Twitter',
+  //   url: appConfig.twitterURL,
+  //   iconName: 'twitter',
+  // },
 ];
 
 interface SocialsProps {
@@ -53,7 +54,7 @@ interface SocialsProps {
 
 const Socials = ({ className, classNames, items = socials }: SocialsProps) => {
   return (
-    <div className={clsx('flex items-center space-x-2', className, classNames?.root)}>
+    <div className={clsx('flex items-center space-x-8', className, classNames?.root)}>
       {items.map((item) => {
         return (
           <a
