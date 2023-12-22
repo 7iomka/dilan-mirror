@@ -10,6 +10,7 @@ const baseConfig = {
   telegramSupportURL: 'https://t.me/dilan_mirror_support',
   appBaseURL: import.meta.env.VITE_APP_BASE_URL,
   apiBaseURL: import.meta.env.VITE_API_BASE_URL,
+  accountURL: 'https://my.dilan-mirror.com',
 };
 
 const lsConstants: Record<string, string> = {};

@@ -7,6 +7,7 @@ import type { Swiper } from 'swiper/types';
 import { Button } from '@/shared/ui/button';
 import { Fancybox } from '@/shared/ui/fancybox';
 import { Icon } from '@/shared/ui/icon';
+import { appConfig } from '@/shared/config/app-config';
 import styles from './hero-section.module.css';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
@@ -64,7 +65,7 @@ const HeroSection = ({ className }: HeroSectionProps) => {
                 <Button
                   className="inline-flex justify-center min-w-200 max-w-full mt-25 lg:mt-48"
                   component="a"
-                  href="#!"
+                  href={appConfig.accountURL}
                 >
                   {data.actionText}
                 </Button>

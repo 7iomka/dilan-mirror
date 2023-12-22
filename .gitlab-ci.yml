@@ -4,8 +4,8 @@ variables:
   SOURCE_DIR: /opt/deploy/landing/git
   BUILD_DIR: /opt/deploy/landing/builds
   APP_DIR: /opt/app/dilan-mirror.com
-  IMAGE_TAG: "${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_NAME}-${CI_COMMIT_SHORT_SHA}"
-  API_DOMAIN: "https://dev.api.tiaglin.com"
+  IMAGE_TAG: '${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_NAME}-${CI_COMMIT_SHORT_SHA}'
+  API_DOMAIN: 'https://dev.api.tiaglin.com'
 stages:
   - prepare
   - build
@@ -13,7 +13,7 @@ stages:
 
 install:
   stage: prepare
-  image: node:16-alpine
+  image: node:18.18.2
   cache:
     key: $CI_COMMIT_REF_SLUG
     policy: pull-push
@@ -27,10 +27,9 @@ install:
   tags:
     - docker-runner-X
 
-
 build:
   stage: build
-  image: node:16-alpine
+  image: node:18.18.2
   cache:
     key: $CI_COMMIT_REF_SLUG
     policy: pull
@@ -46,7 +45,6 @@ build:
       - dist/
   tags:
     - docker-runner-X
-
 
 .deploy:
   stage: deploy
@@ -67,7 +65,6 @@ build:
   tags:
     - docker-runner-X
 
-
 deploy_develop:
   variables:
     DEPLOY_SERVER: 10.0.100.4
@@ -75,7 +72,6 @@ deploy_develop:
   rules:
     - if: $CI_COMMIT_BRANCH == "dev"
   extends: .deploy
-
 
 deploy_prod:
   variables:
