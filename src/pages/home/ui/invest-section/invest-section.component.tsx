@@ -76,7 +76,7 @@ const InvestSection = ({ className }: InvestSectionProps) => {
             <div className="mt-40 md:mt-48">
               <div className="flex flex-wrap -m-4">
                 <div className="p-4 basis-1/2 min-w-200 grow">
-                  <Button className="flex justify-center" component="a" href="#!">
+                  <Button className="flex justify-center" component="a" href={appConfig.accountURL}>
                     {data.registerActionText}
                   </Button>
                 </div>

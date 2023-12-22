@@ -33,7 +33,7 @@ const Footer = ({ className }: FooterProps) => {
               <a
                 className="group text-lg hover:text-primary order-1 md:order-0 ml-10 md:ml-0"
                 aria-label={t('actions.account')}
-                href="#!"
+                href={appConfig.accountURL}
               >
                 <div className="flex items-center justify-center p-10 -m-10">
                   <Icon name="account-box" className="text-xl md:hidden" />

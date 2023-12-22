@@ -4,7 +4,7 @@
     "description": "A smart mirror project with technology to show the back of the body"
   },
   "general": {
-    "address": "UAE, Dubai, Nad Al Sheba, The Meydan Hotel, Business Center 1, M Floor"
+    "address": "The Meydan Hotel, Grandstand, 6th floor, Meydan Road, Nad Al Sheba, Dubai, U.A.E"
   },
   "errors": {
     "pageNotFound": "Page not found",
@@ -23,7 +23,7 @@
     "title": "Look at yourself on the other side",
     "textAfterTitle": "Invest in a smart mirror project with technology to show the back of the body"
   },
-  "indicators": {
+  "intro": {
     "proposalText": "The Dilan Mirror project is the production and sale of mirrors that allow you to view the back of your body with maximum comfort. This option can be easily turned on or off at any time. And if for thousands of years the mirror has been deprived of this possibility, today we are changing traditional standards."
   },
   "examples": {
@@ -82,8 +82,8 @@
     "description": "Use our own design, build a factory and produce 28 million mirrors by 2027.",
     "textFor22-23": "Confirmation of patent application in France and PCT",
     "textFor23-24": "Patent filings in 90 countries worldwide",
-    "textFor24-25": "Plant construction,worldwide sales of products",
-    "textFor26": "Prospecting for customers and retailers. Mass production and sales."
+    "textFor24-25": "Plant construction",
+    "textFor26": "Worldwide sales"
   },
   "authorship": {
     "title": "Hello I'am Vasile Dilan",

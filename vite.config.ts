@@ -8,7 +8,7 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 import { babel } from '@rollup/plugin-babel';
 import svgr from 'vite-plugin-svgr';
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
-// import { htmlPrerender } from 'vite-plugin-html-prerender';
+import { htmlPrerender } from 'vite-plugin-html-prerender';
 import { i18nConfig } from './src/shared/config/i18n-config';
 import svg from '@neodx/svg/vite';
 
@@ -57,14 +57,14 @@ export default defineConfig({
       },
     }),
     svgr(),
-    // htmlPrerender({
-    //   /**
-    //    * Required: Output directory of "vite build"
-    //    */
-    //   staticDir: path.join(__dirname, 'dist'),
-    //   routes: routesToPrerender,
-    //   minify: false,
-    // }),
+    htmlPrerender({
+      /**
+       * Required: Output directory of "vite build"
+       */
+      staticDir: path.join(__dirname, 'dist'),
+      routes: routesToPrerender,
+      minify: false,
+    }),
     checker({ typescript: true }),
   ],
   // We manually add a list of dependencies to be pre-bundled, in order to avoid a page reload at dev start which breaks vite-plugin-ssr's CI
@@ -89,13 +89,24 @@ export default defineConfig({
           // utils: ['clsx'],
           react: ['react', 'react-dom', 'react-router-dom'],
           stm: ['effector', 'effector-react', 'atomic-router', 'atomic-router-react'],
-          i18next: ['i18next', 'react-i18next', 'i18next-browser-languagedetector', 'i18next-http-backend'],
+          i18next: [
+            'i18next',
+            'react-i18next',
+            'i18next-browser-languagedetector',
+            'i18next-http-backend',
+          ],
           'floating-ui': ['@floating-ui/react', 'react-popper', '@popperjs/core'],
-          'sliders': ['swiper', 'embla-carousel', 'embla-carousel-react', 'embla-carousel-auto-height', 'embla-carousel-autoplay', 'embla-carousel-class-names'], 
-          'fancybox': ['@fancyapps/ui'], 
+          sliders: [
+            'swiper',
+            'embla-carousel',
+            'embla-carousel-react',
+            'embla-carousel-auto-height',
+            'embla-carousel-autoplay',
+            'embla-carousel-class-names',
+          ],
+          fancybox: ['@fancyapps/ui'],
         },
-      }
+      },
     },
   },
- 
 });
