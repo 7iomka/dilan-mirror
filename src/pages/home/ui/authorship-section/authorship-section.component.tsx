@@ -51,7 +51,7 @@ const AuthorshipSection = ({ className }: AuthorshipSectionProps) => {
                       component="a"
                       target="_blank"
                       rel="noopener noreferrer"
-                      href={appConfig.instagramURL}
+                      href={appConfig.instagramPersonalURL}
                     >
                       <Icon name="instagram" className="text-xl" />
                       <span className="ml-8 md:ml-12">Instagram</span>
