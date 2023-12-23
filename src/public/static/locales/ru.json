@@ -92,7 +92,7 @@
       "title": "Патент зарегистрирован во Франции",
       "description": "Подана патентная заявка PCT"
     },
-    "showDocumentActionText": "Показать документ"
+    "showDocumentsActionText": "Показать документы"
   },
   "invest": {
     "textBeforeTitle": "Присоединиться к сообществу инвесторов",

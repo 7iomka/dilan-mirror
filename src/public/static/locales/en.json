@@ -93,7 +93,7 @@
       "title": "Patent registered in France",
       "description": "PCT patent application submitted"
     },
-    "showDocumentActionText": "Show document"
+    "showDocumentsActionText": "Show documents"
   },
   "invest": {
     "textBeforeTitle": "Join the investor community",
