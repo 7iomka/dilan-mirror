@@ -34,7 +34,7 @@ const InvestSection = ({ className }: InvestSectionProps) => {
     },
     costOfOneShareInTheForecast: {
       text: t('invest.costOfOneShareInTheForecastText'),
-      value: '0,005$',
+      value: '0,0030$',
     },
   };
 
