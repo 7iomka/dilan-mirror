@@ -40,7 +40,11 @@ const AuthorshipSection = ({ className }: AuthorshipSectionProps) => {
           <div className="col-12 md:col-5 lg:col-4">
             <div className="sticky top-60 lg:top-80 ">
               <div className="aspect-w-[37.5] aspect-h-[41] md:aspect-w-[1] md:aspect-h-[1.35] max-xsl:min-w-container-min max-xsl:left-1/2 max-xsl:-translate-x-1/2">
-                <img src={data.image} alt="" className="object-cover object-bottom" />
+                <img
+                  src={data.image}
+                  alt=""
+                  className="object-cover [object-position:50%_75%] md:object-bottom"
+                />
                 <div>
                   <div className="absolute bottom-0 left-0 right-0 h-[24%] bg-[linear-gradient(0deg,#141419_0%,rgba(20,20,25,0)_100%)]" />
                   <div className="z-[2] flex flex-col items-start justify-end p-24 absolute bottom-0 left-0 right-0">
