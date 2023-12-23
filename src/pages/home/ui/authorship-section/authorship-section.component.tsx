@@ -23,10 +23,10 @@ const AuthorshipSection = ({ className }: AuthorshipSectionProps) => {
         flagImageUrl: '/static/images/flags/countries/france.svg',
         title: t('authorship.patentFrance.title'),
         description: t('authorship.patentFrance.description'),
-        documentUrl: '/static/documents/patents/france.pdf',
+        docUrl: 'https://drive.google.com/drive/u/0/folders/1i7uHXRGp5VNqelmnjxtZdo91f0aVlJUy',
       },
     ],
-    showDocumentActionText: t('authorship.showDocumentActionText'),
+    showDocumentsActionText: t('authorship.showDocumentsActionText'),
     interview: {
       src: '/static/images/content/authorship-section/interview.jpg',
       videoId: 'iYdgRu5W-Dk',
@@ -51,7 +51,7 @@ const AuthorshipSection = ({ className }: AuthorshipSectionProps) => {
                       component="a"
                       target="_blank"
                       rel="noopener noreferrer"
-                      href={appConfig.instagramURL}
+                      href={appConfig.instagramPersonalURL}
                     >
                       <Icon name="instagram" className="text-xl" />
                       <span className="ml-8 md:ml-12">Instagram</span>
@@ -170,13 +170,13 @@ const AuthorshipSection = ({ className }: AuthorshipSectionProps) => {
                       </div>
                       <div className="shrink-0 border-t border-t-dark-500 lg:border-t-0 border-l border-l-dark-500 p-18 lg:p-22 flex flex-col items-center justify-center">
                         <a
-                          href={patent.documentUrl}
+                          href={patent.docUrl}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="flex items-center text-sm md:text-lg hover:underline hover:text-primary underline-offset-2 max-w-200"
                         >
                           <Icon name="file" className="text-xl" />
-                          <span className="ml-8 md:ml-12">{data.showDocumentActionText}</span>
+                          <span className="ml-8 md:ml-12">{data.showDocumentsActionText}</span>
                         </a>
                       </div>
                     </div>

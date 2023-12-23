@@ -4,7 +4,7 @@
     "description": "A smart mirror project with technology to show the back of the body"
   },
   "general": {
-    "address": "The Meydan Hotel, Grandstand, 6th floor, Meydan Road, Nad Al Sheba, Dubai, U.A.E"
+    "address": "Deyaar Head Office Building 1, Dubai , Floor 4, Office No. 17, Dubai, U.A.E"
   },
   "errors": {
     "pageNotFound": "Page not found",
@@ -82,8 +82,8 @@
     "description": "Use our own design, build a factory and produce 28 million mirrors by 2027.",
     "textFor22-23": "Confirmation of patent application in France and PCT",
     "textFor23-24": "Patent filings in 90 countries worldwide",
-    "textFor24-25": "Plant construction",
-    "textFor26": "Worldwide sales"
+    "textFor24-25": "Plant construction and worldwide sales",
+    "textFor26": "Scaling sales franchises and licenses"
   },
   "authorship": {
     "title": "Hello I'am Vasile Dilan",
@@ -93,7 +93,7 @@
       "title": "Patent registered in France",
       "description": "PCT patent application submitted"
     },
-    "showDocumentActionText": "Show document"
+    "showDocumentsActionText": "Show documents"
   },
   "invest": {
     "textBeforeTitle": "Join the investor community",
