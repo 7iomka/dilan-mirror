@@ -30,16 +30,19 @@ const InvestSection = ({ className }: InvestSectionProps) => {
     footNoteText: t('invest.footNoteText'),
     valuePerShareToday: {
       text: t('invest.valuePerShareTodayText'),
-      value: '0,01$',
+      value: '0,0001$',
     },
     costOfOneShareInTheForecast: {
       text: t('invest.costOfOneShareInTheForecastText'),
-      value: '0,10$',
+      value: '0,005$',
     },
   };
 
   return (
-    <section className={clsx('py-56 md:py-88 lp:pt-120 relative overflow-hidden', className)}>
+    <section
+      id="invest"
+      className={clsx('py-56 md:py-88 lp:pt-120 relative overflow-hidden', className)}
+    >
       <div className="container">
         <div className="row">
           <div className="col-12 md:col-6 order-1 md:order-0 relative z-[10] mt-154 md:mt-0">
