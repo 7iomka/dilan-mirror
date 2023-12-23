@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
 import { Icon, type IconProps } from '@/shared/ui/icon';
 import { Button } from '@/shared/ui/button';
+import { appConfig } from '@/shared/config/app-config';
 
 interface ArgumentsSectionProps {
   className?: string;
@@ -83,7 +84,11 @@ const ArgumentsSection = ({ className }: ArgumentsSectionProps) => {
                     </div>
                   </div>
                   <div className="col-12 lg:col-auto flex items-center justify-center">
-                    <Button className="flex justify-center min-w-200" component="a" href="#!">
+                    <Button
+                      className="flex justify-center min-w-200"
+                      component="a"
+                      href={appConfig.accountURL}
+                    >
                       {data.actionText}
                     </Button>
                   </div>
