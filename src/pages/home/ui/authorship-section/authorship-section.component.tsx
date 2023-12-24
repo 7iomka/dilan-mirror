@@ -29,7 +29,7 @@ const AuthorshipSection = ({ className }: AuthorshipSectionProps) => {
     showDocumentsActionText: t('authorship.showDocumentsActionText'),
     interview: {
       src: '/static/images/content/authorship-section/interview.jpg',
-      videoId: 'iYdgRu5W-Dk',
+      videoId: 'bNzsW7iouSU',
     },
   };
 
