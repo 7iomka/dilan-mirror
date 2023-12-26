@@ -21,6 +21,7 @@ export interface SpritesMap {
     | 'shopping-basket'
     | 'sun'
     | 'telegram-colored'
+    | 'telegram'
     | 'time'
     | 'twitter'
     | 'vk'
@@ -29,7 +30,7 @@ export interface SpritesMap {
 }
 export const SPRITES_META = {
   sprite: {
-    filePath: 'sprite.3992336d.svg',
+    filePath: 'sprite.ac649d94.svg',
     items: {
       '4k': {
         viewBox: '0 0 24 24',
@@ -135,6 +136,11 @@ export const SPRITES_META = {
         viewBox: '0 0 24 24',
         width: 24,
         height: 24,
+      },
+      telegram: {
+        viewBox: '0 0 20 20',
+        width: 20,
+        height: 20,
       },
       time: {
         viewBox: '0 0 24 24',

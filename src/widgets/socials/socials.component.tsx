@@ -24,6 +24,11 @@ const socials: SocialItem[] = [
     url: appConfig.vkURL,
     iconName: 'vk',
   },
+  {
+    name: 'Telegram',
+    url: appConfig.telegramURL,
+    iconName: 'telegram',
+  },
   // {
   //   name: 'Facebook',
   //   url: appConfig.facebookURL,
@@ -64,6 +69,7 @@ const Socials = ({ className, classNames, items = socials }: SocialsProps) => {
             )}
             key={item.name}
             aria-label={item.name}
+            title={item.name}
             href={item.url}
             target="_blank"
             rel="noopener noreferrer"
