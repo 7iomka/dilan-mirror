@@ -30,6 +30,7 @@ const HeroSection = ({ className }: HeroSectionProps) => {
     textBeforeTitle: t('hero.textBeforeTitle'),
     title: t('hero.title'),
     textAfterTitle: t('hero.textAfterTitle'),
+    advancedText: t('hero.advancedText'),
     slides: [
       {
         src: '/static/images/content/hero-section/01.jpg',
@@ -61,6 +62,9 @@ const HeroSection = ({ className }: HeroSectionProps) => {
                 </h1>
                 <div className="text-xl md:text-2xl mt-12 md:mt-24 [text-shadow:0px_2px_3px_rgb(41,41,41,0.5),0px_0px_40px_rgb(41,41,41,0.8)] [text-wrap:balance]">
                   {data.textAfterTitle}
+                </div>
+                <div className="text-md md:text-xl mt-12 font-bold text-primary">
+                  {data.advancedText}
                 </div>
                 <Button
                   className="inline-flex justify-center min-w-200 max-w-full mt-25 lg:mt-48"
