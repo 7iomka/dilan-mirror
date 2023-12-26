@@ -65,6 +65,9 @@ const createi18n = createFactory(() => {
         },
         backend: {
           loadPath: '/static/locales/{{lng}}.json', // store locales in public subfolder
+          requestOptions: {
+            cache: 'no-store',
+          },
         },
         saveMissing: true, // safe use default value as second parameter
         detection: {
