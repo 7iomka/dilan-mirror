@@ -11,10 +11,12 @@ interface FooterProps {
 
 const Footer = ({ className }: FooterProps) => {
   const { t } = useTranslation();
+  const currYear = new Date().getFullYear();
+  const yearRange = currYear <= 2024 ? 2024 : `2024 - ${currYear}`;
 
   const data = {
     allRightsReserved: t('footer.allRightsReserved'),
-    currentYear: new Date().getFullYear(),
+    yearRange,
     brandName: appConfig.brandName,
     address: t('general.address'),
     contacts: {
@@ -52,7 +54,7 @@ const Footer = ({ className }: FooterProps) => {
           <div className="flex flex-col lg:flex-row lg:justify-between">
             <div className="grow min-w-[12rem]">
               <div className="text-sm xl:text-lg text-gray-400">
-                Copyright {data.currentYear} {data.brandName}. {data.allRightsReserved}
+                Copyright {data.yearRange} {data.brandName}. {data.allRightsReserved}
                 <br />
                 {data.address}
               </div>
