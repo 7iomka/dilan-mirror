@@ -21,7 +21,7 @@ const Footer = ({ className }: FooterProps) => {
     address: t('general.address'),
     contacts: {
       email: 'dilanmirror@gmail.com',
-      phone: '+971 52 797 1080',
+      phone: '+971 58 549 7040',
     },
   };
 
