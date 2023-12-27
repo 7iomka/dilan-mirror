@@ -6,3 +6,4 @@ export { ArgumentsSection } from './arguments-section';
 export { AuthorshipSection } from './authorship-section';
 export { RoadmapSection } from './roadmap-section';
 export { InvestSection } from './invest-section';
+export { NewsSection } from './news-section';
