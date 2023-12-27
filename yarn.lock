@@ -329,7 +329,7 @@ __metadata:
   resolution: "@dilan/mirror@workspace:."
   dependencies:
     "@csstools/postcss-is-pseudo-class": "npm:^4.0.0"
-    "@fancyapps/ui": "npm:5.0.24"
+    "@fancyapps/ui": "npm:^5.0.32"
     "@feature-sliced/eslint-config": "npm:0.1.0-beta.6"
     "@floating-ui/react": "npm:^0.25.4"
     "@mertasan/tailwindcss-variables": "npm:^2.6.1"
@@ -769,10 +769,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fancyapps/ui@npm:5.0.24":
-  version: 5.0.24
-  resolution: "@fancyapps/ui@npm:5.0.24"
-  checksum: 0c28431a61c5b746aa90410dae9c77b078b3a26972182fca7d57b26784c123a776377c7b53af5470ae90038814e08e7174e086d71e9232fd363aee6cf9ec87c8
+"@fancyapps/ui@npm:^5.0.32":
+  version: 5.0.32
+  resolution: "@fancyapps/ui@npm:5.0.32"
+  checksum: 22792a197ab8d71d76515ba8cddcef0315e7d9cbf282704c595b3fe1fa52fe513dbc410ee8b15be29b765a670497cb21953555ec26e7f9aa0b4992fd5030a82b
   languageName: node
   linkType: hard
 

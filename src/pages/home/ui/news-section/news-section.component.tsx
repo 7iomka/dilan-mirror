@@ -3,7 +3,9 @@ import { useUnit } from 'effector-react';
 import { useTranslation } from 'react-i18next';
 import { useCallback, useEffect, useState } from 'react';
 import type { EmblaCarouselType } from 'embla-carousel-react';
+import xss from 'xss';
 import { Carousel, CarouselControls } from '@/shared/ui/carousel';
+import { Fancybox } from '@/shared/ui/fancybox';
 import { $$newsSection } from './news-section.model';
 import type { NewsItemNormalized } from './news-section.lib';
 
@@ -153,21 +155,47 @@ const NewsCarousel = ({ items }: { items: NewsItemNormalized[] }) => {
           slidesToScroll: 'auto',
         }}
       >
-        {items.map((item, idx) => (
-          <div className="relative flex-[0_0_20rem] xl:flex-[0_0_33.3333%] pr-24" key={idx}>
-            <div className="relative w-full aspect-w-16 aspect-h-9 bg-dark-500">
-              <img
-                src={item.mainImg}
-                className={clsx('absolute inset-0 w-full h-full object-cover')}
-                alt=""
-              />
-            </div>
-            <div className="mt-20 md:mt-32">
-              <h3 className="text-md md:text-xl line-clamp-2">{item.title}</h3>
-              <div className="text-md md:text-lg mt-2 md:mt-4 line-clamp-3">
-                {item.shortDescription}
-              </div>
-            </div>
+        {items.map((item) => (
+          <div
+            className="relative flex-[0_0_20rem] xl:flex-[0_0_33.3333%] pr-24"
+            key={`news_item_${item.id}`}
+          >
+            <Fancybox
+              options={{
+                Carousel: {
+                  Thumbs: {
+                    type: 'classic',
+                  },
+                },
+              }}
+            >
+              <a
+                className="cursor-pointer group"
+                role="button"
+                data-fancybox
+                href={`#news_item_${item.id}`}
+                data-type="clone"
+              >
+                <div className="relative w-full aspect-w-16 aspect-h-9 bg-dark-500">
+                  <img
+                    src={item.mainImg}
+                    className={clsx(
+                      'absolute inset-0 w-full h-full object-cover transition-opacity group-hover:opacity-70',
+                    )}
+                    alt=""
+                  />
+                  <div className="text-sm font-bold py-4 px-8 bg-dark/90 absolute bottom-5 right-5 inline-block !w-auto !h-auto !left-auto !top-auto">
+                    {item.publishedDate}
+                  </div>
+                </div>
+                <div className="mt-20 md:mt-32">
+                  <h3 className="text-md md:text-xl line-clamp-2">{item.title}</h3>
+                  <div className="text-md md:text-lg mt-2 md:mt-4 line-clamp-3">
+                    {item.shortDescription}
+                  </div>
+                </div>
+              </a>
+            </Fancybox>
           </div>
         ))}
       </Carousel>
@@ -179,6 +207,32 @@ const NewsCarousel = ({ items }: { items: NewsItemNormalized[] }) => {
           onNext={handleNext}
           onPrev={handlePrev}
         />
+        {items.map((item) => (
+          <div
+            id={`news_item_${item.id}`}
+            style={{ display: 'none' }}
+            key={`news_item_${item.id}`}
+            data-selectable="true"
+            className="max-w-[960px] text-white bg-dark-500"
+          >
+            <div className="relative w-full aspect-w-16 aspect-h-9">
+              <img
+                src={item.mainImg}
+                className={clsx('absolute inset-0 w-full h-full object-cover')}
+                alt=""
+              />
+            </div>
+            <div className="mt-20 md:mt-32">
+              <h3 className="text-md md:text-xl">{item.title}</h3>
+              <article
+                className="text-md md:text-lg mt-16"
+                dangerouslySetInnerHTML={{ __html: xss(item.content ?? '') }}
+              />
+
+              <div className="text-sm font-bold text-right mt-20">{item.publishedDate}</div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

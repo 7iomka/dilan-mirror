@@ -17,6 +17,7 @@ export const normalizeNewsItem = (item: NewsItemDto) => {
     shortDescription,
     metadata: { mainImg },
     publishedAt: publishedAtString,
+    content,
   } = item;
 
   const localeSettings: Intl.DateTimeFormatOptions = {
@@ -33,6 +34,7 @@ export const normalizeNewsItem = (item: NewsItemDto) => {
     shortDescription: getTranslatedValue(shortDescription).content,
     mainImg,
     publishedDate: publishedAt.toLocaleDateString($$i18n.i18n.language, localeSettings),
+    content: getTranslatedValue(content).content,
   };
 };
 

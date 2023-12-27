@@ -1,3 +1,4 @@
+import xss from 'xss';
 import { combine, createEffect, createEvent, createStore, sample } from 'effector';
 import { fallbackLanguageCode, type SupportedLanguageCode } from '@/shared/config/i18n-config';
 import { routes } from '@/shared/routing';
@@ -192,6 +193,73 @@ const getFx = createEffect<GetNewsRequestParams, NewsDto>({
           },
           {
             content: null,
+            language: 'id',
+          },
+        ],
+        content: [
+          {
+            content:
+              '<p>Crowdfighting for the Dilan Mirror project was successful, and the first investors were attracted. The official launch is scheduled for January, but investment opportunities are open now.</p>',
+            language: 'en',
+          },
+          {
+            content:
+              '<p>Краудфайтинга по проекту ,,Dilan Mirror’’ прошел успешно, были привлечены первые инвесторы. Официальный запуск запланирован на январь, но возможность для инвестиций открыты уже сейчас.</p>',
+            language: 'ru',
+          },
+          {
+            content:
+              '<p>Crowdfighting for the Dilan Mirror project was successful, and the first investors were attracted. The official launch is scheduled for January, but investment opportunities are open now.</p>',
+            language: 'hi',
+          },
+          {
+            content:
+              '<p>Crowdfighting for the Dilan Mirror project was successful, and the first investors were attracted. The official launch is scheduled for January, but investment opportunities are open now.</p>',
+            language: 'vi',
+          },
+          {
+            content:
+              '<p>Crowdfighting for the Dilan Mirror project was successful, and the first investors were attracted. The official launch is scheduled for January, but investment opportunities are open now.</p>',
+            language: 'fr',
+          },
+          {
+            content:
+              '<p>Crowdfighting for the Dilan Mirror project was successful, and the first investors were attracted. The official launch is scheduled for January, but investment opportunities are open now.</p>',
+            language: 'ar',
+          },
+          {
+            content:
+              '<p>Crowdfighting for the Dilan Mirror project was successful, and the first investors were attracted. The official launch is scheduled for January, but investment opportunities are open now.</p>',
+            language: 'es',
+          },
+          {
+            content:
+              '<p>Crowdfighting for the Dilan Mirror project was successful, and the first investors were attracted. The official launch is scheduled for January, but investment opportunities are open now.</p>',
+            language: 'ko',
+          },
+          {
+            content:
+              '<p>Crowdfighting for the Dilan Mirror project was successful, and the first investors were attracted. The official launch is scheduled for January, but investment opportunities are open now.</p>',
+            language: 'ja',
+          },
+          {
+            content:
+              '<p>Crowdfighting for the Dilan Mirror project was successful, and the first investors were attracted. The official launch is scheduled for January, but investment opportunities are open now.</p>',
+            language: 'bn',
+          },
+          {
+            content:
+              '<p>Crowdfighting for the Dilan Mirror project was successful, and the first investors were attracted. The official launch is scheduled for January, but investment opportunities are open now.</p>',
+            language: 'cn',
+          },
+          {
+            content:
+              '<p>Crowdfighting for the Dilan Mirror project was successful, and the first investors were attracted. The official launch is scheduled for January, but investment opportunities are open now.</p>',
+            language: 'pt',
+          },
+          {
+            content:
+              '<p>Crowdfighting for the Dilan Mirror project was successful, and the first investors were attracted. The official launch is scheduled for January, but investment opportunities are open now.</p>',
             language: 'id',
           },
         ],

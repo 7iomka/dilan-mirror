@@ -21,6 +21,10 @@ export interface NewsItemDto {
     content: string | null;
     language: SupportedLanguageCode;
   }[];
+  content: {
+    content: string | null;
+    language: SupportedLanguageCode;
+  }[];
   influencedProjectIds: number[];
   isActive: boolean;
   isSharePriceChanged: boolean;
