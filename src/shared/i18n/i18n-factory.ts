@@ -6,17 +6,21 @@ import Backend from 'i18next-http-backend';
 import { createFactory } from '@withease/factories';
 import type { SupportedLanguageCode } from '../config/i18n-config';
 import { fallbackLanguageCode, i18nConfig } from '../config/i18n-config';
-import { router } from '../routing';
+import { $$router } from '../routing';
 
 type ChangeLanguageParams = {
   languageCode: SupportedLanguageCode;
 };
 
 const createi18n = createFactory(() => {
+  const changei18nNextLanguageFx = createEffect((languageCode: SupportedLanguageCode) => {
+    i18n.changeLanguage(languageCode);
+  });
+
   const changeLanguageFx = attach({
-    source: router.$activeRoutes,
+    source: $$router.$activeRoutes,
     effect: async (activeRoutes, { languageCode }: ChangeLanguageParams) => {
-      await i18n.changeLanguage(languageCode);
+      await changei18nNextLanguageFx(languageCode);
 
       const currentRoute = activeRoutes[0]; // TODO: add support for multiple routes
 
@@ -25,10 +29,13 @@ const createi18n = createFactory(() => {
         query: {},
         replace: true,
       });
+
+      return languageCode;
     },
   });
 
   const changeLanguageTriggered = createEvent<ChangeLanguageParams>();
+  const languageChanged = createEvent<SupportedLanguageCode>();
 
   sample({
     clock: changeLanguageTriggered,
@@ -37,9 +44,15 @@ const createi18n = createFactory(() => {
 
   const setupFx = createEffect(setup);
   const setupTriggered = createEvent();
+  const setupFinished = setupFx.doneData;
   sample({
     clock: setupTriggered,
     target: setupFx,
+  });
+
+  sample({
+    clock: changeLanguageFx.doneData,
+    target: languageChanged,
   });
 
   async function setup() {
@@ -82,6 +95,8 @@ const createi18n = createFactory(() => {
     setupTriggered,
     changeLanguageFx,
     changeLanguageTriggered,
+    languageChanged,
+    setupFinished,
   };
 });
 

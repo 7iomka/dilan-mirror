@@ -1,5 +1,4 @@
 {
-  "presets": ["effector-http-api/babel-preset"],
   "plugins": [
     [
       "effector/babel-plugin",
