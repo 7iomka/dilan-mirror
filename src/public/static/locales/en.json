@@ -102,7 +102,7 @@
     "step1Text": "Register to log in to your safe personal account",
     "step2Text": "Choose a package of shares and pay for it in a convenient way",
     "footNoteText": "* Forecasting is based on the assumption of fulfilment of the plan under the conditions of project development",
-    "valuePerShareTodayText": "Value per share today",
+    "valuePerShareTodayText": "Value per share at the start",
     "costOfOneShareInTheForecastText": "Cost of one share in the forecast*"
   },
   "footer": {

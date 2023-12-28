@@ -15,7 +15,7 @@ const InvestSection = ({ className }: InvestSectionProps) => {
     month: 'short',
     day: 'numeric',
   };
-  const startDate = new Date(2023, 11, 14);
+  const startDate = new Date(2024, 0, 1);
   const formattedCurrentDate = startDate.toLocaleDateString(i18n.language, localeSettings);
   const futureDate = new Date(2025, 11, 14);
   const formattedFutureDate = futureDate.toLocaleDateString(i18n.language, localeSettings);
