@@ -1,16 +1,18 @@
 import { $$i18n } from '@/shared/i18n';
 import { fallbackLanguageCode } from '@/shared/config/i18n-config';
-import type { NewsItemDto } from './news-section.types';
+import type { NewsItem } from './news-section.types';
 
 export const getTranslatedValue = <T extends { language: string; content: string | null }[]>(
-  v: T,
+  v: T | undefined,
 ) => {
+  if (!v) return null;
+
   const byLang = v.find((item) => item.language === $$i18n.i18n.language);
   const byFallbackLang = v.find((item) => item.language === fallbackLanguageCode)!;
   return byLang ?? byFallbackLang;
 };
 
-export const normalizeNewsItem = (item: NewsItemDto) => {
+export const normalizeNewsItem = (item: NewsItem) => {
   const {
     id,
     title,
@@ -30,12 +32,14 @@ export const normalizeNewsItem = (item: NewsItemDto) => {
 
   return {
     id,
-    title: getTranslatedValue(title).content,
-    shortDescription: getTranslatedValue(shortDescription).content,
+    title: getTranslatedValue(title)?.content,
+    shortDescription: getTranslatedValue(shortDescription)?.content,
     mainImg,
     publishedDate: publishedAt.toLocaleDateString($$i18n.i18n.language, localeSettings),
-    content: getTranslatedValue(content).content,
+    content: getTranslatedValue(content)?.content,
   };
 };
 
 export type NewsItemNormalized = ReturnType<typeof normalizeNewsItem>;
+
+export const NEWS_ITEM_MODAL_ID = 'news_item';

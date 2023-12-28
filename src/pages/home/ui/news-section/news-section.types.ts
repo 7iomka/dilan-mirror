@@ -6,7 +6,7 @@ export interface GetNewsRequestParams {
   page: number;
 }
 
-export interface NewsItemDto {
+export interface NewsItem {
   id: number | string;
   attachments: any[];
   shortDescription: {
@@ -21,7 +21,7 @@ export interface NewsItemDto {
     content: string | null;
     language: SupportedLanguageCode;
   }[];
-  content: {
+  content?: {
     content: string | null;
     language: SupportedLanguageCode;
   }[];
@@ -44,11 +44,22 @@ export interface NewsDto {
   status: boolean;
   code: 200 | 400;
   data: {
-    items: NewsItemDto[];
+    items: NewsItem[];
     metadata: {
       total: number;
       limit: number;
       page: number;
     };
   };
+}
+
+export interface GetNewsItemDetailsRequestParams {
+  id: number | string;
+  language: SupportedLanguageCode;
+}
+export interface NewsItemDetailsDto {
+  message: 'success';
+  status: boolean;
+  code: 200 | 400;
+  data: NewsItem;
 }

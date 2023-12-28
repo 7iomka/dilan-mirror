@@ -7,7 +7,7 @@ import xss from 'xss';
 import { Carousel, CarouselControls } from '@/shared/ui/carousel';
 import { Fancybox } from '@/shared/ui/fancybox';
 import { $$newsSection } from './news-section.model';
-import type { NewsItemNormalized } from './news-section.lib';
+import { NEWS_ITEM_MODAL_ID, type NewsItemNormalized } from './news-section.lib';
 
 interface NewsSectionProps {
   className?: string;
@@ -15,7 +15,7 @@ interface NewsSectionProps {
 
 const NewsSection = ({ className }: NewsSectionProps) => {
   const { t } = useTranslation();
-  const isLoading = useUnit($$newsSection.$isLoading);
+  const isLoading = useUnit($$newsSection.$isItemsLoading);
   const items = useUnit($$newsSection.$items);
 
   const data = {
@@ -31,77 +31,7 @@ const NewsSection = ({ className }: NewsSectionProps) => {
         <div className="mt-32 md:mt-56">
           {isLoading ? (
             <div className="flex items-center justify-center h-[25rem]">
-              <svg
-                className="w-200 h-200 stroke-primary-pale"
-                viewBox="0 0 45 45"
-                xmlns="http://www.w3.org/2000/svg"
-                stroke="#fff"
-              >
-                <g fill="none" fillRule="evenodd" transform="translate(1 1)" strokeWidth="2">
-                  <circle cx="22" cy="22" r="6" strokeOpacity="0">
-                    <animate
-                      attributeName="r"
-                      begin="1.5s"
-                      dur="3s"
-                      values="6;22"
-                      calcMode="linear"
-                      repeatCount="indefinite"
-                    />
-                    <animate
-                      attributeName="stroke-opacity"
-                      begin="1.5s"
-                      dur="3s"
-                      values="1;0"
-                      calcMode="linear"
-                      repeatCount="indefinite"
-                    />
-                    <animate
-                      attributeName="stroke-width"
-                      begin="1.5s"
-                      dur="3s"
-                      values="2;0"
-                      calcMode="linear"
-                      repeatCount="indefinite"
-                    />
-                  </circle>
-                  <circle cx="22" cy="22" r="6" strokeOpacity="0">
-                    <animate
-                      attributeName="r"
-                      begin="3s"
-                      dur="3s"
-                      values="6;22"
-                      calcMode="linear"
-                      repeatCount="indefinite"
-                    />
-                    <animate
-                      attributeName="stroke-opacity"
-                      begin="3s"
-                      dur="3s"
-                      values="1;0"
-                      calcMode="linear"
-                      repeatCount="indefinite"
-                    />
-                    <animate
-                      attributeName="stroke-width"
-                      begin="3s"
-                      dur="3s"
-                      values="2;0"
-                      calcMode="linear"
-                      repeatCount="indefinite"
-                    />
-                  </circle>
-                  <circle cx="22" cy="22" r="8">
-                    <animate
-                      attributeName="r"
-                      begin="0s"
-                      dur="1.5s"
-                      values="6;1;2;3;4;5;6"
-                      calcMode="linear"
-                      repeatCount="indefinite"
-                    />
-                  </circle>
-                </g>
-              </svg>
+              <SvgLoader />
             </div>
           ) : (
             <NewsCarousel items={items} />
@@ -116,6 +46,7 @@ const NewsCarousel = ({ items }: { items: NewsItemNormalized[] }) => {
   const [embla, setEmbla] = useState<EmblaCarouselType | null>(null);
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(false);
+  const handleOpenItemDetails = useUnit($$newsSection.openDetailsTriggered);
 
   const onSelect = useCallback(() => {
     if (!embla) return;
@@ -169,12 +100,10 @@ const NewsCarousel = ({ items }: { items: NewsItemNormalized[] }) => {
                 },
               }}
             >
-              <a
+              <button
+                type="button"
                 className="cursor-pointer group"
-                role="button"
-                data-fancybox
-                href={`#news_item_${item.id}`}
-                data-type="clone"
+                onClick={() => handleOpenItemDetails(item.id)}
               >
                 <div className="relative w-full aspect-w-16 aspect-h-9 bg-dark-500">
                   <img
@@ -194,27 +123,45 @@ const NewsCarousel = ({ items }: { items: NewsItemNormalized[] }) => {
                     {item.shortDescription}
                   </div>
                 </div>
-              </a>
+              </button>
             </Fancybox>
           </div>
         ))}
       </Carousel>
 
       <div className="flex items-center justify-end gap-8 mt-24 md:mt-32">
-        <CarouselControls
-          canScrollNext={canScrollNext}
-          canScrollPrev={canScrollPrev}
-          onNext={handleNext}
-          onPrev={handlePrev}
-        />
-        {items.map((item) => (
-          <div
-            id={`news_item_${item.id}`}
-            style={{ display: 'none' }}
-            key={`news_item_${item.id}`}
-            data-selectable="true"
-            className="max-w-[960px] text-white bg-dark-500"
-          >
+        <div className={clsx(items.length < 2 && 'hidden', items.length === 3 && 'xl:hidden')}>
+          <CarouselControls
+            canScrollNext={canScrollNext}
+            canScrollPrev={canScrollPrev}
+            onNext={handleNext}
+            onPrev={handlePrev}
+          />
+        </div>
+        <NewsItemModal />
+      </div>
+    </div>
+  );
+};
+
+const NewsItemModal = () => {
+  const item = useUnit($$newsSection.$itemDetails);
+  const isLoading = useUnit($$newsSection.$isItemDetailsLoading);
+
+  return (
+    <div
+      id={NEWS_ITEM_MODAL_ID}
+      style={{ display: 'none' }}
+      data-selectable="true"
+      className="w-[960px] max-w-full text-white bg-dark-500"
+    >
+      {item !== null &&
+        (isLoading ? (
+          <div className="flex items-center justify-center h-[25rem]">
+            <SvgLoader />
+          </div>
+        ) : (
+          <>
             <div className="relative w-full aspect-w-16 aspect-h-9">
               <img
                 src={item.mainImg}
@@ -231,12 +178,85 @@ const NewsCarousel = ({ items }: { items: NewsItemNormalized[] }) => {
 
               <div className="text-sm font-bold text-right mt-20">{item.publishedDate}</div>
             </div>
-          </div>
+          </>
         ))}
-      </div>
     </div>
   );
 };
+
+const SvgLoader = () => (
+  <svg
+    className="w-200 h-200 stroke-primary-pale"
+    viewBox="0 0 45 45"
+    xmlns="http://www.w3.org/2000/svg"
+    stroke="#fff"
+  >
+    <g fill="none" fillRule="evenodd" transform="translate(1 1)" strokeWidth="2">
+      <circle cx="22" cy="22" r="6" strokeOpacity="0">
+        <animate
+          attributeName="r"
+          begin="1.5s"
+          dur="3s"
+          values="6;22"
+          calcMode="linear"
+          repeatCount="indefinite"
+        />
+        <animate
+          attributeName="stroke-opacity"
+          begin="1.5s"
+          dur="3s"
+          values="1;0"
+          calcMode="linear"
+          repeatCount="indefinite"
+        />
+        <animate
+          attributeName="stroke-width"
+          begin="1.5s"
+          dur="3s"
+          values="2;0"
+          calcMode="linear"
+          repeatCount="indefinite"
+        />
+      </circle>
+      <circle cx="22" cy="22" r="6" strokeOpacity="0">
+        <animate
+          attributeName="r"
+          begin="3s"
+          dur="3s"
+          values="6;22"
+          calcMode="linear"
+          repeatCount="indefinite"
+        />
+        <animate
+          attributeName="stroke-opacity"
+          begin="3s"
+          dur="3s"
+          values="1;0"
+          calcMode="linear"
+          repeatCount="indefinite"
+        />
+        <animate
+          attributeName="stroke-width"
+          begin="3s"
+          dur="3s"
+          values="2;0"
+          calcMode="linear"
+          repeatCount="indefinite"
+        />
+      </circle>
+      <circle cx="22" cy="22" r="8">
+        <animate
+          attributeName="r"
+          begin="0s"
+          dur="1.5s"
+          values="6;1;2;3;4;5;6"
+          calcMode="linear"
+          repeatCount="indefinite"
+        />
+      </circle>
+    </g>
+  </svg>
+);
 
 export type { NewsSectionProps };
 export { NewsSection };
