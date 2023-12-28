@@ -106,5 +106,8 @@
   },
   "footer": {
     "allRightsReserved": "Все права защищены."
+  },
+  "news": {
+    "title": "Новости"
   }
 }

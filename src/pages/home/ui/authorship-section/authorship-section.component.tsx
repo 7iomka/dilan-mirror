@@ -76,8 +76,10 @@ const AuthorshipSection = ({ className }: AuthorshipSectionProps) => {
                 <div className="mt-32">
                   <Fancybox
                     options={{
-                      Thumbs: {
-                        type: 'classic',
+                      Carousel: {
+                        Thumbs: {
+                          type: 'classic',
+                        },
                       },
                     }}
                   >

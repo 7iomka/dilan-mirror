@@ -107,5 +107,8 @@
   },
   "footer": {
     "allRightsReserved": "All rights reserved."
+  },
+  "news": {
+    "title": "News"
   }
 }

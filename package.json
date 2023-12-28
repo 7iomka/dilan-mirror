@@ -4,19 +4,19 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "kill-static-port": "npx kill-port --port 5173",
-    "dev-on-static-port": "vite --port 5173",
+    "kill-static-port": "npx kill-port --port 3000",
+    "dev-on-static-port": "vite --port 3000",
     "dev-kill": "npm-run-all kill-static-port dev-on-static-port",
     "dev": "yarn dev-on-static-port",
     "build": "tsc && vite build",
-    "start": "vite preview --port 5173",
+    "start": "vite preview --port 3000",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix",
     "typecheck": "tsc --noEmit",
     "lint-and-typecheck": "npm-run-all typecheck lint",
     "compile-modernizr": "modernizr -c modernizr-config.json -d ./src/public/static/scripts/modernizr-bundle.min.js"
   },
   "dependencies": {
-    "@fancyapps/ui": "5.0.24",
+    "@fancyapps/ui": "^5.0.32",
     "@floating-ui/react": "^0.25.4",
     "@popperjs/core": "^2.11.8",
     "@withease/factories": "^0.2.0",

@@ -95,8 +95,10 @@ const HeroCarousel = ({ slides }: { slides: HeroCarouselSlide[] }) => {
     <div className="relative">
       <Fancybox
         options={{
-          Thumbs: {
-            type: 'classic',
+          Carousel: {
+            Thumbs: {
+              type: 'classic',
+            },
           },
         }}
       >

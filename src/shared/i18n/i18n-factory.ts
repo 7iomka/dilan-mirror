@@ -1,4 +1,4 @@
-import { attach, createEffect, createEvent, sample } from 'effector';
+import { attach, createEffect, createEvent, createStore, sample } from 'effector';
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
@@ -34,7 +34,9 @@ const createi18n = createFactory(() => {
     },
   });
 
+  const $language = createStore<SupportedLanguageCode>(fallbackLanguageCode);
   const changeLanguageTriggered = createEvent<ChangeLanguageParams>();
+  const languageSettled = createEvent<SupportedLanguageCode>();
   const languageChanged = createEvent<SupportedLanguageCode>();
 
   sample({
@@ -42,7 +44,10 @@ const createi18n = createFactory(() => {
     target: changeLanguageFx,
   });
 
-  const setupFx = createEffect(setup);
+  const setupFx = createEffect(async () => {
+    await setup();
+    languageSettled(i18n.language as SupportedLanguageCode);
+  });
   const setupTriggered = createEvent();
   const setupFinished = setupFx.doneData;
   sample({
@@ -53,6 +58,11 @@ const createi18n = createFactory(() => {
   sample({
     clock: changeLanguageFx.doneData,
     target: languageChanged,
+  });
+
+  sample({
+    clock: [languageChanged, languageSettled],
+    target: $language,
   });
 
   async function setup() {
@@ -97,6 +107,7 @@ const createi18n = createFactory(() => {
     changeLanguageTriggered,
     languageChanged,
     setupFinished,
+    $language,
   };
 });
 
