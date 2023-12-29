@@ -155,12 +155,12 @@ const NewsItemModal = () => {
       data-selectable="true"
       className="w-[960px] max-w-full text-white bg-dark-500"
     >
-      {item !== null &&
-        (isLoading ? (
-          <div className="flex items-center justify-center h-[25rem]">
-            <SvgLoader />
-          </div>
-        ) : (
+      {isLoading ? (
+        <div className="flex items-center justify-center h-[25rem]">
+          <SvgLoader />
+        </div>
+      ) : (
+        item !== null && (
           <>
             <div className="relative w-full aspect-w-16 aspect-h-9">
               <img
@@ -179,7 +179,8 @@ const NewsItemModal = () => {
               <div className="text-sm font-bold text-right mt-20">{item.publishedDate}</div>
             </div>
           </>
-        ))}
+        )
+      )}
     </div>
   );
 };
