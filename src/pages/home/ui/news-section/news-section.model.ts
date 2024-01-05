@@ -3,6 +3,7 @@ import { Fancybox } from '@fancyapps/ui';
 import { fallbackLanguageCode, type SupportedLanguageCode } from '@/shared/config/i18n-config';
 import { routes } from '@/shared/routing';
 import { $$i18n } from '@/shared/i18n';
+import { appConfig } from '@/shared/config/app-config';
 import type {
   GetNewsItemDetailsRequestParams,
   GetNewsRequestParams,
@@ -17,7 +18,7 @@ export const currentRoute = routes.home;
 const getFx = createEffect<GetNewsRequestParams, NewsDto>({
   handler: async ({ language, limit, page }) => {
     const res = await fetch(
-      `https://api.dilan-mirror.com/application/news?limit=${limit}&page=${page}&language=${language}`,
+      `${appConfig.apiBaseURL}/application/news?limit=${limit}&page=${page}&language=${language}`,
     );
     const json = await res.json();
 
@@ -65,9 +66,7 @@ sample({
 
 const getItemDetailsFx = createEffect<GetNewsItemDetailsRequestParams, NewsItemDetailsDto>({
   handler: async ({ id, language }) => {
-    const res = await fetch(
-      `https://api.dilan-mirror.com/application/news/${id}?language=${language}`,
-    );
+    const res = await fetch(`${appConfig.apiBaseURL}/application/news/${id}?language=${language}`);
     const json = await res.json();
 
     return json;
