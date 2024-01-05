@@ -102,7 +102,7 @@ const NewsCarousel = ({ items }: { items: NewsItemNormalized[] }) => {
             >
               <button
                 type="button"
-                className="cursor-pointer group"
+                className="cursor-pointer group text-left"
                 onClick={() => handleOpenItemDetails(item.id)}
               >
                 <div className="relative w-full aspect-w-16 aspect-h-9 bg-dark-500">
@@ -119,7 +119,7 @@ const NewsCarousel = ({ items }: { items: NewsItemNormalized[] }) => {
                 </div>
                 <div className="mt-20 md:mt-32">
                   <h3 className="text-md md:text-xl line-clamp-2">{item.title}</h3>
-                  <div className="text-md md:text-lg mt-2 md:mt-4 line-clamp-3">
+                  <div className="text-md md:text-lg text-slate-200 mt-2 md:mt-4 line-clamp-3">
                     {item.shortDescription}
                   </div>
                 </div>
@@ -130,7 +130,7 @@ const NewsCarousel = ({ items }: { items: NewsItemNormalized[] }) => {
       </Carousel>
 
       <div className="flex items-center justify-end gap-8 mt-24 md:mt-32">
-        <div className={clsx(items.length < 2 && 'hidden', items.length === 3 && 'xl:hidden')}>
+        <div className={clsx(items.length < 2 && 'hidden', items.length <= 3 && 'md:hidden')}>
           <CarouselControls
             canScrollNext={canScrollNext}
             canScrollPrev={canScrollPrev}
@@ -170,13 +170,16 @@ const NewsItemModal = () => {
               />
             </div>
             <div className="mt-20 md:mt-32">
-              <h3 className="text-md md:text-xl">{item.title}</h3>
+              <div className="flex flex-col sm:flex-row items-start sm:justify-between sm:items-center">
+                <h3 className="text-xl md:text-2xl">{item.title}</h3>
+                <div className="inline-block text-sm font-bold sm:text-right shrink-0 mt-12 sm:mt-0 sm:ml-20 bg-black/30 p-6">
+                  {item.publishedDate}
+                </div>
+              </div>
               <article
-                className="text-md md:text-lg mt-16"
+                className="prose md:prose-lg text-slate-200 prose-a:text-primary prose-a:no-underline prose-a:border-b prose-a:border-b-current prose-a:hover:border-b-2 mt-20 md:mt-32"
                 dangerouslySetInnerHTML={{ __html: xss(item.content ?? '') }}
               />
-
-              <div className="text-sm font-bold text-right mt-20">{item.publishedDate}</div>
             </div>
           </>
         )
