@@ -5,6 +5,7 @@ import { corePlugins } from 'tailwindcss/lib/corePlugins';
 import aspectRatioPlugin from '@tailwindcss/aspect-ratio';
 import bootstrapGridPlugin from 'tailwind-bootstrap-grid';
 import customScrollbarPlugin from 'tailwind-scrollbar';
+import typographyPlugin from '@tailwindcss/typography';
 import { round } from './theme/lib';
 
 import {
@@ -132,6 +133,7 @@ export const tailwindConfig: Partial<Config> = {
     customScrollbarPlugin({
       nocompatible: true,
     }),
+    typographyPlugin(),
     // Adding custom utilities here
     plugin((cfg) => {
       const { addComponents, addUtilities, addBase } = cfg;
