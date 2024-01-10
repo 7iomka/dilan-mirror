@@ -17,12 +17,7 @@ const Footer = ({ className }: FooterProps) => {
   const data = {
     allRightsReserved: t('footer.allRightsReserved'),
     yearRange,
-    brandName: appConfig.brandName,
     address: t('general.address'),
-    contacts: {
-      email: 'dilanmirror@gmail.com',
-      phone: '+971 58 549 7040',
-    },
   };
 
   return (
@@ -54,7 +49,7 @@ const Footer = ({ className }: FooterProps) => {
           <div className="flex flex-col lg:flex-row lg:justify-between">
             <div className="grow min-w-[12rem]">
               <div className="text-sm xl:text-lg text-gray-400">
-                Copyright {data.yearRange} {data.brandName}. {data.allRightsReserved}
+                Copyright {data.yearRange} {appConfig.brandName}. {data.allRightsReserved}
                 <br />
                 {data.address}
               </div>
@@ -67,17 +62,17 @@ const Footer = ({ className }: FooterProps) => {
                     <div className="pr-18 pb-12 xl:pr-30 xl:pb-18">
                       <a
                         className="text-sm xl:text-lg text-gray-400 hover:text-primary"
-                        href={`mailto:${data.contacts.email}`}
+                        href={`mailto:${appConfig.email}`}
                       >
-                        {data.contacts.email}
+                        {appConfig.email}
                       </a>
                     </div>
                     <div className="pr-18 pb-12 xl:pr-30 xl:pb-18">
                       <a
                         className="text-sm xl:text-lg text-gray-400 hover:text-primary"
-                        href={`tel:${data.contacts.phone.replace(' ', '')}`}
+                        href={`tel:${appConfig.phone.replace(' ', '')}`}
                       >
-                        {data.contacts.phone}
+                        {appConfig.phone}
                       </a>
                     </div>
                   </div>
