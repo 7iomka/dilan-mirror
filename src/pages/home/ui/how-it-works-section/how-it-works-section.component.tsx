@@ -155,12 +155,12 @@ const HowItWorksSection = ({ className }: HowItWorksSectionProps) => {
         <div className="container">
           <div className="relative md:hidden">
             <img
-              src="/static/images/content/how-it-works-section/scene-mobile-video.jpg"
+              src="/static/images/content/how-it-works-section/scene-mobile-video.jpg?v=2"
               className={clsx('max-w-full z-[1]')}
               alt=""
             />
             <img
-              src="/static/images/content/how-it-works-section/scene-mobile-mirror.jpg"
+              src="/static/images/content/how-it-works-section/scene-mobile-mirror.jpg?v=2"
               className={clsx(styles.fadeImage, 'absolute left-0 top-0 right-0 w-full z-[2]')}
               alt=""
             />
@@ -208,12 +208,12 @@ const HowItWorksSection = ({ className }: HowItWorksSectionProps) => {
           </div>
           <div className="relative hidden md:block">
             <img
-              src="/static/images/content/how-it-works-section/scene-desktop-video.jpg"
+              src="/static/images/content/how-it-works-section/scene-desktop-video.jpg?v=2"
               className={clsx('max-w-full z-[1]')}
               alt=""
             />
             <img
-              src="/static/images/content/how-it-works-section/scene-desktop-mirror.jpg"
+              src="/static/images/content/how-it-works-section/scene-desktop-mirror.jpg?v=2"
               className={clsx(styles.fadeImage, 'absolute left-0 top-0 right-0 w-full z-[2]')}
               alt=""
             />
