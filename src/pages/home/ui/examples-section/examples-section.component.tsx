@@ -83,10 +83,10 @@ const ExamplesSection = ({ className }: ExamplesSectionProps) => {
     >
       <div className="container">
         <div className="row gy-12">
-          <div className="col-12 md:col-6">
+          <div className="col-12 lg:col-6">
             <h2 className="text-40px md:text-56px whitespace-pre-wrap">{data.title}</h2>
           </div>
-          <div className="col-12 md:col-6">
+          <div className="col-12 lg:col-6">
             <div className="text-xl md:text-2xl whitespace-pre-wrap">{data.description}</div>
             <div className="hidden md:flex xl:hidden items-center justify-end gap-8 mt-18">
               <CarouselControls
