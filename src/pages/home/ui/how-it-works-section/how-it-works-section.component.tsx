@@ -8,6 +8,7 @@ import { createPortal } from 'react-dom';
 import { Icon, type IconProps } from '@/shared/ui/icon';
 import styles from './how-it-works-section.module.css';
 
+const IMAGE_VERSION = 3; // cache handler
 interface HowItWorksSectionProps {
   className?: string;
 }
@@ -21,51 +22,51 @@ const HowItWorksSection = ({ className }: HowItWorksSectionProps) => {
         id: 'intelligentLight',
         title: t('howItWorks.accessories.intelligentLight'),
         image: '/static/images/content/how-it-works-section/detail/intelligent-light.png',
-        coordinates: { left: '38.9%', top: '1%' },
-        coordinatesMobile: { left: '40.4%', top: '1.1%' },
+        coordinates: { left: '44.5%', top: '3%' },
+        coordinatesMobile: { left: '28.4%', top: '4.1%' },
         className: 'max-md:[grid-column:span_3]',
       },
       {
         id: 'motionSensor',
         title: t('howItWorks.accessories.motionSensor'),
         image: '/static/images/content/how-it-works-section/detail/motion-sensor.png',
-        coordinates: { left: '31.2%', top: '5.2%' },
-        coordinatesMobile: { left: '25.8%', top: '7.1%' },
+        coordinates: { left: '41.1%', top: '13.2%' },
+        coordinatesMobile: { left: '37.4%', top: '13.1%' },
       },
       {
         id: 'cuttOffSensor',
         title: t('howItWorks.accessories.cutOffSensor'),
         image: '/static/images/content/how-it-works-section/detail/cut-off-sensor.png',
-        coordinates: { left: '50%', top: '19.1%' },
-        coordinatesMobile: { right: '30.4%', top: '20.1%' },
+        coordinates: { left: '55.7%', top: '21.8%' },
+        coordinatesMobile: { right: '26.4%', top: '22.1%' },
       },
       {
         id: 'touchPanel',
         title: t('howItWorks.accessories.touchPanel'),
         image: '/static/images/content/how-it-works-section/detail/touch-panel.png',
-        coordinates: { left: '63.3%', top: '45%' },
-        coordinatesMobile: { right: '3%', top: '47%' },
+        coordinates: { left: '67.2%', top: '44.1%' },
+        coordinatesMobile: { right: '2%', top: '44.4%' },
       },
       {
         id: 'mirrorDisplay',
         title: t('howItWorks.accessories.mirrorDisplay'),
         image: '/static/images/content/how-it-works-section/detail/mirror-display.jpg',
-        coordinates: { right: '41.9%', top: '67.6%' },
-        coordinatesMobile: { right: '17.5%', top: '70.3%' },
+        coordinates: { right: '37.4%', top: '59.6%' },
+        coordinatesMobile: { right: '14.5%', top: '61.3%' },
       },
       {
         id: 'flap',
         title: t('howItWorks.accessories.flap'),
         image: '/static/images/content/how-it-works-section/detail/flap.png',
-        coordinates: { left: '5.3%', top: '56.2%' },
-        coordinatesMobile: { left: '5.2%', top: '51%' },
+        coordinates: { left: '4.5%', top: '48.2%' },
+        coordinatesMobile: { left: '10.2%', top: '44.2%' },
       },
       {
         id: 'camera',
         title: t('howItWorks.accessories.camera'),
         image: '/static/images/content/how-it-works-section/detail/camera.png',
-        coordinates: { left: '1%', top: '56.5%' },
-        coordinatesMobile: { left: '0.2%', top: '51.3%' },
+        coordinates: { left: '1.1%', top: '48.5%' },
+        coordinatesMobile: { left: '0.2%', top: '44.5%' },
       },
     ],
     items: [
@@ -155,12 +156,12 @@ const HowItWorksSection = ({ className }: HowItWorksSectionProps) => {
         <div className="container">
           <div className="relative md:hidden">
             <img
-              src="/static/images/content/how-it-works-section/scene-mobile-video.jpg?v=2"
+              src={`/static/images/content/how-it-works-section/scene-mobile-video.jpg?v=${IMAGE_VERSION}`}
               className={clsx('max-w-full z-[1]')}
               alt=""
             />
             <img
-              src="/static/images/content/how-it-works-section/scene-mobile-mirror.jpg?v=2"
+              src={`/static/images/content/how-it-works-section/scene-mobile-mirror.jpg?v=${IMAGE_VERSION}`}
               className={clsx(styles.fadeImage, 'absolute left-0 top-0 right-0 w-full z-[2]')}
               alt=""
             />
@@ -208,12 +209,12 @@ const HowItWorksSection = ({ className }: HowItWorksSectionProps) => {
           </div>
           <div className="relative hidden md:block">
             <img
-              src="/static/images/content/how-it-works-section/scene-desktop-video.jpg?v=2"
+              src={`/static/images/content/how-it-works-section/scene-desktop-video.jpg?v=${IMAGE_VERSION}`}
               className={clsx('max-w-full z-[1]')}
               alt=""
             />
             <img
-              src="/static/images/content/how-it-works-section/scene-desktop-mirror.jpg?v=2"
+              src={`/static/images/content/how-it-works-section/scene-desktop-mirror.jpg?v=${IMAGE_VERSION}`}
               className={clsx(styles.fadeImage, 'absolute left-0 top-0 right-0 w-full z-[2]')}
               alt=""
             />
