@@ -46,7 +46,7 @@ const InvestSection = ({ className }: InvestSectionProps) => {
       <div className="container">
         <div className="row">
           <div className="col-12 md:col-6 order-1 md:order-0 relative z-[10] mt-154 md:mt-0">
-            <div className="hidden md:block text-xs leading-1 tracking-[0.4em] font-bold uppercase">
+            <div className="hidden md:block text-xs xxl:leading-1 tracking-[0.4em] font-bold uppercase">
               {data.textBeforeTitle}
             </div>
             <h1 className="text-40px lg:text-72px leading-1 mt-8 md:mt-20">{data.title}</h1>
