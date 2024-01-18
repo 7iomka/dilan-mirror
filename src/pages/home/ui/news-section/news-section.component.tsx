@@ -23,7 +23,7 @@ const NewsSection = ({ className }: NewsSectionProps) => {
   };
 
   return (
-    <div id="news" className={clsx('relative py-56 md:py-88 overflow-hidden', className)}>
+    <section id="news" className={clsx('relative py-56 md:py-88 overflow-hidden', className)}>
       <div className="relative container">
         <div className="hidden md:block absolute h-[600px] w-[600px] -z-[1] left-0 translate-y-[20%] -translate-x-[20%] bottom-0 opacity-[0.48] [background-image:radial-gradient(50%_50%_at_50%_50%,_#0C2D23_0%,_rgba(12,45,35,0)_100%)]" />
         <div className="absolute h-[600px] w-[600px] -z-[1] right-0 translate-y-[20%] translate-x-[20%] bottom-0 opacity-[0.48] [background-image:radial-gradient(50%_50%_at_50%_50%,_#0C2D23_0%,_rgba(12,45,35,0)_100%)]" />
@@ -38,7 +38,7 @@ const NewsSection = ({ className }: NewsSectionProps) => {
           )}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
