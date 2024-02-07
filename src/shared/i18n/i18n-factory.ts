@@ -87,12 +87,15 @@ const createi18n = createFactory(() => {
           escapeValue: false, // not needed for react as it escapes by default
         },
         backend: {
-          loadPath: '/static/locales/{{lng}}.json', // store locales in public subfolder
+          loadPath: '/static/locales/{{lng}}.json',
           requestOptions: {
             cache: 'no-store',
           },
         },
-        saveMissing: true, // safe use default value as second parameter
+        // allow keys to be phrases having `:`, `.`
+        nsSeparator: false,
+        keySeparator: false,
+        saveMissing: false, // safe use default value as second parameter
         detection: {
           order: ['path'],
         },

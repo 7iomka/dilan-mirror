@@ -1,15 +1,17 @@
 export const supportedLanguagesMap = {
-  // Add more languages here
-  // ar: "العربية",
   en: 'English',
-  // es: "Español",
-  // fr: "Français",
-  // ja: "日本語",
-  // pt: "Português",
   ru: 'Русский',
-  // no: "Norsk",
-  // pl: "Polski",
-  // "zh-hans": "简体中文",
+  ar: 'العربية',
+  hi: 'हिन्दी',
+  vi: 'Tiếng Việt',
+  es: 'Español',
+  fr: 'Français',
+  ko: '한국어',
+  ja: '日本語',
+  bn: 'বাংলা',
+  id: 'Bahasa Indonesia',
+  cn: '中文',
+  pt: 'Português',
 } as const;
 
 export type SupportedLanguageCode = keyof typeof supportedLanguagesMap;
