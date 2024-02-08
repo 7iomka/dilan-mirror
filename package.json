@@ -1,7 +1,7 @@
 {
   "name": "@dilan/mirror",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "kill-static-port": "npx kill-port --port 3000",
