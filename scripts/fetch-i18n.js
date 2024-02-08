@@ -39,7 +39,6 @@ async function writeDataToFile(lang, content) {
 
   for (const lang in data) {
     if (data.hasOwnProperty(lang)) {
-      loc.push(lang);
       try {
         await fs.access(path.join(localesDirPath, `${lang}.json`), fs.constants.F_OK);
       } catch (err) {
