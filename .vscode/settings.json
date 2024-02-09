@@ -79,5 +79,6 @@
   },
   "editor.quickSuggestions": {
     "strings": "on"
-  }
+  },
+  "svg.preview.background": "editor"
 }
