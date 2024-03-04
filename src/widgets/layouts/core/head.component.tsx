@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
 import { appConfig } from '@/shared/config/app-config';
+import { SPRITE_PATH } from '@/shared/ui/icon';
 
 const clarityCode = `
 (function (c,l,a,r,i,t,y){
@@ -44,6 +45,7 @@ const Head = () => {
       <meta property="og:locale" content="ru" />
       <meta property="og:site_name" content={t('meta.title')} />
 
+      <link rel="preload" as="image" href={SPRITE_PATH} />
       {/* preload fonts */}
       <link
         rel="preload"
