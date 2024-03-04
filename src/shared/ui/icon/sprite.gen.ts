@@ -34,7 +34,7 @@ export interface SpritesMap {
 }
 export const SPRITES_META = {
   sprite: {
-    filePath: 'sprite.e01f0e03.svg',
+    filePath: 'sprite.77dcdc0c.svg',
     items: {
       '4k': {
         viewBox: '0 0 24 24',
