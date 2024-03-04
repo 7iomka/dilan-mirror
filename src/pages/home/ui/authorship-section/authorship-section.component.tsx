@@ -18,15 +18,6 @@ const AuthorshipSection = ({ className }: AuthorshipSectionProps) => {
     subtitle: t('authorship.subtitle'),
     description: t('authorship.description'),
     image: '/static/images/content/authorship-section/author.jpg',
-    patents: [
-      {
-        flagImageUrl: '/static/images/flags/countries/france.svg',
-        title: t('authorship.patentFrance.title'),
-        description: t('authorship.patentFrance.description'),
-        docUrl: 'https://drive.google.com/drive/u/0/folders/1i7uHXRGp5VNqelmnjxtZdo91f0aVlJUy',
-      },
-    ],
-    showDocumentsActionText: t('authorship.showDocumentsActionText'),
     interview: {
       src: '/static/images/content/authorship-section/interview.jpg',
       videoId: 'bNzsW7iouSU',
@@ -150,43 +141,6 @@ const AuthorshipSection = ({ className }: AuthorshipSectionProps) => {
                       </div>
                     </div>
                   </Fancybox>
-                </div>
-              </div>
-              <div className="mt-40">
-                <div className="space-y-15">
-                  {data.patents.map((patent) => (
-                    <div key={patent.title} className="bg-dark-800 flex flex-col lg:flex-row">
-                      <div className="flex-grow min-w-0">
-                        <div className="flex items-center p-16 md:p-24">
-                          <div className="shrink-0 relative flex items-center justify-center w-56 h-56 md:w-72 md:h-72 border border-dark-400">
-                            <Icon name="shield-check" className="text-[2rem] text-primary-pale" />
-                            <img
-                              src={patent.flagImageUrl}
-                              alt=""
-                              className="w-10 h-10 absolute right-5 top-5"
-                            />
-                          </div>
-                          <div className="ml-16 md:ml-24">
-                            <div className="text-md md:text-xl font-bold">{patent.title}</div>
-                            <div className="text-md md:text-lg mt-2 md:mt-4">
-                              {patent.description}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="shrink-0 border-t border-t-dark-500 lg:border-t-0 border-l border-l-dark-500 p-18 lg:p-22 flex flex-col items-center justify-center">
-                        <a
-                          href={patent.docUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center text-sm md:text-lg hover:underline hover:text-primary underline-offset-2 max-w-200"
-                        >
-                          <Icon name="file" className="text-xl" />
-                          <span className="ml-8 md:ml-12">{data.showDocumentsActionText}</span>
-                        </a>
-                      </div>
-                    </div>
-                  ))}
                 </div>
               </div>
             </div>

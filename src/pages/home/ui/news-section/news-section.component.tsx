@@ -27,7 +27,7 @@ const NewsSection = ({ className }: NewsSectionProps) => {
       <div className="relative container">
         <div className="hidden md:block absolute h-[600px] w-[600px] -z-[1] left-0 translate-y-[20%] -translate-x-[20%] bottom-0 opacity-[0.48] [background-image:radial-gradient(50%_50%_at_50%_50%,_#0C2D23_0%,_rgba(12,45,35,0)_100%)]" />
         <div className="absolute h-[600px] w-[600px] -z-[1] right-0 translate-y-[20%] translate-x-[20%] bottom-0 opacity-[0.48] [background-image:radial-gradient(50%_50%_at_50%_50%,_#0C2D23_0%,_rgba(12,45,35,0)_100%)]" />
-        <h1 className="text-40px md:text-56px leading-1">{data.title}</h1>
+        <h2 className="text-40px md:text-56px leading-1">{data.title}</h2>
         <div className="mt-32 md:mt-56">
           {isLoading ? (
             <div className="flex items-center justify-center h-[25rem]">

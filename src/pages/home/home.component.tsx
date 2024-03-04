@@ -10,6 +10,7 @@ import {
   NewsSection,
   InvestSection,
 } from './ui';
+import { PatentsSection } from './ui/patents-section';
 
 export const HomePage = () => {
   return (
@@ -22,6 +23,7 @@ export const HomePage = () => {
       <RoadmapSection />
       <NewsSection />
       <AuthorshipSection />
+      <PatentsSection />
       <InvestSection />
     </BaseLayout>
   );

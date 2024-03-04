@@ -9,6 +9,7 @@ export interface SpritesMap {
     | 'chevron-right'
     | 'facebook'
     | 'file'
+    | 'hourglass'
     | 'instagram'
     | 'layout-left'
     | 'linkedin'
@@ -16,13 +17,16 @@ export interface SpritesMap {
     | 'logo'
     | 'map'
     | 'mirror'
+    | 'pdf-file'
     | 'play-circle'
+    | 'shield-check-line'
     | 'shield-check'
     | 'shopping-basket'
     | 'sun'
     | 'telegram-colored'
     | 'telegram'
     | 'time'
+    | 'timer'
     | 'twitter'
     | 'vk'
     | 'webcam'
@@ -30,7 +34,7 @@ export interface SpritesMap {
 }
 export const SPRITES_META = {
   sprite: {
-    filePath: 'sprite.ac649d94.svg',
+    filePath: 'sprite.e01f0e03.svg',
     items: {
       '4k': {
         viewBox: '0 0 24 24',
@@ -77,6 +81,11 @@ export const SPRITES_META = {
         width: 24,
         height: 24,
       },
+      hourglass: {
+        viewBox: '0 0 24 24',
+        width: 24,
+        height: 24,
+      },
       instagram: {
         viewBox: '0 0 24 24',
         width: 24,
@@ -112,7 +121,17 @@ export const SPRITES_META = {
         width: 24,
         height: 24,
       },
+      'pdf-file': {
+        viewBox: '0 0 16 17',
+        width: 16,
+        height: 17,
+      },
       'play-circle': {
+        viewBox: '0 0 24 24',
+        width: 24,
+        height: 24,
+      },
+      'shield-check-line': {
         viewBox: '0 0 24 24',
         width: 24,
         height: 24,
@@ -143,6 +162,11 @@ export const SPRITES_META = {
         height: 20,
       },
       time: {
+        viewBox: '0 0 24 24',
+        width: 24,
+        height: 24,
+      },
+      timer: {
         viewBox: '0 0 24 24',
         width: 24,
         height: 24,
