@@ -39,7 +39,7 @@ const PatentCountry = ({ className, data, onClick }: PatentCountryProps) => {
         code={code}
         className="w-80 h-80"
         withOverlay={isFutureOrPending}
-        overlayOpacity={isPending ? 0.3 : 0.6}
+        overlayOpacity={isPending ? 0.2 : 0.7}
       >
         <div
           data-status
@@ -49,7 +49,7 @@ const PatentCountry = ({ className, data, onClick }: PatentCountryProps) => {
           )}
         >
           <Icon
-            name={isFuture ? 'hourglass' : isPending ? 'time' : 'shield-check-line'}
+            name={isFuture ? 'time' : isPending ? 'hourglass' : 'shield-check-line'}
             className={clsx(
               'w-20 h-20',
               isFuture ? 'text-dark-200' : isPending ? 'text-white/80' : 'text-white',
