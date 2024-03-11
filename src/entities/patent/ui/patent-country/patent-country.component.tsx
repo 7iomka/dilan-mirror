@@ -37,9 +37,9 @@ const PatentCountry = ({ className, data, onClick }: PatentCountryProps) => {
     >
       <Flag
         code={code}
-        className="w-80 h-80"
+        className="w-56 h-56 md:w-80 md:h-80"
         withOverlay={isFutureOrPending}
-        overlayOpacity={isPending ? 0.2 : 0.7}
+        overlayOpacity={isPending ? 0.4 : 0.7}
       >
         <div
           data-status
@@ -51,17 +51,16 @@ const PatentCountry = ({ className, data, onClick }: PatentCountryProps) => {
           <Icon
             name={isFuture ? 'time' : isPending ? 'hourglass' : 'shield-check-line'}
             className={clsx(
-              'w-20 h-20',
+              'w-12 h-12 md:w-20 md:h-20',
               isFuture ? 'text-dark-200' : isPending ? 'text-white/80' : 'text-white',
             )}
           />
         </div>
       </Flag>
-
       <h5
         data-title
         className={clsx(
-          'text-md font-normal mt-15 transition-colors max-w-full truncate',
+          'text-sm md:text-md font-normal mt-15 transition-colors max-w-full truncate',
           'group-[.is-future-or-pending]:opacity-80 [.group.is-clickable:hover_&]:text-primary',
         )}
       >

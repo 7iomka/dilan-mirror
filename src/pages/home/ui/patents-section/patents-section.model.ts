@@ -18,19 +18,30 @@ const $allItems = createStore(
   patentCountryCodes.map((code) => ({ code, pdf: null, status: null, url: null })),
 );
 
-const $pendingItems = $$patent.$patents.map((items) =>
-  items.filter(({ status }) => status === 'pending'),
-);
+const $activeItems = combine($allItems, $$patent.$patents, (allItems, fetchedItems) => {
+  const idxArr: number[] = [];
 
-const $futureAndPendingItems = combine($allItems, $pendingItems, (allItems, pendingItems) =>
-  allItems.map((item) => {
-    const exItem = pendingItems.find((v) => v.code === item.code);
-    return exItem ?? item;
-  }),
-);
+  const filtered = allItems
+    .filter((item) => {
+      const foundIdx = fetchedItems.findIndex((v) => v.code === item.code);
 
-const $confirmedItems = $$patent.$patents.map((items) =>
-  items.filter(({ status }) => status === 'confirmed'),
+      if (foundIdx !== -1) {
+        idxArr.push(foundIdx);
+      }
+
+      return foundIdx !== -1;
+    })
+    .map((v, idx) => {
+      const existIdx = idxArr.find((fIdx) => fIdx === idx);
+
+      return existIdx !== undefined ? fetchedItems[existIdx] : v;
+    });
+
+  return filtered;
+});
+
+const $futureItems = combine($allItems, $$patent.$patents, (allItems, fetchedItems) =>
+  allItems.filter((item) => !fetchedItems.find((v) => v.code === item.code)),
 );
 
 const openDetailsByCountryCodeTriggered = createEvent<string>();
@@ -72,15 +83,9 @@ sample({
 });
 
 export const $$patentsSection = {
-  $futureAndPendingItems,
-  $confirmedItems,
+  $activeItems,
+  $futureItems,
   openDetailsByCountryCodeTriggered,
   $activeCountryCode,
   $activeItem,
-  // $items,
-  // $isItemsLoading,
-  // $isItemsDirty,
-  // openDetailsTriggered,
-  // $itemDetails,
-  // $isItemDetailsLoading,
 };

@@ -20,6 +20,7 @@ const PatentsSection = ({ className }: PatentsSectionProps) => {
     description: t('patents.description'),
     pctDescription: t('patents.pctDescription', 'PCT patent application submitted'),
     pctDocUrl: 'https://drive.google.com/file/d/1gjAOKReWekslMCh1yVSYnm_KACktrPmf/view',
+    pctNote: t('patents.pctNote', 'Read more about PCT'),
   };
 
   return (
@@ -45,7 +46,6 @@ const PatentsSection = ({ className }: PatentsSectionProps) => {
               <div className="flex-grow min-w-0">
                 <div className="flex items-center justify-center flex-col lg:flex-row p-16 md:p-24">
                   <div className="shrink-0 relative flex items-center justify-center">
-                    {/* <Icon name="shield-check" className="text-[2rem] text-primary-pale" /> */}
                     <svg
                       className="w-[6.25rem] h-[6.25rem]"
                       xmlns="http://www.w3.org/2000/svg"
@@ -79,15 +79,16 @@ const PatentsSection = ({ className }: PatentsSectionProps) => {
                         className=""
                       />
                     </svg>
-                    {/* <img
-                              src={patent.flagImageUrl}
-                              alt=""
-                              className="w-10 h-10 absolute right-5 top-5"
-                            /> */}
                   </div>
-                  <div className="mt-16 lg:mt-0 lg:ml-24">
-                    {/* <div className="text-md md:text-xl font-bold">patent.title</div> */}
+                  <div className="mt-16 lg:mt-0 lg:ml-24 text-center lg:text-left">
                     <div className="text-lg lg:text-xl">{data.pctDescription}</div>
+                    <a
+                      href="#!"
+                      className="inline-block text-sm lg:text-md mt-6 text-primary hover:text-primary-dark"
+                    >
+                      <span className="border-b border-b-current">{data.pctNote}</span>
+                      <Icon name="chevron-right" />
+                    </a>
                   </div>
                 </div>
               </div>
@@ -108,12 +109,12 @@ const PatentsSection = ({ className }: PatentsSectionProps) => {
       </div>
       <div className="mt-56">
         <div className="container">
-          <ConfirmedPatentsList />
+          <ActivePatentsList />
         </div>
       </div>
       <div className="mt-56">
         <div className="container">
-          <FutureAndPendingPatents />
+          <FuturePatents />
         </div>
       </div>
       <PatentDetailsModal />
@@ -121,28 +122,28 @@ const PatentsSection = ({ className }: PatentsSectionProps) => {
   );
 };
 
-const FutureAndPendingPatents = () => {
+const FuturePatents = () => {
   const { t } = useTranslation();
-  const items = useUnit($$patentsSection.$futureAndPendingItems);
+  const items = useUnit($$patentsSection.$futureItems);
   const handleItemClick = useUnit($$patentsSection.openDetailsByCountryCodeTriggered);
 
   return (
     <PatentCountryList
       items={items}
-      title={t('patents.pending.title', 'Patents in the validation process')}
+      title={t('patents.future.title', 'Planned for registration')}
       onItemClick={handleItemClick}
     />
   );
 };
-const ConfirmedPatentsList = () => {
+const ActivePatentsList = () => {
   const { t } = useTranslation();
-  const items = useUnit($$patentsSection.$confirmedItems);
+  const items = useUnit($$patentsSection.$activeItems);
   const handleItemClick = useUnit($$patentsSection.openDetailsByCountryCodeTriggered);
 
   return (
     <PatentCountryList
       items={items}
-      title={t('patents.granted.title', 'Granted patents')}
+      title={t('patents.grantedOrPending.title', 'Granted or pending patents')}
       onItemClick={handleItemClick}
     />
   );
@@ -166,17 +167,17 @@ const PatentDetailsModal = () => {
     >
       {item !== null && (
         <>
-          <div className="flex items-center">
-            <Flag code={item.code} className="w-20 h-20 " />
-            <h5 data-title className="text-lg max-w-full truncate ml-12">
-              {t(`country.${item.code}`, t(`region.${item.code}`))}
-            </h5>
-          </div>
-          <div className="relative mt-30">
-            <img src={item.url!} className={clsx('w-full h-auto')} alt="" />
+          <div className="flex items-start justify-between mt-10 sm:pt-0">
+            <div className="flex items-center">
+              <Flag code={item.code} className="w-20 h-20" />
+              <h5 data-title className="text-lg max-w-full truncate ml-12">
+                {t(`country.${item.code}`, t(`region.${item.code}`))}
+              </h5>
+            </div>
             <Button
-              className="absolute right-0 bottom-0 min-w-[11rem] flex items-center justify-center"
+              className="ml-10 min-w-[8rem] text-sm p-5 flex items-center justify-center"
               component="a"
+              size="custom"
               href={item.pdf ?? '#!'}
               target="_blank"
               rel="noopener noreferrer"
@@ -184,6 +185,13 @@ const PatentDetailsModal = () => {
               <Icon name="pdf-file" className="text-xl" />
               <span className="ml-8">{data.modal.downloadButtonText}</span>
             </Button>
+          </div>
+          <div className="relative mt-30">
+            <div className="w-full">
+              <div className="w-full aspect-w-7 aspect-h-10">
+                <img src={item.url!} className={clsx('object-contain object-left-top')} alt="" />
+              </div>
+            </div>
           </div>
         </>
       )}
