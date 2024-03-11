@@ -83,7 +83,9 @@ const PatentsSection = ({ className }: PatentsSectionProps) => {
                   <div className="mt-16 lg:mt-0 lg:ml-24 text-center lg:text-left">
                     <div className="text-lg lg:text-xl">{data.pctDescription}</div>
                     <a
-                      href="#!"
+                      href="https://www.wipo.int/pct"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="inline-block text-sm lg:text-md mt-6 text-primary hover:text-primary-dark"
                     >
                       <span className="border-b border-b-current">{data.pctNote}</span>
