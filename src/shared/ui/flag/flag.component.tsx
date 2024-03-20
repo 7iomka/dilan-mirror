@@ -23,8 +23,13 @@ const Flag = ({ className, code, children, withOverlay, overlayOpacity = 0.6 }: 
     return `/static/images/flags/countries/${supportedCountryCode}.svg`;
   }, [code]);
 
+  const hasAbsolutePosition = useMemo(
+    () => className?.split(' ').includes('absolute'),
+    [className],
+  );
+
   return (
-    <div className={clsx('relative', className)} data-flag>
+    <div className={clsx(!hasAbsolutePosition && 'relative', className)} data-flag={code}>
       <img alt={code} className="w-full h-full rounded-full" src={src} />
       {withOverlay && (
         <div
