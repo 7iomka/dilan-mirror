@@ -98,6 +98,7 @@ const supportedCountryCodesMap = {
   sm: 'san-marino',
   th: 'thailand',
   tj: 'tajikistan',
+  tg: 'togo',
   tm: 'turkmenistan',
   tn: 'tunisia',
   tr: 'turkey',
