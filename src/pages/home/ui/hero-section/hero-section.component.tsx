@@ -8,10 +8,12 @@ import { Button } from '@/shared/ui/button';
 import { Fancybox } from '@/shared/ui/fancybox';
 import { Icon } from '@/shared/ui/icon';
 import { appConfig } from '@/shared/config/app-config';
+import { useDomRefWithSetter } from '@/shared/lib/ref';
+import { isTouchDevice } from '@/shared/lib/is';
+
 import styles from './hero-section.module.css';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
-import { isTouchDevice, useDomRefWithSetter } from './hero-section.lib';
 
 interface HeroCarouselSlide {
   src: string;
