@@ -1,0 +1,16 @@
+.carousel {
+}
+
+.carousel :global(.swiper-pagination) {
+  --swiper-pagination-color: theme(colors.primary.DEFAULT);
+  --swiper-pagination-bullet-inactive-color: #6e7486;
+  --swiper-pagination-bullet-inactive-opacity: 1;
+  --swiper-pagination-bullet-size: 12px;
+
+  position: relative;
+  top: 0;
+  margin-top: 20px;
+}
+
+.carousel :global(.swiper-wrapper) {
+}

@@ -9,6 +9,7 @@ import {
   RoadmapSection,
   NewsSection,
   InvestSection,
+  CommitteeSection,
 } from './ui';
 import { PatentsSection } from './ui/patents-section';
 
@@ -24,6 +25,7 @@ export const HomePage = () => {
       <NewsSection />
       <AuthorshipSection />
       <PatentsSection />
+      <CommitteeSection />
       <InvestSection />
     </BaseLayout>
   );

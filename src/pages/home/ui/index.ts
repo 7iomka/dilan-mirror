@@ -7,3 +7,4 @@ export { AuthorshipSection } from './authorship-section';
 export { RoadmapSection } from './roadmap-section';
 export { InvestSection } from './invest-section';
 export { NewsSection } from './news-section';
+export { CommitteeSection } from './committee-section';
