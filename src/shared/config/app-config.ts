@@ -9,7 +9,7 @@ const baseConfig = {
   vkURL: 'https://vk.com/club223413692',
   telegramURL: 'https://t.me/dilan_mirror_news',
   youtubeURL: 'https://www.youtube.com/@DILANVASILE',
-  telegramSupportURL: 'https://t.me/suport_dilan_mirror',
+  telegramSupportURL: 'https://t.me/DilanMirrorSupport',
   appBaseURL: import.meta.env.VITE_APP_BASE_URL,
   apiBaseURL: import.meta.env.VITE_API_BASE_URL,
   accountURL: 'https://my.dilan-mirror.com',
