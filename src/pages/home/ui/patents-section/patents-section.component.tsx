@@ -19,7 +19,8 @@ const PatentsSection = ({ className }: PatentsSectionProps) => {
     title: t('patents.title'),
     description: t('patents.description'),
     pctDescription: t('patents.pctDescription', 'PCT patent application submitted'),
-    pctDocUrl: 'https://drive.google.com/file/d/1gjAOKReWekslMCh1yVSYnm_KACktrPmf/view',
+    pctDocUrl:
+      'https://worldwide.espacenet.com/publicationDetails/biblio?locale=en_EP&CC=WO&II=0&date=20230727&NR=2023139337A1&ND=3&KC=A1&rnd=1698523823240&adjacent=true&FT=D',
     pctNote: t('patents.pctNote', 'Read more about PCT'),
   };
 
