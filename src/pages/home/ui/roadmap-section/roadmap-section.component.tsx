@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { useTranslation } from 'react-i18next';
+import { Icon } from '@/shared/ui/icon';
 import styles from './roadmap-section.module.css';
 
 interface RoadmapSectionProps {
@@ -15,6 +16,7 @@ const RoadmapSection = ({ className }: RoadmapSectionProps) => {
       {
         period: '2023',
         title: t('roadmap.textFor22-23'),
+        completed: true,
       },
       {
         period: '2024 - 2026',
@@ -158,12 +160,17 @@ const RoadmapSection = ({ className }: RoadmapSectionProps) => {
                   </div>
                 </div>
                 <div className="flex lg:items-stretch lg:order-0 mt-24 lg:mt-36">
-                  {data.items.map(({ period, title }) => (
+                  {data.items.map(({ period, title, completed }) => (
                     // 20.25rem is 54px (patter width) * 6
                     <div key={period} className="shrink-0 w-240 xl:w-280 lp:w-[20.25rem] pr-24">
-                      <div className="relative">
+                      <div className={clsx('relative', completed && 'text-primary')}>
                         <div className="absolute left-0 bottom-full mb-24 lg:mb-36 w-5 h-20 lp:w-8 lp:h-32 bg-white z-[2]" />
-                        <div className="text-xl font-bold">{period}</div>
+                        <div className="text-xl font-bold flex items-center">
+                          <span>{period}</span>
+                          {completed && (
+                            <Icon name="shield-check" className="c-icon text-primary ml-[0.24em]" />
+                          )}
+                        </div>
                         <div className="mt-4 text-lg">{title}</div>
                       </div>
                     </div>
