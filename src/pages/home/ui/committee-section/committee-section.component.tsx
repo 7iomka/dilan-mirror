@@ -1,7 +1,5 @@
 import { Swiper as SwiperReact, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
-import type { Swiper } from 'swiper/types';
-import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
 import { useUnit } from 'effector-react';
@@ -31,7 +29,6 @@ const CommitteeSection = ({ className }: CommitteeSectionProps) => {
 
   const data = {
     title: t('committee.title', 'Supervisory committee'),
-    description: t('committee.description', 'Some description'),
   };
 
   return (
@@ -39,7 +36,6 @@ const CommitteeSection = ({ className }: CommitteeSectionProps) => {
       <div className="container">
         <div className="text-center">
           <h2 className="text-40px md:text-56px pt-5">{data.title}</h2>
-          <p className="text-xl mt-20 hidden xsl:block [text-wrap:balance]">{data.description}</p>
         </div>
 
         <CommitteeCarousel className="mt-30" />
@@ -147,7 +143,7 @@ const CommitteeMembersByCountrySelect = ({ className }: { className?: string }) 
                   <span className={clsx('text-md leading-1', activeCountryCode !== null && 'ml-5')}>
                     {activeCountryCode !== null
                       ? t(`country.${activeCountryCode}`)
-                      : t('committee.select.nameOfTheCountry', 'Name of the country')}
+                      : t('committee.select.placeholderWhenIsEmpty', 'Name of the country')}
                   </span>
                 </div>
                 <Icon name="chevron-right" className="ml-5" />
@@ -168,7 +164,7 @@ const CommitteeMembersByCountrySelect = ({ className }: { className?: string }) 
                   close();
                 }}
               >
-                {t('committee.select.nameOfTheCountry', 'Name of the country')}
+                {t('committee.select.placeholderWhenIsEmpty', 'Name of the country')}
               </Button>
               {availableCountryCodes.map((code) => (
                 <Button
@@ -201,19 +197,6 @@ const CommitteeMembersByCountry = ({ className }: { className?: string }) => {
   const members = useUnit($$committeeSection.$listByCountryCode);
 
   return members.length > 0 ? (
-    // <div className={clsx('flex flex-col max-w-[37.5rem] mx-auto spacing-y-10', className)}>
-    //   {members.map(({ id, country, name, surname, photo, links }) => (
-    //     <CommitteePerson
-    //       key={id}
-    //       className="w-full h-full"
-    //       country={country}
-    //       fullName={getCommitteeFullName({ name, surname })}
-    //       image={photo}
-    //       socials={links}
-    //     />
-    //   ))}
-    // </div>
-
     <SwiperReact
       id="committee-carousel-by-country"
       slidesPerView={4}
@@ -257,15 +240,6 @@ const CommitteeMembersByCountry = ({ className }: { className?: string }) => {
               socials={links}
             />
           </div>
-          {/* <div className="w-100 h-100 p-6">
-
-            <CommitteeFace
-              className="w-full h-full"
-              country={country}
-              fullName={getCommitteeFullName({ name, surname })}
-              image={photo}
-            />
-          </div> */}
         </SwiperSlide>
       ))}
     </SwiperReact>
