@@ -102,6 +102,7 @@ const supportedCountryCodesMap = {
   tm: 'turkmenistan',
   tn: 'tunisia',
   tr: 'turkey',
+  ua: 'ukraine',
   uz: 'uzbekistan',
   us: 'united-states-of-america',
   vn: 'vietnam',
