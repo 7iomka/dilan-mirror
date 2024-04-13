@@ -29,7 +29,7 @@ const HeaderBase = () => {
               href={appConfig.accountURL}
             >
               <div className="flex items-center justify-center p-10 -m-10">
-                <Icon name="account-box" className="text-xl md:hidden" />
+                <Icon name="login" className="text-xl md:hidden" />
                 <span className="hidden md:block">{t('actions.account')}</span>
                 <Icon
                   name="arrow-right-up"

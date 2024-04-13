@@ -54,7 +54,7 @@ const InvestSection = ({ className }: InvestSectionProps) => {
               <div className="space-y-4 md:space-y-8">
                 <div className="flex items-center">
                   <div className="shrink-0 relative flex items-center justify-center w-56 h-56 md:w-72 md:h-72 border border-dark-400">
-                    <Icon name="account-box" className="text-[2rem] text-primary-pale" />
+                    <Icon name="login" className="text-[2rem] text-primary-pale" />
                     <div className="flex items-center justify-center absolute w-16 h-16 right-4 top-4 bg-dark-400">
                       <span className="text-xs font-bold text-indigo-200">1</span>
                     </div>

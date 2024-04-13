@@ -13,6 +13,7 @@ export interface SpritesMap {
     | 'instagram'
     | 'layout-left'
     | 'linkedin'
+    | 'login'
     | 'logo-icon'
     | 'logo'
     | 'map'
@@ -34,7 +35,7 @@ export interface SpritesMap {
 }
 export const SPRITES_META = {
   sprite: {
-    filePath: 'sprite.77dcdc0c.svg',
+    filePath: 'sprite.6da50f6b.svg',
     items: {
       '4k': {
         viewBox: '0 0 24 24',
@@ -100,6 +101,11 @@ export const SPRITES_META = {
         viewBox: '0 0 24 24',
         width: 24,
         height: 24,
+      },
+      login: {
+        viewBox: '0 0 24 24',
+        width: 512,
+        height: 512,
       },
       'logo-icon': {
         viewBox: '0 0 12 20',
