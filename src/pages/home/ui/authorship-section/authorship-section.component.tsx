@@ -17,7 +17,7 @@ const AuthorshipSection = ({ className }: AuthorshipSectionProps) => {
     title: t('authorship.title'),
     subtitle: t('authorship.subtitle'),
     description: t('authorship.description'),
-    image: '/static/images/content/authorship-section/author.jpg',
+    image: '/static/images/content/authorship-section/author.jpg?d=15042024',
     interview: {
       src: '/static/images/content/authorship-section/interview.jpg',
       videoId: 'bNzsW7iouSU',
