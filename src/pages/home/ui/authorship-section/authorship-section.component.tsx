@@ -30,7 +30,7 @@ const AuthorshipSection = ({ className }: AuthorshipSectionProps) => {
         <div className="row gy-32 justify-between">
           <div className="col-12 md:col-5 lg:col-4">
             <div className="sticky top-60 lg:top-80 ">
-              <div className="aspect-w-[37.5] aspect-h-[41] md:aspect-w-[1] md:aspect-h-[1.35] max-xsl:min-w-container-min max-xsl:left-1/2 max-xsl:-translate-x-1/2">
+              <div className="aspect-w-[403] aspect-h-[604] max-xsl:min-w-container-min max-xsl:left-1/2 max-xsl:-translate-x-1/2">
                 <img
                   src={data.image}
                   alt=""
