@@ -3,7 +3,7 @@ const baseConfig = {
   twitterUsername: '@Dilan_Mirror',
   twitterURL: 'https://twitter.com/Dilan_Mirror',
   instagramURL: 'https://instagram.com/dilan_mirror',
-  instagramPersonalURL: 'https://www.instagram.com/vasily_dilan',
+  instagramPersonalURL: 'https://www.instagram.com/vasile_dilan',
   facebookURL: 'https://www.facebook.com/profile.php?id=100093357039629',
   linkedinURL: 'https://www.linkedin.com/in/vasily-dilan-5592a1247',
   vkURL: 'https://vk.com/club223413692',
