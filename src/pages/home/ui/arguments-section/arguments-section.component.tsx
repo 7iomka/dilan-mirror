@@ -71,7 +71,7 @@ const ArgumentsSection = ({ className }: ArgumentsSectionProps) => {
       >
         <div className="container">
           <div className="lg:relative">
-            <div className="relative aspect-w-1 aspect-h-[1.1] sm:aspect-w-[1296] sm:aspect-h-[924] max-xsl:min-w-container-min max-xsl:left-1/2 max-xsl:-translate-x-1/2">
+            <div className="relative aspect-w-[1.3] aspect-h-1 sm:aspect-w-[1296] sm:aspect-h-[924] max-xsl:min-w-container-min max-xsl:left-1/2 max-xsl:-translate-x-1/2">
               <picture>
                 <source media="(max-width: 575px)" srcSet={data.imageMobile} />
                 <source media="(min-width: 576px)" srcSet={data.imageDesktop} />
