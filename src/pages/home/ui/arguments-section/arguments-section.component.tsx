@@ -34,7 +34,8 @@ const ArgumentsSection = ({ className }: ArgumentsSectionProps) => {
         iconName: 'mirror',
       },
     ] as { title: string; description: string; iconName: IconProps['name'] }[],
-    image: '/static/images/content/arguments-section/arguments.jpg',
+    imageDesktop: '/static/images/content/arguments-section/arguments-desktop.jpg?d=050620241528',
+    imageMobile: '/static/images/content/arguments-section/arguments-mobile.jpg?d=050620241528',
     imageHeadLine: t('arguments.imageHeadLine'),
     imageSubHeadLine: t('arguments.imageSubHeadLine'),
     actionText: t('arguments.actionText'),
@@ -70,10 +71,15 @@ const ArgumentsSection = ({ className }: ArgumentsSectionProps) => {
       >
         <div className="container">
           <div className="lg:relative">
-            <div className="relative aspect-w-[75] aspect-h-[56] sm:aspect-w-2 sm:aspect-h-1 max-xsl:min-w-container-min max-xsl:left-1/2 max-xsl:-translate-x-1/2">
-              <img src={data.image} alt="" className="object-cover" />
-              <div className="hidden lg:block absolute inset-0 bg-[linear-gradient(0deg,black_0%,rgb(0,0,0,0.3)_15%,rgb(0,0,0,0))]" />
+            <div className="relative aspect-w-1 aspect-h-[1.1] sm:aspect-w-[1296] sm:aspect-h-[924] max-xsl:min-w-container-min max-xsl:left-1/2 max-xsl:-translate-x-1/2">
+              <picture>
+                <source media="(max-width: 575px)" srcSet={data.imageMobile} />
+                <source media="(min-width: 576px)" srcSet={data.imageDesktop} />
+                <img className="object-cover w-full h-full" src={data.imageDesktop} alt="" />
+                <div className="hidden lg:block absolute inset-0 bg-[linear-gradient(0deg,black_0%,rgb(0,0,0,0.3)_15%,rgb(0,0,0,0))]" />
+              </picture>
             </div>
+
             <div className="z-[2] flex flex-col items-center justify-end lg:p-24 lg:absolute lg:bottom-0 lg:left-0 lg:right-0">
               <div className="bg-white py-24 md:p-24 w-full">
                 <div className="row gy-40 lg:gx-60 lg:flex-nowrap">
