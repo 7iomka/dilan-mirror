@@ -11,14 +11,16 @@ import type {
   NewsItemDetailsDto,
 } from './news-section.types';
 import type { NewsItemNormalized } from './news-section.lib';
-import { NEWS_ITEM_MODAL_ID, normalizeNewsItem } from './news-section.lib';
+import { getDynamicTail, NEWS_ITEM_MODAL_ID, normalizeNewsItem } from './news-section.lib';
 
 export const currentRoute = routes.home;
 
 const getFx = createEffect<GetNewsRequestParams, NewsDto>({
   handler: async ({ language, limit, page }) => {
     const res = await fetch(
-      `${appConfig.apiBaseURL}/application/news?limit=${limit}&page=${page}&language=${language}`,
+      `${
+        appConfig.apiBaseURL
+      }/application/news?limit=${limit}&page=${page}&language=${language}&ts=${getDynamicTail()}`,
     );
     const json = await res.json();
 
@@ -45,7 +47,7 @@ const mapDto = (lang?: SupportedLanguageCode) => {
 
   return {
     language,
-    limit: 8,
+    limit: 20,
     page: 1,
   };
 };
