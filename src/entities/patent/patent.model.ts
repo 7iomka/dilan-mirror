@@ -1,11 +1,14 @@
 import { createEffect, createEvent, restore, sample } from 'effector';
 import { appConfig } from '@/shared/config/app-config';
+import { getDynamicTail } from '@/shared/lib/formatting';
 import type { Patent, GetPatentsResponseDto, GetPatentsRequestParams } from './patent.types';
 import { getMappedPatent } from './patent.lib';
 
 const getFx = createEffect<GetPatentsRequestParams, GetPatentsResponseDto>({
   handler: async () => {
-    const res = await fetch(`${appConfig.apiBaseURL}/projects/projects/dmr/sections`);
+    const res = await fetch(
+      `${appConfig.apiBaseURL}/projects/projects/dmr/sections?ts=${getDynamicTail()}`,
+    );
     const json = await res.json();
 
     return json;

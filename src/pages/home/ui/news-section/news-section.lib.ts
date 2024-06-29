@@ -43,14 +43,3 @@ export const normalizeNewsItem = (item: NewsItem) => {
 export type NewsItemNormalized = ReturnType<typeof normalizeNewsItem>;
 
 export const NEWS_ITEM_MODAL_ID = 'news_item';
-
-export const getDynamicTail = () => {
-  const now = new Date();
-  const minutes = Math.floor(now.getMinutes() / 5) * 5;
-  now.setMinutes(minutes, 0, 0);
-
-  return now
-    .toISOString()
-    .replace(/[-:.TZ]/g, '')
-    .slice(0, 12);
-};

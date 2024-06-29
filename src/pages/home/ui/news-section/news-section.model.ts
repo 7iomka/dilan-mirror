@@ -4,6 +4,7 @@ import { fallbackLanguageCode, type SupportedLanguageCode } from '@/shared/confi
 import { routes } from '@/shared/routing';
 import { $$i18n } from '@/shared/i18n';
 import { appConfig } from '@/shared/config/app-config';
+import { getDynamicTail } from '@/shared/lib/formatting';
 import type {
   GetNewsItemDetailsRequestParams,
   GetNewsRequestParams,
@@ -11,7 +12,7 @@ import type {
   NewsItemDetailsDto,
 } from './news-section.types';
 import type { NewsItemNormalized } from './news-section.lib';
-import { getDynamicTail, NEWS_ITEM_MODAL_ID, normalizeNewsItem } from './news-section.lib';
+import { NEWS_ITEM_MODAL_ID, normalizeNewsItem } from './news-section.lib';
 
 export const currentRoute = routes.home;
 
