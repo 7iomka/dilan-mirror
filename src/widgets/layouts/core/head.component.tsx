@@ -37,7 +37,7 @@ const Head = () => {
       <meta property="og:type" content="website" />
       <meta
         property="og:image"
-        content={`${appConfig.appBaseURL}/static/images/og/default_1200x630.jpg`}
+        content={`${appConfig.appBaseURL}/static/images/og/default_1200x630.jpg?d=2024-07-08`}
       />
       <meta property="og:image:alt" content={t('meta.title')} />
       <meta property="og:image:width" content="1200" />
