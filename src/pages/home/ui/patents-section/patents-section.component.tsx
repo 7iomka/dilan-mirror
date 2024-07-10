@@ -19,7 +19,7 @@ const PatentsSection = ({ className }: PatentsSectionProps) => {
     title: t('patents.title'),
     description: t('patents.description'),
     pctDescription: t('patents.pctDescription', 'PCT patent application submitted'),
-    pctDocUrl: 'https://drive.google.com/drive/folders/1Wcgq1ranUv96vTJgQFFIW6hbmMin2Q4g',
+    pctDocUrl: 'https://drive.google.com/drive/folders/1i7uHXRGp5VNqelmnjxtZdo91f0aVlJUy',
     pctNote: t('patents.pctNote', 'Read more about PCT'),
     licensesDocUrl: 'https://drive.google.com/drive/folders/1Wcgq1ranUv96vTJgQFFIW6hbmMin2Q4g',
     licenses: t('patents.licenses', 'Licenses'),
