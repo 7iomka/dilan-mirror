@@ -19,9 +19,10 @@ const PatentsSection = ({ className }: PatentsSectionProps) => {
     title: t('patents.title'),
     description: t('patents.description'),
     pctDescription: t('patents.pctDescription', 'PCT patent application submitted'),
-    pctDocUrl:
-      'https://worldwide.espacenet.com/publicationDetails/biblio?locale=en_EP&CC=WO&II=0&date=20230727&NR=2023139337A1&ND=3&KC=A1&rnd=1698523823240&adjacent=true&FT=D',
+    pctDocUrl: 'https://drive.google.com/drive/folders/1Wcgq1ranUv96vTJgQFFIW6hbmMin2Q4g',
     pctNote: t('patents.pctNote', 'Read more about PCT'),
+    licensesDocUrl: 'https://drive.google.com/drive/folders/1Wcgq1ranUv96vTJgQFFIW6hbmMin2Q4g',
+    licenses: t('patents.licenses', 'Licenses'),
   };
 
   return (
@@ -95,16 +96,27 @@ const PatentsSection = ({ className }: PatentsSectionProps) => {
                   </div>
                 </div>
               </div>
-              <div className="shrink-0 border-t border-t-dark-500 lg:border-t-0 lg:border-l lg:border-l-dark-500 p-18 lg:p-22 flex flex-col items-center justify-center">
-                <a
-                  href={data.pctDocUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center text-sm md:text-lg hover:underline hover:text-primary underline-offset-2 max-w-200"
-                >
-                  <Icon name="file" className="text-xl" />
-                  <span className="ml-8 md:ml-12">{t('authorship.showDocumentsActionText')}</span>
-                </a>
+              <div className="shrink-0 border-t border-t-dark-500 lg:border-t-0 lg:border-l lg:border-l-dark-500 p-18 lg:p-22 flex items-center justify-center">
+                <div className="w-fit flex flex-col items-start justify-center space-y-8">
+                  <a
+                    href={data.pctDocUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center text-sm md:text-lg hover:underline hover:text-primary underline-offset-2 max-w-200"
+                  >
+                    <Icon name="file" className="text-xl" />
+                    <span className="ml-8 md:ml-12">{t('authorship.showDocumentsActionText')}</span>
+                  </a>
+                  <a
+                    href={data.licensesDocUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center text-sm md:text-lg hover:underline hover:text-primary underline-offset-2 max-w-200"
+                  >
+                    <Icon name="file" className="text-xl" />
+                    <span className="ml-8 md:ml-12">{data.licenses}</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
