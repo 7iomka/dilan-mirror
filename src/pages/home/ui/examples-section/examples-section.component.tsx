@@ -16,6 +16,16 @@ const ExamplesSection = ({ className }: ExamplesSectionProps) => {
     description: t('examples.description'),
     items: [
       {
+        title: t(
+          'examples.medicalRehabilitationAndPhysiotherapy',
+          'Medical Rehabilitation and Physiotherapy',
+        ),
+        mirrorSrc:
+          '/static/images/content/examples-section/medical_rehabilitation_and_physiotherapy/medical_rehabilitation_and_physiotherapy_mirror.jpg?d=202407130040',
+        videoSrc:
+          '/static/images/content/examples-section/medical_rehabilitation_and_physiotherapy/medical_rehabilitation_and_physiotherapy_video.jpg?d=202407130040',
+      },
+      {
         title: t('examples.clothingStores'),
         mirrorSrc:
           '/static/images/content/examples-section/clothing_stores/clothing_stores_mirror.jpg',
@@ -90,7 +100,7 @@ const ExamplesSection = ({ className }: ExamplesSectionProps) => {
           </div>
           <div className="col-12 lg:col-6">
             <div className="text-xl md:text-2xl whitespace-pre-wrap">{data.description}</div>
-            <div className="hidden md:flex xl:hidden items-center justify-end gap-8 mt-18">
+            <div className="hidden md:flex items-center justify-end gap-8 mt-32">
               <CarouselControls
                 canScrollNext={canScrollNext}
                 canScrollPrev={canScrollPrev}
@@ -100,7 +110,7 @@ const ExamplesSection = ({ className }: ExamplesSectionProps) => {
             </div>
           </div>
         </div>
-        <div className="mt-32 md:mt-56">
+        <div className="mt-18 xl:mt-32">
           <Carousel
             getEmblaApi={setEmbla}
             onSlideChange={onSelect}
