@@ -67,12 +67,6 @@ const $listByCountryCode = combine(
     list.filter((item) => item.country.toLowerCase() === activeCountryCode),
 );
 
-debug({
-  '$$committee.$list': $$committee.$list,
-  $activeCountryCode,
-  $listByCountryCode,
-});
-
 export const $$committeeSection = {
   openDetailsByIdTriggered,
   $activeId,
