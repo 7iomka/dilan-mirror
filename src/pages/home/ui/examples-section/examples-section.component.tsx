@@ -16,16 +16,6 @@ const ExamplesSection = ({ className }: ExamplesSectionProps) => {
     description: t('examples.description'),
     items: [
       {
-        title: t(
-          'examples.medicalRehabilitationAndPhysiotherapy',
-          'Medical Rehabilitation and Physiotherapy',
-        ),
-        mirrorSrc:
-          '/static/images/content/examples-section/medical_rehabilitation_and_physiotherapy/medical_rehabilitation_and_physiotherapy_mirror.jpg?d=202407130040',
-        videoSrc:
-          '/static/images/content/examples-section/medical_rehabilitation_and_physiotherapy/medical_rehabilitation_and_physiotherapy_video.jpg?d=202407130040',
-      },
-      {
         title: t('examples.clothingStores'),
         mirrorSrc:
           '/static/images/content/examples-section/clothing_stores/clothing_stores_mirror.jpg',
@@ -51,6 +41,16 @@ const ExamplesSection = ({ className }: ExamplesSectionProps) => {
           '/static/images/content/examples-section/dancing_schools/dancing_schools_mirror.jpg?date=30062024_05-23',
         videoSrc:
           '/static/images/content/examples-section/dancing_schools/dancing_schools_video.jpg?date=30062024_05-23',
+      },
+      {
+        title: t(
+          'examples.medicalRehabilitationAndPhysiotherapy',
+          'Medical Rehabilitation and Physiotherapy',
+        ),
+        mirrorSrc:
+          '/static/images/content/examples-section/medical_rehabilitation_and_physiotherapy/medical_rehabilitation_and_physiotherapy_mirror.jpg?d=202407130040',
+        videoSrc:
+          '/static/images/content/examples-section/medical_rehabilitation_and_physiotherapy/medical_rehabilitation_and_physiotherapy_video.jpg?d=202407130040',
       },
     ],
   };
