@@ -23,12 +23,6 @@ const ExamplesSection = ({ className }: ExamplesSectionProps) => {
           '/static/images/content/examples-section/clothing_stores/clothing_stores_video.jpg',
       },
       {
-        title: t('examples.dressingRooms'),
-        mirrorSrc:
-          '/static/images/content/examples-section/dressing_rooms/dressing_rooms_mirror.jpg',
-        videoSrc: '/static/images/content/examples-section/dressing_rooms/dressing_rooms_video.jpg',
-      },
-      {
         title: t('examples.barbershops'),
         mirrorSrc:
           '/static/images/content/examples-section/barbershops/barbershops_mirror.jpg?date=30062024_05-23',
@@ -36,11 +30,10 @@ const ExamplesSection = ({ className }: ExamplesSectionProps) => {
           '/static/images/content/examples-section/barbershops/barbershops_video.jpg?date=30062024_05-23',
       },
       {
-        title: t('examples.dancingSchools'),
+        title: t('examples.dressingRooms'),
         mirrorSrc:
-          '/static/images/content/examples-section/dancing_schools/dancing_schools_mirror.jpg?date=30062024_05-23',
-        videoSrc:
-          '/static/images/content/examples-section/dancing_schools/dancing_schools_video.jpg?date=30062024_05-23',
+          '/static/images/content/examples-section/dressing_rooms/dressing_rooms_mirror.jpg',
+        videoSrc: '/static/images/content/examples-section/dressing_rooms/dressing_rooms_video.jpg',
       },
       {
         title: t(
@@ -51,6 +44,13 @@ const ExamplesSection = ({ className }: ExamplesSectionProps) => {
           '/static/images/content/examples-section/medical_rehabilitation_and_physiotherapy/medical_rehabilitation_and_physiotherapy_mirror.jpg?d=202407130040',
         videoSrc:
           '/static/images/content/examples-section/medical_rehabilitation_and_physiotherapy/medical_rehabilitation_and_physiotherapy_video.jpg?d=202407130040',
+      },
+      {
+        title: t('examples.dancingSchools'),
+        mirrorSrc:
+          '/static/images/content/examples-section/dancing_schools/dancing_schools_mirror.jpg?date=30062024_05-23',
+        videoSrc:
+          '/static/images/content/examples-section/dancing_schools/dancing_schools_video.jpg?date=30062024_05-23',
       },
     ],
   };
