@@ -8,7 +8,7 @@ import { createPortal } from 'react-dom';
 import { Icon, type IconProps } from '@/shared/ui/icon';
 import styles from './how-it-works-section.module.css';
 
-const IMAGE_VERSION = 3; // cache handler
+const IMAGE_VERSION = 202407170126; // cache handler
 interface HowItWorksSectionProps {
   className?: string;
 }
@@ -22,51 +22,51 @@ const HowItWorksSection = ({ className }: HowItWorksSectionProps) => {
         id: 'intelligentLight',
         title: t('howItWorks.accessories.intelligentLight'),
         image: '/static/images/content/how-it-works-section/detail/intelligent-light.png',
-        coordinates: { left: '44.5%', top: '3%' },
-        coordinatesMobile: { left: '28.4%', top: '4.1%' },
+        coordinates: { left: '42.5%', top: '0.8%' },
+        coordinatesMobile: { left: '18.4%', top: '4.1%' },
         className: 'max-md:[grid-column:span_3]',
       },
       {
         id: 'motionSensor',
         title: t('howItWorks.accessories.motionSensor'),
         image: '/static/images/content/how-it-works-section/detail/motion-sensor.png',
-        coordinates: { left: '41.1%', top: '13.2%' },
-        coordinatesMobile: { left: '37.4%', top: '13.1%' },
+        coordinates: { right: '20.1%', top: '6.2%' },
+        coordinatesMobile: { right: '2%', top: '8.1%' },
       },
       {
         id: 'cuttOffSensor',
         title: t('howItWorks.accessories.cutOffSensor'),
         image: '/static/images/content/how-it-works-section/detail/cut-off-sensor.png',
-        coordinates: { left: '55.7%', top: '21.8%' },
-        coordinatesMobile: { right: '26.4%', top: '22.1%' },
+        coordinates: { left: '66.7%', top: '5.4%' },
+        coordinatesMobile: { right: '24.4%', top: '9.1%' },
       },
       {
         id: 'touchPanel',
         title: t('howItWorks.accessories.touchPanel'),
         image: '/static/images/content/how-it-works-section/detail/touch-panel.png',
-        coordinates: { left: '67.2%', top: '44.1%' },
-        coordinatesMobile: { right: '2%', top: '44.4%' },
+        coordinates: { right: '20.6%', top: '37.8%' },
+        coordinatesMobile: { right: '2%', top: '39.4%' },
       },
       {
         id: 'mirrorDisplay',
         title: t('howItWorks.accessories.mirrorDisplay'),
         image: '/static/images/content/how-it-works-section/detail/mirror-display.jpg',
-        coordinates: { right: '37.4%', top: '59.6%' },
-        coordinatesMobile: { right: '14.5%', top: '61.3%' },
+        coordinates: { right: '25.4%', top: '61.6%' },
+        coordinatesMobile: { right: '12.5%', top: '64.5%' },
       },
       {
         id: 'flap',
         title: t('howItWorks.accessories.flap'),
         image: '/static/images/content/how-it-works-section/detail/flap.png',
-        coordinates: { left: '4.5%', top: '48.2%' },
-        coordinatesMobile: { left: '10.2%', top: '44.2%' },
+        coordinates: { left: '2.3%', bottom: '22.6%' },
+        coordinatesMobile: { left: '5.8%', top: '57.1%' },
       },
       {
         id: 'camera',
         title: t('howItWorks.accessories.camera'),
         image: '/static/images/content/how-it-works-section/detail/camera.png',
-        coordinates: { left: '1.1%', top: '48.5%' },
-        coordinatesMobile: { left: '0.2%', top: '44.5%' },
+        coordinates: { left: '0.1%', bottom: '21.4%' },
+        coordinatesMobile: { left: '0.2%', top: '58.5%' },
       },
     ],
     items: [
