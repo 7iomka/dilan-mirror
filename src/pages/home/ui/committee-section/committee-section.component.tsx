@@ -32,7 +32,7 @@ const CommitteeSection = ({ className }: CommitteeSectionProps) => {
   };
 
   return (
-    <section className={clsx('py-56 md:py-88 bg-dark-900/30', className)}>
+    <section id="committee" className={clsx('py-56 md:py-88 bg-dark-900/30', className)}>
       <div className="container">
         <div className="text-center">
           <h2 className="text-40px md:text-56px pt-5">{data.title}</h2>
@@ -49,7 +49,7 @@ const CommitteeSection = ({ className }: CommitteeSectionProps) => {
 
 const CommitteeCarousel = ({ className }: { className?: string }) => {
   const handleOpenMemberDetails = useUnit($$committeeSection.openDetailsByIdTriggered);
-  const members = useUnit($$committee.$list);
+  const members = useUnit($$committee.$listWithPreferencesByCountryMD);
 
   return (
     <div className={clsx(className)}>

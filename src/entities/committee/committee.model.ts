@@ -21,6 +21,17 @@ const listRequestResolved = createEvent<GetCommitteeMembersResponseDto>();
 const listUpdated = createEvent<CommitteeMember[]>();
 const $list = restore(listUpdated, []);
 
+const $listWithPreferencesByCountryMD = $list.map((list) => {
+  const draft = [...list];
+  for (const item of draft) {
+    if (item.country.toLocaleLowerCase() === 'md') {
+      const removed = draft.splice(draft.indexOf(item), 1);
+      draft.unshift(removed[0]);
+    }
+  }
+  return draft;
+});
+
 sample({
   clock: listRequested,
   target: getFx,
@@ -40,4 +51,5 @@ sample({
 export const $$committee = {
   listRequested,
   $list,
+  $listWithPreferencesByCountryMD,
 };
