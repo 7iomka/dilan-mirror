@@ -1,6 +1,6 @@
 .fadeImage {
   opacity: 0;
-  animation: crossfade 4s ease-in-out infinite;
+  animation: crossfade 7s ease-in-out infinite;
 }
 
 @keyframes crossfade {
