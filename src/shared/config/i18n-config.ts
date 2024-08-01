@@ -1,7 +1,7 @@
 export const supportedLanguagesMap = {
   en: 'English',
   ru: 'Русский',
-  ro: 'Română',
+  // ro: 'Română',
   ar: 'العربية',
   hi: 'हिन्दी',
   vi: 'Tiếng Việt',
