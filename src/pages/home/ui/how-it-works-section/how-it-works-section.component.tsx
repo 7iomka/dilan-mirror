@@ -159,11 +159,13 @@ const HowItWorksSection = ({ className }: HowItWorksSectionProps) => {
               src={`/static/images/content/how-it-works-section/scene-mobile-video.jpg?v=${IMAGE_VERSION}`}
               className={clsx('max-w-full z-[1]')}
               alt=""
+              loading="lazy"
             />
             <img
               src={`/static/images/content/how-it-works-section/scene-mobile-mirror.jpg?v=${IMAGE_VERSION}`}
               className={clsx(styles.fadeImage, 'absolute left-0 top-0 right-0 w-full z-[2]')}
               alt=""
+              loading="lazy"
             />
             <div className="absolute inset-0 z-[10] bg-dark-700/10">
               {data.accessories.map(({ id, coordinatesMobile }) => (
@@ -212,11 +214,13 @@ const HowItWorksSection = ({ className }: HowItWorksSectionProps) => {
               src={`/static/images/content/how-it-works-section/scene-desktop-video.jpg?v=${IMAGE_VERSION}`}
               className={clsx('max-w-full z-[1]')}
               alt=""
+              loading="lazy"
             />
             <img
               src={`/static/images/content/how-it-works-section/scene-desktop-mirror.jpg?v=${IMAGE_VERSION}`}
               className={clsx(styles.fadeImage, 'absolute left-0 top-0 right-0 w-full z-[2]')}
               alt=""
+              loading="lazy"
             />
 
             <div className="absolute inset-0 z-[10]">
