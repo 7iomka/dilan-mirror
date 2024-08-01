@@ -112,6 +112,7 @@ const NewsCarousel = ({ items }: { items: NewsItemNormalized[] }) => {
                       'absolute inset-0 w-full h-full object-cover transition-opacity group-hover:opacity-70',
                     )}
                     alt=""
+                    loading="lazy"
                   />
                   <div className="text-sm font-bold py-4 px-8 bg-dark/90 absolute bottom-5 right-5 inline-block !w-auto !h-auto !left-auto !top-auto">
                     {item.publishedDate}
@@ -167,6 +168,7 @@ const NewsItemModal = () => {
                 src={item.mainImg}
                 className={clsx('absolute inset-0 w-full h-full object-cover')}
                 alt=""
+                loading="lazy"
               />
             </div>
             <div className="mt-20 md:mt-32">
