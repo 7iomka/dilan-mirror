@@ -1,59 +1,41 @@
-/* eslint-disable @typescript-eslint/ban-types */
-/* eslint-disable react/destructuring-assignment */
 // CAUTION
 // - Avoid dynamic factories calls
 // - Generic factories are not supported in `useModel`and `modelView` components
-// Usage:
-// const Root = modelView(factory, () => { ... })
-// const model = useModel(factory)
+/**
+ * Usage:
+    const factory = createFactory(() => {});
+    const { modelView, useModel } = createModelView(factory);
+    root component creator: const CreateSome = modelView(SomeComponent)
+    SomeComponent can use inside the model: const model = useModel();
+    Factory instance creation: const $$instance = invoke(factory, {someParams})
+    Factory component usage: <CreateSome model={$$instance} />
+ */
 
 'use client';
 
 import { createFactory } from '@withease/factories';
 import type { invoke } from '@withease/factories';
-import type { Context, FC, Provider } from 'react';
+import type { ComponentType } from 'react';
 import { createContext, useContext } from 'react';
 
-const contexts = new Map<
-  ReturnType<typeof createFactory>,
-  Context<ReturnType<typeof invoke<ReturnType<typeof createFactory>>>>
->();
+// Helper type for model prop
+export type FactoryModelType<T extends (props: any) => any> = ReturnType<typeof invoke<T, any>>;
 
-export const createModelProvider = <T extends (props: any) => any>(factory: T) => {
-  contexts.set(factory, createContext(null));
+export const createModelView = <T extends (props: any) => any>(_factory: T) => {
+  const Ctx = createContext<FactoryModelType<T>>(null!);
 
-  return contexts.get(factory)!.Provider as Provider<ReturnType<typeof invoke<T>>>;
-};
+  const modelView = <Props extends object>(View: ComponentType<Props>) =>
+    function ModelView({ model, ...restProps }: Props & { model: FactoryModelType<T> }) {
+      return (
+        <Ctx.Provider value={model}>
+          <View {...(restProps as Props)} />
+        </Ctx.Provider>
+      );
+    };
 
-export const useModel = <T extends (props: any) => any>(factory: T) => {
-  const model = useContext(contexts.get(factory)!);
-  if (!model) {
-    throw new Error('No model found');
-  }
-  return model as ReturnType<T>;
-};
+  const useModel = () => useContext(Ctx);
 
-/**
- * HOC that wraps your `View` into model `Provider`. Also adds `model` prop that will be passed into `Provider`
- * @param factory Factory that will be passed through Context
- * @param View Root component that will be wrapped into Context
- * @returns Wrapped component
- */
-export const modelView = <T extends (props: any) => any, Props extends {} = {}>(
-  factory: T,
-  View: FC<Props & { model: ReturnType<typeof invoke<T, Parameters<T>[0]>> }>,
-) => {
-  const Provider = createModelProvider(factory);
-
-  const Render = (props: Props & { model: ReturnType<typeof invoke<T, Parameters<T>[0]>> }) => {
-    return (
-      <Provider value={props.model}>
-        <View {...props} />
-      </Provider>
-    );
-  };
-  // `as` is used for a better "Go To Definition"
-  return Render as typeof View;
+  return { useModel, modelView };
 };
 
 export { createFactory };
