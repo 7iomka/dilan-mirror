@@ -179,7 +179,7 @@ const NewsItemModal = () => {
                 </div>
               </div>
               <article
-                className="prose md:prose-lg text-slate-200 prose-a:text-primary prose-a:no-underline prose-a:border-b prose-a:border-b-current prose-a:hover:border-b-2 mt-20 md:mt-32"
+                className="prose prose-invert md:prose-lg text-slate-200 prose-a:text-primary prose-a:no-underline prose-a:border-b prose-a:border-b-current prose-a:hover:border-b-2 mt-20 md:mt-32"
                 dangerouslySetInnerHTML={{ __html: xss(item.content ?? '') }}
               />
             </div>
