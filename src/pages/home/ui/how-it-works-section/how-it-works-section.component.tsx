@@ -68,6 +68,13 @@ const HowItWorksSection = ({ className }: HowItWorksSectionProps) => {
         coordinates: { left: '0.1%', bottom: '21.4%' },
         coordinatesMobile: { left: '0.2%', top: '58.5%' },
       },
+      {
+        id: 'voiceSpeaker',
+        title: t('howItWorks.accessories.voiceSpeaker', 'Voice speaker'),
+        image: '/static/images/content/how-it-works-section/detail/voice-speaker.png',
+        coordinates: { right: '21%', bottom: '40%' },
+        coordinatesMobile: { right: '3%', bottom: '40.3%' },
+      },
     ],
     items: [
       {
