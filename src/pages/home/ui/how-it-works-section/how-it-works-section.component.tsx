@@ -69,9 +69,9 @@ const HowItWorksSection = ({ className }: HowItWorksSectionProps) => {
         coordinatesMobile: { left: '0.2%', top: '58.5%' },
       },
       {
-        id: 'voiceSpeaker',
-        title: t('howItWorks.accessories.voiceSpeaker', 'Voice speaker'),
-        image: '/static/images/content/how-it-works-section/detail/voice-speaker.png',
+        id: 'smartVoiceAssistant',
+        title: t('howItWorks.accessories.smartVoiceAssistant', 'Smart voice assistant'),
+        image: '/static/images/content/how-it-works-section/detail/smart-voice-assistant.png',
         coordinates: { right: '21%', bottom: '40%' },
         coordinatesMobile: { right: '3%', bottom: '40.3%' },
       },
