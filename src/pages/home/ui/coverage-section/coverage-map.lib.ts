@@ -24,14 +24,16 @@ export const settings = {
 export class MyTheme extends am5.Theme {
   setupDefaultRules() {
     this.rule('InterfaceColors').setAll({
-      stroke: am5.color('#ffffff'),
-      fill: am5.color('#141419'),
-      // primaryButton: Color.lighten(Color.fromHex(0xc3cdbd), -0.2),
-      // primaryButtonHover: Color.lighten(Color.fromHex(0x6771dc), -0.2),
-      // primaryButtonDown: Color.lighten(Color.fromHex(0x68dc75), -0.2),
-      // primaryButtonActive: Color.lighten(Color.fromHex(0x68dc76), -0.2),
-      // primaryButtonText: Color.fromHex(0x11120f),
-      // primaryButtonStroke: Color.lighten(Color.fromHex(0xc3cdbd), -0.2),
+      stroke: am5.color(colors.primary.DEFAULT),
+      fill: am5.color(colors.dark.DEFAULT),
+      primaryButton: am5.color(colors.primary.DEFAULT),
+      primaryButtonHover: am5.color(colors.primary.light),
+      primaryButtonDown: am5.color(colors.primary.light),
+      primaryButtonActive: am5.color(colors.primary.light),
+      // primaryButtonText: am5.color(colors.dark.DEFAULT),
+      primaryButtonStroke: am5.color(colors.primary.DEFAULT),
+      primaryButtonDisabled: am5.color(colors.dark['700']),
+      primaryButtonTextDisabled: am5.color('#ff0'),
 
       // secondaryButton: Color.fromHex(0xd8ded4),
       // secondaryButtonHover: Color.lighten(Color.fromHex(0xd8ded4), 0.1),
@@ -41,11 +43,11 @@ export class MyTheme extends am5.Theme {
       // secondaryButtonStroke: Color.lighten(Color.fromHex(0xd8ded4), -0.2),
 
       // grid: Color.fromHex(0x161814),
-      background: am5.color('#141419'),
-      alternativeBackground: am5.color('#141419'),
+      background: am5.color(colors.dark.DEFAULT),
+      alternativeBackground: am5.color(colors.dark.DEFAULT),
       text: am5.color('#ffffff'),
-      alternativeText: am5.color('#141419'),
-      // disabled: Color.fromHex(0xadadad),
+      alternativeText: am5.color(colors.dark.DEFAULT),
+      disabled: am5.color(colors.dark['700']),
       // positive: Color.fromHex(0x50b300),
       // negative: Color.fromHex(0xb30000),
     });
