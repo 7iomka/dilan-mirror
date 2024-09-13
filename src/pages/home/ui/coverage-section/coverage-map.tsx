@@ -1,13 +1,9 @@
-import clsx from 'clsx';
-import { useTranslation } from 'react-i18next';
-import { useLayoutEffect, useRef } from 'react';
+import { memo, useLayoutEffect, useRef } from 'react';
 import * as am5 from '@amcharts/amcharts5';
 import * as am5map from '@amcharts/amcharts5/map';
 import am5geodata_worldLow from '@amcharts/amcharts5-geodata/worldLow';
 import am5themes_Animated from '@amcharts/amcharts5/themes/Animated';
 
-import * as am5xy from '@amcharts/amcharts5/xy';
-import { colors } from '@/shared/config/theme';
 import { mapItems } from './coverage-section.data';
 import {
   handleCreateClusteredBullet,
@@ -18,11 +14,10 @@ import {
 
 interface CoverageMapProps {
   className?: string;
+  onSelectPoint: (pointData: any) => void;
 }
 
-const CoverageMap = ({ className }: CoverageMapProps) => {
-  // const { t } = useTranslation();
-
+const _CoverageMap = ({ className, onSelectPoint }: CoverageMapProps) => {
   const chartRef = useRef<am5map.MapChart | null>(null);
 
   useLayoutEffect(() => {
@@ -39,118 +34,87 @@ const CoverageMap = ({ className }: CoverageMapProps) => {
     const chart = root.container.children.push(
       am5map.MapChart.new(root, {
         panX: 'rotateX',
-        panY: 'rotateY',
-        // projection: am5map.geoMercator(),
-        // projection: am5map.geoNaturalEarth1(),
-        projection: am5map.geoOrthographic(),
-        wheelable: false,
-        zoomControl: am5map.ZoomControl.new(root, {}),
-        // pinchZoom: false,
+        projection: am5map.geoMercator(),
+        minZoomLevel: 1,
+        maxZoomLevel: 4,
+        zoomControl: am5map.ZoomControl.new(root, {
+          visible: true,
+          position: 'absolute',
+        }),
+        themeTags: ['map'],
       }),
     );
 
     // Create the container
-    const cont = chart.children.push(
+    const mapContainer = chart.children.push(
       am5.Container.new(root, {
         layout: root.horizontalLayout,
-        x: 0,
-        y: 0,
+        x: 20,
+        y: 40,
       }),
     );
-
-    // const cont = chart.children.push(
-    //   am5.Container.new(root, {
-    //     layout: root.horizontalLayout,
-    //     x: 20,
-    //     y: 40,
-    //   }),
-    // );
-
-    // 1) Graticule
-    const graticuleSeries = chart.series.push(
-      am5map.GraticuleSeries.new(root, {
-        step: 10,
-      }),
-    );
-
-    graticuleSeries.mapLines.template.setAll({
-      stroke: am5.color(settings.graticule.stroke),
-      // stroke: root.interfaceColors.get('alternativeBackground'),
-      strokeOpacity: settings.graticule.strokeOpacity,
-      // strokeDashoffset: 3,
-      // strokeDasharray: [1, 5],
-    });
-
-    // Create series for background fill
-    // https://www.amcharts.com/docs/v5/charts/map-chart/map-polygon-series/#Background_polygon
-    const backgroundSeries = chart.series.unshift(am5map.MapPolygonSeries.new(root, {}));
-    backgroundSeries.mapPolygons.template.setAll({
-      fill: root.interfaceColors.get('alternativeBackground'),
-      fillOpacity: 0.2,
-      strokeOpacity: 0,
-    });
-
-    // Add background polygon
-    // https://www.amcharts.com/docs/v5/charts/map-chart/map-polygon-series/#Background_polygon
-    backgroundSeries.data.push({
-      geometry: am5map.getGeoRectangle(90, 180, -90, -180),
-    });
 
     // Create main polygon series for countries
     // https://www.amcharts.com/docs/v5/charts/map-chart/map-polygon-series/
     const polygonSeries = chart.series.push(
       am5map.MapPolygonSeries.new(root, {
         geoJSON: am5geodata_worldLow,
+        exclude: ['AQ'],
       }),
     );
 
+    polygonSeries.mapPolygons.template.setAll({
+      fill: am5.color(settings.polygonSeries.fill),
+      stroke: am5.color(settings.polygonSeries.stroke),
+      strokeOpacity: settings.polygonSeries.strokeOpacity,
+      strokeWidth: 1,
+    });
+
     // Create point series for markers
-    // https://www.amcharts.com/docs/v5/charts/map-chart/map-point-series/
-    const pointSeries = chart.series.push(am5map.MapPointSeries.new(root, {}));
-    // const pointSeries = chart.series.push(
-    //   am5map.ClusteredPointSeries.new(root, {
-    //     // minDistance: 30, // 20px by default
-    //     // scatterDistance: 10,
-    //     // scatterRadius: 10,
-    //     // stopClusterZoom: 0.9
-    //   }),
-    // );
+    const pointSeries = chart.series.push(
+      am5map.ClusteredPointSeries.new(root, {
+        groupIdField: 'state',
+      }),
+    );
 
-    const colorset = am5.ColorSet.new(root, {});
+    // Set clustered bullet
+    pointSeries.set('clusteredBullet', handleCreateClusteredBullet);
 
-    pointSeries.bullets.push((v) => handleCreateBullet(v, { colorset }));
-
-    // pointSeries.set('clusteredBullet', handleCreateClusteredBullet);
+    // Create regular bullets
+    pointSeries.bullets.push((_root, series, dataItem) => {
+      const bullet = handleCreateBullet(_root);
+      bullet.get('sprite').events.on('click', () => {
+        onSelectPoint(dataItem.dataContext);
+      });
+      return bullet;
+    });
 
     for (let i = 0; i < mapItems.length; i++) {
       const mapItem = mapItems[i];
-      pointSeries.data.push({
+      const data = {
         title: mapItem.title,
-        geometry: { type: 'Point', coordinates: mapItem.coordinates },
-      });
+        country: mapItem.country,
+        city: mapItem.city,
+        address: mapItem.address,
+        socials: mapItem.socials,
+        contacts: mapItem.contacts,
+        // geoJson expects [Longtitude, Latitude], while google and other maps vice versa
+        geometry: { type: 'Point', coordinates: mapItem.coordinates.reverse() },
+      };
+      pointSeries.data.push(data);
     }
-
-    // Add cursor
-    // chart.set('cursor', am5xy.XYCursor.new(root, {}));
-
-    // Rotate animation
-    chart.animate({
-      key: 'rotationX',
-      from: 0,
-      to: 360,
-      duration: 180000,
-      loops: Infinity,
-    });
 
     chartRef.current = chart;
 
     return () => {
       root.dispose();
     };
-  }, []);
+  }, [onSelectPoint]);
 
-  return <div id="chartdiv" className={clsx('w-[--container] h-[500px]', className)} />;
+  return <div id="chartdiv" className={className} />;
 };
+
+const CoverageMap = memo(_CoverageMap);
 
 export type { CoverageMapProps };
 export { CoverageMap };

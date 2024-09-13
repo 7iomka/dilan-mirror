@@ -1,79 +1,135 @@
 export interface CoverageMapItem {
   title: string;
+  country: string;
+  city: string;
+  address: string;
+  socials: { name: string; url: string }[];
+  contacts: {
+    fullName: string;
+    data: { type: 'phone' | 'viber' | 'whatsapp' | 'telegram'; value: string }[];
+  }[];
   coordinates: [number, number];
 }
 
-export const mapItems = [
+export const mapItems: CoverageMapItem[] = [
   {
-    title: 'Brussels',
-    coordinates: [50.8371, 4.3676],
+    title: 'Paris Store 1',
+    country: 'France',
+    city: 'Paris',
+    address: '12 Rue de Rivoli, 75001 Paris, France',
+    socials: [
+      { name: 'Instagram', url: 'https://instagram.com/parisstore1' },
+      { name: 'Facebook', url: 'https://facebook.com/parisstore1' },
+    ],
+    contacts: [
+      {
+        fullName: 'Jean Dupont',
+        data: [
+          { type: 'phone', value: '+33 1 42 72 31 10' },
+          { type: 'whatsapp', value: '+33 6 12 34 56 78' },
+        ],
+      },
+    ],
+    coordinates: [48.8566, 2.3522],
   },
   {
-    title: 'Copenhagen',
-    coordinates: [55.6763, 12.5681],
+    title: 'Moscow Store 1',
+    country: 'Russia',
+    city: 'Moscow',
+    address: 'Red Square, 109012 Moscow, Russia',
+    socials: [
+      { name: 'Instagram', url: 'https://instagram.com/moscowstore1' },
+      { name: 'VK', url: 'https://vk.com/moscowstore1' },
+    ],
+    contacts: [
+      {
+        fullName: 'Ivan Ivanov',
+        data: [
+          { type: 'phone', value: '+7 495 123 45 67' },
+          { type: 'telegram', value: '@ivanov_moscow' },
+        ],
+      },
+    ],
+    coordinates: [55.7539, 37.6208],
   },
   {
-    title: 'Paris',
-    coordinates: [48.8567, 2.351],
+    title: 'Saint Petersburg Store',
+    country: 'Russia',
+    city: 'Saint Petersburg',
+    address: 'Nevsky Prospect, 191025 Saint Petersburg, Russia',
+    socials: [
+      { name: 'Instagram', url: 'https://instagram.com/spbstore' },
+      { name: 'VK', url: 'https://vk.com/spbstore' },
+    ],
+    contacts: [
+      {
+        fullName: 'Anna Petrova',
+        data: [
+          { type: 'phone', value: '+7 812 987 65 43' },
+          { type: 'viber', value: '+7 812 654 32 10' },
+        ],
+      },
+    ],
+    coordinates: [59.9343, 30.3351],
   },
   {
-    title: 'Reykjavik',
-    coordinates: [64.1353, -21.8952],
+    title: 'Berlin Store',
+    country: 'Germany',
+    city: 'Berlin',
+    address: 'Alexanderplatz, 10178 Berlin, Germany',
+    socials: [
+      { name: 'Instagram', url: 'https://instagram.com/berlinstore' },
+      { name: 'Facebook', url: 'https://facebook.com/berlinstore' },
+    ],
+    contacts: [
+      {
+        fullName: 'Hans Müller',
+        data: [
+          { type: 'phone', value: '+49 30 123 4567' },
+          { type: 'whatsapp', value: '+49 170 123 45 67' },
+        ],
+      },
+    ],
+    coordinates: [52.52, 13.405],
   },
   {
-    title: 'Moscow',
-    coordinates: [55.7558, 37.6176],
+    title: 'Madrid Store',
+    country: 'Spain',
+    city: 'Madrid',
+    address: 'Gran Via, 28013 Madrid, Spain',
+    socials: [
+      { name: 'Instagram', url: 'https://instagram.com/madridstore' },
+      { name: 'Facebook', url: 'https://facebook.com/madridstore' },
+    ],
+    contacts: [
+      {
+        fullName: 'Carlos García',
+        data: [
+          { type: 'phone', value: '+34 91 234 5678' },
+          { type: 'telegram', value: '@carlos_madrid' },
+        ],
+      },
+    ],
+    coordinates: [40.4168, -3.7038],
   },
   {
-    title: 'Madrid',
-    coordinates: [40.4167, -3.7033],
+    title: 'London Store',
+    country: 'United Kingdom',
+    city: 'London',
+    address: 'Oxford Street, W1D 1BS London, United Kingdom',
+    socials: [
+      { name: 'Instagram', url: 'https://instagram.com/londonstore' },
+      { name: 'Facebook', url: 'https://facebook.com/londonstore' },
+    ],
+    contacts: [
+      {
+        fullName: 'John Smith',
+        data: [
+          { type: 'phone', value: '+44 20 1234 5678' },
+          { type: 'whatsapp', value: '+44 7700 900123' },
+        ],
+      },
+    ],
+    coordinates: [51.5154, -0.141],
   },
-  {
-    title: 'London',
-    coordinates: [51.5002, -0.1262],
-  },
-  {
-    title: 'Peking',
-    coordinates: [39.9056, 116.3958],
-  },
-  {
-    title: 'New Delhi',
-    coordinates: [28.6353, 77.225],
-  },
-  {
-    title: 'Tokyo',
-    coordinates: [35.6785, 139.6823],
-  },
-  {
-    title: 'Ankara',
-    coordinates: [39.9439, 32.856],
-  },
-  {
-    title: 'Buenos Aires',
-    coordinates: [-34.6118, -58.4173],
-  },
-  {
-    title: 'Brasilia',
-    coordinates: [-15.7801, -47.9292],
-  },
-  {
-    title: 'Ottawa',
-    coordinates: [45.4235, -75.6979],
-  },
-  {
-    title: 'Washington',
-    coordinates: [38.8921, -77.0241],
-  },
-  {
-    title: 'Kinshasa',
-    coordinates: [-4.3369, 15.3271],
-  },
-  {
-    title: 'Cairo',
-    coordinates: [30.0571, 31.2272],
-  },
-  {
-    title: 'Pretoria',
-    coordinates: [-25.7463, 28.1876],
-  },
-] satisfies CoverageMapItem[];
+];

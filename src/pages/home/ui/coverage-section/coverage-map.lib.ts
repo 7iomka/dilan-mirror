@@ -2,11 +2,11 @@ import * as am5 from '@amcharts/amcharts5';
 import { colors } from '@/shared/config/theme';
 
 export const settings = {
-  pulsation: {
-    duration: 1000,
-    fill: colors.primary.DEFAULT,
+  polygonSeries: {
+    fill: colors.primary.pale,
+    stroke: colors.dark['700'],
+    strokeOpacity: 0.3,
   },
-
   tooltip: {
     fill: colors.primary.DEFAULT,
     stroke: colors.primary.dark,
@@ -14,10 +14,15 @@ export const settings = {
   bullet: {
     fill: colors.primary.DEFAULT,
   },
-
   graticule: {
     stroke: colors.dark['800'],
     strokeOpacity: 0.4,
+  },
+  cluster: {
+    fill: colors.primary.light,
+    label: {
+      fill: colors.dark.DEFAULT,
+    },
   },
 };
 
@@ -54,11 +59,10 @@ export class MyTheme extends am5.Theme {
   }
 }
 
-export const handleCreateBullet = (root: am5.Root, { colorset }: { colorset: am5.ColorSet }) => {
+export const handleCreateBullet = (root: am5.Root) => {
   const sprite = am5.Container.new(root, {
     interactive: true,
-    // setStateOnChildren: true,
-    tooltipText: '{title}',
+    setStateOnChildren: true,
   });
 
   const tooltip = am5.Tooltip.new(root, {
@@ -72,133 +76,65 @@ export const handleCreateBullet = (root: am5.Root, { colorset }: { colorset: am5
     autoTextColor: true,
   });
 
-  // tooltip.label.set('fill', root.interfaceColors.get('alternativeText'));
-
   sprite.set('tooltip', tooltip);
 
-  const pulsation = sprite.children.push(
-    am5.Circle.new(root, {
-      radius: 4,
-      fill: am5.color(settings.pulsation.fill),
-      strokeWidth: 0,
-    }),
-  );
-  pulsation.animate({
-    key: 'scale',
-    from: 1,
-    to: 4,
-    duration: settings.pulsation.duration,
-    easing: am5.ease.out(am5.ease.cubic),
-    loops: Infinity,
-  });
-  pulsation.animate({
-    key: 'opacity',
-    from: 1,
-    to: 0,
-    duration: settings.pulsation.duration,
-    easing: am5.ease.out(am5.ease.cubic),
-    loops: Infinity,
-  });
-
-  const bullet = sprite.children.push(
-    am5.Circle.new(root, {
-      radius: 4,
-      fill: am5.color(settings.bullet.fill),
-      // stroke: root.interfaceColors.get('alternativeBackground'),
-      // strokeWidth: 1,
-      // strokeOpacity: 0.7,
+  const videoMarker = sprite.children.push(
+    am5.Picture.new(root, {
+      interactive: true,
+      centerX: am5.p50,
+      centerY: am5.p50,
+      width: 36,
+      height: 60,
+      src: '/static/images/content/coverage-section/video-marker.svg',
+      tooltipY: 20,
+      tooltip,
+      tooltipText: '{title}',
+      cursorOverStyle: 'pointer',
     }),
   );
 
   return am5.Bullet.new(root, {
     sprite,
   });
-  // const container = am5.Container.new(root, {
-  //   tooltipText: '{title}',
-  //   cursorOverStyle: 'pointer',
-  // });
-
-  // const pulsationCircle = container.children.push(
-  //   am5.Circle.new(root, {
-  //     radius: 4,
-  //     // tooltipY: 0,
-  //     fill: am5.color('#57b396'),
-  //     strokeOpacity: 0,
-  //   }),
-  // );
-
-  // const dotCircle = container.children.push(
-  //   am5.Circle.new(root, {
-  //     radius: 4,
-  //     tooltipY: 0,
-  //     tooltip,
-  //     // fill: colorset.next(),
-  //     fill: am5.color('#7ffed7'),
-  //     strokeOpacity: 0,
-  //     // tooltipText: '{title}',
-  //   }),
-  // );
-
-  // const duration = 1000;
-
-  // pulsationCircle.animate({
-  //   key: 'scale',
-  //   from: 1,
-  //   to: 4,
-  //   duration,
-  //   easing: am5.ease.out(am5.ease.cubic),
-  //   loops: Infinity,
-  // });
-  // pulsationCircle.animate({
-  //   key: 'opacity',
-  //   from: 1,
-  //   to: 0,
-  //   duration,
-  //   easing: am5.ease.out(am5.ease.cubic),
-  //   loops: Infinity,
-  // });
-
-  // return am5.Bullet.new(root, {
-  //   sprite: container,
-  // });
 };
 
 export const handleCreateClusteredBullet = (root: am5.Root) => {
-  // const container = am5.Container.new(root, {});
-  // const circle1 = container.children.push(
-  //   am5.Circle.new(root, {
-  //     radius: 8,
-  //     tooltipY: 0,
-  //     fill: am5.color(0xff8c00),
-  //   }),
-  // );
-  // const circle2 = container.children.push(
-  //   am5.Circle.new(root, {
-  //     radius: 12,
-  //     fillOpacity: 0.3,
-  //     tooltipY: 0,
-  //     fill: am5.color(0xff8c00),
-  //   }),
-  // );
-  // const circle3 = container.children.push(
-  //   am5.Circle.new(root, {
-  //     radius: 16,
-  //     fillOpacity: 0.3,
-  //     tooltipY: 0,
-  //     fill: am5.color(0xff8c00),
-  //   }),
-  // );
-  // const label = container.children.push(
-  //   am5.Label.new(root, {
-  //     centerX: am5.p50,
-  //     centerY: am5.p50,
-  //     fill: am5.color(0xffffff),
-  //     populateText: true,
-  //     fontSize: '8',
-  //     text: '{value}',
-  //   }),
-  // );
-  // return am5.Bullet.new(root, {
-  //   sprite: container,
-  // });
+  const container = am5.Container.new(root, {});
+  const circle1 = container.children.push(
+    am5.Circle.new(root, {
+      radius: 10,
+      tooltipY: 0,
+      fill: am5.color(settings.cluster.fill),
+    }),
+  );
+  const circle2 = container.children.push(
+    am5.Circle.new(root, {
+      radius: 14,
+      fillOpacity: 0.3,
+      tooltipY: 0,
+      fill: am5.color(settings.cluster.fill),
+    }),
+  );
+  const circle3 = container.children.push(
+    am5.Circle.new(root, {
+      radius: 18,
+      fillOpacity: 0.3,
+      tooltipY: 0,
+      fill: am5.color(settings.cluster.fill),
+    }),
+  );
+  const label = container.children.push(
+    am5.Label.new(root, {
+      centerX: am5.p50,
+      centerY: am5.p50,
+      fill: am5.color(settings.cluster.label.fill),
+      populateText: true,
+      fontSize: 12,
+      fontWeight: '700',
+      text: '{value}',
+    }),
+  );
+  return am5.Bullet.new(root, {
+    sprite: container,
+  });
 };
