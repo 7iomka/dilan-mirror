@@ -64,18 +64,18 @@ const CoverageAside = memo(({ className, selectedPoint }: CoverageAsideProps) =>
                     </div>
                     <ul className="flex flex-col gap-y-8 mt-8">
                       {contact.data.map((contactMethod, i) => (
-                        <li className="flex items-center gap-5" key={i}>
-                          <strong>
-                            {isIconExist(contactMethod.type) ? (
-                              <Icon name={contactMethod.type} />
-                            ) : (
-                              `${capitalizeFirst(contactMethod.type)}:`
-                            )}
-                          </strong>
+                        <li className="flex items-center gap-8" key={i}>
+                          {isIconExist(contactMethod.type) ? (
+                            <Icon name={contactMethod.type} />
+                          ) : (
+                            <strong>${capitalizeFirst(contactMethod.type)}:</strong>
+                          )}
+
                           <a
                             href={contactLinkMapping[contactMethod.type](contactMethod.value)}
                             target="_blank"
                             rel="noopener noreferrer"
+                            className="hover:text-primary-light"
                           >
                             {contactMethod.value}
                           </a>
