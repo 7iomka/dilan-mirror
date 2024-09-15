@@ -1,4 +1,6 @@
 export interface CoverageMapItem {
+  latitude: number;
+  longitude: number;
   title: string;
   country: string;
   city: string;
@@ -8,11 +10,12 @@ export interface CoverageMapItem {
     fullName: string;
     data: { type: 'phone' | 'viber' | 'whatsapp' | 'telegram'; value: string }[];
   }[];
-  coordinates: [number, number];
 }
 
 export const mapItems: CoverageMapItem[] = [
   {
+    latitude: 48.8566,
+    longitude: 2.3522,
     title: 'Paris Store 1',
     country: 'France',
     city: 'Paris',
@@ -29,10 +32,18 @@ export const mapItems: CoverageMapItem[] = [
           { type: 'whatsapp', value: '+33 6 12 34 56 78' },
         ],
       },
+      {
+        fullName: 'Jean2 Dupont2',
+        data: [
+          { type: 'phone', value: '+33 1 42 72 31 10' },
+          { type: 'whatsapp', value: '+33 6 12 34 56 78' },
+        ],
+      },
     ],
-    coordinates: [48.8566, 2.3522],
   },
   {
+    latitude: 55.7558,
+    longitude: 37.6173,
     title: 'Moscow Store 1',
     country: 'Russia',
     city: 'Moscow',
@@ -50,9 +61,10 @@ export const mapItems: CoverageMapItem[] = [
         ],
       },
     ],
-    coordinates: [55.7539, 37.6208],
   },
   {
+    latitude: 59.9343,
+    longitude: 30.3351,
     title: 'Saint Petersburg Store',
     country: 'Russia',
     city: 'Saint Petersburg',
@@ -70,9 +82,10 @@ export const mapItems: CoverageMapItem[] = [
         ],
       },
     ],
-    coordinates: [59.9343, 30.3351],
   },
   {
+    latitude: 52.52,
+    longitude: 13.405,
     title: 'Berlin Store',
     country: 'Germany',
     city: 'Berlin',
@@ -90,9 +103,10 @@ export const mapItems: CoverageMapItem[] = [
         ],
       },
     ],
-    coordinates: [52.52, 13.405],
   },
   {
+    latitude: 40.4168,
+    longitude: -3.7038,
     title: 'Madrid Store',
     country: 'Spain',
     city: 'Madrid',
@@ -110,9 +124,10 @@ export const mapItems: CoverageMapItem[] = [
         ],
       },
     ],
-    coordinates: [40.4168, -3.7038],
   },
   {
+    latitude: 51.5074,
+    longitude: -0.1278,
     title: 'London Store',
     country: 'United Kingdom',
     city: 'London',
@@ -130,6 +145,5 @@ export const mapItems: CoverageMapItem[] = [
         ],
       },
     ],
-    coordinates: [51.5154, -0.141],
   },
 ];

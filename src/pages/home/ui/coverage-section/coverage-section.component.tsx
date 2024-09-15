@@ -1,8 +1,7 @@
 import clsx from 'clsx';
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Socials } from '@/widgets/socials';
-import { mapSocialsToItems } from './coverage-section.lib';
+import { CoverageAside } from './coverage-aside';
 
 const CoverageMap = await import(`./coverage-map`).then((mod) => mod.CoverageMap);
 
@@ -31,44 +30,8 @@ const CoverageSection = ({ className }: CoverageSectionProps) => {
       <div className="mt-24 lg:mt-56 ">
         <div className="container">
           <div className="grid md:grid-cols-[280px_minmax(0,1fr)] border-2 border-dark-700">
-            <div className="p-20 bg-dark-600 border-b md:border-r-2 border-inherit">
-              {selectedPoint ? (
-                <div>
-                  <h3>{selectedPoint.title}</h3>
-                  <p>
-                    <strong>Country:</strong> {selectedPoint.country}
-                  </p>
-                  <p>
-                    <strong>City:</strong> {selectedPoint.city}
-                  </p>
-                  <p>
-                    <strong>Address:</strong> {selectedPoint.address}
-                  </p>
-
-                  <h4>Socials:</h4>
-                  <Socials items={mapSocialsToItems(selectedPoint.socials)} />
-
-                  <h4>Contacts:</h4>
-                  {selectedPoint.contacts.map((contact: any, index: number) => (
-                    <div key={index}>
-                      <p>
-                        <strong>{contact.fullName}</strong>
-                      </p>
-                      <ul>
-                        {contact.data.map((contactMethod: any, i: number) => (
-                          <li key={i}>
-                            <strong>{contactMethod.type}:</strong> {contactMethod.value}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <p>Select a point on the map to see the details.</p>
-              )}
-            </div>
-            <div className="relative aspect-w-16 aspect-h-11">
+            <CoverageAside selectedPoint={selectedPoint} />
+            <div className="relative aspect-w-16 aspect-h-11 -order-1 md:order-0">
               <CoverageMap onSelectPoint={handleSelectPoint} />
             </div>
           </div>

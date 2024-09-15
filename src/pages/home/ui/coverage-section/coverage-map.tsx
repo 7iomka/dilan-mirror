@@ -17,7 +17,7 @@ interface CoverageMapProps {
   onSelectPoint: (pointData: any) => void;
 }
 
-const _CoverageMap = ({ className, onSelectPoint }: CoverageMapProps) => {
+const CoverageMap = memo(({ className, onSelectPoint }: CoverageMapProps) => {
   const chartRef = useRef<am5map.MapChart | null>(null);
 
   useLayoutEffect(() => {
@@ -25,7 +25,7 @@ const _CoverageMap = ({ className, onSelectPoint }: CoverageMapProps) => {
     root._logo?.dispose();
 
     root.tapToActivate = true;
-    root.tapToActivateTimeout = 2000;
+    root.tapToActivateTimeout = 1000;
 
     // https://www.amcharts.com/docs/v5/concepts/themes/
     root.setThemes([am5themes_Animated.new(root), MyTheme.new(root)]);
@@ -35,8 +35,9 @@ const _CoverageMap = ({ className, onSelectPoint }: CoverageMapProps) => {
       am5map.MapChart.new(root, {
         panX: 'rotateX',
         projection: am5map.geoMercator(),
+        wheelY: 'none',
         minZoomLevel: 1,
-        maxZoomLevel: 4,
+        maxZoomLevel: 6,
         zoomControl: am5map.ZoomControl.new(root, {
           visible: true,
           position: 'absolute',
@@ -70,12 +71,27 @@ const _CoverageMap = ({ className, onSelectPoint }: CoverageMapProps) => {
       strokeWidth: 1,
     });
 
+    // Create shared tooltip
+    const tooltip = am5.Tooltip.new(root, {
+      getFillFromSprite: false,
+    });
+
+    const tooltipBg = tooltip.get('background')!;
+    tooltipBg.set('fill', am5.color(settings.tooltip.fill));
+    tooltipBg.set('stroke', am5.color(settings.tooltip.stroke));
+    tooltipBg.set('strokeWidth', 1);
+
     // Create point series for markers
     const pointSeries = chart.series.push(
       am5map.ClusteredPointSeries.new(root, {
         groupIdField: 'state',
+        latitudeField: 'latitude',
+        longitudeField: 'longitude',
       }),
     );
+
+    // Attach tooltip to points
+    pointSeries.set('tooltip', tooltip);
 
     // Set clustered bullet
     pointSeries.set('clusteredBullet', handleCreateClusteredBullet);
@@ -89,20 +105,63 @@ const _CoverageMap = ({ className, onSelectPoint }: CoverageMapProps) => {
       return bullet;
     });
 
-    for (let i = 0; i < mapItems.length; i++) {
-      const mapItem = mapItems[i];
-      const data = {
-        title: mapItem.title,
-        country: mapItem.country,
-        city: mapItem.city,
-        address: mapItem.address,
-        socials: mapItem.socials,
-        contacts: mapItem.contacts,
-        // geoJson expects [Longtitude, Latitude], while google and other maps vice versa
-        geometry: { type: 'Point', coordinates: mapItem.coordinates.reverse() },
-      };
-      pointSeries.data.push(data);
-    }
+    pointSeries.data.setAll(mapItems);
+
+    // Create overlay, curtain + message to show when wheel is used over chart without CTRL
+    const overlay = root.container.children.push(
+      am5.Container.new(root, {
+        width: am5.p100,
+        height: am5.p100,
+        layer: 100,
+        visible: false,
+      }),
+    );
+
+    const curtain = overlay.children.push(
+      am5.Rectangle.new(root, {
+        width: am5.p100,
+        height: am5.p100,
+        fill: am5.color(settings.curtain.fill),
+        fillOpacity: settings.curtain.fillOpacity,
+      }),
+    );
+
+    const message = overlay.children.push(
+      am5.Label.new(root, {
+        text: 'Use CTRL + Scroll to zoom',
+        fontSize: 30,
+        x: am5.p50,
+        y: am5.p50,
+        centerX: am5.p50,
+        centerY: am5.p50,
+      }),
+    );
+
+    // Show overlay when wheel is used over chart
+    let overlayTimeoutDisposable: am5.IDisposer | null = null;
+
+    chart.events.on('wheel', (ev) => {
+      if (ev.originalEvent.ctrlKey) {
+        ev.originalEvent.preventDefault();
+        chart.set('wheelY', 'zoom');
+      } else {
+        chart.set('wheelY', 'none');
+        overlay.show();
+        overlayTimeoutDisposable?.dispose();
+
+        overlayTimeoutDisposable = overlay.setTimeout(() => {
+          overlay.hide();
+        }, 1500);
+      }
+    });
+
+    // Set clicking on "water" to zoom out
+    // chart.chartContainer.get('background')?.events.on('click', () => {
+    //   chart.goHome();
+    // });
+
+    // Make stuff animate on load
+    chart.appear(1000, 100);
 
     chartRef.current = chart;
 
@@ -112,9 +171,7 @@ const _CoverageMap = ({ className, onSelectPoint }: CoverageMapProps) => {
   }, [onSelectPoint]);
 
   return <div id="chartdiv" className={className} />;
-};
-
-const CoverageMap = memo(_CoverageMap);
+});
 
 export type { CoverageMapProps };
 export { CoverageMap };

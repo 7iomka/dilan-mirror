@@ -8,3 +8,10 @@ export const mapSocialsToItems = (socials: { name: string; url: string }[]): Soc
     iconName: social.name.toLowerCase() as IconName,
   }));
 };
+
+export const contactLinkMapping: Record<string, (value: string) => string> = {
+  phone: (value) => `tel:${value}`,
+  whatsapp: (value) => `https://wa.me/${value.replace(/\D/g, '')}`,
+  viber: (value) => `viber://chat?number=${value.replace(/\D/g, '')}`,
+  telegram: (value) => `https://t.me/${value.startsWith('@') ? value.slice(1) : value}`,
+};
