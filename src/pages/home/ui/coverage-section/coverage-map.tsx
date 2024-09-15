@@ -4,6 +4,7 @@ import * as am5map from '@amcharts/amcharts5/map';
 import am5geodata_worldLow from '@amcharts/amcharts5-geodata/worldLow';
 import am5themes_Animated from '@amcharts/amcharts5/themes/Animated';
 
+import { useTranslation } from 'react-i18next';
 import { mapItems } from './coverage-section.data';
 import {
   handleCreateClusteredBullet,
@@ -19,6 +20,7 @@ interface CoverageMapProps {
 
 const CoverageMap = memo(({ className, onSelectPoint }: CoverageMapProps) => {
   const chartRef = useRef<am5map.MapChart | null>(null);
+  const { t } = useTranslation();
 
   useLayoutEffect(() => {
     const root = am5.Root.new('chartdiv');
@@ -128,7 +130,7 @@ const CoverageMap = memo(({ className, onSelectPoint }: CoverageMapProps) => {
 
     const message = overlay.children.push(
       am5.Label.new(root, {
-        text: 'Use CTRL + Scroll to zoom',
+        text: t('coverage.map.zoomMessage', 'Use CTRL + Scroll to zoom'),
         fontSize: 30,
         x: am5.p50,
         y: am5.p50,
