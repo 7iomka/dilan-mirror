@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { memo, useLayoutEffect, useRef } from 'react';
 import * as am5 from '@amcharts/amcharts5';
 import * as am5map from '@amcharts/amcharts5/map';
@@ -153,7 +154,7 @@ const CoverageMap = memo(({ className, onSelectPoint }: CoverageMapProps) => {
 
         overlayTimeoutDisposable = overlay.setTimeout(() => {
           overlay.hide();
-        }, 1500);
+        }, 1000);
       }
     });
 
@@ -170,7 +171,7 @@ const CoverageMap = memo(({ className, onSelectPoint }: CoverageMapProps) => {
     return () => {
       root.dispose();
     };
-  }, [onSelectPoint]);
+  }, [onSelectPoint, t]);
 
   return <div id="chartdiv" className={className} />;
 });

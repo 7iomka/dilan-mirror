@@ -17,8 +17,6 @@ import { PatentsSection } from './ui/patents-section';
 export const HomePage = () => {
   return (
     <BaseLayout withStickyHeader>
-      <CoverageSection />
-
       <HeroSection />
       <IntroSection />
       <ExamplesSection />
@@ -28,6 +26,7 @@ export const HomePage = () => {
       <NewsSection />
       <AuthorshipSection />
       <PatentsSection />
+      <CoverageSection />
       <CommitteeSection />
       <InvestSection />
     </BaseLayout>

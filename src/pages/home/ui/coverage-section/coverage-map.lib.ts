@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import * as am5 from '@amcharts/amcharts5';
 import type { ClusteredPointSeries } from '@amcharts/amcharts5/map';
 import { colors } from '@/shared/config/theme';
@@ -45,21 +46,11 @@ export class MyTheme extends am5.Theme {
       primaryButtonStroke: am5.color(colors.dark['700']),
       primaryButtonDisabled: am5.color(colors.dark['200']),
 
-      // secondaryButton: Color.fromHex(0xd8ded4),
-      // secondaryButtonHover: Color.lighten(Color.fromHex(0xd8ded4), 0.1),
-      // secondaryButtonDown: Color.lighten(Color.fromHex(0xd8ded4), 0.15),
-      // secondaryButtonActive: Color.lighten(Color.fromHex(0xd8ded4), 0.2),
-      // secondaryButtonText: Color.fromHex(0x161814),
-      // secondaryButtonStroke: Color.lighten(Color.fromHex(0xd8ded4), -0.2),
-
-      // grid: Color.fromHex(0x161814),
       background: am5.color(colors.dark.DEFAULT),
       alternativeBackground: am5.color(colors.dark.DEFAULT),
       text: am5.color('#ffffff'),
       alternativeText: am5.color(colors.dark.DEFAULT),
       disabled: am5.color(colors.dark['700']),
-      // positive: Color.fromHex(0x50b300),
-      // negative: Color.fromHex(0xb30000),
     });
   }
 }
