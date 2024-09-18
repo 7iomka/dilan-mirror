@@ -1,9 +1,11 @@
 import clsx from 'clsx';
-import { useCallback, useState } from 'react';
+import { useCallback, useState, lazy } from 'react';
 import { useTranslation } from 'react-i18next';
 import { CoverageAside } from './coverage-aside';
 
-const CoverageMap = await import(`./coverage-map`).then((mod) => mod.CoverageMap);
+const CoverageMap = lazy(() =>
+  import(`./coverage-map`).then((mod) => ({ default: mod.CoverageMap })),
+);
 
 interface CoverageSectionProps {
   className?: string;
