@@ -17,7 +17,7 @@ const AuthorshipSection = ({ className }: AuthorshipSectionProps) => {
     title: t('authorship.title'),
     subtitle: t('authorship.subtitle'),
     description: t('authorship.description'),
-    image: '/static/images/content/authorship-section/author.jpg?d=15042024-1935',
+    image: '/static/images/content/authorship-section/author.jpg?d=16092024-2307',
     interview: {
       src: '/static/images/content/authorship-section/interview.jpg',
       videoId: 'bNzsW7iouSU',
@@ -28,7 +28,7 @@ const AuthorshipSection = ({ className }: AuthorshipSectionProps) => {
     <section id="authorship" className={clsx('py-56 md:py-88 bg-dark-500', className)}>
       <div className="container">
         <div className="row gy-32 justify-between">
-          <div className="col-12 md:col-5 lg:col-4">
+          <div className="col-12 md:col-6 lg:col-5 xl:col-4">
             <div className="sticky top-60 lg:top-80 ">
               <div className="aspect-w-[403] aspect-h-[604] max-xsl:min-w-container-min max-xsl:left-1/2 max-xsl:-translate-x-1/2">
                 <img
@@ -56,7 +56,7 @@ const AuthorshipSection = ({ className }: AuthorshipSectionProps) => {
               </div>
             </div>
           </div>
-          <div className="col-12 md:col-7 lg:col-8 lp:col-7">
+          <div className="col-12 md:col-6 lg:col-7 xl:col-8 lp:col-7">
             <div className="min-h-full flex flex-col justify-between">
               <div className="flex-grow min-h-0">
                 <h2 className="text-40px md:text-56px">{data.title}</h2>
