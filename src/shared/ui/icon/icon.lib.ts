@@ -18,3 +18,6 @@ export const getIconMeta = (iconName: IconName) => {
 };
 
 export const SPRITE_PATH = `/static/sprites/${SPRITES_META.sprite.filePath}`;
+
+export const isIconExist = (iconName: string): iconName is IconName =>
+  iconName in SPRITES_META.sprite.items;

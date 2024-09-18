@@ -3,7 +3,7 @@ import type { IconProps } from '@/shared/ui/icon';
 import { Icon } from '@/shared/ui/icon';
 import { appConfig } from '@/shared/config/app-config';
 
-interface SocialItem {
+export interface SocialItem {
   name: string;
   url: string;
   iconName: IconProps['name'];

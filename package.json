@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "kill-static-port": "npx kill-port --port 3000",
-    "dev-on-static-port": "vite --port 3000",
+    "dev-on-static-port": "vite --port 3000 --host",
     "fetch-i18n": "node ./scripts/fetch-i18n.js",
     "dev-kill": "npm-run-all kill-static-port fetch-i18n dev-on-static-port",
     "dev": "npm-run-all dev-on-static-port",
@@ -18,6 +18,8 @@
     "compile-modernizr": "modernizr -c modernizr-config.json -d ./src/public/static/scripts/modernizr-bundle.min.js"
   },
   "dependencies": {
+    "@amcharts/amcharts5": "^5.10.5",
+    "@amcharts/amcharts5-geodata": "^5.1.4",
     "@fancyapps/ui": "^5.0.32",
     "@floating-ui/react": "^0.25.4",
     "@popperjs/core": "^2.11.8",

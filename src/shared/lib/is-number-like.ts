@@ -13,3 +13,13 @@ export function isNumberLike(value: unknown) {
 
   return false;
 }
+
+export function capitalizeFirst(val: string): string {
+  if (val.length === 0) {
+    return val;
+  }
+  if (val.length === 1) {
+    return val.toUpperCase();
+  }
+  return val[0].toUpperCase() + val.substring(1);
+}

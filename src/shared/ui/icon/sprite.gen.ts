@@ -19,6 +19,7 @@ export interface SpritesMap {
     | 'map'
     | 'mirror'
     | 'pdf-file'
+    | 'phone'
     | 'play-circle'
     | 'shield-check-line'
     | 'shield-check'
@@ -29,13 +30,15 @@ export interface SpritesMap {
     | 'time'
     | 'timer'
     | 'twitter'
+    | 'viber'
     | 'vk'
     | 'webcam'
+    | 'whatsapp'
     | 'youtube';
 }
 export const SPRITES_META = {
   sprite: {
-    filePath: 'sprite.6da50f6b.svg',
+    filePath: 'sprite.c1841cec.svg',
     items: {
       '4k': {
         viewBox: '0 0 24 24',
@@ -132,6 +135,11 @@ export const SPRITES_META = {
         width: 16,
         height: 17,
       },
+      phone: {
+        viewBox: '0 0 24 24',
+        width: 24,
+        height: 24,
+      },
       'play-circle': {
         viewBox: '0 0 24 24',
         width: 24,
@@ -182,12 +190,22 @@ export const SPRITES_META = {
         width: 20,
         height: 18,
       },
+      viber: {
+        viewBox: '0 0 24 24',
+        width: 24,
+        height: 24,
+      },
       vk: {
         viewBox: '0 0 24 24',
         width: 24,
         height: 24,
       },
       webcam: {
+        viewBox: '0 0 24 24',
+        width: 24,
+        height: 24,
+      },
+      whatsapp: {
         viewBox: '0 0 24 24',
         width: 24,
         height: 24,
