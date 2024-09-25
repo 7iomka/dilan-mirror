@@ -40,7 +40,6 @@ const CoverageMap = memo(({ className, onSelectPoint }: CoverageMapProps) => {
         projection: am5map.geoMercator(),
         wheelY: 'none',
         minZoomLevel: 1,
-        maxZoomLevel: 6,
         zoomControl: am5map.ZoomControl.new(root, {
           visible: true,
           position: 'absolute',
