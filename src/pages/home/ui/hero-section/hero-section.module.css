@@ -2,12 +2,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-    circle at 50% 50%,
-    rgba(0, 0, 0, 0.6) 0%,
-    rgba(0, 0, 0, 0.2) 35%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  background-image: radial-gradient(farthest-side at 50% 50%, rgba(0, 0, 0, 0.2), transparent);
   z-index: 1;
 }
 

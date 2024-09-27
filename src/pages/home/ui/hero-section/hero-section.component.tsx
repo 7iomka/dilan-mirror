@@ -35,17 +35,21 @@ const HeroSection = ({ className }: HeroSectionProps) => {
     advancedText: t('hero.advancedText'),
     slides: [
       {
-        src: '/static/images/content/hero-section/01.jpg',
-        videoId: 'iYdgRu5W-Dk',
+        src: '/static/images/content/hero-section/01.jpg?d=270920241803',
+        videoId: 'oElBX1jfunA',
       },
       {
-        src: '/static/images/content/hero-section/02.jpg',
-        videoId: 'EyUfHzhQGUQ',
+        src: '/static/images/content/hero-section/02.jpg?d=270920241803',
+        videoId: '31A4_JRFwpo',
       },
-      // {
-      //   src: '/static/images/content/hero-section/03.jpg',
-      //   videoId: 'JO-Tez_CXg8',
-      // },
+      {
+        src: '/static/images/content/hero-section/03.jpg?d=270920241803',
+        videoId: 'J_S2F1ubftg',
+      },
+      {
+        src: '/static/images/content/hero-section/04.jpg?d=270920241803',
+        videoId: 'GwTPmItdp2Y',
+      },
     ] as HeroCarouselSlide[],
   };
 
