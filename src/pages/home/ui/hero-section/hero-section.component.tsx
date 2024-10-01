@@ -47,7 +47,7 @@ const HeroSection = ({ className }: HeroSectionProps) => {
         videoId: 'J_S2F1ubftg',
       },
       {
-        src: '/static/images/content/hero-section/04.jpg?d=270920241803',
+        src: '/static/images/content/hero-section/04.jpg?d=011020241803',
         videoId: 'GwTPmItdp2Y',
       },
     ] as HeroCarouselSlide[],
