@@ -13,7 +13,6 @@
 
 'use client';
 
-import { createFactory } from '@withease/factories';
 import type { invoke } from '@withease/factories';
 import type { ComponentType } from 'react';
 import { createContext, useContext } from 'react';
@@ -37,5 +36,3 @@ export const createModelView = <T extends (props: any) => any>(_factory: T) => {
 
   return { useModel, modelView };
 };
-
-export { createFactory };
