@@ -21,6 +21,7 @@ const RoadmapSection = ({ className }: RoadmapSectionProps) => {
       {
         period: '2024 - 2026',
         title: t('roadmap.textFor23-24'),
+        // inProgress: true,
       },
       {
         period: '2025 - 2026',
@@ -32,6 +33,24 @@ const RoadmapSection = ({ className }: RoadmapSectionProps) => {
       },
     ],
   };
+
+  // const scrollContainerEl = useRef<HTMLDivElement>(null);
+  // const listEl = useRef<HTMLDivElement>(null);
+
+  // const handleScrollLeft = useCallback(() => {
+  //   if (!scrollContainerEl.current || !listEl.current) return;
+
+  //   scrollContainerEl.current.scrollLeft =
+  //     (listEl.current?.children[1] as HTMLDivElement)?.offsetLeft || 0;
+  // }, [scrollContainerEl, listEl]);
+
+  // useEffect(() => {
+  //   handleScrollLeft();
+  //   window.addEventListener('resize', handleScrollLeft);
+  //   return () => {
+  //     window.removeEventListener('resize', handleScrollLeft);
+  //   };
+  // }, [handleScrollLeft]);
   return (
     <section id="roadmap" className={clsx('py-56 md:py-88 bg-dark-500', className)}>
       <div className="container">
@@ -167,6 +186,9 @@ const RoadmapSection = ({ className }: RoadmapSectionProps) => {
                         <div className="absolute left-0 bottom-full mb-24 lg:mb-36 w-5 h-20 lp:w-8 lp:h-32 bg-white z-[2]" />
                         <div className="text-xl font-bold flex items-center">
                           <span>{period}</span>
+                          {/* {inProgress && (
+                            <Icon name="time" className="c-icon text-primary-dark ml-[0.24em]" />
+                          )} */}
                           {completed && (
                             <Icon name="shield-check" className="c-icon text-primary ml-[0.24em]" />
                           )}

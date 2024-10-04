@@ -43,7 +43,7 @@ const HeroSection = ({ className }: HeroSectionProps) => {
         videoId: '31A4_JRFwpo',
       },
       {
-        src: '/static/images/content/hero-section/03.jpg?d=270920241803',
+        src: '/static/images/content/hero-section/03.jpg?d=041020241803',
         videoId: 'J_S2F1ubftg',
       },
       {
