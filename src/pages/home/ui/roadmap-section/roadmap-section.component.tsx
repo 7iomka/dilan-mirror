@@ -30,6 +30,7 @@ const RoadmapSection = ({ className }: RoadmapSectionProps) => {
       {
         period: '2027',
         title: t('roadmap.textFor26'),
+        hasIPOLabelAfter: true,
       },
     ],
   };
@@ -110,9 +111,9 @@ const RoadmapSection = ({ className }: RoadmapSectionProps) => {
             </pattern>
           </defs>
         </svg>
-        <div className="overflow-hidden mt-50">
+        <div className="overflow-hidden mt-30 md:mt-50">
           <div className="overflow-x-auto overflow-y-hidden scroll-smooth c-hide-native-scrollbar">
-            <div className="container pb-11">
+            <div className="container pt-40 pb-20">
               <div className={clsx(styles.wrapper, 'relative w-[var(--w)] flex flex-col')}>
                 <div className="relative">
                   {/* Left line */}
@@ -179,12 +180,50 @@ const RoadmapSection = ({ className }: RoadmapSectionProps) => {
                   </div>
                 </div>
                 <div className="flex lg:items-stretch lg:order-0 mt-24 lg:mt-36">
-                  {data.items.map(({ period, title, completed }) => (
+                  {data.items.map(({ period, title, completed, hasIPOLabelAfter }) => (
                     // 20.25rem is 54px (patter width) * 6
-                    <div key={period} className="shrink-0 w-240 xl:w-280 lp:w-[20.25rem] pr-24">
+                    <div
+                      key={period}
+                      className={clsx(
+                        'shrink-0 w-240 xl:w-280 lp:w-[20.25rem]',
+                        !hasIPOLabelAfter && 'pr-24',
+                      )}
+                    >
                       <div className={clsx('relative', completed && 'text-primary')}>
+                        {hasIPOLabelAfter && (
+                          <div className="absolute right-0 bottom-full md:-mb-6 lg:mb-4 lp:mb-10 w-70 h-70 z-[2] flex items-center justify-center">
+                            <svg
+                              className="absolute inset-0 text-white w-full h-full"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g clipPath="url(#sch_filled_sq)">
+                                <path
+                                  d="M12 0L21.13 1.992C21.3767 2.04585 21.5974 2.18069 21.7556 2.37426C21.9137 2.56783 22 2.80856 22 3.05673V13.9516C21.9999 15.0292 21.7289 16.09 21.211 17.04C20.6931 17.99 19.9443 18.7998 19.0311 19.3975L12 24L4.96889 19.3975C4.05572 18.8 3.30693 17.9905 2.78901 17.0406C2.27109 16.0908 2.00007 15.0301 2 13.9527V3.05673C2.00004 2.80856 2.08626 2.56783 2.24443 2.37426C2.4026 2.18069 2.62326 2.04585 2.87 1.992L12 0Z"
+                                  fill="currentColor"
+                                />
+                              </g>
+                              <defs>
+                                <clipPath id="sch_filled_sq">
+                                  <rect width="24" height="24" fill="white" />
+                                </clipPath>
+                              </defs>
+                            </svg>
+                            <span className="relative z-10 text-primary-pale text-xl font-bold">
+                              IPO
+                            </span>
+                          </div>
+                        )}
                         <div className="absolute left-0 bottom-full mb-24 lg:mb-36 w-5 h-20 lp:w-8 lp:h-32 bg-white z-[2]" />
-                        <div className="text-xl font-bold flex items-center">
+                        <div
+                          className={clsx(
+                            'text-xl font-bold flex items-center',
+                            hasIPOLabelAfter && 'pr-24',
+                          )}
+                        >
                           <span>{period}</span>
                           {/* {inProgress && (
                             <Icon name="time" className="c-icon text-primary-dark ml-[0.24em]" />
