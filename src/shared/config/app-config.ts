@@ -278,6 +278,7 @@ const supportedCountryCodesMap = {
 
 const supportedRegionCodesMap = {
   eu: 'europe',
+  aripo: 'south-africa',
 };
 
 const appConfig = {
