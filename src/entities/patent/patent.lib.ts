@@ -1,3 +1,4 @@
+import type { appConfig } from '@/shared/config/app-config';
 import type { Patent, PatentDto } from './patent.types';
 
 export const patentCountryCodes = [
@@ -30,7 +31,7 @@ export const patentCountryCodes = [
   'fi',
   'fr',
   'gb',
-  'gh',
+  // 'gh',
   'gn',
   'gr',
   'hr',
@@ -88,7 +89,13 @@ export const patentCountryCodes = [
   'us',
   'vn',
   'za',
-];
+
+  // add regions here
+  'aripo',
+] satisfies (
+  | keyof typeof appConfig.supportedCountryCodesMap
+  | keyof typeof appConfig.supportedRegionCodesMap
+)[];
 
 export const getMappedPatent = ({ code, pdf, status, url }: PatentDto): Patent => {
   return {
