@@ -74,6 +74,7 @@ export const patentCountryCodes = [
   'rs',
   'ru',
   'sa',
+  'sg',
   'se',
   'si',
   'sk',
