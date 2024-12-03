@@ -83,3 +83,9 @@
     outline: none;
   }
 }
+
+.prose {
+  a {
+    word-break: break-word;
+  }
+}
