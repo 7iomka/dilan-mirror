@@ -86,6 +86,7 @@
 
 .prose {
   max-width: 708px;
+  text-wrap: pretty;
   a {
     word-break: break-word;
   }
