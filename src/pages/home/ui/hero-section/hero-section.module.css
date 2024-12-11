@@ -53,6 +53,21 @@
   }
 }
 
+.clipped {
+  --offset: 80px;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 100%,
+    0 100%,
+    calc((100% + var(--container-max-width)) / 2) calc(100% - calc(var(--offset) * 4)),
+    calc((100% + var(--container-max-width)) / 2) calc(var(--offset)),
+    calc((100% - var(--container-max-width)) / 2) calc(var(--offset)),
+    calc((100% - var(--container-max-width)) / 2) 100%,
+    0 100%
+  );
+}
+
 .playButtonTriangle {
   stroke: #fff;
   fill: #fff;

@@ -57,6 +57,7 @@ const HeroSection = ({ className }: HeroSectionProps) => {
     <section id="hero" className={clsx(className)}>
       <div className="relative pb-20 flex flex-col justify-end">
         <div className="overflow-hidden md:overflow-visible">
+          <div className={clsx('snow-bg', styles.clipped)} />
           <div className="container xl:pb-70">
             <div className="row items-end xl:items-center md:flex-nowrap">
               <div className="col-12 md:col-8 lg:col-6 relative z-[10] xl:py-70 order-1 md:order-0 mt-40 md:mt-0">
