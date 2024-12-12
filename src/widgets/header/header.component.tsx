@@ -24,8 +24,8 @@ const HeaderBase = () => {
               alt=""
             />
             <img
-              className="absolute w-[30%] h-[60%] right-[-12%] top-[-21%] rotate-[28deg] pointer-events-none"
-              src="/static/images/logo/hat.svg"
+              className="absolute w-[35%] left-[-12%] top-[-21%] pointer-events-none"
+              src="/static/images/logo/santa-hat.png"
               alt=""
             />
           </div>
