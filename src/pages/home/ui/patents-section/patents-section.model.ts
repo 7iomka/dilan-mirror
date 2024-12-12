@@ -17,27 +17,18 @@ const mapDto = (lang?: SupportedLanguageCode) => {
 const $allItems = createStore(
   patentCountryCodes.map((code) => ({ code, pdf: null, status: null, url: null })),
 );
-
 const $activeItems = combine($allItems, $$patent.$patents, (allItems, fetchedItems) => {
-  const idxArr: number[] = [];
+  const supportedCodes = new Set(allItems.map((item) => item.code));
 
-  const filtered = allItems
-    .filter((item) => {
-      const foundIdx = fetchedItems.findIndex((v) => v.code === item.code);
+  const processedCodes = new Set();
 
-      if (foundIdx !== -1) {
-        idxArr.push(foundIdx);
-      }
-
-      return foundIdx !== -1;
-    })
-    .map((v, idx) => {
-      const existIdx = idxArr.find((fIdx) => fIdx === idx);
-
-      return existIdx !== undefined ? fetchedItems[existIdx] : v;
-    });
-
-  return filtered;
+  return fetchedItems.filter((item) => {
+    if (supportedCodes.has(item.code as any) && !processedCodes.has(item.code)) {
+      processedCodes.add(item.code);
+      return true;
+    }
+    return false;
+  });
 });
 
 const $futureItems = combine($allItems, $$patent.$patents, (allItems, fetchedItems) =>
