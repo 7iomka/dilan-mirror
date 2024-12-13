@@ -32,8 +32,9 @@ const ExamplesSection = ({ className }: ExamplesSectionProps) => {
       {
         title: t('examples.dressingRooms'),
         mirrorSrc:
-          '/static/images/content/examples-section/dressing_rooms/dressing_rooms_mirror.jpg',
-        videoSrc: '/static/images/content/examples-section/dressing_rooms/dressing_rooms_video.jpg',
+          '/static/images/content/examples-section/dressing_rooms/dressing_rooms_mirror.jpg?d=202412131800',
+        videoSrc:
+          '/static/images/content/examples-section/dressing_rooms/dressing_rooms_video.jpg?d=202412131800',
       },
       {
         title: t(
