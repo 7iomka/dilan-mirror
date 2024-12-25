@@ -10,14 +10,16 @@ interface FooterProps {
 }
 
 const Footer = ({ className }: FooterProps) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const currYear = new Date().getFullYear();
   const yearRange = currYear <= 2024 ? 2024 : `2024 - ${currYear}`;
+  const privacyPolicyUrl = `/static/documents/policies/privacy-policy-${i18n.language.toLowerCase()}.pdf`;
 
   const data = {
     allRightsReserved: t('footer.allRightsReserved'),
     yearRange,
     address: t('general.address'),
+    privacyPolicy: t('general.privacyPolicy', 'Privacy policy'),
   };
 
   return (
@@ -68,7 +70,7 @@ const Footer = ({ className }: FooterProps) => {
             <div className="mt-20 lg:mt-0 lg:ml-30 lg:shrink-0 xl:ml-50">
               <div className="overflow-hidden">
                 <div className="-mr-18 -mb-12 xl:-mr-30 xl:-mb-18">
-                  <div className="flex flex-wrap items-center">
+                  <div className="flex flex-wrap items-center lg:justify-end">
                     <div className="w-full md:hidden" />
                     <div className="pr-18 pb-12 xl:pr-30 xl:pb-18">
                       <a
@@ -78,12 +80,28 @@ const Footer = ({ className }: FooterProps) => {
                         {appConfig.email}
                       </a>
                     </div>
+
                     <div className="pr-18 pb-12 xl:pr-30 xl:pb-18">
                       <a
                         className="text-sm xl:text-lg text-gray-400 hover:text-primary"
                         href={`tel:${appConfig.phone.replace(' ', '')}`}
                       >
                         {appConfig.phone}
+                      </a>
+                    </div>
+                    <div className="w-full" />
+                    <div className="pr-18 pb-12 xl:pr-30 xl:pb-18">
+                      <a
+                        className="text-sm xl:text-lg text-gray-900 hover:text-primary group flex items-center justify-center"
+                        href={privacyPolicyUrl}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                      >
+                        <span>{data.privacyPolicy}</span>
+                        <Icon
+                          name="arrow-right-up"
+                          className="hidden md:block ml-4 text-[0.667em] transition-transform group-hover:-translate-y-2 group-hover:translate-x-2"
+                        />
                       </a>
                     </div>
                   </div>
