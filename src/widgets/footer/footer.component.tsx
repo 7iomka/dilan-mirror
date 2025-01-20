@@ -33,11 +33,6 @@ const Footer = ({ className }: FooterProps) => {
                 src="/static/images/logo/logo-light.svg"
                 alt=""
               />
-              <img
-                className="absolute w-[35%] left-[-12%] top-[-21%] pointer-events-none"
-                src="/static/images/logo/santa-hat.png"
-                alt=""
-              />
             </div>
             <div className="ml-5 md:ml-20 flex items-center">
               <a
