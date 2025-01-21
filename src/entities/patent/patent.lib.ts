@@ -1,3 +1,4 @@
+/** ***********  ✨ Codeium Command 🌟  ************ */
 import type { appConfig } from '@/shared/config/app-config';
 import type { Patent, PatentDto } from './patent.types';
 
@@ -90,9 +91,21 @@ export const patentCountryCodes = [
   'us',
   'vn',
   // 'za',
-
-  // add regions here
-  'aripo',
+  // Aripo starts
+  'ls',
+  'gm',
+  'mw',
+  'gh',
+  'bw',
+  'tz',
+  'ke',
+  // Aripo ends
+  'qa',
+  'bh',
+  'kw',
+  'il',
+  'om',
+  'hk',
 ] satisfies (
   | keyof typeof appConfig.supportedCountryCodesMap
   | keyof typeof appConfig.supportedRegionCodesMap
@@ -106,3 +119,5 @@ export const getMappedPatent = ({ code, pdf, status, url }: PatentDto): Patent =
     url,
   };
 };
+
+/** ****  6533b139-7046-409f-9999-afa7d041170c  ****** */
