@@ -39,7 +39,7 @@ async function writeDataToFile(lang, content) {
 }
 
 (async () => {
-  const langF = await fetch(`https://api.dilan-mirror.com/application/translations?limit=100000`);
+  const langF = await fetch(`https://api.dilan-mirror.com/application/translations?limit=99999`);
   const langRes = await langF.json();
 
   const { data } = langRes;
