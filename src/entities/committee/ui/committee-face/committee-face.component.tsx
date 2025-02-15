@@ -12,7 +12,7 @@ const CommitteeFace = ({ className, fullName, country, image }: CommitteeFacePro
   return (
     <div className={clsx('relative inline-block', className)}>
       <img
-        className="w-full h-full rounded-full object-cover"
+        className="w-full h-full rounded-full object-cover object-top"
         src={image}
         alt={fullName}
         loading="lazy"

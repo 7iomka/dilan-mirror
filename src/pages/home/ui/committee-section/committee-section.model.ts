@@ -1,6 +1,5 @@
 import { combine, createEffect, createEvent, restore, sample } from 'effector';
 import { Fancybox } from '@fancyapps/ui';
-import { debug } from 'patronum/debug';
 import { $$committee } from '@/entities/committee';
 import { fallbackLanguageCode, type SupportedLanguageCode } from '@/shared/config/i18n-config';
 import { $$i18n } from '@/shared/i18n';

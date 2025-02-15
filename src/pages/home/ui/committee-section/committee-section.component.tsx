@@ -61,7 +61,7 @@ const CommitteeCarousel = ({ className }: { className?: string }) => {
         <div className="overflow-hidden">
           <div className="overflow-x-auto overflow-y-hidden scroll-smooth c-hide-native-scrollbar">
             <div className="grid gap-x-12 md:gap-x-24 gap-y-20 [grid-template-columns:repeat(auto-fill,minmax(5.5rem,1fr))] min-w-[43.5rem]">
-              {members.map(({ id, country, name, surname, photo }) => (
+              {members.map(({ id, country, name, surname, photo, photoPreview }) => (
                 <button
                   key={id}
                   type="button"
@@ -72,7 +72,7 @@ const CommitteeCarousel = ({ className }: { className?: string }) => {
                     className="w-full h-full"
                     country={country}
                     fullName={getCommitteeFullName({ name, surname })}
-                    image={photo}
+                    image={photoPreview || photo}
                   />
                 </button>
               ))}
@@ -97,7 +97,7 @@ const CommitteeDetailsModal = () => {
         <CommitteePerson
           country={item.country}
           fullName={getCommitteeFullName({ name: item.name, surname: item.surname })}
-          image={item.photo}
+          image={item.photoPreview || item.photo}
           imageSize="xl"
           socials={item.links}
         />
@@ -228,7 +228,7 @@ const CommitteeMembersByCountry = ({ className }: { className?: string }) => {
       centerInsufficientSlides
       className={clsx(styles.carousel, 'mt-20')}
     >
-      {members.map(({ id, country, name, surname, photo, links }) => (
+      {members.map(({ id, country, name, surname, photo, photoPreview, links }) => (
         <SwiperSlide key={id} className="w-auto">
           <div className="p-3">
             <CommitteePerson
@@ -236,7 +236,7 @@ const CommitteeMembersByCountry = ({ className }: { className?: string }) => {
               className="w-full h-full bg-dark-600 py-30 px-15"
               country={country}
               fullName={getCommitteeFullName({ name, surname })}
-              image={photo}
+              image={photoPreview || photo}
               socials={links}
             />
           </div>
