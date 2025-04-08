@@ -19,10 +19,11 @@ const PatentsSection = ({ className }: PatentsSectionProps) => {
     title: t('patents.title'),
     description: t('patents.description'),
     pctDescription: t('patents.pctDescription', 'PCT patent application submitted'),
-    pctDocUrl: 'https://drive.google.com/drive/folders/1i7uHXRGp5VNqelmnjxtZdo91f0aVlJUy',
+    docsUrl: 'https://drive.google.com/drive/folders/1i7uHXRGp5VNqelmnjxtZdo91f0aVlJUy',
     pctNote: t('patents.pctNote', 'Read more about PCT'),
     licensesDocUrl: 'https://drive.google.com/drive/folders/1Wcgq1ranUv96vTJgQFFIW6hbmMin2Q4g',
     licenses: t('patents.licenses', 'Licenses'),
+    pctDocUrl: 'https://drive.google.com/file/d/16IVk373yCk9PfAMivw7NaDP8-2fxnlGk/view',
   };
 
   return (
@@ -42,6 +43,15 @@ const PatentsSection = ({ className }: PatentsSectionProps) => {
                 <div className="inline-flex flex-col sm:flex-row items-center sm:items-stretch justify-center md:justify-start flex-wrap gap-12 text-left">
                   <a
                     href={data.pctDocUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center text-sm md:text-lg hover:underline text-primary hover:text-primary underline-offset-2 max-w-200"
+                  >
+                    <Icon name="file" className="text-xl" />
+                    <span className="ml-8 md:ml-12">PCT 2025</span>
+                  </a>
+                  <a
+                    href={data.docsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center text-sm md:text-lg hover:underline hover:text-primary underline-offset-2 max-w-200"
