@@ -54,7 +54,7 @@ const PatentsSection = ({ className }: PatentsSectionProps) => {
                     href={data.docsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center text-sm md:text-lg hover:underline hover:text-primary underline-offset-2 max-w-200"
+                    className="flex items-center text-sm md:text-lg hover:underline hover:text-primary underline-offset-2"
                   >
                     <Icon name="file" className="text-xl" />
                     <span className="ml-8 md:ml-12">{t('authorship.showDocumentsActionText')}</span>
