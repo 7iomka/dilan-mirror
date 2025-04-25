@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 import { t } from 'i18next';
-import { Button } from '@/shared/ui/button';
 import styles from './sales-countdown.module.css';
 
 interface SalesCountdownProps {
@@ -10,13 +9,13 @@ interface SalesCountdownProps {
 }
 
 const SalesCountdown = ({ className, hideZero = false }: SalesCountdownProps) => {
-  const label = t('hero.salesCountdown.label', 'Sales starts in:');
+  const label = t('sales.countdown.label', 'Sales starts in:');
   const targetDate = '2025-05-01T12:00:00+00:00';
-  const salesStartedText = t('hero.salesCountdown.salesStartedText', `Sales have started!`);
-
-  const goToTheShopText = t('hero.salesCountdown.goToTheShopText', `Go to the shop`);
+  const salesStartedText = t('sales.title', `Sales have started!`);
+  const goToTheShopText = t('sales.description', `Go to the shop ➔`);
 
   const [timeLeft, setTimeLeft] = useState(getTimeLeft(targetDate));
+  // const isComplete = timeLeft.total <= 0;
   const isComplete = timeLeft.total <= 0;
 
   useEffect(() => {
@@ -35,19 +34,19 @@ const SalesCountdown = ({ className, hideZero = false }: SalesCountdownProps) =>
   if (isComplete) {
     return (
       <div className={clsx(styles.salesCountdown, className)}>
-        <Button
-          color="custom"
-          size="custom"
-          className="text-lg flex flex-wrap gap-6 items-center justify-center min-w-200 text-center py-10 px-15 group"
-          component="a"
+        <a
           href="https://dilan-mirrors.com"
           target="_blank"
+          style={{
+            filter: 'brightness(1.5)',
+          }}
+          rel="noreferrer"
         >
           {salesStartedText}{' '}
           <span className="underline underline-offset-4 decoration-[0.5px] group-hover:text-primary-light">
             {goToTheShopText}
           </span>
-        </Button>
+        </a>
       </div>
     );
   }
@@ -62,11 +61,9 @@ const SalesCountdown = ({ className, hideZero = false }: SalesCountdownProps) =>
   parts.push(`${pad(seconds)}s`);
 
   return (
-    <div className={clsx(styles.salesCountdown, 'py-10 px-15', className)}>
-      <span className="text-xl font-medium">{label}</span>{' '}
-      <span className="text-2xl font-bold [font-variant-numeric:tabular-nums] whitespace-nowrap inline-flex w-[240px]">
-        {parts.join(' : ')}
-      </span>
+    <div className={clsx(styles.salesCountdown, className)}>
+      <span className={styles.saleCountdown__label}>{label}</span>{' '}
+      <span className={styles.salesCountdown__digits}>{parts.join(' : ')}</span>
     </div>
   );
 };
