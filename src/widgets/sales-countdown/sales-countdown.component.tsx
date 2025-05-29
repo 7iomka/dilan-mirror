@@ -22,7 +22,7 @@ const SalesCountdown = ({ className, hideZero = false, countdownHours }: SalesCo
       const end = new Date(start.getTime() + countdownHours * 60 * 60 * 1000 - 1);
       return end;
     }
-    return new Date('2025-05-29T15:00:00Z'); // 17:00 Paris time
+    return new Date('2025-05-30T15:00:00Z'); // 17:00 Paris time
   });
 
   const [timeLeft, setTimeLeft] = useState(getTimeLeft(endTime));
