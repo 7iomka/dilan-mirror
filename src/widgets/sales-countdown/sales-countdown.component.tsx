@@ -6,30 +6,43 @@ import styles from './sales-countdown.module.css';
 interface SalesCountdownProps {
   className?: string;
   hideZero?: boolean;
+  countdownHours?: number;
 }
 
-const SalesCountdown = ({ className, hideZero = false }: SalesCountdownProps) => {
-  const label = t('sales.countdown.label', 'Sales starts in:');
-  const targetDate = '2025-05-01T12:00:00+00:00';
+const SalesCountdown = ({ className, hideZero = false, countdownHours }: SalesCountdownProps) => {
+  const label = t('sales.countdown.label', 'Sales start on:');
   const salesStartedText = t('sales.title', `Sales have started!`);
   const goToTheShopText = t('sales.description', `Go to the shop ➔`);
 
-  const [timeLeft, setTimeLeft] = useState(getTimeLeft(targetDate));
-  // const isComplete = timeLeft.total <= 0;
+  const [endTime, setEndTime] = useState<Date>(() => {
+    if (countdownHours) {
+      const saved = false;
+      const start = saved ? new Date(saved) : new Date();
+      if (!saved) localStorage.setItem('salesCountdownStart', start.toISOString());
+      const end = new Date(start.getTime() + countdownHours * 60 * 60 * 1000 - 1);
+      return end;
+    }
+    return new Date('2025-05-29T15:00:00Z'); // 17:00 Paris time
+  });
+
+  const [timeLeft, setTimeLeft] = useState(getTimeLeft(endTime));
   const isComplete = timeLeft.total <= 0;
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const updated = getTimeLeft(targetDate);
+      const updated = getTimeLeft(endTime);
       setTimeLeft(updated);
 
       if (updated.total <= 0) {
         clearInterval(interval);
+        if (countdownHours) {
+          localStorage.removeItem('salesCountdownStart');
+        }
       }
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [targetDate]);
+  }, [endTime]);
 
   if (isComplete) {
     return (
@@ -37,9 +50,7 @@ const SalesCountdown = ({ className, hideZero = false }: SalesCountdownProps) =>
         <a
           href="https://dilan-mirrors.com"
           target="_blank"
-          style={{
-            filter: 'brightness(1.5)',
-          }}
+          style={{ filter: 'brightness(1.5)' }}
           rel="noreferrer"
         >
           {salesStartedText}{' '}
@@ -52,10 +63,9 @@ const SalesCountdown = ({ className, hideZero = false }: SalesCountdownProps) =>
   }
 
   const { days, hours, minutes, seconds } = timeLeft;
-
   const parts: string[] = [];
 
-  if (!hideZero || days > 0) parts.push(`${pad(days)}d`);
+  if (days > 0) parts.push(`${pad(days)}d`);
   if (!hideZero || hours > 0 || parts.length > 0) parts.push(`${pad(hours)}h`);
   if (!hideZero || minutes > 0 || parts.length > 0) parts.push(`${pad(minutes)}m`);
   parts.push(`${pad(seconds)}s`);
