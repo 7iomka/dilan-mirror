@@ -46,43 +46,12 @@ const Head = () => {
       <meta property="og:site_name" content={t('meta.title')} />
 
       <link rel="preload" as="image" href={SPRITE_PATH} />
-      {/* preload fonts */}
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       <link
-        rel="preload"
-        href="/static/fonts/aeonik-bold.woff2"
-        as="font"
-        type="font/woff2"
-        crossOrigin="anonymous"
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet"
       />
-      <link
-        rel="preload"
-        href="/static/fonts/aeonik-regular.woff2"
-        as="font"
-        type="font/woff2"
-        crossOrigin="anonymous"
-      />
-      <style type="text/css">
-        {`
-          @font-face {
-            font-family: "Aeonik";
-            src:
-              url("/static/fonts/aeonik-regular.woff2") format("woff2"),
-              url("/static/fonts/aeonik-regular.woff") format("woff");
-            font-weight: 400;
-            font-style: normal;
-            font-display: swap;
-          }
-          @font-face {
-            font-family: "Aeonik";
-            src:
-              url("/static/fonts/aeonik-bold.woff2") format("woff2"),
-              url("/static/fonts/aeonik-bold.woff") format("woff");
-            font-weight: 700;
-            font-style: normal;
-            font-display: swap;
-          }
-        `.trim()}
-      </style>
       <script src="/static/scripts/modernizr-bundle.min.js" defer />
       <script id="ms-clarity" defer>
         {clarityCode}

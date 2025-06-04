@@ -1,6 +1,6 @@
 export const fontFamily = {
-  default: 'Aeonik, Helvetica, sans-serif',
+  default: '"Exo 2", Helvetica, sans-serif',
   monospace: 'Monaco, Courier, monospace',
   serif: 'georgia, "Times New Roman", times, serif',
-  headings: 'Aeonik, Helvetica, sans-serif',
+  headings: '"Exo 2", Helvetica, sans-serif',
 };
