@@ -66,19 +66,12 @@
   "module-templates.engine": "handlebars",
   "css.lint.unknownAtRules": "ignore",
   "scss.lint.unknownAtRules": "ignore",
-  "tailwindCSS.classAttributes": [
-    "class",
-    "className",
-    "ngClass",
-    "classNames",
-    "stickyClassName",
-    "wrapperClassName"
-  ],
-  "files.associations": {
-    "*.css": "css"
-  },
+  "tailwindCSS.experimental.classRegex": ["[\"'`](.*?)[\"'`]"],
   "editor.quickSuggestions": {
     "strings": "on"
+  },
+  "files.associations": {
+    "*.css": "css"
   },
   "svg.preview.background": "editor"
 }
