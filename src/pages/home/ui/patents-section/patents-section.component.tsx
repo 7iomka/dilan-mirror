@@ -97,6 +97,10 @@ const FuturePatents = () => {
   const items = useUnit($$patentsSection.$futureItems);
   const handleItemClick = useUnit($$patentsSection.openDetailsByCountryCodeTriggered);
 
+  if (items.length === 0) {
+    return null;
+  }
+
   return (
     <PatentCountryList
       items={items}

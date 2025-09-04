@@ -61,9 +61,9 @@ const AuthorshipSection = ({ className }: AuthorshipSectionProps) => {
               <div className="flex-grow min-h-0">
                 <h2 className="text-40px md:text-56px">{data.title}</h2>
                 <div className="indigo-200 text-xl md:text-2xl mt-12">{data.subtitle}</div>
-                <div className="indigo-200 text-md md:text-lg mt-32 lg:mt-48 whitespace-pre-wrap">
+                {/* <div className="indigo-200 text-md md:text-lg mt-32 lg:mt-48 whitespace-pre-wrap">
                   {data.description}
-                </div>
+                </div> */}
                 <div className="mt-32">
                   <Fancybox
                     options={{
