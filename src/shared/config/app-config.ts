@@ -60,7 +60,7 @@ const supportedCountryCodesMap = {
   bz: 'belize',
   ca: 'canada',
   cc: 'cocos-islands',
-  cd: 'congo-democratic-republic-of-the',
+  cd: 'democratic-republic-of-congo.svg',
   cf: 'central-african-republic',
   cg: 'republic-of-the-congo',
   ch: 'switzerland',
