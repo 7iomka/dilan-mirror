@@ -4,7 +4,8 @@ import { Pages } from '@/pages';
 import { scope } from '@/shared/scope';
 import { Providers } from './providers';
 import { $$app } from './app.model';
-
+// @ts-ignore-next-line
+import 'swiper/css/pagination';
 import '@/app/styles/common.css';
 
 allSettled($$app.started, { scope });

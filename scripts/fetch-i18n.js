@@ -8,7 +8,7 @@ const localesDirPath = path.join(__dirname, '../src/public/static/locales');
 
 /* eslint-disable no-restricted-syntax */
 const NS_PREFIX = `landing.mirror.`;
-const additionalRules = ['country.', 'region.'];
+const additionalRules = ['country.', 'region.', 'continent.'];
 
 function prepareData(obj) {
   const filteredObj = {};

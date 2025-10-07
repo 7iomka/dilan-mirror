@@ -6,12 +6,13 @@ import { Box } from '../box';
 
 interface ButtonProps extends BoxProps {
   children?: React.ReactNode;
-  color?: 'primary' | 'dark' | 'white-semi-transparent' | 'custom';
+  color?: 'primary' | 'primary-static' | 'dark' | 'white-semi-transparent' | 'custom';
   size?: 'md' | 'custom';
 }
 
 const colorsMap = {
   primary: 'bg-primary hover:bg-primary-light text-dark-800',
+  'primary-static': 'bg-primary text-dark-800',
   dark: 'bg-dark hover:bg-dark-light text-white',
   'white-semi-transparent': 'bg-white/[0.08] hover:bg-white/[0.32] text-white',
 };

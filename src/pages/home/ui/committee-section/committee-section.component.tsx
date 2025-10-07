@@ -17,7 +17,6 @@ import { Icon } from '@/shared/ui/icon';
 import { breakpointsClean } from '@/shared/config/theme';
 import { COMMITTEE_MEMBER_MODAL_ID } from './committee-section.lib';
 import { $$committeeSection } from './committee-section.model';
-import 'swiper/css/pagination';
 import styles from './committe-section.module.css';
 
 interface CommitteeSectionProps {

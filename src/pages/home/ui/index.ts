@@ -8,4 +8,5 @@ export { RoadmapSection } from './roadmap-section';
 export { InvestSection } from './invest-section';
 export { NewsSection } from './news-section';
 export { CommitteeSection } from './committee-section';
+export { LeaderSection } from './leader-section';
 export { CoverageSection } from './coverage-section';
