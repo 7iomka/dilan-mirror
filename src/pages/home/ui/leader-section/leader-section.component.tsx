@@ -21,7 +21,7 @@ const LeaderSection = ({ className }: LeaderSectionProps) => {
   const { t } = useTranslation();
 
   const data = {
-    title: t('leader.title', 'Leaders'),
+    title: t('leader.title', 'Representatives'),
   };
 
   return (
@@ -127,7 +127,8 @@ const LeaderMembersByContinent = ({ className }: { className?: string }) => {
   return members.length > 0 ? (
     <SwiperReact
       id="leader-carousel-by-country"
-      slidesPerView={4}
+      slidesPerView={2}
+      slidesPerGroup={2}
       breakpoints={{
         [breakpointsClean.min]: {
           slidesPerView: 1,
@@ -152,23 +153,34 @@ const LeaderMembersByContinent = ({ className }: { className?: string }) => {
       centerInsufficientSlides
       className={clsx(styles.carousel, className)}
     >
-      {members.map(({ id, country, fullName, photo, links }) => (
-        <SwiperSlide key={id} className="w-auto">
-          <LeaderPerson
-            key={id}
-            className="w-full h-full bg-dark-600 py-30 px-15"
-            country={country}
-            fullName={fullName}
-            image={photo}
-            socials={links}
-          />
-        </SwiperSlide>
-      ))}
+      {members
+        .reduce((acc, current, index) => {
+          const chunkIndex = Math.floor(index / 2);
+          if (!acc[chunkIndex]) acc[chunkIndex] = [];
+
+          acc[chunkIndex].push(
+            <LeaderPerson
+              key={current.id}
+              className="w-full bg-dark-600 py-30 px-15"
+              country={current.country}
+              fullName={current.fullName}
+              image={current.photo}
+              socials={current.links}
+            />,
+          );
+
+          return acc;
+        }, [])
+        .map((group, index) => (
+          <SwiperSlide key={index} className="w-auto h-auto">
+            <div className="h-full flex flex-wrap justify-center gap-5">{group}</div>
+          </SwiperSlide>
+        ))}
     </SwiperReact>
   ) : (
     <div
       className={clsx(
-        'border border-3 border-dark-400 min-h-[300px] flex items-center justify-center',
+        'border border-3 border-dark-400 min-h-[600px] flex items-center justify-center',
         className,
       )}
     >
