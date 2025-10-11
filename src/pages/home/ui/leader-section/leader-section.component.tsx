@@ -170,7 +170,6 @@ const LeaderMembersByContinent = ({ className }: { className?: string }) => {
               className="w-full bg-dark-600 py-30 px-15"
               country={current.country}
               region={current.region}
-              phone={current.phone}
               fullName={current.fullName}
               image={current.photo}
               socials={current.links}
@@ -178,7 +177,7 @@ const LeaderMembersByContinent = ({ className }: { className?: string }) => {
           );
 
           return acc;
-        }, [])
+        }, [] as any[])
         .map((group, index) => (
           <SwiperSlide key={index} className="w-auto h-auto">
             <div
@@ -207,7 +206,6 @@ const LeaderPerson = ({
   fullName,
   country,
   region,
-  phone,
   image,
   socials,
 }: {
@@ -216,7 +214,6 @@ const LeaderPerson = ({
   fullName: string;
   country: string;
   region?: string;
-  phone?: string;
   image: string;
   socials?: LeaderSocialDto[];
 }) => {
@@ -244,14 +241,6 @@ const LeaderPerson = ({
             ) : (
               <span>{t(`country.${country.toLowerCase()}`, '')}</span>
             )}
-          </div>
-          <div className="text-lg mt-4">
-            <a
-              className="text-sm hover:underline text-primary-dark hover:text-primary underline-offset-2"
-              href={`tel:${phone}`}
-            >
-              {phone}
-            </a>
           </div>
         </div>
         {!!socials && socials.length > 0 && (

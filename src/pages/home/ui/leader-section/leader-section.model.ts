@@ -12,7 +12,6 @@ export interface LeaderMember {
   fullName: string;
   photo: string;
   city?: string;
-  phone?: string;
   links: LeaderSocialDto[];
   country: string;
   region?: string;
@@ -30,7 +29,6 @@ const $map = createStore<Record<Continent, LeaderMember[]>>({
       links: [],
       country: 'vn',
       region: 'Đại Diện Quốc Gia',
-      phone: '+84854095884',
     },
     {
       id: 1277,
@@ -39,7 +37,6 @@ const $map = createStore<Record<Continent, LeaderMember[]>>({
       links: [],
       country: 'vn',
       region: 'Thành phố Ninh Bình',
-      phone: '+84387294903',
     },
     {
       id: 1283,
@@ -48,7 +45,6 @@ const $map = createStore<Record<Continent, LeaderMember[]>>({
       links: [],
       country: 'vn',
       region: 'Thành Phố Hà Tĩnh',
-      phone: '+84325380711',
     },
     {
       id: 17647,
@@ -57,7 +53,6 @@ const $map = createStore<Record<Continent, LeaderMember[]>>({
       links: [],
       country: 'vn',
       region: 'Thành Phố Nghệ An',
-      phone: '+84379250858',
     },
     {
       id: 8273,
@@ -66,7 +61,6 @@ const $map = createStore<Record<Continent, LeaderMember[]>>({
       links: [],
       country: 'vn',
       region: 'Tỉnh Đồng Nai',
-      phone: '+84901677999', // '+84962600637',
     },
     {
       id: 11235,
@@ -75,7 +69,6 @@ const $map = createStore<Record<Continent, LeaderMember[]>>({
       links: [],
       country: 'vn',
       region: 'Thành Phố Ninh Bình',
-      phone: '+84911193133',
     },
     {
       id: 8073,
@@ -84,7 +77,6 @@ const $map = createStore<Record<Continent, LeaderMember[]>>({
       links: [],
       country: 'vn',
       region: 'Thành Phố Đồng Nai',
-      phone: '+84973611306',
     },
     {
       id: 10445,
@@ -93,7 +85,6 @@ const $map = createStore<Record<Continent, LeaderMember[]>>({
       links: [],
       country: 'vn',
       region: 'Thành Phố Nam Định',
-      phone: '+84388223266',
     },
     {
       id: 16807,
@@ -102,7 +93,6 @@ const $map = createStore<Record<Continent, LeaderMember[]>>({
       links: [],
       country: 'vn',
       region: 'Thành Phố Yên Bái',
-      phone: '+84868937225',
     },
     {
       id: 1844,
@@ -111,7 +101,6 @@ const $map = createStore<Record<Continent, LeaderMember[]>>({
       links: [],
       country: 'vn',
       region: 'Tỉnh Phú Thọ',
-      phone: '+84965892186',
     },
     {
       id: 3828,
@@ -120,7 +109,6 @@ const $map = createStore<Record<Continent, LeaderMember[]>>({
       links: [],
       country: 'vn',
       region: 'Thành Phố Quảng Ngãi',
-      phone: '+84705998139',
     },
     {
       id: 20849,
@@ -129,7 +117,6 @@ const $map = createStore<Record<Continent, LeaderMember[]>>({
       links: [],
       country: 'vn',
       region: 'Thành Phố Thanh Hóa',
-      phone: '+84904787032',
     },
     {
       id: 14867,
@@ -138,7 +125,6 @@ const $map = createStore<Record<Continent, LeaderMember[]>>({
       links: [],
       country: 'vn',
       region: 'Tỉnh Đăk Lăk',
-      phone: '+84903557528',
     },
   ],
   // Africa
@@ -250,10 +236,10 @@ const activeContinentChanged = createEvent<string | null>();
 const $activeContinent = restore(activeContinentChanged, 'as');
 
 const $listByContinent = combine($map, $activeContinent, (map, activeContinent) => {
-  if (!activeContinent) {
-    return [];
+  if (!activeContinent || !(activeContinent in map)) {
+    return [] as LeaderMember[];
   }
-  return map[activeContinent] ?? [];
+  return (map[activeContinent] ?? []) as LeaderMember[];
 });
 
 export const $$leaderSection = {
