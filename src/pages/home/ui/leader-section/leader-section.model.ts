@@ -12,24 +12,136 @@ export interface LeaderMember {
   fullName: string;
   photo: string;
   city?: string;
+  phone?: string;
   links: LeaderSocialDto[];
   country: string;
+  region?: string;
 }
 
 export type Continent = 'eu' | 'na' | 'sa' | 'af' | 'as';
 
 const $map = createStore<Record<Continent, LeaderMember[]>>({
-  eu: [
+  // Asia
+  as: [
     {
-      id: 1483,
-      fullName: 'Simona Petrova',
-      photo: '/static/images/content/leader-section/simona_petrova.jpg',
+      id: 1144,
+      fullName: 'Trần Thị Mộng Huyền',
+      photo: '/static/images/content/leader-section/tran_thi_mong_huyen.jpg',
       links: [],
-      country: 'bg',
+      country: 'vn',
+      region: 'Đại Diện Quốc Gia',
+      phone: '+84854095884',
+    },
+    {
+      id: 1277,
+      fullName: 'Trần Thị Thu Thủy',
+      photo: '/static/images/content/leader-section/tran_thi_thu_thuy.jpg',
+      links: [],
+      country: 'vn',
+      region: 'Thành phố Ninh Bình',
+      phone: '+84387294903',
+    },
+    {
+      id: 1283,
+      fullName: 'Quang Huy Hoàng',
+      photo: '/static/images/content/leader-section/quang_huy_hoang.jpg',
+      links: [],
+      country: 'vn',
+      region: 'Thành Phố Hà Tĩnh',
+      phone: '+84325380711',
+    },
+    {
+      id: 17647,
+      fullName: 'Nguyễn Hữu Bắc',
+      photo: '/static/images/content/leader-section/nguyen_huu_bac.jpg',
+      links: [],
+      country: 'vn',
+      region: 'Thành Phố Nghệ An',
+      phone: '+84379250858',
+    },
+    {
+      id: 8273,
+      fullName: 'Trần Thị Hồng Lam',
+      photo: '/static/images/content/leader-section/tran_thi_hong_lam.jpg',
+      links: [],
+      country: 'vn',
+      region: 'Tỉnh Đồng Nai',
+      phone: '+84901677999', // '+84962600637',
+    },
+    {
+      id: 11235,
+      fullName: 'Trần Thị Tuyết Minh',
+      photo: '/static/images/content/leader-section/tran_thi_tuyet_minh.jpg',
+      links: [],
+      country: 'vn',
+      region: 'Thành Phố Ninh Bình',
+      phone: '+84911193133',
+    },
+    {
+      id: 8073,
+      fullName: 'Trương Thị Phương',
+      photo: '/static/images/content/leader-section/truong_thi_phuong.jpg',
+      links: [],
+      country: 'vn',
+      region: 'Thành Phố Đồng Nai',
+      phone: '+84973611306',
+    },
+    {
+      id: 10445,
+      fullName: 'Dương Thị Hương',
+      photo: '/static/images/content/leader-section/duong_thi_huong.jpg',
+      links: [],
+      country: 'vn',
+      region: 'Thành Phố Nam Định',
+      phone: '+84388223266',
+    },
+    {
+      id: 16807,
+      fullName: 'Dương Thị Oanh',
+      photo: '/static/images/content/leader-section/duong_thi_oanh.jpg',
+      links: [],
+      country: 'vn',
+      region: 'Thành Phố Yên Bái',
+      phone: '+84868937225',
+    },
+    {
+      id: 1844,
+      fullName: 'Đặng Hồng Phương',
+      photo: '/static/images/content/leader-section/dang_hong_phuong.jpg',
+      links: [],
+      country: 'vn',
+      region: 'Tỉnh Phú Thọ',
+      phone: '+84965892186',
+    },
+    {
+      id: 3828,
+      fullName: 'Bùi Mi Lơ',
+      photo: '/static/images/content/leader-section/bui_mi_lo.jpg',
+      links: [],
+      country: 'vn',
+      region: 'Thành Phố Quảng Ngãi',
+      phone: '+84705998139',
+    },
+    {
+      id: 20849,
+      fullName: 'Nguyễn Phước Thùy Trang',
+      photo: '/static/images/content/leader-section/nguyen_phuoc_thuy_trang.jpg',
+      links: [],
+      country: 'vn',
+      region: 'Thành Phố Thanh Hóa',
+      phone: '+84904787032',
+    },
+    {
+      id: 14867,
+      fullName: 'Huỳnh Thị Oanh Châu',
+      photo: '/static/images/content/leader-section/huynh_thi_oanh_chau.jpg',
+      links: [],
+      country: 'vn',
+      region: 'Tỉnh Đăk Lăk',
+      phone: '+84903557528',
     },
   ],
-  na: [],
-  sa: [],
+  // Africa
   af: [
     {
       id: 104,
@@ -116,14 +228,26 @@ const $map = createStore<Record<Continent, LeaderMember[]>>({
       country: 'cd',
     },
   ],
-  as: [],
+  // Europe
+  eu: [
+    {
+      id: 1483,
+      fullName: 'Simona Petrova',
+      photo: '/static/images/content/leader-section/simona_petrova.jpg',
+      links: [],
+      country: 'bg',
+    },
+  ],
+  // North America
+  na: [],
+  // South America
+  sa: [],
 });
-const $availableContinents = $map.map(
-  (map) => Object.keys(map),
-  // Object.keys(map).filter((key) => map[key]?.length > 0),
+const $availableContinents = $map.map((map) =>
+  Object.keys(map).filter((key) => map[key]?.length > 0),
 );
 const activeContinentChanged = createEvent<string | null>();
-const $activeContinent = restore(activeContinentChanged, 'af');
+const $activeContinent = restore(activeContinentChanged, 'as');
 
 const $listByContinent = combine($map, $activeContinent, (map, activeContinent) => {
   if (!activeContinent) {

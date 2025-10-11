@@ -132,15 +132,19 @@ const LeaderMembersByContinent = ({ className }: { className?: string }) => {
       breakpoints={{
         [breakpointsClean.min]: {
           slidesPerView: 1,
+          slidesPerGroup: 1,
         },
         [breakpointsClean.sm]: {
           slidesPerView: 2,
+          slidesPerGroup: 2,
         },
         [breakpointsClean.lg]: {
           slidesPerView: 3,
+          slidesPerGroup: 3,
         },
         [breakpointsClean.xl]: {
           slidesPerView: 4,
+          slidesPerGroup: 4,
         },
       }}
       spaceBetween={15}
@@ -151,6 +155,7 @@ const LeaderMembersByContinent = ({ className }: { className?: string }) => {
       watchOverflow
       watchSlidesProgress
       centerInsufficientSlides
+      simulateTouch={false}
       className={clsx(styles.carousel, className)}
     >
       {members
@@ -161,8 +166,11 @@ const LeaderMembersByContinent = ({ className }: { className?: string }) => {
           acc[chunkIndex].push(
             <LeaderPerson
               key={current.id}
+              userId={current.id}
               className="w-full bg-dark-600 py-30 px-15"
               country={current.country}
+              region={current.region}
+              phone={current.phone}
               fullName={current.fullName}
               image={current.photo}
               socials={current.links}
@@ -173,7 +181,11 @@ const LeaderMembersByContinent = ({ className }: { className?: string }) => {
         }, [])
         .map((group, index) => (
           <SwiperSlide key={index} className="w-auto h-auto">
-            <div className="h-full flex flex-wrap justify-center gap-5">{group}</div>
+            <div
+              className={clsx('flex flex-wrap justify-center gap-5', group.length > 1 && 'h-full')}
+            >
+              {group}
+            </div>
           </SwiperSlide>
         ))}
     </SwiperReact>
@@ -191,21 +203,30 @@ const LeaderMembersByContinent = ({ className }: { className?: string }) => {
 
 const LeaderPerson = ({
   className,
+  userId,
   fullName,
   country,
+  region,
+  phone,
   image,
   socials,
 }: {
   className?: string;
+  userId: number;
   fullName: string;
   country: string;
+  region?: string;
+  phone?: string;
   image: string;
   socials?: LeaderSocialDto[];
 }) => {
   const { t } = useTranslation();
 
   return (
-    <div className={clsx(className)}>
+    <div className={clsx('relative', className)}>
+      <div className="absolute right-0 top-0 inline-block px-10 py-5 bg-dark-400 text-sm">
+        id: <span className="text-primary-dark">{userId}</span>
+      </div>
       <div className="flex flex-col items-center text-center">
         <LeaderFace
           className="w-[180px] h-[180px]"
@@ -215,7 +236,23 @@ const LeaderPerson = ({
         />
         <div className="mt-16">
           <h4 className="text-xl leading-1">{fullName.trim()}</h4>
-          <div className="text-lg mt-4">{t(`country.${country.toLowerCase()}`, '')}</div>
+          <div className="text-lg mt-4">
+            {region ? (
+              <span className="text-sm font-normal">
+                {region}, {t(`country.${country.toLowerCase()}`, '')}
+              </span>
+            ) : (
+              <span>{t(`country.${country.toLowerCase()}`, '')}</span>
+            )}
+          </div>
+          <div className="text-lg mt-4">
+            <a
+              className="text-sm hover:underline text-primary-dark hover:text-primary underline-offset-2"
+              href={`tel:${phone}`}
+            >
+              {phone}
+            </a>
+          </div>
         </div>
         {!!socials && socials.length > 0 && (
           <div className="mt-16">
