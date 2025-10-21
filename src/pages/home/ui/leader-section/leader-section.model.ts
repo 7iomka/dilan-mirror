@@ -213,6 +213,13 @@ const $map = createStore<Record<Continent, LeaderMember[]>>({
       links: [],
       country: 'cd',
     },
+    {
+      id: 4334,
+      fullName: 'Ouo-Ouo Plegnemou',
+      photo: '/static/images/content/leader-section/ouo_ouo_plegnemou.jpg',
+      links: [],
+      country: 'gn',
+    },
   ],
   // Europe
   eu: [
