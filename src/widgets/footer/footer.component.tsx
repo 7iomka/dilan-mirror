@@ -23,14 +23,20 @@ const Footer = ({ className }: FooterProps) => {
   };
 
   return (
-    <footer className={clsx('bg-black py-24 lg:py-36', className)}>
-      <div className="flex items-center">
+    <footer className={clsx('relative bg-black py-24 lg:py-36', className)}>
+      <div className={clsx('snow-bg ![--offset:0rem]')} />
+      <div className="flex items-center relative">
         <div className="container">
           <div className="flex items-center justify-between">
             <div className="relative inline-flex shrink-0">
               <img
                 className="h-36 w-85 lg:w-120 lg:h-50"
                 src="/static/images/logo/logo-light.svg"
+                alt=""
+              />
+              <img
+                className="absolute w-[35%] left-[-12%] top-[-21%] pointer-events-none"
+                src="/static/images/logo/santa-hat.png"
                 alt=""
               />
             </div>
