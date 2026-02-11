@@ -71,16 +71,16 @@ const ArgumentsSection = ({ className }: ArgumentsSectionProps) => {
       >
         <div className="container">
           <div className="lg:relative">
-            <div className="relative aspect-w-[1.3] aspect-h-1 sm:aspect-w-[1296] sm:aspect-h-[924] max-xsl:min-w-container-min max-xsl:left-1/2 max-xsl:-translate-x-1/2">
+            <div className="relative aspect-w-[1024] aspect-h-[724] sm:aspect-w-[1296] sm:aspect-h-[705] max-xsl:min-w-container-min max-xsl:left-1/2 max-xsl:-translate-x-1/2">
               <picture>
                 <source media="(max-width: 575px)" srcSet={data.imageMobile} />
                 <source media="(min-width: 576px)" srcSet={data.imageDesktop} />
                 <img className="object-cover w-full h-full" src={data.imageDesktop} alt="" />
-                <div className="hidden lg:block absolute inset-0 bg-[linear-gradient(0deg,black_0%,rgb(0,0,0,0.3)_15%,rgb(0,0,0,0))]" />
+                {/* <div className="hidden lg:block absolute inset-0 bg-[linear-gradient(0deg,black_0%,rgb(0,0,0,0.3)_15%,rgb(0,0,0,0))]" /> */}
               </picture>
             </div>
 
-            <div className="z-[2] flex flex-col items-center justify-end lg:p-24 lg:absolute lg:bottom-0 lg:left-0 lg:right-0">
+            <div className="z-[2] flex flex-col items-center justify-end ">
               <div className="bg-white py-24 md:p-24 w-full">
                 <div className="row gy-40 lg:gx-60 lg:flex-nowrap">
                   <div className="col-12 lg:col">
