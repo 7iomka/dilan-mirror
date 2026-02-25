@@ -22,13 +22,22 @@ const $activeItems = combine($allItems, $$patent.$patents, (allItems, fetchedIte
 
   const processedCodes = new Set();
 
-  return fetchedItems.filter((item) => {
-    if (supportedCodes.has(item.code as any) && !processedCodes.has(item.code)) {
-      processedCodes.add(item.code);
-      return true;
-    }
-    return false;
-  });
+  return fetchedItems
+    .filter((item) => {
+      if (supportedCodes.has(item.code as any) && !processedCodes.has(item.code)) {
+        processedCodes.add(item.code);
+        return true;
+      }
+      return false;
+    })
+    .sort((a, b) => {
+      const aConf = a.status === 'confirmed';
+      const bConf = b.status === 'confirmed';
+
+      if (aConf && !bConf) return -1;
+      if (!aConf && bConf) return 1;
+      return 0;
+    });
 });
 
 const $futureItems = combine($allItems, $$patent.$patents, (allItems, fetchedItems) =>
