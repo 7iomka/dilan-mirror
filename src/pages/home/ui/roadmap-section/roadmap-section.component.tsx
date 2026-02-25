@@ -24,7 +24,7 @@ const RoadmapSection = ({ className }: RoadmapSectionProps) => {
         completed: true,
       },
       {
-        period: '2025 - 2026',
+        period: '2025 - 2028',
         title: t('roadmap.textFor2526'),
       },
       {
