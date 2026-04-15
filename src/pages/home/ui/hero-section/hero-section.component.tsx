@@ -73,7 +73,7 @@ const HeroSection = ({ className }: HeroSectionProps) => {
                 {/* <div className="text-md md:text-xl mt-12 font-bold text-primary">
                   {data.advancedText}
                 </div> */}
-                <SalesCountdown className="mt-25 lg:mt-36" />
+                {/* <SalesCountdown className="mt-25 lg:mt-36" /> */}
                 <Button
                   className="inline-flex justify-center min-w-200 max-w-full mt-25 lg:mt-36"
                   component="a"
