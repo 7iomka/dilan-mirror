@@ -14,6 +14,13 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <script>
+      var viewport = document.querySelector('meta[name="viewport"]');
+
+      if (window.innerWidth < 400) {
+        viewport.setAttribute('content', 'width=400');
+      }
+    </script>
     <style>
       :root {
         --maintenance-bg: #17181c;
@@ -50,6 +57,11 @@
         font-family: 'Manrope', sans-serif;
         background: var(--maintenance-bg);
         overflow-x: hidden;
+      }
+
+      html,
+      body {
+        min-width: 400px;
       }
 
       .maintenance {
@@ -118,6 +130,7 @@
         position: relative;
         flex-shrink: 0;
         z-index: 12;
+        align-self: flex-end;
       }
 
       .maintenance__language-trigger {
@@ -570,7 +583,7 @@
         }
 
         .maintenance__language {
-          align-self: flex-start;
+          align-self: flex-end;
         }
 
         .maintenance__brand-mark {
