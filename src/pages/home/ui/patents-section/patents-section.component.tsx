@@ -1,30 +1,95 @@
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { Fancybox } from '@fancyapps/ui';
 import { useUnit } from 'effector-react';
-import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
-import { PatentCountryList } from '@/entities/patent';
+import { useTranslation } from 'react-i18next';
+import { PatentCountryList, patentCountryCodes } from '@/entities/patent';
+import type { Patent } from '@/entities/patent/patent.types';
 import { Flag } from '@/shared/ui/flag';
 import { Button } from '@/shared/ui/button';
 import { Icon } from '@/shared/ui/icon';
 import { $$patentsSection } from './patents-section.model';
 import { PATENTS_ITEM_MODAL_ID } from './patents-section.lib';
+import { mockPatents, patentsSectionLinks } from './patents-section.data';
 
 interface PatentsSectionProps {
   className?: string;
+  useMockData?: boolean;
 }
 
-const PatentsSection = ({ className }: PatentsSectionProps) => {
+const PatentsSection = ({ className, useMockData = false }: PatentsSectionProps) => {
   const { t } = useTranslation();
+  const activeItemsStore = useUnit($$patentsSection.$activeItems);
+  const futureItemsStore = useUnit($$patentsSection.$futureItems);
+  const activeItemStore = useUnit($$patentsSection.$activeItem);
+  const openDetailsByCountryCode = useUnit($$patentsSection.openDetailsByCountryCodeTriggered);
+  const [activeMockCountryCode, setActiveMockCountryCode] = useState<string | null>(null);
+  const [shouldOpenMockDetails, setShouldOpenMockDetails] = useState(false);
 
   const data = {
     title: t('patents.title'),
     description: t('patents.description'),
     pctDescription: t('patents.pctDescription', 'PCT patent application submitted'),
-    docsUrl: 'https://drive.google.com/drive/folders/1i7uHXRGp5VNqelmnjxtZdo91f0aVlJUy',
     pctNote: t('patents.pctNote', 'Read more about PCT'),
-    licensesDocUrl: 'https://drive.google.com/drive/folders/1Wcgq1ranUv96vTJgQFFIW6hbmMin2Q4g',
     licenses: t('patents.licenses', 'Licenses'),
-    pctDocUrl: 'https://drive.google.com/file/d/16IVk373yCk9PfAMivw7NaDP8-2fxnlGk/view',
+    ...patentsSectionLinks,
   };
+
+  const activeItems = useMemo(() => {
+    if (useMockData) {
+      return mockPatents;
+    }
+
+    return activeItemsStore;
+  }, [activeItemsStore, useMockData]);
+
+  const futureItems = useMemo(() => {
+    if (!useMockData) {
+      return futureItemsStore;
+    }
+
+    const activeCodes = new Set(mockPatents.map(({ code }) => code));
+
+    return patentCountryCodes
+      .filter((code) => !activeCodes.has(code))
+      .map((code) => ({ code, pdf: null, status: null, url: null }));
+  }, [futureItemsStore, useMockData]);
+
+  const activeItem = useMemo(() => {
+    if (!useMockData) {
+      return activeItemStore;
+    }
+
+    return mockPatents.find(({ code }) => code === activeMockCountryCode) ?? null;
+  }, [activeItemStore, activeMockCountryCode, useMockData]);
+
+  const handleItemClick = useCallback(
+    (code: string) => {
+      if (!useMockData) {
+        openDetailsByCountryCode(code);
+        return;
+      }
+
+      setActiveMockCountryCode(code);
+      setShouldOpenMockDetails(true);
+    },
+    [openDetailsByCountryCode, useMockData],
+  );
+
+  useEffect(() => {
+    if (!useMockData || !shouldOpenMockDetails || activeMockCountryCode === null) {
+      return;
+    }
+
+    Fancybox.show([
+      {
+        src: `#${PATENTS_ITEM_MODAL_ID}`,
+        type: 'inline',
+      },
+    ]);
+
+    setShouldOpenMockDetails(false);
+  }, [activeMockCountryCode, shouldOpenMockDetails, useMockData]);
 
   return (
     <section className={clsx('py-56 md:py-88 bg-dark-700', className)}>
@@ -79,23 +144,26 @@ const PatentsSection = ({ className }: PatentsSectionProps) => {
       </div>
       <div className="mt-56">
         <div className="container">
-          <ActivePatentsList />
+          <ActivePatentsList items={activeItems} onItemClick={handleItemClick} />
         </div>
       </div>
       <div className="mt-56">
         <div className="container">
-          <FuturePatents />
+          <FuturePatents items={futureItems} onItemClick={handleItemClick} />
         </div>
       </div>
-      <PatentDetailsModal />
+      <PatentDetailsModal item={activeItem} />
     </section>
   );
 };
 
-const FuturePatents = () => {
+interface PatentListSectionProps {
+  items: Patent[];
+  onItemClick: (code: string) => void;
+}
+
+const FuturePatents = ({ items, onItemClick }: PatentListSectionProps) => {
   const { t } = useTranslation();
-  const items = useUnit($$patentsSection.$futureItems);
-  const handleItemClick = useUnit($$patentsSection.openDetailsByCountryCodeTriggered);
 
   if (items.length === 0) {
     return null;
@@ -105,26 +173,28 @@ const FuturePatents = () => {
     <PatentCountryList
       items={items}
       title={t('patents.future.title', 'Planned for registration')}
-      onItemClick={handleItemClick}
+      onItemClick={onItemClick}
     />
   );
 };
-const ActivePatentsList = () => {
+
+const ActivePatentsList = ({ items, onItemClick }: PatentListSectionProps) => {
   const { t } = useTranslation();
-  const items = useUnit($$patentsSection.$activeItems);
-  const handleItemClick = useUnit($$patentsSection.openDetailsByCountryCodeTriggered);
 
   return (
     <PatentCountryList
       items={items}
       title={t('patents.grantedOrPending.title', 'Granted or pending patents')}
-      onItemClick={handleItemClick}
+      onItemClick={onItemClick}
     />
   );
 };
 
-const PatentDetailsModal = () => {
-  const item = useUnit($$patentsSection.$activeItem);
+interface PatentDetailsModalProps {
+  item: Patent | null;
+}
+
+const PatentDetailsModal = ({ item }: PatentDetailsModalProps) => {
   const { t } = useTranslation();
   const data = {
     modal: {

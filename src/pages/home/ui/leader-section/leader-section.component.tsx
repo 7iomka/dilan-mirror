@@ -25,7 +25,7 @@ const LeaderSection = ({ className }: LeaderSectionProps) => {
   };
 
   return (
-    <section id="leader" className={clsx('py-56 md:py-88 bg-dark-700', className)}>
+    <section id="leader" className={clsx('py-56 md:py-88 bg-dark-600', className)}>
       <div className="container">
         <div className="text-center">
           <h2 className="text-40px md:text-56px pt-5">{data.title}</h2>
