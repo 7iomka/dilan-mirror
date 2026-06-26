@@ -3,6 +3,7 @@ import { createHistoryRouter, createRoute, createRouterControls } from 'atomic-r
 import { sample } from 'effector';
 import { createBrowserHistory } from 'history';
 import { fallbackLanguageCode } from '../config/i18n-config';
+import { appStarted } from '../config/events';
 
 export const controls = createRouterControls();
 
@@ -14,7 +15,7 @@ export const notFoundRoute = createRoute();
 
 export const routesMap = [{ path: '/', route: routes.home }];
 
-export const router = createHistoryRouter({
+export const $$router = createHistoryRouter({
   base: '/:lang?',
   routes: routesMap,
   notFoundRoute,
@@ -25,8 +26,8 @@ const history = createBrowserHistory();
 
 // Add trailing slash if not present
 sample({
-  clock: router.$path,
-  source: { query: router.$query },
+  clock: $$router.$path,
+  source: { query: $$router.$query },
   filter: (_, path) => !path.endsWith('/'),
   fn: ({ query }, path): Omit<HistoryPushParams, 'history'> => ({
     path: `${path}/`,
@@ -34,13 +35,13 @@ sample({
     params: {},
     method: 'replace',
   }),
-  target: router.push,
+  target: $$router.push,
 });
 
 // Remove duplicate routes with fallback language in path
 sample({
-  clock: router.$path,
-  source: { query: router.$query },
+  clock: $$router.$path,
+  source: { query: $$router.$query },
   filter: (_, path) => !path.startsWith(`${fallbackLanguageCode}/`),
   fn: ({ query }, path): Omit<HistoryPushParams, 'history'> => ({
     path: path.replace(`${fallbackLanguageCode}/`, ''),
@@ -48,14 +49,12 @@ sample({
     params: {},
     method: 'replace',
   }),
-  target: router.push,
+  target: $$router.push,
 });
 
 // Set history
-router.setHistory(history);
-
-// sample({
-//   clock: appStarted,
-//   fn: () => history,
-//   target: router.setHistory,
-// });
+sample({
+  clock: appStarted,
+  fn: () => history,
+  target: $$router.setHistory,
+});

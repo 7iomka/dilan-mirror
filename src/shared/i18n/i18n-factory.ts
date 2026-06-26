@@ -1,4 +1,4 @@
-import { attach, createEffect, createEvent, sample } from 'effector';
+import { attach, createEffect, createEvent, createStore, sample } from 'effector';
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
@@ -6,17 +6,21 @@ import Backend from 'i18next-http-backend';
 import { createFactory } from '@withease/factories';
 import type { SupportedLanguageCode } from '../config/i18n-config';
 import { fallbackLanguageCode, i18nConfig } from '../config/i18n-config';
-import { router } from '../routing';
+import { $$router } from '../routing';
 
 type ChangeLanguageParams = {
   languageCode: SupportedLanguageCode;
 };
 
 const createi18n = createFactory(() => {
+  const changei18nNextLanguageFx = createEffect((languageCode: SupportedLanguageCode) => {
+    i18n.changeLanguage(languageCode);
+  });
+
   const changeLanguageFx = attach({
-    source: router.$activeRoutes,
+    source: $$router.$activeRoutes,
     effect: async (activeRoutes, { languageCode }: ChangeLanguageParams) => {
-      await i18n.changeLanguage(languageCode);
+      await changei18nNextLanguageFx(languageCode);
 
       const currentRoute = activeRoutes[0]; // TODO: add support for multiple routes
 
@@ -25,21 +29,40 @@ const createi18n = createFactory(() => {
         query: {},
         replace: true,
       });
+
+      return languageCode;
     },
   });
 
+  const $language = createStore<SupportedLanguageCode>(fallbackLanguageCode);
   const changeLanguageTriggered = createEvent<ChangeLanguageParams>();
+  const languageSettled = createEvent<SupportedLanguageCode>();
+  const languageChanged = createEvent<SupportedLanguageCode>();
 
   sample({
     clock: changeLanguageTriggered,
     target: changeLanguageFx,
   });
 
-  const setupFx = createEffect(setup);
+  const setupFx = createEffect(async () => {
+    await setup();
+    languageSettled(i18n.language as SupportedLanguageCode);
+  });
   const setupTriggered = createEvent();
+  const setupFinished = setupFx.doneData;
   sample({
     clock: setupTriggered,
     target: setupFx,
+  });
+
+  sample({
+    clock: changeLanguageFx.doneData,
+    target: languageChanged,
+  });
+
+  sample({
+    clock: [languageChanged, languageSettled],
+    target: $language,
   });
 
   async function setup() {
@@ -64,9 +87,15 @@ const createi18n = createFactory(() => {
           escapeValue: false, // not needed for react as it escapes by default
         },
         backend: {
-          loadPath: '/static/locales/{{lng}}.json', // store locales in public subfolder
+          loadPath: '/static/locales/{{lng}}.json',
+          requestOptions: {
+            cache: 'no-store',
+          },
         },
-        saveMissing: true, // safe use default value as second parameter
+        // allow keys to be phrases having `:`, `.`
+        nsSeparator: false,
+        keySeparator: false,
+        saveMissing: false, // safe use default value as second parameter
         detection: {
           order: ['path'],
         },
@@ -79,6 +108,9 @@ const createi18n = createFactory(() => {
     setupTriggered,
     changeLanguageFx,
     changeLanguageTriggered,
+    languageChanged,
+    setupFinished,
+    $language,
   };
 });
 

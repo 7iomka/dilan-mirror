@@ -48,7 +48,7 @@ const LanguageSelect = ({ className }: LanguageSelectProps) => {
         }
       >
         {({ close }) => (
-          <div className="flex flex-col bg-dark">
+          <div className="flex flex-col bg-dark max-h-[420px] overflow-y-auto">
             {supportedLanguageCodes.map((languageCode) => (
               <Button
                 key={languageCode}

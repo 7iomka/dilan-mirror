@@ -1,0 +1,55 @@
+.salesCountdown {
+  --border-angle: 0turn;
+  --main-bg: conic-gradient(
+    from var(--border-angle),
+    #113329,
+    #11221c 5%,
+    #11221c 60%,
+    #113329 95%
+  );
+  border: solid 1px transparent;
+  --gradient-border: conic-gradient(
+    from var(--border-angle),
+    transparent 25%,
+    #58d3cb,
+    #d1f256 99%,
+    transparent
+  );
+  background:
+    var(--main-bg) padding-box,
+    var(--gradient-border) border-box,
+    var(--main-bg) border-box;
+  background-position: center center;
+  animation: bg-spin 3s linear infinite;
+  max-width: 100%;
+  width: 370px;
+  padding: 16px;
+  color: #fff;
+  display: grid;
+  gap: 6px;
+  place-items: center;
+}
+
+@keyframes bg-spin {
+  to {
+    --border-angle: 1turn;
+  }
+}
+
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0turn;
+}
+
+.saleCountdown__label {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.salesCountdown__digits {
+  font-size: 24px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}

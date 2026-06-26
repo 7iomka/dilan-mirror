@@ -7,8 +7,13 @@ import {
   ArgumentsSection,
   AuthorshipSection,
   RoadmapSection,
+  NewsSection,
   InvestSection,
+  // CommitteeSection,
+  LeaderSection,
+  // CoverageSection,
 } from './ui';
+import { PatentsSection } from './ui/patents-section';
 
 export const HomePage = () => {
   return (
@@ -19,7 +24,12 @@ export const HomePage = () => {
       <HowItWorksSection />
       <ArgumentsSection />
       <RoadmapSection />
+      <NewsSection />
       <AuthorshipSection />
+      <PatentsSection useMockData />
+      {/* <CoverageSection /> */}
+      {/* <CommitteeSection /> */}
+      <LeaderSection />
       <InvestSection />
     </BaseLayout>
   );

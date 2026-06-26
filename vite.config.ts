@@ -28,7 +28,7 @@ const routesToPrerender = i18nConfig.supportedLangs.map((lang) => {
 // console.log('routesToPrerender', routesToPrerender);
 
 // https://vitejs.dev/config/
-export default defineConfig({
+export default {
   root: srcFolderPath,
   plugins: [
     babel({
@@ -87,7 +87,7 @@ export default defineConfig({
       output: {
         manualChunks: {
           // utils: ['clsx'],
-          react: ['react', 'react-dom', 'react-router-dom'],
+          // 'react-deps': ['react', 'react-dom', 'react-router-dom'],
           stm: ['effector', 'effector-react', 'atomic-router', 'atomic-router-react'],
           i18next: [
             'i18next',
@@ -107,6 +107,7 @@ export default defineConfig({
           fancybox: ['@fancyapps/ui'],
         },
       },
+      // external: ['react', 'react-dom'],
     },
   },
-});
+};

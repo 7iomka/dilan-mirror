@@ -1,4 +1,3 @@
-import { Button } from '../button';
 import { Icon } from '../icon';
 
 interface CarouselControlsProps {

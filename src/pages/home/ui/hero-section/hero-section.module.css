@@ -2,12 +2,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-    circle at 50% 50%,
-    rgba(0, 0, 0, 0.6) 0%,
-    rgba(0, 0, 0, 0.2) 35%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  background-image: radial-gradient(farthest-side at 50% 50%, rgba(0, 0, 0, 0.2), transparent);
   z-index: 1;
 }
 
@@ -56,6 +51,21 @@
   &.n2 {
     animation-delay: 0.8s;
   }
+}
+
+.clipped {
+  --offset: 80px;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 100%,
+    0 100%,
+    calc((100% + var(--container-max-width)) / 2) calc(100% - calc(var(--offset) * 4)),
+    calc((100% + var(--container-max-width)) / 2) calc(var(--offset)),
+    calc((100% - var(--container-max-width)) / 2) calc(var(--offset)),
+    calc((100% - var(--container-max-width)) / 2) 100%,
+    0 100%
+  );
 }
 
 .playButtonTriangle {

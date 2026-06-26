@@ -9,27 +9,36 @@ export interface SpritesMap {
     | 'chevron-right'
     | 'facebook'
     | 'file'
+    | 'hourglass'
     | 'instagram'
     | 'layout-left'
     | 'linkedin'
+    | 'login'
     | 'logo-icon'
     | 'logo'
     | 'map'
     | 'mirror'
+    | 'pdf-file'
+    | 'phone'
     | 'play-circle'
+    | 'shield-check-line'
     | 'shield-check'
     | 'shopping-basket'
     | 'sun'
     | 'telegram-colored'
+    | 'telegram'
     | 'time'
+    | 'timer'
     | 'twitter'
+    | 'viber'
     | 'vk'
     | 'webcam'
+    | 'whatsapp'
     | 'youtube';
 }
 export const SPRITES_META = {
   sprite: {
-    filePath: 'sprite.3992336d.svg',
+    filePath: 'sprite.c1841cec.svg',
     items: {
       '4k': {
         viewBox: '0 0 24 24',
@@ -76,6 +85,11 @@ export const SPRITES_META = {
         width: 24,
         height: 24,
       },
+      hourglass: {
+        viewBox: '0 0 24 24',
+        width: 24,
+        height: 24,
+      },
       instagram: {
         viewBox: '0 0 24 24',
         width: 24,
@@ -90,6 +104,11 @@ export const SPRITES_META = {
         viewBox: '0 0 24 24',
         width: 24,
         height: 24,
+      },
+      login: {
+        viewBox: '0 0 24 24',
+        width: 512,
+        height: 512,
       },
       'logo-icon': {
         viewBox: '0 0 12 20',
@@ -111,7 +130,22 @@ export const SPRITES_META = {
         width: 24,
         height: 24,
       },
+      'pdf-file': {
+        viewBox: '0 0 16 17',
+        width: 16,
+        height: 17,
+      },
+      phone: {
+        viewBox: '0 0 24 24',
+        width: 24,
+        height: 24,
+      },
       'play-circle': {
+        viewBox: '0 0 24 24',
+        width: 24,
+        height: 24,
+      },
+      'shield-check-line': {
         viewBox: '0 0 24 24',
         width: 24,
         height: 24,
@@ -136,7 +170,17 @@ export const SPRITES_META = {
         width: 24,
         height: 24,
       },
+      telegram: {
+        viewBox: '0 0 20 20',
+        width: 20,
+        height: 20,
+      },
       time: {
+        viewBox: '0 0 24 24',
+        width: 24,
+        height: 24,
+      },
+      timer: {
         viewBox: '0 0 24 24',
         width: 24,
         height: 24,
@@ -146,12 +190,22 @@ export const SPRITES_META = {
         width: 20,
         height: 18,
       },
+      viber: {
+        viewBox: '0 0 24 24',
+        width: 24,
+        height: 24,
+      },
       vk: {
         viewBox: '0 0 24 24',
         width: 24,
         height: 24,
       },
       webcam: {
+        viewBox: '0 0 24 24',
+        width: 24,
+        height: 24,
+      },
+      whatsapp: {
         viewBox: '0 0 24 24',
         width: 24,
         height: 24,

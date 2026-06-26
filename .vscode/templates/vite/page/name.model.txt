@@ -1,12 +1,10 @@
 import { createEvent, createStore } from 'effector';
 
-export const $${{camel name}}Page = (() => {
-  const opened = createEvent<{ url: string }>();
-  const closed = createEvent<{ url: string }>();
+const opened = createEvent<{ url: string }>();
+const closed = createEvent<{ url: string }>();
 
-  const $isPageOpened = createStore(false)
-    .on(opened, () => true)
-    .on(closed, () => false);
-
-  return { opened, closed, $isPageOpened };
-})();
+const $isPageOpened = createStore(false)
+  .on(opened, () => true)
+  .on(closed, () => false);
+  
+export const $${{camel name}}Page = { opened, closed, $isPageOpened };

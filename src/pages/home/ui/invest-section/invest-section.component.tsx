@@ -15,7 +15,7 @@ const InvestSection = ({ className }: InvestSectionProps) => {
     month: 'short',
     day: 'numeric',
   };
-  const startDate = new Date(2023, 11, 14);
+  const startDate = new Date(2024, 0, 1);
   const formattedCurrentDate = startDate.toLocaleDateString(i18n.language, localeSettings);
   const futureDate = new Date(2025, 11, 14);
   const formattedFutureDate = futureDate.toLocaleDateString(i18n.language, localeSettings);
@@ -46,7 +46,7 @@ const InvestSection = ({ className }: InvestSectionProps) => {
       <div className="container">
         <div className="row">
           <div className="col-12 md:col-6 order-1 md:order-0 relative z-[10] mt-154 md:mt-0">
-            <div className="hidden md:block text-xs leading-1 tracking-[0.4em] font-bold uppercase">
+            <div className="hidden md:block text-xs xxl:leading-1 tracking-[0.4em] font-bold uppercase">
               {data.textBeforeTitle}
             </div>
             <h1 className="text-40px lg:text-72px leading-1 mt-8 md:mt-20">{data.title}</h1>
@@ -54,7 +54,7 @@ const InvestSection = ({ className }: InvestSectionProps) => {
               <div className="space-y-4 md:space-y-8">
                 <div className="flex items-center">
                   <div className="shrink-0 relative flex items-center justify-center w-56 h-56 md:w-72 md:h-72 border border-dark-400">
-                    <Icon name="account-box" className="text-[2rem] text-primary-pale" />
+                    <Icon name="login" className="text-[2rem] text-primary-pale" />
                     <div className="flex items-center justify-center absolute w-16 h-16 right-4 top-4 bg-dark-400">
                       <span className="text-xs font-bold text-indigo-200">1</span>
                     </div>

@@ -10,17 +10,16 @@ interface FooterProps {
 }
 
 const Footer = ({ className }: FooterProps) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const currYear = new Date().getFullYear();
+  const yearRange = currYear <= 2024 ? 2024 : `2024 - ${currYear}`;
+  const privacyPolicyUrl = `/static/documents/policies/privacy-policy-${i18n.language.toLowerCase()}.pdf`;
 
   const data = {
     allRightsReserved: t('footer.allRightsReserved'),
-    currentYear: new Date().getFullYear(),
-    brandName: appConfig.brandName,
+    yearRange,
     address: t('general.address'),
-    contacts: {
-      email: 'dilanmirror@gmail.com',
-      phone: '+971 52 797 1080',
-    },
+    privacyPolicy: t('general.privacyPolicy', 'Privacy policy'),
   };
 
   return (
@@ -28,7 +27,13 @@ const Footer = ({ className }: FooterProps) => {
       <div className="flex items-center">
         <div className="container">
           <div className="flex items-center justify-between">
-            <Icon name="logo" className="shrink-0 w-100 h-24 md:w-120 lg:w-154 lg:h-32" />
+            <div className="relative inline-flex shrink-0">
+              <img
+                className="h-36 w-85 lg:w-120 lg:h-50"
+                src="/static/images/logo/logo-light.svg"
+                alt=""
+              />
+            </div>
             <div className="ml-5 md:ml-20 flex items-center">
               <a
                 className="group text-lg hover:text-primary order-1 md:order-0 ml-10 md:ml-0"
@@ -36,7 +41,7 @@ const Footer = ({ className }: FooterProps) => {
                 href={appConfig.accountURL}
               >
                 <div className="flex items-center justify-center p-10 -m-10">
-                  <Icon name="account-box" className="text-xl md:hidden" />
+                  <Icon name="login" className="text-xl md:hidden" />
                   <span className="hidden md:block">{t('actions.account')}</span>
                   <Icon
                     name="arrow-right-up"
@@ -52,7 +57,7 @@ const Footer = ({ className }: FooterProps) => {
           <div className="flex flex-col lg:flex-row lg:justify-between">
             <div className="grow min-w-[12rem]">
               <div className="text-sm xl:text-lg text-gray-400">
-                Copyright {data.currentYear} {data.brandName}. {data.allRightsReserved}
+                Copyright {data.yearRange} {appConfig.brandName}. {data.allRightsReserved}
                 <br />
                 {data.address}
               </div>
@@ -60,22 +65,38 @@ const Footer = ({ className }: FooterProps) => {
             <div className="mt-20 lg:mt-0 lg:ml-30 lg:shrink-0 xl:ml-50">
               <div className="overflow-hidden">
                 <div className="-mr-18 -mb-12 xl:-mr-30 xl:-mb-18">
-                  <div className="flex flex-wrap items-center">
+                  <div className="flex flex-wrap items-center lg:justify-end">
                     <div className="w-full md:hidden" />
                     <div className="pr-18 pb-12 xl:pr-30 xl:pb-18">
                       <a
                         className="text-sm xl:text-lg text-gray-400 hover:text-primary"
-                        href={`mailto:${data.contacts.email}`}
+                        href={`mailto:${appConfig.email}`}
                       >
-                        {data.contacts.email}
+                        {appConfig.email}
                       </a>
                     </div>
+
                     <div className="pr-18 pb-12 xl:pr-30 xl:pb-18">
                       <a
                         className="text-sm xl:text-lg text-gray-400 hover:text-primary"
-                        href={`tel:${data.contacts.phone.replace(' ', '')}`}
+                        href={`tel:${appConfig.phone.replace(' ', '')}`}
                       >
-                        {data.contacts.phone}
+                        {appConfig.phone}
+                      </a>
+                    </div>
+                    <div className="w-full" />
+                    <div className="pr-18 pb-12 xl:pr-30 xl:pb-18">
+                      <a
+                        className="text-sm xl:text-lg text-gray-900 hover:text-primary group flex items-center justify-center"
+                        href={privacyPolicyUrl}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                      >
+                        <span>{data.privacyPolicy}</span>
+                        <Icon
+                          name="arrow-right-up"
+                          className="hidden md:block ml-4 text-[0.667em] transition-transform group-hover:-translate-y-2 group-hover:translate-x-2"
+                        />
                       </a>
                     </div>
                   </div>

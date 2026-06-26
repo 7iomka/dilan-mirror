@@ -1,6 +1,15 @@
 import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
 import { appConfig } from '@/shared/config/app-config';
+import { SPRITE_PATH } from '@/shared/ui/icon';
+
+const clarityCode = `
+(function (c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "kh6kflmest");
+`;
 
 const Head = () => {
   const { t, i18n } = useTranslation();
@@ -12,11 +21,11 @@ const Head = () => {
       <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png" />
       <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png" />
       <link rel="manifest" href="/static/favicon/site.webmanifest" />
-      <link rel="mask-icon" href="/static/favicon/safari-pinned-tab.svg" color="#f09731" />
+      <link rel="mask-icon" href="/static/favicon/safari-pinned-tab.svg" color="#5bbad5" />
       <link rel="shortcut icon" href="/static/favicon/favicon.ico" />
-      <meta name="msapplication-TileColor" content="#ffffff" />
+      <meta name="msapplication-TileColor" content="#141419" />
       <meta name="msapplication-config" content="/static/favicon/browserconfig.xml" />
-      <meta name="theme-color" content="#ffffff" />
+      <meta name="theme-color" content="#141419" />
 
       {/* Meta and OpenGraph */}
       <title>{t('meta.title')}</title>
@@ -28,7 +37,7 @@ const Head = () => {
       <meta property="og:type" content="website" />
       <meta
         property="og:image"
-        content={`${appConfig.appBaseURL}/static/images/og/default_1200x630.jpg`}
+        content={`${appConfig.appBaseURL}/static/images/og/default_1200x630.jpg?d=2024-07-131809`}
       />
       <meta property="og:image:alt" content={t('meta.title')} />
       <meta property="og:image:width" content="1200" />
@@ -36,47 +45,20 @@ const Head = () => {
       <meta property="og:locale" content="ru" />
       <meta property="og:site_name" content={t('meta.title')} />
 
-      {/* preload fonts */}
+      <link rel="preload" as="image" href={SPRITE_PATH} />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       <link
-        rel="preload"
-        href="/static/fonts/aeonik-bold.woff2"
-        as="font"
-        type="font/woff2"
-        crossOrigin="anonymous"
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet"
       />
-      <link
-        rel="preload"
-        href="/static/fonts/aeonik-regular.woff2"
-        as="font"
-        type="font/woff2"
-        crossOrigin="anonymous"
-      />
-      <style type="text/css">
-        {`
-          @font-face {
-            font-family: "Aeonik";
-            src:
-              url("/static/fonts/aeonik-regular.woff2") format("woff2"),
-              url("/static/fonts/aeonik-regular.woff") format("woff");
-            font-weight: 400;
-            font-style: normal;
-            font-display: swap;
-          }
-          @font-face {
-            font-family: "Aeonik";
-            src:
-              url("/static/fonts/aeonik-bold.woff2") format("woff2"),
-              url("/static/fonts/aeonik-bold.woff") format("woff");
-            font-weight: 700;
-            font-style: normal;
-            font-display: swap;
-          }
-        `.trim()}
-      </style>
       <script src="/static/scripts/modernizr-bundle.min.js" defer />
-      <script src="/static/scripts/lazysizes.attrchange.min.js" async />
+      <script id="ms-clarity" defer>
+        {clarityCode}
+      </script>
+      {/* <script src="/static/scripts/lazysizes.attrchange.min.js" async />
       <script src="/static/scripts/lazysizes.blur-up.min.js" async />
-      <script src="/static/scripts/lazysizes.min.js" async />
+      <script src="/static/scripts/lazysizes.min.js" async /> */}
     </Helmet>
   );
 };

@@ -3,7 +3,7 @@ import type { IconProps } from '@/shared/ui/icon';
 import { Icon } from '@/shared/ui/icon';
 import { appConfig } from '@/shared/config/app-config';
 
-interface SocialItem {
+export interface SocialItem {
   name: string;
   url: string;
   iconName: IconProps['name'];
@@ -23,6 +23,11 @@ const socials: SocialItem[] = [
     name: 'VK',
     url: appConfig.vkURL,
     iconName: 'vk',
+  },
+  {
+    name: 'Telegram',
+    url: appConfig.telegramURL,
+    iconName: 'telegram',
   },
   // {
   //   name: 'Facebook',
@@ -64,6 +69,7 @@ const Socials = ({ className, classNames, items = socials }: SocialsProps) => {
             )}
             key={item.name}
             aria-label={item.name}
+            title={item.name}
             href={item.url}
             target="_blank"
             rel="noopener noreferrer"

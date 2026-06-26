@@ -82,7 +82,7 @@ deploy_develop:
 
 deploy_prod:
   variables:
-    DEPLOY_SERVER: 10.0.100.5
+    DEPLOY_SERVER: ${DEPLOY_SRV_DILAN_PROD}
     SSH_KNOWN_HOSTS: ${SSH_KNOWN_HOSTS_PROD}
   rules:
     - if: $CI_COMMIT_BRANCH == "main"

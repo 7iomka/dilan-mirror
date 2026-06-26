@@ -17,7 +17,14 @@ const HeaderBase = () => {
     <div className="flex items-center h-60 lg:h-80 transition [.is-sticky_>_&]:bg-black">
       <div className="container">
         <div className="flex items-center justify-between">
-          <Icon name="logo" className="shrink-0 w-100 h-24 md:w-120 lg:w-154 lg:h-32" />
+          <div className="relative inline-flex shrink-0">
+            <img
+              className="h-36 w-85 lg:w-120 lg:h-50"
+              src="/static/images/logo/logo-light.svg"
+              alt=""
+            />
+          </div>
+
           <div className="ml-5 md:ml-20 flex items-center">
             <a
               className="group text-lg hover:text-primary order-1 md:order-0 ml-10 md:ml-0"
@@ -25,7 +32,7 @@ const HeaderBase = () => {
               href={appConfig.accountURL}
             >
               <div className="flex items-center justify-center p-10 -m-10">
-                <Icon name="account-box" className="text-xl md:hidden" />
+                <Icon name="login" className="text-xl md:hidden" />
                 <span className="hidden md:block">{t('actions.account')}</span>
                 <Icon
                   name="arrow-right-up"
@@ -52,7 +59,7 @@ const Header = ({ className }: HeaderProps) => {
 
 const StickyHeader = ({ className }: HeaderProps) => {
   return (
-    <header className={clsx('relative z-[100]', className)}>
+    <header className={clsx('sticky-header relative z-[100]', className)}>
       <Sticky topOffset={700} stickyClassName="is-sticky">
         <HeaderBase />
       </Sticky>

@@ -4,14 +4,17 @@ import { useRef } from 'react';
 import { Swiper as SwiperReact, SwiperSlide } from 'swiper/react';
 import { EffectFade, Navigation, Autoplay, A11y } from 'swiper/modules';
 import type { Swiper } from 'swiper/types';
+import { SalesCountdown } from '@/widgets/sales-countdown';
 import { Button } from '@/shared/ui/button';
 import { Fancybox } from '@/shared/ui/fancybox';
 import { Icon } from '@/shared/ui/icon';
 import { appConfig } from '@/shared/config/app-config';
+import { useDomRefWithSetter } from '@/shared/lib/ref';
+import { isTouchDevice } from '@/shared/lib/is';
+
 import styles from './hero-section.module.css';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
-import { isTouchDevice, useDomRefWithSetter } from './hero-section.lib';
 
 interface HeroCarouselSlide {
   src: string;
@@ -30,19 +33,24 @@ const HeroSection = ({ className }: HeroSectionProps) => {
     textBeforeTitle: t('hero.textBeforeTitle'),
     title: t('hero.title'),
     textAfterTitle: t('hero.textAfterTitle'),
+    advancedText: t('hero.advancedText'),
     slides: [
       {
-        src: '/static/images/content/hero-section/01.jpg',
-        videoId: 'iYdgRu5W-Dk',
+        src: '/static/images/content/hero-section/01.jpg?d=270920241803',
+        videoId: 'oElBX1jfunA',
       },
       {
-        src: '/static/images/content/hero-section/02.jpg',
-        videoId: 'EyUfHzhQGUQ',
+        src: '/static/images/content/hero-section/02.jpg?d=270920241803',
+        videoId: '31A4_JRFwpo',
       },
-      // {
-      //   src: '/static/images/content/hero-section/03.jpg',
-      //   videoId: 'JO-Tez_CXg8',
-      // },
+      {
+        src: '/static/images/content/hero-section/03.jpg?d=041020241803',
+        videoId: 'J_S2F1ubftg',
+      },
+      {
+        src: '/static/images/content/hero-section/04.jpg?d=011020241803',
+        videoId: 'GwTPmItdp2Y',
+      },
     ] as HeroCarouselSlide[],
   };
 
@@ -62,8 +70,12 @@ const HeroSection = ({ className }: HeroSectionProps) => {
                 <div className="text-xl md:text-2xl mt-12 md:mt-24 [text-shadow:0px_2px_3px_rgb(41,41,41,0.5),0px_0px_40px_rgb(41,41,41,0.8)] [text-wrap:balance]">
                   {data.textAfterTitle}
                 </div>
+                {/* <div className="text-md md:text-xl mt-12 font-bold text-primary">
+                  {data.advancedText}
+                </div> */}
+                {/* <SalesCountdown className="mt-25 lg:mt-36" /> */}
                 <Button
-                  className="inline-flex justify-center min-w-200 max-w-full mt-25 lg:mt-48"
+                  className="inline-flex justify-center min-w-200 max-w-full mt-25 lg:mt-36"
                   component="a"
                   href={appConfig.accountURL}
                 >
@@ -91,8 +103,10 @@ const HeroCarousel = ({ slides }: { slides: HeroCarouselSlide[] }) => {
     <div className="relative">
       <Fancybox
         options={{
-          Thumbs: {
-            type: 'classic',
+          Carousel: {
+            Thumbs: {
+              type: 'classic',
+            },
           },
         }}
       >

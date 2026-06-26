@@ -23,22 +23,35 @@ const ExamplesSection = ({ className }: ExamplesSectionProps) => {
           '/static/images/content/examples-section/clothing_stores/clothing_stores_video.jpg',
       },
       {
-        title: t('examples.dressingRooms'),
+        title: t('examples.barbershops'),
         mirrorSrc:
-          '/static/images/content/examples-section/dressing_rooms/dressing_rooms_mirror.jpg',
-        videoSrc: '/static/images/content/examples-section/dressing_rooms/dressing_rooms_video.jpg',
+          '/static/images/content/examples-section/barbershops/barbershops_mirror.jpg?date=30062024_05-23',
+        videoSrc:
+          '/static/images/content/examples-section/barbershops/barbershops_video.jpg?date=30062024_05-23',
       },
       {
-        title: t('examples.barbershops'),
-        mirrorSrc: '/static/images/content/examples-section/barbershops/barbershops_mirror.jpg',
-        videoSrc: '/static/images/content/examples-section/barbershops/barbershops_video.jpg',
+        title: t('examples.dressingRooms'),
+        mirrorSrc:
+          '/static/images/content/examples-section/dressing_rooms/dressing_rooms_mirror.jpg?d=202412131800',
+        videoSrc:
+          '/static/images/content/examples-section/dressing_rooms/dressing_rooms_video.jpg?d=202412131800',
+      },
+      {
+        title: t(
+          'examples.medicalRehabilitationAndPhysiotherapy',
+          'Medical Rehabilitation and Physiotherapy',
+        ),
+        mirrorSrc:
+          '/static/images/content/examples-section/medical_rehabilitation_and_physiotherapy/medical_rehabilitation_and_physiotherapy_mirror.jpg?d=202407130040',
+        videoSrc:
+          '/static/images/content/examples-section/medical_rehabilitation_and_physiotherapy/medical_rehabilitation_and_physiotherapy_video.jpg?d=202407130040',
       },
       {
         title: t('examples.dancingSchools'),
         mirrorSrc:
-          '/static/images/content/examples-section/dancing_schools/dancing_schools_mirror.jpg',
+          '/static/images/content/examples-section/dancing_schools/dancing_schools_mirror.jpg?date=30062024_05-23',
         videoSrc:
-          '/static/images/content/examples-section/dancing_schools/dancing_schools_video.jpg',
+          '/static/images/content/examples-section/dancing_schools/dancing_schools_video.jpg?date=30062024_05-23',
       },
     ],
   };
@@ -83,12 +96,12 @@ const ExamplesSection = ({ className }: ExamplesSectionProps) => {
     >
       <div className="container">
         <div className="row gy-12">
-          <div className="col-12 md:col-6">
+          <div className="col-12 lg:col-6">
             <h2 className="text-40px md:text-56px whitespace-pre-wrap">{data.title}</h2>
           </div>
-          <div className="col-12 md:col-6">
+          <div className="col-12 lg:col-6">
             <div className="text-xl md:text-2xl whitespace-pre-wrap">{data.description}</div>
-            <div className="hidden md:flex xl:hidden items-center justify-end gap-8 mt-18">
+            <div className="hidden md:flex items-center justify-end gap-8 mt-32">
               <CarouselControls
                 canScrollNext={canScrollNext}
                 canScrollPrev={canScrollPrev}
@@ -98,7 +111,7 @@ const ExamplesSection = ({ className }: ExamplesSectionProps) => {
             </div>
           </div>
         </div>
-        <div className="mt-32 md:mt-56">
+        <div className="mt-18 xl:mt-32">
           <Carousel
             getEmblaApi={setEmbla}
             onSlideChange={onSelect}
