@@ -12,6 +12,7 @@ const baseConfig = {
   telegramSupportURL: 'https://t.me/DilanMirrorSupport',
   appBaseURL: import.meta.env.VITE_APP_BASE_URL,
   apiBaseURL: import.meta.env.VITE_API_BASE_URL,
+  apiNewsBaseURL: import.meta.env.VITE_API_NEWS_BASE_URL,
   accountURL: 'https://my.dilan-mirror.com',
   phone: '+971 58 549 7040',
   email: 'dilanmirror24@gmail.com',
