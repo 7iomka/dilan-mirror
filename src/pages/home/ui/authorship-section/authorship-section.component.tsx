@@ -18,9 +18,9 @@ const AuthorshipSection = ({ className }: AuthorshipSectionProps) => {
     subtitle: t('authorship.subtitle'),
     description: t('authorship.description'),
     image: '/static/images/content/authorship-section/author.jpg?d=16092024-2307',
-    interview: {
-      src: '/static/images/content/authorship-section/interview.jpg',
-      videoId: 'bNzsW7iouSU',
+    authorVideo: {
+      src: '/static/images/content/authorship-section/author-video-frame.jpg',
+      videoId: 'NlT2256GUsM',
     },
   };
 
@@ -74,17 +74,18 @@ const AuthorshipSection = ({ className }: AuthorshipSectionProps) => {
                       },
                     }}
                   >
-                    <div className="relative w-full h-0 pb-[56.25%] overflow-hidden">
+                    <div className="relative w-full h-0 pb-[65.15%] overflow-hidden">
+                      <div className="absolute inset-0 w-full h-full bg-black opacity-40 z-[1]" />
                       <img
-                        src={data.interview.src}
+                        src={data.authorVideo.src}
                         className="absolute inset-0 w-full h-full object-cover select-none"
                         alt=""
                       />
                       <div className={styles.playButton}>
                         <a
                           aria-label={t('actions.playVideo')}
-                          data-fancybox={data.interview.videoId}
-                          href={`https://www.youtube.com/${data.interview.videoId}&amp;autoplay=1&amp;rel=0&amp;controls=1&amp;showinfo=0`}
+                          data-fancybox={data.authorVideo.videoId}
+                          href={`https://www.youtube.com/${data.authorVideo.videoId}&amp;autoplay=1&amp;rel=0&amp;controls=1&amp;showinfo=0`}
                         >
                           <svg
                             className={styles.playButtonIcon}
