@@ -90,6 +90,11 @@
   a {
     word-break: break-word;
   }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
 }
 /* 
 .snow-bg,
