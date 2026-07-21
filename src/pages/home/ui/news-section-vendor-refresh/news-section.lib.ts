@@ -12,7 +12,7 @@ export const DEFAULT_NEWS_SECTION_QUERY: GetNewsRequestParams = {
   page: 0,
   size: 999,
   sort: 'publishedAt,desc',
-  categorySlugs: ['patents'],
+  categorySlugs: ['patents', 'brand'],
 };
 
 const pickMainImage = (
