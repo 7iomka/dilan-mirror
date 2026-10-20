@@ -8,7 +8,7 @@ const buildPatentPreviewUrl = (filePath: string) =>
 const patentDocsUrl =
   'https://drive.google.com/drive/u/3/folders/1i7uHXRGp5VNqelmnjxtZdo91f0aVlJUy';
 const patentLicensesUrl =
-  'https://drive.google.com/drive/folders/1Wcgq1ranUv96vTJgQFFIW6hbmMin2Q4g';
+  'https://drive.google.com/drive/folders/162FNAUwUlmxwaGWAAOVNDyMdPcJxfY3K';
 const pctPatentDocUrl = 'https://drive.google.com/file/d/16IVk373yCk9PfAMivw7NaDP8-2fxnlGk/view';
 
 type PatentDefinition = {
