@@ -4,7 +4,7 @@ import { useRef } from 'react';
 import { Swiper as SwiperReact, SwiperSlide } from 'swiper/react';
 import { EffectFade, Navigation, Autoplay, A11y } from 'swiper/modules';
 import type { Swiper } from 'swiper/types';
-import { SalesCountdown } from '@/widgets/sales-countdown';
+import { PreordersCountdown } from '@/widgets/preorders-countdown';
 import { Button } from '@/shared/ui/button';
 import { Fancybox } from '@/shared/ui/fancybox';
 import { Icon } from '@/shared/ui/icon';
@@ -73,7 +73,7 @@ const HeroSection = ({ className }: HeroSectionProps) => {
                 {/* <div className="text-md md:text-xl mt-12 font-bold text-primary">
                   {data.advancedText}
                 </div> */}
-                {/* <SalesCountdown className="mt-25 lg:mt-36" /> */}
+                <PreordersCountdown className="mt-25 lg:mt-36" />
                 <Button
                   className="inline-flex justify-center min-w-200 max-w-full mt-25 lg:mt-36"
                   component="a"

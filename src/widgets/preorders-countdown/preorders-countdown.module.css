@@ -1,4 +1,4 @@
-.salesCountdown {
+.complete {
   --border-angle: 0turn;
   --main-bg: conic-gradient(
     from var(--border-angle),
@@ -7,7 +7,6 @@
     #11221c 60%,
     #113329 95%
   );
-  border: solid 1px transparent;
   --gradient-border: conic-gradient(
     from var(--border-angle),
     transparent 25%,
@@ -15,22 +14,24 @@
     #d1f256 99%,
     transparent
   );
+
+  display: grid;
+  place-items: center;
+  gap: 6px;
+  width: 370px;
+  max-width: 100%;
+  padding: 16px;
+  color: #fff;
+  border: 1px solid transparent;
   background:
     var(--main-bg) padding-box,
     var(--gradient-border) border-box,
     var(--main-bg) border-box;
-  background-position: center center;
-  animation: bg-spin 3s linear infinite;
-  max-width: 100%;
-  width: 370px;
-  padding: 16px;
-  color: #fff;
-  display: grid;
-  gap: 6px;
-  place-items: center;
+  background-position: center;
+  animation: border-spin 3s linear infinite;
 }
 
-@keyframes bg-spin {
+@keyframes border-spin {
   to {
     --border-angle: 1turn;
   }
@@ -42,14 +43,8 @@
   initial-value: 0turn;
 }
 
-.saleCountdown__label {
-  font-weight: 600;
-  font-size: 20px;
-}
-
-.salesCountdown__digits {
-  font-size: 24px;
-  font-weight: 700;
-  font-variant-numeric: tabular-nums;
-  white-space: nowrap;
+@media (prefers-reduced-motion: reduce) {
+  .complete {
+    animation: none;
+  }
 }

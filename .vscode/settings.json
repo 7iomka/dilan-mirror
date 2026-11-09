@@ -73,5 +73,6 @@
   "files.associations": {
     "*.css": "css"
   },
-  "svg.preview.background": "editor"
+  "svg.preview.background": "editor",
+  "js/ts.tsdk.path": "node_modules/typescript/lib"
 }
